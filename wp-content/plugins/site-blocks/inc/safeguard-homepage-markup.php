@@ -22,12 +22,10 @@ function site_blocks_render_safeguard_homepage(): void {
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow-configs.php';
 
 	$hero_house  = site_blocks_asset_url( 'images/hero/house.png' );
-	$hero_dash   = site_blocks_asset_url( 'images/hero/dashboard.png' );
-	$portal_dash = site_blocks_asset_url( 'images/portal/portal-dashboard.png' );
 	$logo_mark   = site_blocks_asset_url( 'images/brand/safeguard-logo-mark.png' );
 	$ajax_img    = site_blocks_asset_url( 'images/ajax/ajax-products.png' );
-	$quote       = esc_url( home_url( '/get-an-instant-quote/' ) );
-	$design      = esc_url( home_url( '/design-my-solution/' ) );
+	$quote       = esc_url( home_url( '/contact/' ) );
+	$design      = esc_url( home_url( '/contact/' ) );
 	$ajax_page   = esc_url( home_url( '/ajax-alarm-systems/' ) );
 
 	$service_cards = array(
@@ -93,16 +91,16 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-home-hero-v2__copy">
 					<p class="sg-home-hero-v2__badge">
 						<span class="sg-home-hero-v2__badge-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'shield-check', 16 ); ?></span>
-						<?php esc_html_e( 'People on the ground. Backed by technology.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Security systems installed and integrated by Safeguard Security Services.', 'site-blocks' ); ?>
 					</p>
 					<h1 id="sg-home-hero-v2-heading" class="sg-home-hero-v2__title">
-						<?php esc_html_e( 'Security you can rely on. Every site. Every shift.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Electronic security installation and integration for commercial and residential properties.', 'site-blocks' ); ?>
 					</h1>
 					<p class="sg-home-hero-v2__lead">
-						<?php esc_html_e( 'Professional security services across Sydney. Tailored solutions. Trained people. Real results.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Safeguard Security Services is an installation partner to a security integrator.', 'site-blocks' ); ?>
 					</p>
 					<div class="sg-home-hero-v2__ctas">
-						<a class="sg-btn sg-btn--soft-blue sg-home-hero-v2__btn" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+						<a class="sg-btn sg-btn--orange sg-home-hero-v2__btn" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 							<span class="sg-home-hero-v2__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'calendar', 18 ); ?></span>
 							<?php esc_html_e( 'Request a Quote', 'site-blocks' ); ?>
 						</a>
@@ -113,16 +111,16 @@ function site_blocks_render_safeguard_homepage(): void {
 					</div>
 					<ul class="sg-home-hero-v2__trust" role="list">
 						<li>
-							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'clock', 18 ); ?></span>
-							<?php esc_html_e( '24/7 Operations', 'site-blocks' ); ?>
+							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'shield-check', 18 ); ?></span>
+							<?php esc_html_e( 'Master Licence #000103619', 'site-blocks' ); ?>
 						</li>
 						<li>
 							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'user-check', 18 ); ?></span>
-							<?php esc_html_e( 'Licensed NSW Officers', 'site-blocks' ); ?>
+							<?php esc_html_e( 'ASIAL member', 'site-blocks' ); ?>
 						</li>
 						<li>
-							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'zap', 18 ); ?></span>
-							<?php esc_html_e( 'Fast Response', 'site-blocks' ); ?>
+							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'clock', 18 ); ?></span>
+							<?php esc_html_e( 'Over 20 years of experience', 'site-blocks' ); ?>
 						</li>
 					</ul>
 				</div>
@@ -140,23 +138,6 @@ function site_blocks_render_safeguard_homepage(): void {
 									loading="eager"
 									decoding="async"
 								/>
-							</div>
-							<div class="sg-home-hero-v2__portal">
-								<img
-									class="sg-home-hero-v2__portal-img"
-									src="<?php echo esc_url( $hero_dash ); ?>"
-									alt="<?php esc_attr_e( 'Safeguard customer portal dashboard', 'site-blocks' ); ?>"
-									width="951"
-									height="468"
-									loading="eager"
-									decoding="async"
-								/>
-							</div>
-						</div>
-						<div class="sg-home-hero-v2__card sg-home-hero-v2__card--portal">
-							<span class="sg-home-hero-v2__card-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'monitor', 18 ); ?></span>
-							<div class="sg-home-hero-v2__card-body">
-								<p class="sg-home-hero-v2__card-label"><?php esc_html_e( 'Custom Portal', 'site-blocks' ); ?></p>
 							</div>
 						</div>
 					</div>
@@ -217,9 +198,8 @@ function site_blocks_render_safeguard_homepage(): void {
 						decoding="async"
 						aria-hidden="true"
 					/>
-					<p class="sg-home-proof__stat"><?php esc_html_e( '24+', 'site-blocks' ); ?></p>
-					<h2 class="sg-home-proof__experience-title"><?php esc_html_e( 'Years of Protecting What Matters', 'site-blocks' ); ?></h2>
-					<p class="sg-home-proof__experience-copy"><?php esc_html_e( 'Trusted by businesses, communities and government across Australia.', 'site-blocks' ); ?></p>
+					<p class="sg-home-proof__stat"><?php esc_html_e( '20+', 'site-blocks' ); ?></p>
+					<h2 class="sg-home-proof__experience-title"><?php esc_html_e( 'Years of experience', 'site-blocks' ); ?></h2>
 				</article>
 
 				<article class="sg-home-proof__panel sg-home-proof__panel--solutions">
@@ -270,12 +250,11 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-hero__copy sg-hero__copy--dark">
 					<p class="sg-hero__badge"><?php esc_html_e( 'SMART SECURITY, DESIGNED AROUND YOU.', 'site-blocks' ); ?></p>
 					<h2 id="sg-hero-heading" class="sg-hero__title sg-hero__title--dark">
-						<?php esc_html_e( 'Most security quotes take days. Yours takes ', 'site-blocks' ); ?>
-						<span class="sg-hero__title-accent"><?php esc_html_e( 'minutes', 'site-blocks' ); ?></span><?php esc_html_e( '.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Request a quote. A person on the team checks it.', 'site-blocks' ); ?>
 					</h2>
-					<p class="sg-hero__sub sg-hero__sub--dark"><?php esc_html_e( 'Build it online and get your price on the spot, or within 24 hours for complex sites, checked by a real technician. No 48-hour wait, no salesperson at your door.', 'site-blocks' ); ?></p>
+					<p class="sg-hero__sub sg-hero__sub--dark"><?php esc_html_e( 'Tell us the site and what you need. We confirm the scope before work begins.', 'site-blocks' ); ?></p>
 					<div class="sg-hero__ctas">
-						<a class="sg-btn sg-btn--primary" href="<?php echo $quote; ?>"><?php esc_html_e( 'Start My Quote', 'site-blocks' ); ?></a>
+						<a class="sg-btn sg-btn--orange" href="<?php echo $quote; ?>"><?php esc_html_e( 'Request a quote', 'site-blocks' ); ?></a>
 						<a class="sg-btn sg-btn--ghost" href="<?php echo $design; ?>"><?php esc_html_e( 'Help Me Choose', 'site-blocks' ); ?></a>
 					</div>
 					<ul class="sg-hero__features" role="list">
@@ -296,18 +275,6 @@ function site_blocks_render_safeguard_homepage(): void {
 
 				<div class="sg-hero__visual sg-hero__visual--dark">
 					<div class="sg-hero__composition">
-						<div class="sg-hero__dashboard-wrap">
-							<img
-								class="sg-hero__dashboard-img"
-								src="<?php echo $hero_dash; ?>"
-								alt="<?php esc_attr_e( 'Safeguard customer portal showing quote progress, uploaded photos and system status', 'site-blocks' ); ?>"
-								width="951"
-								height="468"
-								loading="eager"
-								decoding="async"
-							/>
-						</div>
-
 						<div class="sg-hero__house-wrap">
 							<img
 								class="sg-hero__house-img"
@@ -337,7 +304,7 @@ function site_blocks_render_safeguard_homepage(): void {
 		);
 		?>
 
-		<?php site_blocks_render_process_flow( site_blocks_process_flow_config( 'homepage' ) ); ?>
+		<?php /* How it works / process flow removed site-wide. */ ?>
 
 		<section class="sg-band sg-band--white sg-reveal" aria-labelledby="sg-funnel-heading">
 			<div class="sg-container">
@@ -351,7 +318,7 @@ function site_blocks_render_safeguard_homepage(): void {
 						<div class="sg-funnel-card__body">
 							<h3><?php esc_html_e( 'I know what I need', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'Tell us what you\'re looking for and we\'ll design a tailored solution for your site.', 'site-blocks' ); ?></p>
-							<a class="sg-btn sg-btn--primary" href="<?php echo $quote; ?>"><?php esc_html_e( 'Start My Quote', 'site-blocks' ); ?></a>
+							<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo $quote; ?>"><?php esc_html_e( 'Request a quote', 'site-blocks' ); ?></a>
 						</div>
 					</article>
 					<article class="sg-funnel-card">
@@ -359,7 +326,7 @@ function site_blocks_render_safeguard_homepage(): void {
 						<div class="sg-funnel-card__body">
 							<h3><?php esc_html_e( 'Help me choose', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'Not sure where to start? We\'ll guide you to the right system for your needs.', 'site-blocks' ); ?></p>
-							<a class="sg-btn sg-btn--secondary" href="<?php echo $design; ?>"><?php esc_html_e( 'Help Me Choose', 'site-blocks' ); ?></a>
+							<a class="sg-btn sg-btn--secondary sg-btn--sm" href="<?php echo $design; ?>"><?php esc_html_e( 'Help Me Choose', 'site-blocks' ); ?></a>
 						</div>
 					</article>
 				</div>
@@ -425,57 +392,17 @@ function site_blocks_render_safeguard_homepage(): void {
 								</li>
 							</ul>
 							<div class="sg-ajax-card__actions">
-								<a class="sg-btn sg-btn--orange" href="<?php echo $quote; ?>">
-									<?php esc_html_e( 'Start My Quote', 'site-blocks' ); ?>
+								<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo $quote; ?>">
+									<?php esc_html_e( 'Request a quote', 'site-blocks' ); ?>
 									<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
 								</a>
-								<a class="sg-btn sg-btn--secondary" href="<?php echo $ajax_page; ?>">
+								<a class="sg-btn sg-btn--primary sg-btn--sm" href="<?php echo $ajax_page; ?>">
 									<?php esc_html_e( 'Explore Ajax', 'site-blocks' ); ?>
 									<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
 								</a>
 							</div>
 						</div>
 					</aside>
-				</div>
-			</div>
-		</section>
-
-		<section class="sg-band sg-portal-band sg-reveal" aria-labelledby="sg-portal-heading">
-			<div class="sg-container sg-portal-band__grid">
-				<div class="sg-portal-band__copy">
-					<h2 id="sg-portal-heading" class="sg-portal-band__title">
-						<?php esc_html_e( 'Your quote, photos and approvals in ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'one place', 'site-blocks' ); ?></span><?php esc_html_e( '.', 'site-blocks' ); ?>
-					</h2>
-					<p class="sg-portal-band__intro"><?php esc_html_e( 'Our secure portal keeps everything organised so you always know where your quote stands.', 'site-blocks' ); ?></p>
-					<ul class="sg-portal-band__list" role="list">
-						<li>
-							<span class="sg-portal-band__check" aria-hidden="true"><?php site_blocks_sg_icon_portal_check(); ?></span>
-							<?php esc_html_e( 'Track your quote progress in real time', 'site-blocks' ); ?>
-						</li>
-						<li>
-							<span class="sg-portal-band__check" aria-hidden="true"><?php site_blocks_sg_icon_portal_check(); ?></span>
-							<?php esc_html_e( 'View and upload photos and documents', 'site-blocks' ); ?>
-						</li>
-						<li>
-							<span class="sg-portal-band__check" aria-hidden="true"><?php site_blocks_sg_icon_portal_check(); ?></span>
-							<?php esc_html_e( 'Chat with our team directly in the portal', 'site-blocks' ); ?>
-						</li>
-						<li>
-							<span class="sg-portal-band__check" aria-hidden="true"><?php site_blocks_sg_icon_portal_check(); ?></span>
-							<?php esc_html_e( 'Approve your estimate when you\'re ready', 'site-blocks' ); ?>
-						</li>
-					</ul>
-				</div>
-				<div class="sg-portal-band__visual">
-					<img
-						class="sg-portal-band__img"
-						src="<?php echo $portal_dash; ?>"
-						alt="<?php esc_attr_e( 'Safeguard customer portal dashboard showing quote status, uploaded photos, messages and system details', 'site-blocks' ); ?>"
-						width="928"
-						height="458"
-						loading="lazy"
-						decoding="async"
-					/>
 				</div>
 			</div>
 		</section>

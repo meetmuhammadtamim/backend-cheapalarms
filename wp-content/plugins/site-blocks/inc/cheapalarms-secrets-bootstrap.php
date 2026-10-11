@@ -71,6 +71,13 @@ function site_blocks_maybe_bootstrap_cheapalarms_secrets(): void {
 	$plugin_dir = WP_PLUGIN_DIR . '/cheapalarms-plugin';
 	$config_dir = $plugin_dir . '/config';
 	$secrets    = $config_dir . '/secrets.php';
+	$main_file  = $plugin_dir . '/cheapalarms-plugin.php';
+
+	// Never create an empty cheapalarms-plugin/ husk — that blocks WP Admin zip installs
+	// ("Destination folder already exists") with only config/secrets.php inside.
+	if ( ! file_exists( $main_file ) ) {
+		return;
+	}
 
 	// If secrets already exist, still try to backfill a missing DeepSeek key.
 	if ( file_exists( $secrets ) ) {
@@ -79,8 +86,7 @@ function site_blocks_maybe_bootstrap_cheapalarms_secrets(): void {
 		return;
 	}
 
-	// Important: WP Admin plugin upload deletes the plugin folder (and secrets.php)
-	// but leaves sg_ca_secrets_bootstrapped=1. Always recreate when missing.
+	// Plugin is installed but secrets.php was wiped by a WP Admin upload — recreate.
 	if ( ! is_dir( $config_dir ) && ! wp_mkdir_p( $config_dir ) ) {
 		return;
 	}

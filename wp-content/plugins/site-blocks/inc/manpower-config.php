@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function site_blocks_manpower_ctas(): array {
 	return array(
-		'primary_label'   => __( 'Request a Quote', 'site-blocks' ),
+		'primary_label'   => __( 'Get a Guard Quote', 'site-blocks' ),
 		'primary_url'     => home_url( '/contact/' ),
 		'secondary_label' => __( 'Speak to Us', 'site-blocks' ),
 		'secondary_url'   => 'tel:1300225276',
@@ -63,7 +63,7 @@ function site_blocks_get_manpower_page_key(): ?string {
  */
 function site_blocks_manpower_page_sections(): array {
 	return array(
-		'hub' => array( 'covers', 'services', 'integration', 'why', 'process', 'portal', 'trust', 'related-services', 'faq', 'cta' ),
+		'hub' => array( 'covers', 'services', 'integration', 'why', 'portal', 'trust', 'faq', 'cta' ),
 	);
 }
 
@@ -92,7 +92,7 @@ function site_blocks_manpower_document_title( string $page_key ): string {
  */
 function site_blocks_manpower_get_meta_description( string $page_key ): string {
 	$descriptions = array(
-		'hub' => __( 'Licensed security manpower across Sydney, static guards, mobile patrols, alarm response and short-notice cover, under Master Licence #000103619.', 'site-blocks' ),
+		'hub' => __( 'Licensed security manpower. Static guards, mobile patrols and alarm response, under Master Licence #000103619.', 'site-blocks' ),
 	);
 
 	return $descriptions[ $page_key ] ?? '';
@@ -129,12 +129,12 @@ function site_blocks_manpower_hero_config( string $page_key ): ?array {
 			'title_accent'  => '',
 			'title_after'   => '',
 			'leads'         => array(
-				__( 'Our officers are screened, licensed and trained to protect people, property and reputation — not just fill a roster.', 'site-blocks' ),
-				__( 'From static presence to mobile patrols and alarm response, we match manpower to your risk, hours and site layout across Greater Sydney.', 'site-blocks' ),
+				__( 'Our officers are licensed and trained to protect people, property and reputation.', 'site-blocks' ),
+				__( 'From static presence to mobile patrols and alarm response, we match manpower to the risk, hours and layout of the site.', 'site-blocks' ),
 			),
 			'lead'          => '',
 			'primary_label' => __( 'Hire ManPower', 'site-blocks' ),
-			'primary_url'   => home_url( '/get-an-instant-quote/' ),
+			'primary_url'   => home_url( '/contact/' ),
 			'features'      => array(
 				array(
 					'icon'  => 'user-check',
@@ -144,7 +144,7 @@ function site_blocks_manpower_hero_config( string $page_key ): ?array {
 				array(
 					'icon'  => 'car',
 					'label' => __( 'Mobile Patrols', 'site-blocks' ),
-					'desc'  => __( 'GPS-tracked vehicle patrols, lock-ups and after-hours site checks.', 'site-blocks' ),
+					'desc'  => __( 'GPS-tracked vehicle patrols and after-hours site checks.', 'site-blocks' ),
 				),
 				array(
 					'icon'  => 'bell-ring',
@@ -154,16 +154,16 @@ function site_blocks_manpower_hero_config( string $page_key ): ?array {
 			),
 			'stats'         => array(
 				array(
-					'value' => '13+',
-					'label' => __( 'Years Experience', 'site-blocks' ),
+					'value' => '20+',
+					'label' => __( 'Years of experience', 'site-blocks' ),
 				),
 				array(
-					'value' => '250+',
-					'label' => __( 'Sites Protected', 'site-blocks' ),
+					'value' => '#000103619',
+					'label' => __( 'Master Licence', 'site-blocks' ),
 				),
 				array(
-					'value' => '99.8%',
-					'label' => __( 'Client Satisfaction', 'site-blocks' ),
+					'value' => 'ASIAL',
+					'label' => __( 'Member', 'site-blocks' ),
 				),
 			),
 			'trust_strip'   => array(),
@@ -193,15 +193,15 @@ function site_blocks_manpower_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'How quickly can you deploy cover?', 'site-blocks' ),
-				'a' => __( 'For most Sydney sites, officers can be arranged at short notice. Emergency and short-notice cover is available when risk spikes.', 'site-blocks' ),
+				'a' => __( 'Tell us the site and the hours. A person on the team confirms the roster before work begins.', 'site-blocks' ),
 			),
 			array(
-				'q' => __( 'Is cover available 24/7?', 'site-blocks' ),
-				'a' => __( 'Yes. We roster static guards, mobile patrols and alarm response around the clock across Greater Sydney.', 'site-blocks' ),
+				'q' => __( 'What hours can you cover?', 'site-blocks' ),
+				'a' => __( 'Hours are set in the quote for that site. The office is staffed Monday to Friday, 8 am to 6 pm.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Do you cover all of Sydney?', 'site-blocks' ),
-				'a' => __( 'Yes. We supply manpower across Greater Sydney, from single-site guarding to multi-location patrol programs.', 'site-blocks' ),
+				'a' => __( 'Send the site address with the quote request. We confirm whether we can take the job before work begins.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Can officers work with my cameras and alarms?', 'site-blocks' ),
@@ -250,7 +250,7 @@ function site_blocks_manpower_hub_photo_services(): array {
 		),
 		array(
 			'title' => __( 'Mobile Patrols', 'site-blocks' ),
-			'desc'  => __( 'GPS-tracked vehicle patrols, lock-ups and after-hours checks across multiple sites.', 'site-blocks' ),
+			'desc'  => __( 'GPS-tracked vehicle patrols and after-hours checks across the sites on the job.', 'site-blocks' ),
 			'url'   => home_url( '/physical-security/mobile-patrols/' ),
 			'image' => 'images/physical-security/mobile-hero.webp',
 			'alt'   => __( 'Safeguard mobile patrol vehicle on site', 'site-blocks' ),
@@ -282,7 +282,7 @@ function site_blocks_manpower_hub_photo_services(): array {
 		),
 		array(
 			'title' => __( 'Short-notice Cover', 'site-blocks' ),
-			'desc'  => __( 'Rapid deployment when risk spikes or staff are unavailable.', 'site-blocks' ),
+			'desc'  => __( 'Extra officers when the roster needs them. A person confirms the scope before work begins.', 'site-blocks' ),
 			'url'   => home_url( '/contact/' ),
 			'image' => 'images/physical-security/hub-why.webp',
 			'alt'   => __( 'Security team ready for short-notice deployment', 'site-blocks' ),
@@ -346,7 +346,7 @@ function site_blocks_manpower_split_config( string $page_key, string $section ):
 					array( 'title' => __( 'Fully licensed', 'site-blocks' ), 'desc' => __( 'Master Licence #000103619; officers licensed under NSW requirements.', 'site-blocks' ) ),
 					array( 'title' => __( 'Permanent or casual', 'site-blocks' ), 'desc' => __( 'Ongoing rosters or short-notice cover when your site needs flexible manpower.', 'site-blocks' ) ),
 					array( 'title' => __( 'NSW compliance', 'site-blocks' ), 'desc' => __( 'Work delivered to industry standards with clear supervision and reporting.', 'site-blocks' ) ),
-					array( 'title' => __( 'ASIAL member', 'site-blocks' ), 'desc' => __( 'Industry-accredited security operations across Greater Sydney.', 'site-blocks' ) ),
+					array( 'title' => __( 'ASIAL member', 'site-blocks' ), 'desc' => __( 'ASIAL member.', 'site-blocks' ) ),
 				),
 				'image'        => 'why.webp',
 				'alt'          => __( 'Safeguard security team briefing in Sydney', 'site-blocks' ),
@@ -373,7 +373,7 @@ function site_blocks_manpower_related_page_grid_config( string $page_key ): ?arr
 			'cards'         => array(
 				array( 'title' => __( 'Electronic Security', 'site-blocks' ), 'desc' => __( 'Alarms, CCTV, access and monitoring for your site.', 'site-blocks' ), 'url' => home_url( '/electronic-security/' ), 'icon' => 'ip-camera.png' ),
 				array( 'title' => __( 'Physical Security', 'site-blocks' ), 'desc' => __( 'Guarding and patrols matched to your site risk.', 'site-blocks' ), 'url' => home_url( '/physical-security/' ), 'icon' => 'support.png' ),
-				array( 'title' => __( 'Monitoring', 'site-blocks' ), 'desc' => __( '24/7 alarm monitoring and coordinated response.', 'site-blocks' ), 'url' => home_url( '/monitoring/' ), 'icon' => 'alarm-systems.png' ),
+				array( 'title' => __( 'Monitoring', 'site-blocks' ), 'desc' => __( 'Alarm monitoring linked to the response plan for the site.', 'site-blocks' ), 'url' => home_url( '/monitoring/' ), 'icon' => 'alarm-systems.png' ),
 				array( 'title' => __( 'Contact', 'site-blocks' ), 'desc' => __( 'Speak to our team about manpower cover.', 'site-blocks' ), 'url' => home_url( '/contact/' ), 'icon' => 'access-control.png' ),
 			),
 		),

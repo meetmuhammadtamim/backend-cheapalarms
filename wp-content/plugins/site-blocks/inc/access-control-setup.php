@@ -43,7 +43,7 @@ function site_blocks_access_control_meta_description(): void {
 	printf(
 		'<meta name="description" content="%s" />' . "\n",
 		esc_attr__(
-			'Replace keys with credentials you control. Safeguard designs and installs access control systems across Sydney, cards, mobile, PIN and biometric entry.',
+			'Replace keys with credentials you control. Safeguard designs and installs access control systems: cards, mobile, PIN and biometric entry.',
 			'site-blocks'
 		)
 	);
@@ -80,19 +80,14 @@ function site_blocks_access_control_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed' => array(
-				'@type' => 'City',
-				'name'  => 'Sydney',
-			),
 		),
 		array(
 			'@context'    => 'https://schema.org',
 			'@type'       => 'Service',
 			'serviceType' => 'Access control system installation',
 			'provider'    => array( '@id' => $site_url . '#business' ),
-			'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'url'         => $page_url,
-			'description' => 'Design and installation of access control systems for commercial and residential properties across Sydney.',
+			'description' => 'Design and installation of access control systems for commercial and residential properties.',
 		),
 		array(
 			'@context'        => 'https://schema.org',

@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0C2D44" />
+  <title>Security Guard Quote Calculator | Safeguard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sg-navy: #0C2D44;
+      --sg-blue: #1769A1;
+      --sg-blue-dark: #125882;
+      --sg-orange: #FB7523;
+      --sg-orange-deep: #EA7914;
+      --sg-wash: #F4F8FB;
+      --sg-wash-deep: #EEF0F2;
+      --sg-ink: #1E2A33;
+      --sg-muted: #5A6B77;
+      --sg-faint: #93A4B0;
+      --sg-line: #DCE6EE;
+      --sg-white: #fff;
+      --sg-success: #1F9D57;
+      --sg-success-soft: #e8f7ee;
+      --sg-danger: #c0392b;
+      --font-head: "Chakra Petch", ui-sans-serif, sans-serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --gutter: 18px;
+      --max: 920px;
+      --radius: 14px;
+      --radius-sm: 12px;
+      --sh-sm: 0 1px 2px rgba(12,45,68,.06), 0 4px 14px -8px rgba(12,45,68,.14);
+      --sh: 0 6px 24px -10px rgba(12,45,68,.22);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+      color: var(--sg-ink);
+      background:
+        radial-gradient(900px 420px at 8% -10%, rgba(23,105,161,.10), transparent 55%),
+        radial-gradient(700px 360px at 100% 0%, rgba(251,117,35,.08), transparent 50%),
+        var(--sg-wash);
+    }
+    :focus-visible { outline: 2px solid var(--sg-blue); outline-offset: 2px; }
+
+    .app {
+      display: flex;
+      flex-direction: column;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      background: var(--sg-white);
+    }
+
+    .header {
+      z-index: 20;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sg-line);
+      padding: 12px var(--gutter);
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .logo { display: flex; align-items: center; text-decoration: none; min-width: 0; }
+    .logo-img { height: 30px; width: auto; max-width: 150px; object-fit: contain; display: block; }
+    .logo-fb { display: flex; align-items: center; gap: 9px; }
+    .logo-fb .mk { width: 30px; height: 34px; flex-shrink: 0; }
+    .logo-fb .tx { line-height: 1.04; }
+    .logo-fb .tx b { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--sg-navy); }
+    .logo-fb .tx small { display: block; font-size: 8px; font-weight: 600; letter-spacing: .2em; color: var(--sg-orange); text-transform: uppercase; }
+    .header-phone { display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; flex-shrink: 0; }
+    .header-phone .ph-ic {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--sg-wash); color: var(--sg-blue); display: grid; place-items: center;
+    }
+    .header-phone .ph-ic svg { width: 15px; height: 15px; }
+    .header-phone small { display: block; font-size: 9.5px; color: var(--sg-muted); }
+    .header-phone strong { font-size: 13px; color: var(--sg-navy); font-weight: 700; white-space: nowrap; }
+
+    .progress-wrap { padding: 14px var(--gutter) 0; background: var(--sg-white); }
+    .progress-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 9px; }
+    .progress-meta .step-name {
+      font-family: var(--font-head); font-weight: 700; color: var(--sg-navy);
+      text-transform: uppercase; letter-spacing: .07em; font-size: 12px;
+    }
+    .progress-meta #prog-step { font-size: 11px; color: var(--sg-faint); font-weight: 500; }
+    .progress-bar { height: 6px; background: var(--sg-line); border-radius: 99px; overflow: hidden; }
+    .progress-fill {
+      height: 100%; width: 20%; border-radius: inherit;
+      background: linear-gradient(90deg, var(--sg-blue), #2a8fc9);
+      transition: width .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    .main { padding: 18px var(--gutter) 16px; }
+    .note {
+      margin: 0 0 14px; padding: 11px 13px; border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(251,117,35,.08), rgba(23,105,161,.06));
+      border: 1px solid rgba(251,117,35,.28);
+      color: #b45a14; font-size: .8rem; font-weight: 600;
+    }
+    .panel {
+      border: 1px solid var(--sg-line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff 0%, #fafcfe 100%);
+      box-shadow: var(--sh-sm);
+      padding: 20px;
+    }
+    .panel h1 {
+      margin: 0 0 6px;
+      font-family: var(--font-head); font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+      font-weight: 700; color: var(--sg-navy); line-height: 1.2; letter-spacing: -.01em;
+    }
+    .lead { margin: 0 0 18px; font-size: .9rem; color: var(--sg-muted); }
+    .label { display: block; font-size: .75rem; font-weight: 700; color: var(--sg-muted); margin-bottom: 6px; }
+    .field { margin-bottom: 14px; }
+    input, select, textarea, button { font: inherit; color: inherit; }
+    input[type="text"], input[type="number"], input[type="date"], input[type="time"],
+    input[type="tel"], input[type="email"], select, textarea {
+      width: 100%; min-height: 48px; padding: 12px 14px;
+      border-radius: var(--radius-sm); border: 1.5px solid var(--sg-line);
+      background: var(--sg-white); outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--sg-blue);
+      box-shadow: 0 0 0 3px rgba(23,105,161,.14);
+    }
+
+    .seg {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      padding: 4px; border-radius: var(--radius-sm);
+      background: var(--sg-wash); border: 1px solid var(--sg-line);
+    }
+    .seg input { position: absolute; opacity: 0; pointer-events: none; }
+    .seg label {
+      min-height: 44px; display: flex; align-items: center; justify-content: center;
+      border-radius: 10px; font-weight: 700; font-size: .88rem; color: var(--sg-muted); cursor: pointer;
+      transition: .15s ease;
+    }
+    .seg input:checked + label {
+      background: var(--sg-white); color: var(--sg-blue);
+      box-shadow: var(--sh-sm); border: 1px solid rgba(23,105,161,.25);
+    }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .split { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      min-height: 40px; padding: 0 14px; border-radius: 999px;
+      border: 1.5px solid var(--sg-line); background: var(--sg-white);
+      color: var(--sg-muted); font-weight: 700; font-size: .82rem; cursor: pointer;
+      transition: .15s ease;
+    }
+    .pill.is-on {
+      background: rgba(23,105,161,.1); border-color: rgba(23,105,161,.45); color: var(--sg-blue);
+    }
+    .badge-warn {
+      display: none; margin-top: 8px; padding: 10px 12px; border-radius: var(--radius-sm);
+      background: rgba(251,117,35,.1); border: 1px solid rgba(251,117,35,.35);
+      color: #b45a14; font-size: .8rem; font-weight: 650;
+    }
+    .badge-warn.show { display: block; }
+
+    .sites-list { display: grid; gap: 8px; margin-top: 12px; max-height: 280px; overflow: auto; }
+    .site-card {
+      border: 1px solid var(--sg-line); border-radius: var(--radius-sm);
+      background: var(--sg-white); padding: 12px; box-shadow: var(--sh-sm);
+    }
+    .site-card__top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+    .site-card__addr { font-size: .9rem; font-weight: 700; color: var(--sg-navy); }
+    .site-card__meta { font-size: .75rem; color: var(--sg-muted); margin-top: 3px; }
+    .linkish {
+      border: none; background: transparent; color: var(--sg-blue);
+      font-size: .78rem; font-weight: 700; padding: 0; cursor: pointer; white-space: nowrap;
+    }
+    .override { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--sg-line); display: none; }
+    .override.open { display: block; }
+
+    .check {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 14px; border-radius: var(--radius-sm);
+      border: 1.5px solid var(--sg-line); background: var(--sg-wash); cursor: pointer; font-size: .88rem;
+    }
+    .check input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--sg-blue); flex-shrink: 0; }
+
+    .quote-card {
+      border-radius: var(--radius); padding: 18px;
+      border: 1px solid rgba(31,157,87,.28);
+      background: linear-gradient(160deg, rgba(31,157,87,.1), rgba(23,105,161,.06));
+      box-shadow: var(--sh-sm);
+    }
+    .quote-card .eyebrow {
+      font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--sg-muted);
+    }
+    .quote-card .big {
+      font-family: var(--font-head);
+      font-size: clamp(1.55rem, 3vw, 2rem); font-weight: 700;
+      color: var(--sg-success); margin: 6px 0 0; letter-spacing: -.02em;
+    }
+    .kv { display: grid; gap: 8px; margin-top: 14px; }
+    .kv div {
+      display: flex; justify-content: space-between; gap: 10px;
+      font-size: .86rem; padding: 10px 12px; border-radius: 10px;
+      background: rgba(255,255,255,.75); border: 1px solid rgba(220,230,238,.8);
+    }
+
+    .footer {
+      position: sticky; bottom: 0; z-index: 20;
+      border-top: 1px solid var(--sg-line);
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      padding: 12px var(--gutter) calc(12px + env(safe-area-inset-bottom));
+    }
+    .footer-inner { display: grid; grid-template-columns: 1fr 1.45fr; gap: 10px; }
+    .btn {
+      min-height: 50px; border: none; border-radius: 13px;
+      font-family: var(--font-head); font-size: .92rem; font-weight: 700;
+      letter-spacing: .02em; cursor: pointer; transition: transform .15s, filter .15s, box-shadow .15s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; }
+    .btn-back {
+      background: var(--sg-white); border: 1.5px solid var(--sg-line); color: var(--sg-navy);
+    }
+    .btn-next {
+      color: #fff;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--sg-orange) 96%, #fff) 0%,
+        var(--sg-orange) 48%,
+        color-mix(in srgb, var(--sg-orange) 94%, #000) 100%
+      );
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.18),
+        0 2px 6px rgba(0,0,0,.08),
+        0 10px 24px -10px rgba(251,117,35,.65);
+    }
+    .btn-next.blue {
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--sg-blue) 96%, #fff) 0%,
+        var(--sg-blue) 48%,
+        color-mix(in srgb, var(--sg-blue) 94%, #000) 100%
+      );
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.18),
+        0 2px 6px rgba(0,0,0,.08),
+        0 10px 24px -10px rgba(23,105,161,.55);
+    }
+    .btn-next:hover { filter: brightness(1.04); }
+
+    .hidden { display: none !important; }
+    .error { min-height: 1.1em; margin-top: 8px; color: var(--sg-danger); font-size: .8rem; font-weight: 650; }
+
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 50;
+      background: rgba(12,45,68,.55);
+      display: flex; align-items: center; justify-content: center; padding: 16px;
+    }
+    .modal {
+      width: min(420px, 100%);
+      background: var(--sg-white);
+      border: 1px solid var(--sg-line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--sh);
+      text-align: center;
+    }
+    .modal .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sg-blue);
+    }
+    .modal h2 {
+      margin: 8px 0 0; font-family: var(--font-head); font-size: 1.35rem; color: var(--sg-navy);
+    }
+    .success__code {
+      margin: 14px auto; display: inline-block; padding: 10px 14px; border-radius: var(--radius-sm);
+      background: var(--sg-success-soft); border: 1px solid #cde8d2;
+      color: var(--sg-success); font-weight: 800; letter-spacing: .08em;
+    }
+
+    @media (min-width: 760px) {
+      .app {
+        margin: 0 auto;
+        border: 1px solid var(--sg-line);
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .main { padding: 22px 28px 18px; }
+      .header, .progress-wrap, .footer { padding-left: 28px; padding-right: 28px; }
+      .panel { padding: 24px 28px; }
+      .split { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+      .sites-list { max-height: 340px; }
+    }
+    @media (max-width: 560px) {
+      .grid2 { grid-template-columns: 1fr; }
+      .header-phone .ph-tx { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <a class="logo" href="https://safeguardsecurity.com.au/" aria-label="Safeguard Security Services">
+        <img class="logo-img" src="../../images/brand/safeguard-logo.png" alt="Safeguard Security Services" width="150" height="30"
+             onerror="this.style.display='none';document.getElementById('logo-fb').style.display='flex';" />
+        <span class="logo-fb" id="logo-fb" style="display:none">
+          <svg class="mk" viewBox="0 0 32 36" fill="none" aria-hidden="true">
+            <path d="M16 1 30 6v11c0 9-6 15-14 18C8 32 2 26 2 17V6L16 1Z" fill="#0C2D44"/>
+            <path d="M16 1 30 6v11c0 9-6 15-14 18V1Z" fill="#1769A1"/>
+            <path d="M10 17l4 4 8-8" stroke="#FB7523" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="tx"><b>Safeguard</b><small>Security Services</small></span>
+        </span>
+      </a>
+      <a class="header-phone" href="tel:1300225276">
+        <span class="ph-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+        <span class="ph-tx"><small>Speak to an expert</small><strong>1300 225 276</strong></span>
+      </a>
+    </header>
+
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="step-name" id="stepLabel">Engagement</span>
+        <span id="stepCount">Step 1 of 4</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <main class="main">
+      <p class="note">Request a security guard quote. New customers receive a portal invite by email.</p>
+
+      <section class="panel" data-step="1">
+        <h1>Engagement type</h1>
+        <p class="lead">AD HOC for short jobs. Permanent needs a minimum 3-month term.</p>
+
+        <div class="field">
+          <label class="label">Contract Type</label>
+          <div class="seg">
+            <input type="radio" name="jobType" id="adhoc" value="adhoc" checked />
+            <label for="adhoc">AD HOC</label>
+            <input type="radio" name="jobType" id="permanent" value="permanent" />
+            <label for="permanent">PERMANENT</label>
+          </div>
+        </div>
+
+        <div class="field hidden" id="durationWrap">
+          <label class="label" for="duration">Contract Duration</label>
+          <select id="duration">
+            <option value="3" selected>3 months (minimum)</option>
+            <option value="6">6 months</option>
+            <option value="12">1 year</option>
+            <option value="24">2 years</option>
+            <option value="custom">Custom (months)</option>
+          </select>
+          <div class="field hidden" id="customMonthsWrap" style="margin-top:10px;margin-bottom:0">
+            <label class="label" for="customMonths">Months (Minimum 3)</label>
+            <input type="number" id="customMonths" min="3" max="120" value="3" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Count By</label>
+          <div class="seg">
+            <input type="radio" name="staffingMode" id="staffSites" value="sites" checked />
+            <label for="staffSites">Sites</label>
+            <input type="radio" name="staffingMode" id="staffGuards" value="guards" />
+            <label for="staffGuards">Guards</label>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field" id="defaultGuardsWrap">
+            <label class="label" for="defaultGuards">Guards Per Site</label>
+            <input type="number" id="defaultGuards" min="0" max="50" value="" placeholder="0" />
+          </div>
+          <div class="field hidden" id="totalGuardsWrap">
+            <label class="label" for="totalGuards">Number Of Guards</label>
+            <input type="number" id="totalGuards" min="0" max="200" value="" placeholder="0" />
+          </div>
+          <div class="field">
+            <label class="label" for="serviceType">Service Type</label>
+            <select id="serviceType">
+              <option>Standard Static Guard</option>
+              <option>Event Security / Crowd Control</option>
+              <option>VIP Protection</option>
+            </select>
+          </div>
+        </div>
+        <div class="error" id="err1"></div>
+      </section>
+
+      <section class="panel hidden" data-step="2">
+        <h1>Master Shift Template</h1>
+        <p class="lead" id="scheduleHint">Default Times For All Sites</p>
+
+        <div class="field">
+          <label class="label">Schedule Mode</label>
+          <div class="seg">
+            <input type="radio" name="schedMode" id="modeDates" value="dates" checked />
+            <label for="modeDates">Specific Dates</label>
+            <input type="radio" name="schedMode" id="modeWeekly" value="weekly" />
+            <label for="modeWeekly">Weekly Recurring</label>
+          </div>
+        </div>
+
+        <div id="datesBlock">
+          <div class="field">
+            <label class="label" for="shiftDate">Shift Date</label>
+            <input type="date" id="shiftDate" />
+          </div>
+        </div>
+
+        <div id="weeklyBlock" class="hidden">
+          <div class="field">
+            <label class="label">Days Of Week</label>
+            <div class="pills" id="dayPills">
+              <button type="button" class="pill" data-day="1">Mon</button>
+              <button type="button" class="pill" data-day="2">Tue</button>
+              <button type="button" class="pill" data-day="3">Wed</button>
+              <button type="button" class="pill" data-day="4">Thu</button>
+              <button type="button" class="pill" data-day="5">Fri</button>
+              <button type="button" class="pill" data-day="6">Sat</button>
+              <button type="button" class="pill" data-day="0">Sun</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label class="label" for="startTime">Start Time</label>
+            <input type="time" id="startTime" value="16:00" />
+          </div>
+          <div class="field">
+            <label class="label" for="endTime">End Time</label>
+            <input type="time" id="endTime" value="06:00" />
+          </div>
+        </div>
+        <div class="badge-warn" id="minHoursWarn">Minimum 4 hours billing applies per guard</div>
+        <div class="error" id="err2"></div>
+      </section>
+
+      <section class="panel hidden" data-step="3">
+        <h1>Sites</h1>
+        <p class="lead" id="sitesLead">One Address Per Line</p>
+        <div class="field">
+          <label class="label" for="addresses">Site Addresses</label>
+          <textarea id="addresses" placeholder="One Address Per Line"></textarea>
+        </div>
+        <div class="sites-list" id="sitesList"></div>
+        <div class="error" id="err3"></div>
+      </section>
+
+      <section class="panel hidden" data-step="4">
+        <h1>Contact</h1>
+        <p class="lead">Where should we send the quote?</p>
+        <div class="split">
+          <div>
+            <div class="field">
+              <label class="label">Public Holiday Cover Required?</label>
+              <div class="seg">
+                <input type="radio" name="phCover" id="phNo" value="no" checked />
+                <label for="phNo">No</label>
+                <input type="radio" name="phCover" id="phYes" value="yes" />
+                <label for="phYes">Yes</label>
+              </div>
+            </div>
+            <div class="field hidden" id="stateWrap">
+              <label class="label" for="auState">State (Gazetted PH)</label>
+              <select id="auState">
+                <option value="NSW" selected>NSW</option>
+                <option value="VIC">VIC</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="WA">WA</option>
+                <option value="TAS">TAS</option>
+                <option value="ACT">ACT</option>
+                <option value="NT">NT</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="contactName">Contact Name</label>
+              <input type="text" id="contactName" placeholder="Full name" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label class="label" for="phone">Mobile</label>
+              <input type="tel" id="phone" placeholder="04XX XXX XXX" autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label class="label" for="email">Email</label>
+              <input type="email" id="email" placeholder="name@company.com" autocomplete="email" />
+            </div>
+          </div>
+          <div>
+            <label class="check" for="verified">
+              <input type="checkbox" id="verified" />
+              <span>I confirm the sites, times, and contact details above are correct.</span>
+            </label>
+            <p class="lead" style="margin:12px 0 0">We will notify you when your quote is ready in the portal.</p>
+          </div>
+        </div>
+        <div class="error" id="err4"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <button type="button" class="btn btn-back" id="backBtn" disabled>Back</button>
+        <button type="button" class="btn btn-next" id="nextBtn">Continue</button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modal">
+    <div class="modal">
+      <div class="eyebrow">Quote submitted</div>
+      <h2>Request received</h2>
+      <p class="lead" id="successLead">We received your request.</p>
+      <div class="success__code" id="quoteCode">SG-XXXXXX</div>
+      <button type="button" class="btn btn-next" style="width:100%;margin-top:8px" id="closeModal">Done</button>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const API_BASE = (() => {
+      const raw = params.get("apiBase");
+      if (!raw) return "";
+      try { return decodeURIComponent(raw).replace(/\/+$/, ""); } catch { return raw.replace(/\/+$/, ""); }
+    })();
+
+    const MIN_HOURS = 4;
+    const MIN_PERM_MONTHS = 3;
+
+    const state = {
+      step: 1,
+      jobType: "adhoc",
+      durationMonths: 12,
+      staffingMode: "sites",
+      defaultGuards: 0,
+      totalGuards: 0,
+      serviceType: "Standard Static Guard",
+      schedMode: "dates",
+      days: new Set([5]),
+      shiftDate: "",
+      start: "16:00",
+      end: "06:00",
+      sites: [],
+      phCover: false,
+      auState: "NSW",
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    (() => {
+      const d = new Date();
+      $("shiftDate").value = d.toISOString().slice(0, 10);
+      state.shiftDate = $("shiftDate").value;
+    })();
+
+    function syncJobTypeUI() {
+      state.jobType = document.querySelector('input[name="jobType"]:checked').value;
+      $("durationWrap").classList.toggle("hidden", state.jobType !== "permanent");
+      syncDurationUI();
+    }
+    function syncDurationUI() {
+      $("customMonthsWrap").classList.toggle("hidden", $("duration").value !== "custom");
+    }
+    function syncPhUI() {
+      state.phCover = document.querySelector('input[name="phCover"]:checked').value === "yes";
+      $("stateWrap").classList.toggle("hidden", !state.phCover);
+    }
+    function syncStaffingUI() {
+      const prev = state.staffingMode;
+      const next = document.querySelector('input[name="staffingMode"]:checked').value;
+      state.staffingMode = next;
+      $("defaultGuardsWrap").classList.toggle("hidden", next !== "sites");
+      $("totalGuardsWrap").classList.toggle("hidden", next !== "guards");
+
+      // Switching mode clears counts so the inactive value cannot confuse pricing.
+      if (prev !== next) {
+        state.defaultGuards = 0;
+        state.totalGuards = 0;
+        state.sites = [];
+        $("defaultGuards").value = "";
+        $("totalGuards").value = "";
+        $("addresses").value = "";
+        $("sitesList").innerHTML = "";
+      }
+    }
+
+    document.querySelectorAll('input[name="jobType"]').forEach((el) => el.addEventListener("change", syncJobTypeUI));
+    document.querySelectorAll('input[name="staffingMode"]').forEach((el) => el.addEventListener("change", syncStaffingUI));
+    $("duration").addEventListener("change", syncDurationUI);
+    document.querySelectorAll('input[name="phCover"]').forEach((el) => el.addEventListener("change", syncPhUI));
+    syncStaffingUI();
+
+    document.querySelectorAll('input[name="schedMode"]').forEach((el) => {
+      el.addEventListener("change", () => {
+        state.schedMode = document.querySelector('input[name="schedMode"]:checked').value;
+        $("datesBlock").classList.toggle("hidden", state.schedMode !== "dates");
+        $("weeklyBlock").classList.toggle("hidden", state.schedMode !== "weekly");
+        $("scheduleHint").textContent =
+          state.schedMode === "weekly" ? "Weekly Pattern For All Sites" : "Default Times For All Sites";
+        updateMinWarn();
+      });
+    });
+
+    $("dayPills").addEventListener("click", (e) => {
+      const pill = e.target.closest(".pill");
+      if (!pill) return;
+      const day = Number(pill.dataset.day);
+      if (state.days.has(day)) state.days.delete(day);
+      else state.days.add(day);
+      pill.classList.toggle("is-on", state.days.has(day));
+    });
+    document.querySelector('#dayPills .pill[data-day="5"]').classList.add("is-on");
+
+    ["startTime", "endTime"].forEach((id) => $(id).addEventListener("input", updateMinWarn));
+
+    function spanHours(start, end) {
+      const [sh, sm] = start.split(":").map(Number);
+      const [eh, em] = end.split(":").map(Number);
+      let mins = eh * 60 + em - (sh * 60 + sm);
+      if (mins <= 0) mins += 24 * 60;
+      return mins / 60;
+    }
+    function updateMinWarn() {
+      $("minHoursWarn").classList.toggle("show", spanHours($("startTime").value, $("endTime").value) < MIN_HOURS);
+    }
+    updateMinWarn();
+
+    function parseAddresses(text) {
+      return text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function newSiteId() {
+      return `s-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    function distributeGuards(count, siteCount) {
+      const n = Math.max(1, siteCount);
+      const total = Math.max(1, count);
+      const base = Math.floor(total / n);
+      const rem = total % n;
+      return Array.from({ length: n }, (_, i) => Math.max(1, base + (i < rem ? 1 : 0)));
+    }
+
+    function renderSites() {
+      const addresses = parseAddresses($("addresses").value);
+      const prev = state.sites.slice();
+      const used = new Set();
+      const guardCounts =
+        state.staffingMode === "guards"
+          ? distributeGuards(state.totalGuards, addresses.length || 1)
+          : null;
+
+      state.sites = addresses.map((address, i) => {
+        let old = null;
+        if (prev[i] && prev[i].address === address && prev[i].id && !used.has(prev[i].id)) {
+          old = prev[i];
+        } else {
+          old = prev.find((s) => s.address === address && s.id && !used.has(s.id)) || null;
+        }
+        if (old?.id) used.add(old.id);
+
+        const guards =
+          guardCounts != null ? guardCounts[i] : old ? old.guards : state.defaultGuards;
+
+        if (old) {
+          return { ...old, id: old.id || newSiteId(), address, guards };
+        }
+        return {
+          id: newSiteId(),
+          address,
+          custom: false,
+          guards,
+          start: state.start,
+          end: state.end,
+          date: state.shiftDate,
+          days: [...state.days],
+        };
+      });
+
+      $("sitesList").innerHTML = state.sites
+        .map((s, i) => {
+          const meta = s.custom
+            ? `Custom schedule · ${s.guards} guard(s)`
+            : state.schedMode === "weekly"
+              ? `Inherits weekly · ${s.guards} guard(s)`
+              : `Inherits ${s.date || "date"} ${state.start}–${state.end} · ${s.guards} guard(s)`;
+          const guardsLocked = state.staffingMode === "guards";
+          return `
+          <article class="site-card" data-site-id="${escapeHtml(s.id)}">
+            <div class="site-card__top">
+              <div>
+                <div class="site-card__addr">${escapeHtml(s.address)}</div>
+                <div class="site-card__meta">${meta}</div>
+              </div>
+              <button type="button" class="linkish" data-toggle="${i}">${s.custom ? "Close" : "Customise"}</button>
+            </div>
+            <div class="override ${s.custom ? "open" : ""}">
+              <div class="grid2">
+                <div class="field">
+                  <label class="label">Guards</label>
+                  <input type="number" min="1" max="50" value="${s.guards}" data-field="guards" data-i="${i}" ${guardsLocked ? "disabled" : ""} />
+                </div>
+                <div class="field">
+                  <label class="label">Date</label>
+                  <input type="date" value="${s.date || state.shiftDate}" data-field="date" data-i="${i}" />
+                </div>
+              </div>
+              <div class="grid2">
+                <div class="field">
+                  <label class="label">Start</label>
+                  <input type="time" value="${s.start}" data-field="start" data-i="${i}" />
+                </div>
+                <div class="field">
+                  <label class="label">End</label>
+                  <input type="time" value="${s.end}" data-field="end" data-i="${i}" />
+                </div>
+              </div>
+            </div>
+          </article>`;
+        })
+        .join("");
+    }
+
+    $("addresses").addEventListener("input", renderSites);
+    $("sitesList").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-toggle]");
+      if (!btn) return;
+      state.sites[Number(btn.dataset.toggle)].custom = !state.sites[Number(btn.dataset.toggle)].custom;
+      renderSites();
+    });
+    $("sitesList").addEventListener("input", (e) => {
+      const el = e.target.closest("[data-field]");
+      if (!el) return;
+      const i = Number(el.dataset.i);
+      const field = el.dataset.field;
+      let val = el.value;
+      if (field === "guards") val = Math.max(1, Number(val || 1));
+      state.sites[i][field] = val;
+      // Only lock the site off the master template when schedule fields change.
+      if (field === "start" || field === "end" || field === "date") {
+        state.sites[i].custom = true;
+      }
+    });
+
+    function resolveDurationMonths() {
+      const v = $("duration").value;
+      if (v === "custom") return Math.max(MIN_PERM_MONTHS, Number($("customMonths").value || MIN_PERM_MONTHS));
+      return Math.max(MIN_PERM_MONTHS, Number(v));
+    }
+
+    function notifyParentHeight() {
+      try {
+        const h = Math.ceil(Math.max(
+          document.documentElement.scrollHeight,
+          document.body.scrollHeight
+        ));
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage({ type: "sg-manpower-calc-height", height: h }, "*");
+        }
+      } catch (e) { /* ignore */ }
+    }
+
+    function showStep(n) {
+      state.step = n;
+      if (n === 2) {
+        $("datesBlock").classList.toggle("hidden", state.schedMode !== "dates");
+        $("weeklyBlock").classList.toggle("hidden", state.schedMode !== "weekly");
+      }
+      if (n === 3) renderSites();
+      document.querySelectorAll(".panel").forEach((p) => {
+        p.classList.toggle("hidden", Number(p.dataset.step) !== n);
+      });
+      const labels = { 1: "Engagement", 2: "Master template", 3: "Sites", 4: "Confirm" };
+      $("stepLabel").textContent = labels[n];
+      $("stepCount").textContent = `Step ${n} of 4`;
+      $("progressFill").style.width = `${(n / 4) * 100}%`;
+      $("backBtn").disabled = n === 1;
+      $("nextBtn").textContent = n === 4 ? "Submit quote request" : "Continue";
+      $("nextBtn").classList.toggle("blue", n === 4);
+      requestAnimationFrame(notifyParentHeight);
+    }
+
+    function saveStep1() {
+      syncJobTypeUI();
+      state.staffingMode = document.querySelector('input[name="staffingMode"]:checked').value;
+      state.defaultGuards = Math.max(0, Number($("defaultGuards").value || 0));
+      state.totalGuards = Math.max(0, Number($("totalGuards").value || 0));
+      state.serviceType = $("serviceType").value;
+      if (state.staffingMode === "sites" && state.defaultGuards < 1) {
+        $("err1").textContent = "Enter Guards Per Site.";
+        return false;
+      }
+      if (state.staffingMode === "guards" && state.totalGuards < 1) {
+        $("err1").textContent = "Enter Number Of Guards.";
+        return false;
+      }
+      if (state.jobType === "permanent") {
+        state.durationMonths = resolveDurationMonths();
+        if (state.durationMonths < MIN_PERM_MONTHS) {
+          $("err1").textContent = `Permanent Contracts Need At Least ${MIN_PERM_MONTHS} Months.`;
+          return false;
+        }
+        $("modeWeekly").checked = true;
+        state.schedMode = "weekly";
+      } else {
+        $("modeDates").checked = true;
+        state.schedMode = "dates";
+      }
+      $("err1").textContent = "";
+      return true;
+    }
+
+    function saveStep2() {
+      state.start = $("startTime").value;
+      state.end = $("endTime").value;
+      state.shiftDate = $("shiftDate").value;
+      state.schedMode = document.querySelector('input[name="schedMode"]:checked').value;
+      if (!state.start || !state.end) {
+        $("err2").textContent = "Start and end times are required.";
+        return false;
+      }
+      if (state.schedMode === "dates" && !state.shiftDate) {
+        $("err2").textContent = "Choose a shift date.";
+        return false;
+      }
+      if (state.schedMode === "weekly" && state.days.size === 0) {
+        $("err2").textContent = "Select at least one day.";
+        return false;
+      }
+      $("err2").textContent = "";
+      const guardCounts =
+        state.staffingMode === "guards"
+          ? distributeGuards(state.totalGuards, state.sites.length || 1)
+          : null;
+      state.sites = state.sites.map((s, i) => {
+        if (s.custom) {
+          return guardCounts ? { ...s, guards: guardCounts[i] } : s;
+        }
+        return {
+          ...s,
+          start: state.start,
+          end: state.end,
+          date: state.shiftDate,
+          days: [...state.days],
+          guards: guardCounts ? guardCounts[i] : state.defaultGuards,
+        };
+      });
+      return true;
+    }
+
+    function saveStep3() {
+      renderSites();
+      if (!state.sites.length) {
+        $("err3").textContent = "Add at least one site address.";
+        return false;
+      }
+      $("err3").textContent = "";
+      return true;
+    }
+
+    function saveStep4() {
+      syncPhUI();
+      state.auState = $("auState").value;
+      if (!$("contactName").value.trim() || !$("phone").value.trim() || !$("email").value.trim()) {
+        $("err4").textContent = "Enter name, mobile, and email.";
+        return false;
+      }
+      if (!$("verified").checked) {
+        $("err4").textContent = "Confirm the details above to continue.";
+        return false;
+      }
+      $("err4").textContent = "";
+      return true;
+    }
+
+    async function submitQuote() {
+      const payload = {
+        contactName: $("contactName").value.trim(),
+        email: $("email").value.trim(),
+        phone: $("phone").value.trim(),
+        verified: true,
+        jobType: state.jobType,
+        durationMonths: state.jobType === "permanent" ? state.durationMonths : 0,
+        serviceType: state.serviceType,
+        schedMode: state.schedMode,
+        staffingMode: state.staffingMode,
+        totalGuards: state.totalGuards,
+        defaultGuards: state.staffingMode === "guards" ? state.totalGuards : state.defaultGuards,
+        start: state.start,
+        end: state.end,
+        shiftDate: state.shiftDate,
+        days: [...state.days],
+        sites: state.sites,
+        phCover: state.phCover,
+        auState: state.auState,
+      };
+
+      $("nextBtn").disabled = true;
+      $("nextBtn").textContent = "Submitting…";
+
+      try {
+        if (!API_BASE) {
+          throw new Error("API not configured. Deploy with WordPress REST apiBase.");
+        }
+        const res = await fetch(`${API_BASE}/guarding-quotes`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json().catch(() => null);
+        if (!res.ok || !json?.ok) {
+          throw new Error(json?.message || json?.err || json?.error || "Submit failed. Please try again or call 1300 225 276.");
+        }
+        $("quoteCode").textContent = json.quoteId || "GQ-OK";
+        const lead = document.getElementById("successLead");
+        if (lead) {
+          lead.textContent = json.message
+            || "Thanks. Check your email for portal access — we will notify you when your quote is ready.";
+        }
+        $("modal").classList.remove("hidden");
+      } catch (err) {
+        alert(err instanceof Error ? err.message : "Submit failed.");
+      } finally {
+        $("nextBtn").disabled = false;
+        $("nextBtn").textContent = "Submit quote request";
+      }
+    }
+
+    $("backBtn").onclick = () => showStep(Math.max(1, state.step - 1));
+    $("nextBtn").onclick = () => {
+      if (state.step === 1 && !saveStep1()) return;
+      if (state.step === 2 && !saveStep2()) return;
+      if (state.step === 3 && !saveStep3()) return;
+      if (state.step === 4) {
+        if (!saveStep4()) return;
+        submitQuote();
+        return;
+      }
+      showStep(Math.min(4, state.step + 1));
+    };
+    $("closeModal").onclick = () => {
+      $("modal").classList.add("hidden");
+      showStep(1);
+    };
+
+    syncJobTypeUI();
+    syncPhUI();
+    showStep(1);
+
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(notifyParentHeight).observe(document.body);
+    }
+    window.addEventListener("load", notifyParentHeight);
+  </script>
+</body>
+</html>

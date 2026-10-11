@@ -68,10 +68,10 @@ function site_blocks_monitoring_schema(): void {
 	$phone    = '1300225276';
 
 	$service_descriptions = array(
-		'hub'                      => 'Professional alarm monitoring across Greater Sydney, back-to-base, virtual patrol and solar CCTV monitoring, integrated with install and physical response.',
-		'back-to-base'             => 'Back-to-base alarm monitoring in Sydney with IP and 4G paths, clear response plans and professional monitoring centre cover.',
-		'virtual-patrol'           => 'Virtual patrol and remote CCTV guarding in Sydney with live operator tours, alarm verification and escalation to physical response.',
-		'solar-cameras-monitoring' => 'Solar-powered security cameras with 4G connectivity and professional monitoring for construction, rural and remote NSW sites.',
+		'hub'                      => 'Alarm monitoring, back-to-base, virtual patrol and solar CCTV monitoring, integrated with installation and response planning.',
+		'back-to-base'             => 'Back-to-base alarm monitoring with IP and 4G paths and clear response plans.',
+		'virtual-patrol'           => 'Virtual patrol with scheduled tours, alarm verification and escalation to physical response.',
+		'solar-cameras-monitoring' => 'Solar-powered security cameras with 4G connectivity and professional monitoring for construction sites, farms and remote properties.',
 	);
 
 	$service_types = array(
@@ -99,7 +99,6 @@ function site_blocks_monitoring_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed'         => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'additionalProperty' => array(
 				'@type' => 'PropertyValue',
 				'name'  => 'Security Master Licence',
@@ -113,7 +112,6 @@ function site_blocks_monitoring_schema(): void {
 		'@type'       => 'Service',
 		'serviceType' => $service_types[ $page_key ],
 		'provider'    => array( '@id' => $site_url . '#business' ),
-		'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 		'url'         => $page_url,
 		'description' => $service_descriptions[ $page_key ],
 	);

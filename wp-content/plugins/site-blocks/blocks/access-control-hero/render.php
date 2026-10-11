@@ -31,9 +31,9 @@ site_blocks_render_stage_hero(
 				'current' => true,
 			),
 		),
-		'eyebrow'     => __( 'Access Control · Sydney', 'site-blocks' ),
+		'eyebrow'     => __( 'Access Control', 'site-blocks' ),
 		'title'       => __( 'Replace keys with access you can control.', 'site-blocks' ),
-		'lead'        => __( 'Cards, mobile credentials, PINs and biometrics, designed, installed and supported across Sydney. Start your quote online, reviewed by our technicians.', 'site-blocks' ),
+		'lead'        => __( 'Cards, mobile credentials, PINs and biometrics, designed, installed and supported. A technician reviews the scope.', 'site-blocks' ),
 		'trust'       => array(
 			array(
 				'icon'  => 'award',

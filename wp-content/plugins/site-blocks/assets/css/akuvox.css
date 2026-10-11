@@ -1,0 +1,93 @@
+/* Akuvox landing — thin overlays on Ajax / Paradox product-landing CSS */
+
+body.safeguard-akuvox-page {
+  --sg-akuvox-blue: #083078;
+}
+
+body.safeguard-akuvox-page .wp-block-site-akuvox-section,
+body.safeguard-akuvox-page .wp-block-site-akuvox-hero {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.safeguard-akuvox-page .entry-content ol.sg-paradox-difference__points,
+body.safeguard-akuvox-page .entry-content ol.sg-paradox-difference__points > li,
+body.safeguard-akuvox-page .entry-content ul.sg-paradox-products__trust,
+body.safeguard-akuvox-page .entry-content ul.sg-paradox-products__trust > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Hero — conversion stage (not the Paradox banner overlay) */
+.sg-akuvox-hero .sg-cctv-stage-hero__title {
+  max-width: 22ch;
+}
+
+.sg-akuvox-hero .sg-cctv-stage-hero__lead {
+  max-width: 42rem;
+}
+
+/* Product accent only — CTAs stay Safeguard orange / soft blue */
+body.safeguard-akuvox-page .sg-paradox-difference__rule {
+  background: var(--sg-akuvox-blue);
+}
+
+body.safeguard-akuvox-page .sg-paradox-product__tag {
+  color: var(--sg-akuvox-blue);
+}
+
+.sg-akuvox-smartplus .sg-paradox-blueeye__mark-img,
+.sg-akuvox-smartplus .sg-paradox-blueeye__img {
+  width: min(100%, 10rem);
+  object-fit: contain;
+}
+
+/* Property fit header sits above CCTV segment cards */
+.safeguard-akuvox-page .sg-intercom-segments .sg-ajax-section__header {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.safeguard-akuvox-page .sg-intercom-segments .sg-ajax-monitoring__lead {
+  margin-top: 0.75rem;
+}
+
+.safeguard-akuvox-page .sg-intercom-segments .sg-cctv-segments__grid {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.safeguard-akuvox-page .sg-ajax-process .sg-ajax-section__header {
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+/* Three-column compare */
+.sg-akuvox-compare .sg-ajax-compare__table {
+  min-width: 48rem;
+}
+
+.sg-akuvox-compare .sg-ajax-compare__corner {
+  width: 18%;
+}
+
+.sg-akuvox-compare .sg-ajax-compare__head--traditional,
+.sg-akuvox-compare .sg-ajax-compare__head--ajax {
+  width: 27%;
+}
+
+@media (min-width: 1100px) {
+  .sg-akuvox-compare .sg-ajax-compare__scroll {
+    overflow-x: visible;
+  }
+
+  .sg-akuvox-compare .sg-ajax-compare__table {
+    min-width: 0;
+  }
+}

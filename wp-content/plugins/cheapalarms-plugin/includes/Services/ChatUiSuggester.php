@@ -101,9 +101,29 @@ class ChatUiSuggester
 
         if (
 
+            $this->matches($haystack, '/\b(guard|guarding|manpower|man power|patrol|patrols|static guard|crowd control|concierge|alarm response|event security|security guard)\b/u')
+
+        ) {
+
+            return [
+
+                'type'   => 'lead_form',
+
+                'intent' => 'manpower',
+
+            ];
+
+        }
+
+
+
+        if (
+
             $this->matches($haystack, '/\b(ajax|instant quote|alarm quote|price my|how much.*alarm|quote my|kit price|wireless alarm|how much|what.*cost|pricing)\b/u')
 
             && $this->matches($haystack, '/\b(alarm|ajax|wireless|intrusion)\b/u')
+
+            && !$this->matches($haystack, '/\b(guard|guarding|manpower|patrol)\b/u')
 
         ) {
 
@@ -282,6 +302,12 @@ class ChatUiSuggester
         }
 
 
+
+        if ($this->matches($haystack, '/\b(guard|guarding|manpower|man power|patrol|patrols|static guard|crowd control|concierge|alarm response|event security|security guard)\b/u')) {
+
+            return 'manpower';
+
+        }
 
         if ($this->matches($haystack, '/\b(cctv|camera)\b/u')) {
 

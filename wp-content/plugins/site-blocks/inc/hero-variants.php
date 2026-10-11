@@ -210,7 +210,7 @@ function site_blocks_render_hero_variant_stack( array $args ): void {
 				?>
 				<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
 				<div class="sg-hv__ctas">
-					<a class="sg-btn sg-btn--soft-blue" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
+					<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
 						<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
 					</a>
 					<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( (string) ( $args['secondary_url'] ?? '#' ) ); ?>">
@@ -271,7 +271,7 @@ function site_blocks_render_hero_variant_split( array $args ): void {
 					?>
 					<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
 					<div class="sg-hv__ctas">
-						<a class="sg-btn sg-btn--soft-blue sg-hv--split__btn" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
+						<a class="sg-btn sg-btn--orange sg-hv--split__btn" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
 							<?php if ( '' !== $primary_icon ) : ?>
 								<span class="sg-hv--split__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $primary_icon, 18 ); ?></span>
 							<?php endif; ?>
@@ -372,7 +372,7 @@ function site_blocks_render_hero_variant_bleed( array $args ): void {
 				?>
 				<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
 				<div class="sg-hv__ctas">
-					<a class="sg-btn sg-btn--soft-blue sg-hv--bleed__btn" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
+					<a class="sg-btn sg-btn--orange sg-hv--bleed__btn" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
 						<?php if ( '' !== $primary_icon ) : ?>
 							<span class="sg-hv--bleed__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $primary_icon, 18 ); ?></span>
 						<?php endif; ?>
@@ -448,7 +448,7 @@ function site_blocks_render_hero_variant_deck( array $args ): void {
 				?>
 				<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
 				<div class="sg-hv__ctas sg-hv__ctas--center">
-					<a class="sg-btn sg-btn--soft-blue" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
+					<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
 						<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
 					</a>
 					<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( (string) ( $args['secondary_url'] ?? '#' ) ); ?>">
@@ -565,38 +565,50 @@ function site_blocks_render_hero_variant_editorial( array $args ): void {
 	$title_after  = (string) ( $args['title_after'] ?? '' );
 	$proof        = isset( $args['proof'] ) && is_array( $args['proof'] ) ? $args['proof'] : array();
 	$phone_html   = (string) ( $args['phone_html'] ?? '' );
+	$background   = (string) ( $args['background_url'] ?? '' );
+	$style        = '';
+	if ( '' !== $background ) {
+		$style = '--sg-contact-hero-image:url(' . esc_url( $background ) . ')';
+	}
 	?>
-	<section class="<?php echo esc_attr( $class ); ?>" aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
+	<section class="<?php echo esc_attr( $class ); ?>"<?php echo '' !== $style ? ' style="' . esc_attr( $style ) . '"' : ''; ?> aria-labelledby="<?php echo esc_attr( $heading_id ); ?>">
 		<div class="sg-container sg-hv--editorial__inner">
-			<?php site_blocks_hero_variant_breadcrumb( $breadcrumb ); ?>
-			<p class="sg-hv__badge"><?php echo esc_html( (string) ( $args['badge'] ?? '' ) ); ?></p>
-			<?php
-			site_blocks_hero_variant_title(
-				$heading_id,
-				(string) ( $args['title_before'] ?? '' ),
-				$title_accent,
-				$title_after,
-				'sg-hv__title'
-			);
-			?>
-			<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
-			<?php if ( '' !== $phone_html ) : ?>
-				<p class="sg-hv--editorial__phone"><?php echo $phone_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with esc_* by caller. ?></p>
-			<?php endif; ?>
-			<?php if ( ! empty( $args['primary_url'] ) || ! empty( $args['secondary_url'] ) ) : ?>
-				<div class="sg-hv__ctas sg-hv__ctas--center">
-					<?php if ( ! empty( $args['primary_url'] ) ) : ?>
-						<a class="sg-btn sg-btn--soft-blue" href="<?php echo esc_url( (string) $args['primary_url'] ); ?>">
-							<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
-						</a>
-					<?php endif; ?>
-					<?php if ( ! empty( $args['secondary_url'] ) ) : ?>
-						<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( (string) $args['secondary_url'] ); ?>">
-							<?php echo esc_html( (string) ( $args['secondary_label'] ?? '' ) ); ?>
-						</a>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
+			<div class="sg-contact-hero__copy">
+				<?php site_blocks_hero_variant_breadcrumb( $breadcrumb ); ?>
+				<p class="sg-hv__badge"><?php echo esc_html( (string) ( $args['badge'] ?? '' ) ); ?></p>
+				<?php
+				site_blocks_hero_variant_title(
+					$heading_id,
+					(string) ( $args['title_before'] ?? '' ),
+					$title_accent,
+					$title_after,
+					'sg-hv__title'
+				);
+				?>
+				<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
+				<?php if ( '' !== $phone_html ) : ?>
+					<p class="sg-hv--editorial__phone">
+						<span class="sg-contact-hero__phone-mark" aria-hidden="true"><?php site_blocks_lucide_icon( 'phone', 22 ); ?></span>
+						<?php echo $phone_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with esc_* by caller. ?>
+					</p>
+				<?php endif; ?>
+				<?php if ( ! empty( $args['primary_url'] ) || ! empty( $args['secondary_url'] ) ) : ?>
+					<div class="sg-contact-hero__ctas">
+						<?php if ( ! empty( $args['primary_url'] ) ) : ?>
+							<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( (string) $args['primary_url'] ); ?>">
+								<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
+								<?php site_blocks_lucide_icon( 'arrow-right', 18 ); ?>
+							</a>
+						<?php endif; ?>
+						<?php if ( ! empty( $args['secondary_url'] ) ) : ?>
+							<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( (string) $args['secondary_url'] ); ?>">
+								<?php echo esc_html( (string) ( $args['secondary_label'] ?? '' ) ); ?>
+								<?php site_blocks_lucide_icon( 'phone', 18 ); ?>
+							</a>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
+			</div>
 			<?php if ( $proof !== array() ) : ?>
 				<ul class="sg-hv--editorial__proof">
 					<?php foreach ( $proof as $item ) : ?>
@@ -604,10 +616,16 @@ function site_blocks_render_hero_variant_editorial( array $args ): void {
 						if ( ! is_array( $item ) ) {
 							continue;
 						}
+						$icon = (string) ( $item['icon'] ?? '' );
 						?>
 						<li>
-							<strong><?php echo esc_html( (string) ( $item['label'] ?? '' ) ); ?></strong>
-							<span><?php echo esc_html( (string) ( $item['value'] ?? '' ) ); ?></span>
+							<?php if ( '' !== $icon ) : ?>
+								<span class="sg-contact-hero__fact-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $icon, 18 ); ?></span>
+							<?php endif; ?>
+							<span>
+								<strong><?php echo esc_html( (string) ( $item['label'] ?? '' ) ); ?></strong>
+								<span><?php echo esc_html( (string) ( $item['value'] ?? '' ) ); ?></span>
+							</span>
 						</li>
 					<?php endforeach; ?>
 				</ul>

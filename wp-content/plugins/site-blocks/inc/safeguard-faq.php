@@ -19,16 +19,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 function site_blocks_get_safeguard_faq_items(): array {
 	return array(
 		array(
-			'q' => __( 'How does the online quote process work?', 'site-blocks' ),
-			'a' => __( 'You answer a few questions about your property, upload photos and site details, and our team reviews everything remotely. We then prepare one clear estimate for the complete solution.', 'site-blocks' ),
+			'q' => __( 'How does a quote start?', 'site-blocks' ),
+			'a' => __( 'Tell us the site and what you need. A person on the team checks the details and confirms the scope before work begins.', 'site-blocks' ),
 		),
 		array(
 			'q' => __( 'Do you visit my site before providing a quote?', 'site-blocks' ),
-			'a' => __( 'We review remotely wherever possible. If a site visit is needed to confirm details or access, we arrange that before finalising your estimate.', 'site-blocks' ),
+			'a' => __( 'Sometimes a visit is needed to confirm the site. The team arranges that before the quote is final.', 'site-blocks' ),
 		),
 		array(
 			'q' => __( 'What if I\'m not sure what system I need?', 'site-blocks' ),
-			'a' => __( 'Use our guided flow and our team will recommend the right combination of alarm, CCTV, access and monitoring for your property and goals.', 'site-blocks' ),
+			'a' => __( 'Tell the team what the property is for. They will recommend alarm, CCTV, access and monitoring that fit the site.', 'site-blocks' ),
 		),
 		array(
 			'q' => __( 'What brands and systems do you use?', 'site-blocks' ),
@@ -36,7 +36,7 @@ function site_blocks_get_safeguard_faq_items(): array {
 		),
 		array(
 			'q' => __( 'Is there any obligation when I request a quote?', 'site-blocks' ),
-			'a' => __( 'No. Requesting a quote is free and there is no obligation to proceed until you are ready to approve your estimate.', 'site-blocks' ),
+			'a' => __( 'No. Asking for a quote does not commit you to the work.', 'site-blocks' ),
 		),
 	);
 }

@@ -17,7 +17,7 @@ site_blocks_render_quote_cta(
 		'before'        => __( 'See who\'s there. Decide from ', 'site-blocks' ),
 		'accent'        => __( 'anywhere', 'site-blocks' ),
 		'after'         => __( '.', 'site-blocks' ),
-		'sub'           => __( 'Tell us your entries and how you\'d like to answer them. Get a tailored intercom estimate, reviewed by our technicians, without waiting days for a salesperson.', 'site-blocks' ),
+		'sub'           => __( 'Tell us your entries and how you would like to answer them. A technician reviews the scope.', 'site-blocks' ),
 		'section_class' => 'sg-cctv-cta sg-intercom-cta',
 	)
 );

@@ -1,6 +1,6 @@
 <?php
 /**
- * Ajax Alarm Systems, monitoring options row.
+ * Ajax Alarm Systems — monitoring options (copy + app collage).
  *
  * @package Site_Blocks
  *
@@ -15,54 +15,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/ajax-alarm-systems-icons.php';
 
+$monitor_img = site_blocks_asset_url( 'images/ajax/ajax-monitoring-app.webp' );
+
 $options = array(
 	array(
 		'title'       => __( 'Self-monitoring via app', 'site-blocks' ),
-		'description' => __( 'Monitor your Ajax system directly from the Ajax app on your phone with instant alerts when sensors trigger.', 'site-blocks' ),
-		'icon'        => 'wifi.png',
+		'description' => __( 'Stay in control with real-time alerts and system updates in the Ajax app.', 'site-blocks' ),
+		'icon'        => 'smartphone',
 	),
 	array(
 		'title'       => __( 'Professional monitoring', 'site-blocks' ),
-		'description' => __( 'Connect your system to a monitoring centre for 24/7 response when alarms are activated.', 'site-blocks' ),
-		'icon'        => 'shield.png',
+		'description' => __( 'Connect the system to an alarm monitoring service when monitoring is selected for the job.', 'site-blocks' ),
+		'icon'        => 'headset',
 	),
 	array(
 		'title'       => __( 'Backup communication', 'site-blocks' ),
-		'description' => __( 'Dual-path communication using Ethernet, Wi-Fi and cellular to keep the system online.', 'site-blocks' ),
-		'icon'        => '4g.png',
+		'description' => __( 'We design reliable backup paths to keep you connected when it matters most.', 'site-blocks' ),
+		'icon'        => 'shield-check',
 	),
 );
 ?>
 <section class="sg-ajax-section sg-ajax-monitoring alignfull" aria-labelledby="sg-ajax-monitoring-heading">
 	<div class="sg-container">
-		<header class="sg-ajax-section__header">
-			<p class="sg-ajax-section__eyebrow"><?php esc_html_e( 'Monitoring', 'site-blocks' ); ?></p>
-			<h2 id="sg-ajax-monitoring-heading" class="sg-ajax-section__title">
-				<?php esc_html_e( 'Choose the alarm response that suits how you want to manage security.', 'site-blocks' ); ?>
-			</h2>
-		</header>
-
-		<div class="sg-ajax-monitoring__grid">
-			<?php foreach ( $options as $option ) : ?>
-				<article class="sg-ajax-icon-card">
-					<div class="sg-ajax-icon-card__icon" aria-hidden="true">
-						<?php site_blocks_ajax_hero_icon( $option['icon'] ); ?>
-					</div>
-					<h3 class="sg-ajax-icon-card__title"><?php echo esc_html( $option['title'] ); ?></h3>
-					<p class="sg-ajax-icon-card__desc"><?php echo esc_html( $option['description'] ); ?></p>
-				</article>
-			<?php endforeach; ?>
-
-			<article class="sg-ajax-icon-card sg-ajax-icon-card--cta">
-				<h3 class="sg-ajax-icon-card__title"><?php esc_html_e( 'Not sure which monitoring option fits?', 'site-blocks' ); ?></h3>
-				<p class="sg-ajax-icon-card__desc">
-					<?php esc_html_e( 'Every property is different. We can recommend the right monitoring setup based on how you want to manage security.', 'site-blocks' ); ?>
+		<div class="sg-ajax-monitoring__layout">
+			<div class="sg-ajax-monitoring__copy">
+				<p class="sg-ajax-section__eyebrow"><?php esc_html_e( 'Monitoring Options', 'site-blocks' ); ?></p>
+				<h2 id="sg-ajax-monitoring-heading" class="sg-ajax-section__title">
+					<?php esc_html_e( 'Choose how your Ajax system is monitored', 'site-blocks' ); ?>
+				</h2>
+				<p class="sg-ajax-monitoring__lead">
+					<?php esc_html_e( 'Safeguard can configure your system for self-monitoring via the Ajax app, discuss professional monitoring options, and plan backup communication to keep your property protected at all times.', 'site-blocks' ); ?>
 				</p>
-				<a class="sg-ajax-icon-card__link" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
-					<?php esc_html_e( 'Speak to Us', 'site-blocks' ); ?>
-					<?php site_blocks_lucide_icon( 'arrow-right', 14 ); ?>
-				</a>
-			</article>
+
+				<ul class="sg-ajax-monitoring__features" role="list">
+					<?php foreach ( $options as $option ) : ?>
+						<li class="sg-ajax-monitoring__feature">
+							<span class="sg-ajax-monitoring__feature-icon" aria-hidden="true">
+								<?php site_blocks_lucide_icon( $option['icon'], 22 ); ?>
+							</span>
+							<div class="sg-ajax-monitoring__feature-body">
+								<h3 class="sg-ajax-monitoring__feature-title"><?php echo esc_html( $option['title'] ); ?></h3>
+								<p class="sg-ajax-monitoring__feature-desc"><?php echo esc_html( $option['description'] ); ?></p>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+
+			<figure class="sg-ajax-monitoring__media">
+				<img
+					class="sg-ajax-monitoring__img"
+					src="<?php echo esc_url( $monitor_img ); ?>"
+					alt="<?php esc_attr_e( 'Ajax app on a phone with Hub and sensors in a modern home', 'site-blocks' ); ?>"
+					width="624"
+					height="780"
+					loading="lazy"
+					decoding="async"
+				/>
+			</figure>
 		</div>
 	</div>
 </section>

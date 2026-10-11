@@ -77,6 +77,58 @@ function site_blocks_create_contact_page(): void {
 }
 
 /**
+ * Return pattern markup for the About page.
+ *
+ * @return string
+ */
+function site_blocks_get_about_page_content(): string {
+	$pattern_file = SITE_BLOCKS_DIR . 'patterns/about-page.php';
+
+	if ( ! file_exists( $pattern_file ) ) {
+		return '';
+	}
+
+	$pattern = include $pattern_file;
+
+	return is_array( $pattern ) && isset( $pattern['content'] ) ? $pattern['content'] : '';
+}
+
+/**
+ * Create or update the published About page.
+ */
+function site_blocks_create_about_page(): void {
+	$content = site_blocks_get_about_page_content();
+
+	if ( '' === $content ) {
+		return;
+	}
+
+	$existing = get_page_by_path( 'about' );
+
+	$page_data = array(
+		'post_title'   => __( 'About', 'site-blocks' ),
+		'post_name'    => 'about',
+		'post_content' => $content,
+		'post_status'  => 'publish',
+		'post_type'    => 'page',
+		'post_author'  => 1,
+	);
+
+	if ( $existing instanceof WP_Post ) {
+		$page_data['ID'] = $existing->ID;
+		$page_id         = wp_update_post( $page_data, true );
+	} else {
+		$page_id = wp_insert_post( $page_data, true );
+	}
+
+	if ( is_wp_error( $page_id ) || ! $page_id ) {
+		return;
+	}
+
+	site_blocks_apply_safeguard_page_meta( (int) $page_id );
+}
+
+/**
  * Return pattern markup for the homepage.
  *
  * @return string
@@ -215,6 +267,110 @@ function site_blocks_create_ajax_alarm_systems_page(): void {
 	$page_data = array(
 		'post_title'   => __( 'Ajax Alarm Systems', 'site-blocks' ),
 		'post_name'    => 'ajax-alarm-systems',
+		'post_content' => $content,
+		'post_status'  => 'publish',
+		'post_type'    => 'page',
+		'post_author'  => 1,
+	);
+
+	if ( $existing instanceof WP_Post ) {
+		$page_data['ID'] = $existing->ID;
+		$page_id         = wp_update_post( $page_data, true );
+	} else {
+		$page_id = wp_insert_post( $page_data, true );
+	}
+
+	if ( is_wp_error( $page_id ) || ! $page_id ) {
+		return;
+	}
+
+	site_blocks_apply_safeguard_page_meta( (int) $page_id );
+}
+
+/**
+ * Return pattern markup for the Paradox M25 landing page.
+ *
+ * @return string
+ */
+function site_blocks_get_paradox_m25_page_content(): string {
+	$pattern_file = SITE_BLOCKS_DIR . 'patterns/paradox-m25-page.php';
+
+	if ( ! file_exists( $pattern_file ) ) {
+		return '';
+	}
+
+	$pattern = include $pattern_file;
+
+	return is_array( $pattern ) && isset( $pattern['content'] ) ? $pattern['content'] : '';
+}
+
+/**
+ * Create or update the Paradox M25 SEO landing page.
+ */
+function site_blocks_create_paradox_m25_page(): void {
+	$content = site_blocks_get_paradox_m25_page_content();
+
+	if ( '' === $content ) {
+		return;
+	}
+
+	$existing = get_page_by_path( 'paradox-m25' );
+
+	$page_data = array(
+		'post_title'   => __( 'Paradox M25', 'site-blocks' ),
+		'post_name'    => 'paradox-m25',
+		'post_content' => $content,
+		'post_status'  => 'publish',
+		'post_type'    => 'page',
+		'post_author'  => 1,
+	);
+
+	if ( $existing instanceof WP_Post ) {
+		$page_data['ID'] = $existing->ID;
+		$page_id         = wp_update_post( $page_data, true );
+	} else {
+		$page_id = wp_insert_post( $page_data, true );
+	}
+
+	if ( is_wp_error( $page_id ) || ! $page_id ) {
+		return;
+	}
+
+	site_blocks_apply_safeguard_page_meta( (int) $page_id );
+}
+
+/**
+ * Return pattern markup for the Akuvox landing page.
+ *
+ * @return string
+ */
+function site_blocks_get_akuvox_page_content(): string {
+	$pattern_file = SITE_BLOCKS_DIR . 'patterns/akuvox-page.php';
+
+	if ( ! file_exists( $pattern_file ) ) {
+		return '';
+	}
+
+	$pattern = include $pattern_file;
+
+	return is_array( $pattern ) && isset( $pattern['content'] ) ? $pattern['content'] : '';
+}
+
+/**
+ * Create or update the Akuvox SEO landing page.
+ */
+function site_blocks_create_akuvox_page(): void {
+	$content = site_blocks_get_akuvox_page_content();
+
+	if ( '' === $content ) {
+		return;
+	}
+
+	$existing = get_page_by_path( 'akuvox' );
+
+	$page_data = array(
+		'post_title'   => __( 'Akuvox', 'site-blocks' ),
+		'post_name'    => 'akuvox',
 		'post_content' => $content,
 		'post_status'  => 'publish',
 		'post_type'    => 'page',

@@ -36,7 +36,7 @@ if ( $leads === array() && '' !== (string) ( $config['lead'] ?? '' ) ) {
 	$leads = array( (string) $config['lead'] );
 }
 
-$primary_url   = (string) ( $config['primary_url'] ?? home_url( '/get-an-instant-quote/' ) );
+$primary_url   = (string) ( $config['primary_url'] ?? home_url( '/contact/' ) );
 $primary_label = (string) ( $config['primary_label'] ?? __( 'Hire ManPower', 'site-blocks' ) );
 
 $hero_image = 'images/manpower/' . ltrim( (string) $config['hero_image'], '/' );
@@ -123,7 +123,7 @@ $breadcrumb = isset( $config['breadcrumb'] ) && is_array( $config['breadcrumb'] 
 				<?php endforeach; ?>
 
 				<div class="sg-mp-trio-hero__ctas">
-					<a class="sg-btn sg-btn--soft-blue" href="<?php echo esc_url( $primary_url ); ?>">
+					<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( $primary_url ); ?>">
 						<?php echo esc_html( $primary_label ); ?>
 					</a>
 				</div>

@@ -43,7 +43,7 @@ function site_blocks_intercom_meta_description(): void {
 	printf(
 		'<meta name="description" content="%s" />' . "\n",
 		esc_attr__(
-			'See and speak to visitors before you open the door. Safeguard designs and installs video and audio intercom systems across Sydney. Start your quote online.',
+			'See and speak to visitors before you open the door. Safeguard designs and installs video and audio intercom systems.',
 			'site-blocks'
 		)
 	);
@@ -79,19 +79,14 @@ function site_blocks_intercom_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed' => array(
-				'@type' => 'City',
-				'name'  => 'Sydney',
-			),
 		),
 		array(
 			'@context'    => 'https://schema.org',
 			'@type'       => 'Service',
 			'serviceType' => 'Intercom system installation',
 			'provider'    => array( '@id' => $site_url . '#business' ),
-			'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'url'         => $page_url,
-			'description' => 'Design and installation of video and audio intercom systems for homes, apartments and businesses across Sydney.',
+			'description' => 'Design and installation of video and audio intercom systems for homes, apartments and businesses.',
 		),
 		array(
 			'@context'        => 'https://schema.org',

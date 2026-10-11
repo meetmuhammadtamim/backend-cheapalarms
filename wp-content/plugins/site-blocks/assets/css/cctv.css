@@ -252,7 +252,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 40%;
-  border-radius: 0;
+  border-radius: 12px;
   box-shadow: none;
   vertical-align: bottom;
 }
@@ -452,7 +452,7 @@
 
 .sg-cctv-intro__media {
   margin: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   min-height: 180px;
   background: #d5dde4;
@@ -482,7 +482,7 @@
   min-height: 6.5rem;
   padding: 0.85rem 0.5rem;
   border: 1px solid #e2e8ee;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fff;
   text-align: center;
 }
@@ -1279,7 +1279,7 @@ body.safeguard-cctv-page .sg-cctv-trust__panel {
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
-  border-radius: 0;
+  border-radius: 12px;
   box-shadow: none;
 }
 

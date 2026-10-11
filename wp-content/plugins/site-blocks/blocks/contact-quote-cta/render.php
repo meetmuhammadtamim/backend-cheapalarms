@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 site_blocks_render_quote_cta(
 	array(
 		'heading_id'    => 'sg-contact-cta-heading',
-		'before'        => __( 'Ready for a quote? Start ', 'site-blocks' ),
-		'accent'        => __( 'online', 'site-blocks' ),
-		'sub'           => __( 'Use our instant quote flow for alarms, CCTV, access control and monitoring, or send us a message above.', 'site-blocks' ),
+		'before'        => __( 'Ready for a quote? Send a ', 'site-blocks' ),
+		'accent'        => __( 'message', 'site-blocks' ),
+		'sub'           => __( 'Tell us the site and what you need. A person on the team checks the scope before work begins.', 'site-blocks' ),
 		'section_class' => 'sg-contact-cta',
 	)
 );

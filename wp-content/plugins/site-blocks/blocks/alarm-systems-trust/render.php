@@ -44,7 +44,7 @@ site_blocks_render_trust_panel(
 			),
 			array(
 				'title' => __( 'Support after install', 'site-blocks' ),
-				'desc'  => __( 'Servicing, monitoring and portal access.', 'site-blocks' ),
+				'desc'  => __( 'Servicing and monitoring.', 'site-blocks' ),
 				'icon'  => 'headset',
 			),
 		),

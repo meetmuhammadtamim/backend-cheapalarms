@@ -1,4 +1,4 @@
-/* Safeguard floating AI chat widget */
+/* Safeguard live chat widget */
 
 .sg-chat {
   --sg-chat-blue: var(--sg-blue, #1769A1);
@@ -42,7 +42,7 @@ body:has(.sg-mobile-bar:not([aria-hidden="true"])) .sg-chat {
   font-weight: 600;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(12, 45, 68, 0.22);
+  box-shadow: var(--sg-shadow-overlay, 0 16px 40px rgb(12 45 68 / 16%));
   transition:
     background 0.2s ease,
     box-shadow 0.28s var(--sg-chat-ease),
@@ -123,10 +123,10 @@ body:has(.sg-mobile-bar:not([aria-hidden="true"])) .sg-chat {
   display: flex;
   flex-direction: column;
   width: min(100vw - 2rem, 22rem);
-  height: min(70vh, 32rem);
+  height: min(82vh, 40rem);
   border: 1px solid var(--sg-chat-line);
   background: #fff;
-  box-shadow: 0 18px 50px rgba(12, 45, 68, 0.18);
+  box-shadow: var(--sg-shadow-overlay, 0 16px 40px rgb(12 45 68 / 16%));
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
@@ -610,7 +610,7 @@ body:has(.sg-mobile-bar:not([aria-hidden="true"])) .sg-chat {
   }
 }
 
-.sg-chat__form {
+#sg-chat-form.sg-chat__form {
   display: flex;
   flex-shrink: 0;
   align-items: flex-end;
@@ -618,6 +618,25 @@ body:has(.sg-mobile-bar:not([aria-hidden="true"])) .sg-chat {
   padding: 0.75rem;
   border-top: 1px solid var(--sg-chat-line);
   background: #fff;
+}
+
+#sg-chat-form.sg-chat__form[hidden] {
+  display: none;
+}
+
+.sg-chat__messages .sg-chat__lead,
+.sg-chat__messages > .sg-chat__form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .sg-chat__input {
@@ -678,7 +697,7 @@ body:has(.sg-mobile-bar:not([aria-hidden="true"])) .sg-chat {
 @media (max-width: 480px) {
   .sg-chat__panel {
     width: min(100vw - 1.25rem, 22rem);
-    height: min(72vh, 28rem);
+    height: min(82vh, 40rem);
   }
 
   .sg-chat__toggle-label {

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site/paradox-m25-hero",
+  "version": "1.0.0",
+  "title": "Paradox M25 Hero",
+  "category": "theme",
+  "icon": "shield",
+  "description": "Stage hero for the Paradox M25 landing page.",
+  "keywords": ["paradox", "m25", "alarm", "safeguard"],
+  "textdomain": "site-blocks",
+  "supports": { "html": false, "align": ["full"], "multiple": false },
+  "render": "file:./render.php"
+}

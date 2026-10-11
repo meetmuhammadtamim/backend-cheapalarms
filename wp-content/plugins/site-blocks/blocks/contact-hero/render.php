@@ -65,7 +65,7 @@ site_blocks_render_hero_variant(
 				'current' => true,
 			),
 		),
-		'badge'           => __( 'Contact · Sydney', 'site-blocks' ),
+		'badge'           => __( 'Contact', 'site-blocks' ),
 		'title_before'    => $title_before,
 		'title_accent'    => $title_accent,
 		'title_after'     => $title_after,
@@ -75,18 +75,27 @@ site_blocks_render_hero_variant(
 		'primary_url'     => '#sg-contact-form',
 		'secondary_label' => __( 'Call us', 'site-blocks' ),
 		'secondary_url'   => $phone_h,
+		'background_url'  => site_blocks_asset_url( 'images/contact/entrance.webp' ),
 		'proof'           => array(
 			array(
+				'icon'  => 'phone',
 				'label' => __( 'Phone', 'site-blocks' ),
 				'value' => $phone,
 			),
 			array(
+				'icon'  => 'clock',
 				'label' => __( 'Hours', 'site-blocks' ),
 				'value' => (string) ( $defaults['hoursNote'] ?? '' ),
 			),
 			array(
+				'icon'  => 'shield-check',
 				'label' => __( 'Licensed', 'site-blocks' ),
 				'value' => __( 'Master Licence #000103619', 'site-blocks' ),
+			),
+			array(
+				'icon'  => 'users',
+				'label' => __( 'Member', 'site-blocks' ),
+				'value' => __( 'ASIAL', 'site-blocks' ),
 			),
 		),
 	)

@@ -20,10 +20,10 @@ require_once SITE_BLOCKS_DIR . 'inc/safeguard-faq.php';
  */
 function site_blocks_default_quote_ctas(): array {
 	return array(
-		'primary_label'   => __( 'Start My Quote', 'site-blocks' ),
-		'primary_url'     => home_url( '/get-an-instant-quote/' ),
-		'secondary_label' => __( 'Help Me Choose', 'site-blocks' ),
-		'secondary_url'   => home_url( '/design-my-solution/' ),
+		'primary_label'   => __( 'Request a quote', 'site-blocks' ),
+		'primary_url'     => home_url( '/contact/' ),
+		'secondary_label' => __( 'Call 1300 225 276', 'site-blocks' ),
+		'secondary_url'   => 'tel:1300225276',
 	);
 }
 
@@ -403,7 +403,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 						<?php endif; ?>
 					</div>
 					<?php if ( '' !== $cta_label && '' !== $cta_url ) : ?>
-						<a class="sg-btn sg-btn--primary sg-ac-options__cta-btn" href="<?php echo esc_url( $cta_url ); ?>">
+						<a class="sg-btn sg-btn--orange sg-btn--sm sg-ac-options__cta-btn" href="<?php echo esc_url( $cta_url ); ?>">
 							<?php echo esc_html( $cta_label ); ?>
 							<span class="sg-ac-options__cta-chevron" aria-hidden="true"><?php site_blocks_lucide_icon( 'chevron-right', 18 ); ?></span>
 						</a>
@@ -622,6 +622,10 @@ function site_blocks_render_intro_proofs( array $config ): void {
  * } $config Section content.
  */
 function site_blocks_render_portal_band( array $config ): void {
+	// Paused until live quoting and the customer portal are public.
+	unset( $config );
+	return;
+
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-homepage-markup.php';
 
 	$image_path = isset( $config['image_path'] ) ? (string) $config['image_path'] : 'images/portal/portal-dashboard.png';
@@ -745,11 +749,11 @@ function site_blocks_default_ajax_quote_cta_config(): array {
 
 	return array(
 		'heading_id'         => 'sg-ajax-quote-cta-heading',
-		'eyebrow'            => __( 'Start your quote', 'site-blocks' ),
+		'eyebrow'            => __( 'Request a quote', 'site-blocks' ),
 		'title'              => __( 'Design your Ajax system with Safeguard.', 'site-blocks' ),
-		'lead'               => __( 'Start with the Ajax calculator, get pricing quickly, and we\'ll design the right system for your property.', 'site-blocks' ),
-		'primary_label'      => __( 'Open Ajax calculator', 'site-blocks' ),
-		'primary_url'        => home_url( '/ajax-calculator/' ),
+		'lead'               => __( 'Tell us about the property. A person on the team checks the scope before work begins.', 'site-blocks' ),
+		'primary_label'      => __( 'Request a quote', 'site-blocks' ),
+		'primary_url'        => home_url( '/contact/' ),
 		'secondary_label'    => sprintf(
 			/* translators: %s: phone number */
 			__( 'Call %s', 'site-blocks' ),
@@ -760,14 +764,14 @@ function site_blocks_default_ajax_quote_cta_config(): array {
 		'phone_label'        => $phone_label,
 		'bg_image'           => site_blocks_asset_url( 'images/ajax/ajax-bg.webp' ),
 		'safeguard_logo'     => site_blocks_asset_url( 'images/brand/safeguard-logo-footer.png' ),
-		'features_aria_label'=> __( 'Why start your quote with Safeguard', 'site-blocks' ),
+		'features_aria_label'=> __( 'Why request a quote with Safeguard', 'site-blocks' ),
 		'trust_aria_label'   => __( 'Safeguard credentials', 'site-blocks' ),
 		'section_class'      => '',
 		'alignfull'          => true,
 		'features'           => array(
 			array(
-				'title'       => __( 'Price on the spot', 'site-blocks' ),
-				'description' => __( 'Get instant pricing for most properties.', 'site-blocks' ),
+				'title'       => __( 'A person checks it', 'site-blocks' ),
+				'description' => __( 'Tell us the site and what you need.', 'site-blocks' ),
 				'icon'        => 'dollar.png',
 				'accent'      => 'orange',
 			),
@@ -778,8 +782,8 @@ function site_blocks_default_ajax_quote_cta_config(): array {
 				'accent'      => 'blue',
 			),
 			array(
-				'title'       => __( 'Track everything', 'site-blocks' ),
-				'description' => __( 'Manage your system in your secure online portal.', 'site-blocks' ),
+				'title'       => __( 'One scope', 'site-blocks' ),
+				'description' => __( 'The team confirms what is included before work begins.', 'site-blocks' ),
 				'icon'        => 'secure.png',
 				'accent'      => 'blue',
 			),

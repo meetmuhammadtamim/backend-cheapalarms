@@ -61,12 +61,14 @@ $rows = array(
 		'label' => __( 'Hours', 'site-blocks' ),
 		'value' => esc_html( $hours ),
 	),
-	array(
+);
+if ( '' !== trim( $response ) ) {
+	$rows[] = array(
 		'icon'  => 'message-circle',
 		'label' => __( 'Response time', 'site-blocks' ),
 		'value' => esc_html( $response ),
-	),
-);
+	);
+}
 ?>
 <div class="sg-contact-details" aria-labelledby="sg-contact-details-heading">
 	<h2 id="sg-contact-details-heading" class="sg-contact-details__title">
@@ -103,11 +105,6 @@ $rows = array(
 			</div>
 		<?php endforeach; ?>
 	</dl>
-
-	<p class="sg-contact-details__quote">
-		<?php esc_html_e( 'Need a price first?', 'site-blocks' ); ?>
-		<a href="<?php echo esc_url( home_url( '/get-an-instant-quote/' ) ); ?>"><?php esc_html_e( 'Start your quote online', 'site-blocks' ); ?></a>
-	</p>
 
 	<?php if ( $show_map && $maps_embed ) : ?>
 		<div class="sg-contact-details__map">

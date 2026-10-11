@@ -1,0 +1,42 @@
+/**
+ * ManPower calculator page — natural document flow (no forced viewport heights).
+ */
+
+/* Mobile CTA bar covers the calculator Continue bar — hide only that. */
+body.sg-manpower-calculator-page .sg-mobile-bar {
+	display: none !important;
+}
+
+.sg-page--manpower-calculator .sg-main--manpower-calculator {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.sg-page--manpower-calculator .sg-footer {
+	position: relative;
+	z-index: 0;
+}
+
+.sg-manpower-calculator-embed {
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	line-height: 0;
+	background: #f4f8fb;
+	position: relative;
+	z-index: 1;
+}
+
+.sg-manpower-calculator-frame {
+	display: block;
+	width: 100%;
+	height: 720px; /* starter; JS syncs to content */
+	border: 0;
+	background: #fff;
+	vertical-align: top;
+	position: relative;
+	z-index: 1;
+}

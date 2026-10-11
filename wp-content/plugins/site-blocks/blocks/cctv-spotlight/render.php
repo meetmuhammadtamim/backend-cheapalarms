@@ -89,11 +89,11 @@ if ( ! is_readable( SITE_BLOCKS_DIR . 'assets/' . $image_path ) ) {
 					</ul>
 
 				<div class="sg-product-spotlight__ctas">
-					<a class="sg-btn sg-btn--primary sg-product-spotlight__btn" href="<?php echo esc_url( 'tel:' . $phone ); ?>">
+					<a class="sg-btn sg-btn--secondary sg-product-spotlight__btn" href="<?php echo esc_url( 'tel:' . $phone ); ?>">
 						<span class="sg-btn__icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'phone', 16 ); ?></span>
 						<?php echo esc_html( $phone_fmt ); ?>
 					</a>
-					<a class="sg-btn sg-btn--ghost sg-product-spotlight__btn" href="<?php echo esc_url( $quote_url ); ?>">
+					<a class="sg-btn sg-btn--orange sg-product-spotlight__btn" href="<?php echo esc_url( $quote_url ); ?>">
 						<?php esc_html_e( 'Request a Quote', 'site-blocks' ); ?>
 					</a>
 				</div>

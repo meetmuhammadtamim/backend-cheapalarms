@@ -86,7 +86,6 @@ function site_blocks_electronic_security_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed'         => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'additionalProperty' => array(
 				'@type' => 'PropertyValue',
 				'name'  => 'Security Master Licence',
@@ -100,9 +99,8 @@ function site_blocks_electronic_security_schema(): void {
 		'@type'       => 'Service',
 		'serviceType' => 'Electronic security systems',
 		'provider'    => array( '@id' => $site_url . '#business' ),
-		'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 		'url'         => $page_url,
-		'description' => 'Alarms, CCTV, access control, intercoms and monitoring for Sydney homes and businesses, designed, installed and supported by Safeguard.',
+		'description' => 'Alarms, CCTV, access control, intercoms and monitoring, designed, installed and supported by Safeguard.',
 	);
 
 	$schema[] = array(

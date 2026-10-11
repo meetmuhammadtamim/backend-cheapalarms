@@ -3,7 +3,6 @@
 namespace CheapAlarms\Plugin;
 
 use CheapAlarms\Plugin\Admin\UserCapabilities;
-use CheapAlarms\Plugin\Admin\ChatConversationsAdmin;
 use CheapAlarms\Plugin\Config\Config;
 use CheapAlarms\Plugin\Db\Schema;
 use CheapAlarms\Plugin\Frontend\PortalPage;
@@ -288,29 +287,6 @@ class Plugin
         add_action('ca_retry_failed_webhooks_recurring', function () {
             wp_schedule_single_event(time() + 1, 'ca_retry_failed_webhooks');
         });
-
-        // Live-chat handoff timeout (waiting_agent → timed_out after N minutes)
-        add_action('ca_chat_handoff_timeout', function () {
-            $this->container->get(\CheapAlarms\Plugin\Services\ChatConversationService::class)
-                ->timeoutExpiredWaitingAgents();
-        }, 10, 0);
-
-        if (!wp_next_scheduled('ca_chat_handoff_timeout_recurring')) {
-            wp_schedule_event(time() + 120, 'ca_every_5_minutes', 'ca_chat_handoff_timeout_recurring');
-        }
-
-        add_action('ca_chat_handoff_timeout_recurring', function () {
-            wp_schedule_single_event(time() + 1, 'ca_chat_handoff_timeout');
-        });
-
-        add_action('ca_chat_conversation_timed_out', function ($conversationId) {
-            $id = (int) $conversationId;
-            if ($id < 1 || !$this->container->has(\CheapAlarms\Plugin\Services\ChatHandoffNotifier::class)) {
-                return;
-            }
-            $this->container->get(\CheapAlarms\Plugin\Services\ChatHandoffNotifier::class)
-                ->markAlertTimedOut($id);
-        }, 10, 1);
 
         // Retry failed GHL webhooks (every 5 minutes, uses same schedule)
         add_action('ca_retry_failed_ghl_webhooks', function () {
@@ -811,6 +787,14 @@ class Plugin
             $this->container->get(Logger::class),
             $this->container->get(Config::class)
         ));
+        $this->container->set(\CheapAlarms\Plugin\Services\GuardingQuoteService::class, fn () => new \CheapAlarms\Plugin\Services\GuardingQuoteService(
+            $this->container->get(\CheapAlarms\Plugin\Services\GhlClient::class),
+            $this->container->get(\CheapAlarms\Plugin\Services\GhlSignalService::class),
+            $this->container->get(\CheapAlarms\Plugin\Services\PortalService::class),
+            $this->container->get(\CheapAlarms\Plugin\Services\EmailTemplateService::class),
+            $this->container->get(Config::class),
+            $this->container->get(Logger::class)
+        ));
         $this->container->set(\CheapAlarms\Plugin\Services\GhlSignalDispatcher::class, fn () => new \CheapAlarms\Plugin\Services\GhlSignalDispatcher(
             $this->container->get(\CheapAlarms\Plugin\Services\GhlSignalService::class),
             $this->container->get(Logger::class)
@@ -1013,6 +997,14 @@ class Plugin
             $this->container->get(Logger::class),
             $this->container->get(Config::class)
         ));
+        $this->container->set(\CheapAlarms\Plugin\Services\GuardingQuoteService::class, fn () => new \CheapAlarms\Plugin\Services\GuardingQuoteService(
+            $this->container->get(\CheapAlarms\Plugin\Services\GhlClient::class),
+            $this->container->get(\CheapAlarms\Plugin\Services\GhlSignalService::class),
+            $this->container->get(\CheapAlarms\Plugin\Services\PortalService::class),
+            $this->container->get(\CheapAlarms\Plugin\Services\EmailTemplateService::class),
+            $this->container->get(Config::class),
+            $this->container->get(Logger::class)
+        ));
         $this->container->set(\CheapAlarms\Plugin\Services\ChatLeadService::class, fn () => new \CheapAlarms\Plugin\Services\ChatLeadService(
             $this->container->get(\CheapAlarms\Plugin\Services\GhlClient::class),
             $this->container->get(\CheapAlarms\Plugin\Services\GhlSignalService::class),
@@ -1056,6 +1048,7 @@ class Plugin
             (new SetupBootstrapController($this->container))->register();
             (new CalculatorController($this->container))->register();
             (new ChatController($this->container))->register();
+            (new \CheapAlarms\Plugin\REST\Controllers\GuardingQuoteController($this->container))->register();
             (new \CheapAlarms\Plugin\REST\Controllers\OtpController($this->container))->register();
             (new \CheapAlarms\Plugin\REST\Controllers\TelegramWebhookController($this->container))->register();
         });
@@ -1122,7 +1115,6 @@ class Plugin
     {
         if (is_admin()) {
             new UserCapabilities($this->container);
-            (new ChatConversationsAdmin($this->container))->register();
         }
     }
 

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site/paradox-m25-section",
+  "version": "1.0.0",
+  "title": "Paradox M25 Section",
+  "category": "theme",
+  "icon": "layout",
+  "description": "Config-driven section for the Paradox M25 landing page.",
+  "keywords": ["paradox", "m25", "section", "safeguard"],
+  "textdomain": "site-blocks",
+  "attributes": {
+    "section": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": { "html": false, "align": ["full"], "multiple": true },
+  "render": "file:./render.php"
+}

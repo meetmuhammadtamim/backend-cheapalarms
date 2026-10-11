@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-stage-hero.php';
 
-$eyebrow   = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : __( 'Alarm Systems · Sydney', 'site-blocks' );
-$cta_label = isset( $attributes['primaryCtaLabel'] ) ? (string) $attributes['primaryCtaLabel'] : __( 'Start My Quote', 'site-blocks' );
-$cta_url   = isset( $attributes['primaryCtaUrl'] ) ? (string) $attributes['primaryCtaUrl'] : '/get-an-instant-quote/';
-$sec_label = isset( $attributes['secondaryCtaLabel'] ) ? (string) $attributes['secondaryCtaLabel'] : __( 'Help Me Choose', 'site-blocks' );
-$sec_url   = isset( $attributes['secondaryCtaUrl'] ) ? (string) $attributes['secondaryCtaUrl'] : '/design-my-solution/';
+$eyebrow   = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : __( 'Alarm Systems', 'site-blocks' );
+$cta_label = isset( $attributes['primaryCtaLabel'] ) ? (string) $attributes['primaryCtaLabel'] : __( 'Request a quote', 'site-blocks' );
+$cta_url   = isset( $attributes['primaryCtaUrl'] ) ? (string) $attributes['primaryCtaUrl'] : '/contact/';
+$sec_label = isset( $attributes['secondaryCtaLabel'] ) ? (string) $attributes['secondaryCtaLabel'] : __( 'Call 1300 225 276', 'site-blocks' );
+$sec_url   = isset( $attributes['secondaryCtaUrl'] ) ? (string) $attributes['secondaryCtaUrl'] : 'tel:1300225276';
 
 site_blocks_render_stage_hero(
 	array(
@@ -41,11 +41,11 @@ site_blocks_render_stage_hero(
 		),
 		'eyebrow'         => $eyebrow,
 		'title'           => __( 'Alarm systems that earn their keep.', 'site-blocks' ),
-		'lead'            => __( 'Wireless and smart alarms designed around your property, not an off-the-shelf kit. Start your quote online, reviewed by our technicians.', 'site-blocks' ),
+		'lead'            => __( 'Wireless and smart alarms designed around your property, not an off-the-shelf kit. A technician reviews the scope.', 'site-blocks' ),
 		'primary_label'   => $cta_label,
-		'primary_url'     => home_url( $cta_url ),
+		'primary_url'     => ( 0 === strpos( $cta_url, 'tel:' ) || 0 === strpos( $cta_url, 'http' ) ) ? $cta_url : home_url( $cta_url ),
 		'secondary_label' => $sec_label,
-		'secondary_url'   => home_url( $sec_url ),
+		'secondary_url'   => ( 0 === strpos( $sec_url, 'tel:' ) || 0 === strpos( $sec_url, 'http' ) ) ? $sec_url : home_url( $sec_url ),
 		'frame_image'     => 'images/alarm/hero.webp',
 		'frame_alt'       => __( 'Professionally installed alarm system for a Sydney property', 'site-blocks' ),
 	)

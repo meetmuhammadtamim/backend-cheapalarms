@@ -32,7 +32,7 @@ $gallery_items = array(
 				<span class="sg-accent"><?php esc_html_e( 'projects', 'site-blocks' ); ?></span>
 			</h2>
 			<p class="sg-section-intro sg-section-intro--center">
-				<?php esc_html_e( 'A selection of access control installations across Sydney.', 'site-blocks' ); ?>
+				<?php esc_html_e( 'A selection of access control installations.', 'site-blocks' ); ?>
 			</p>
 		</header>
 

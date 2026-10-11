@@ -17,7 +17,7 @@ site_blocks_render_quote_cta(
 		'before'        => __( 'Control who enters. From ', 'site-blocks' ),
 		'accent'        => __( 'anywhere', 'site-blocks' ),
 		'after'         => __( '.', 'site-blocks' ),
-		'sub'           => __( 'Tell us your doors, users and scheduling needs. Get a tailored access control estimate, reviewed by our technicians, without waiting days for a salesperson.', 'site-blocks' ),
+		'sub'           => __( 'Tell us your doors, users and scheduling needs. A technician reviews the scope.', 'site-blocks' ),
 		'section_class' => 'sg-cctv-cta sg-access-control-cta',
 	)
 );

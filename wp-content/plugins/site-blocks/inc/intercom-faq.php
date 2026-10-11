@@ -37,8 +37,8 @@ function site_blocks_get_intercom_faq_items(): array {
 			'a' => __( 'Yes. App-based systems let you release the door remotely, and many support temporary access codes you can issue and revoke, ideal for cleaners, couriers and contractors.', 'site-blocks' ),
 		),
 		array(
-			'q' => __( 'Is the online estimate the final price?', 'site-blocks' ),
-			'a' => __( 'It\'s a tailored estimate. For most jobs it\'s reviewed by our technicians before approval, so you can proceed with confidence and no surprises on the day.', 'site-blocks' ),
+			'q' => __( 'Is the quote the final price?', 'site-blocks' ),
+			'a' => __( 'A technician reviews the scope before you approve, so you can proceed with confidence and there are no surprises on the day.', 'site-blocks' ),
 		),
 	);
 }

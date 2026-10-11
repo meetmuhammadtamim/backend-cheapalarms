@@ -160,7 +160,7 @@ function site_blocks_enterprise_render_solutions(): void {
 				'title'        => __( 'Security built for multi-site operations.', 'site-blocks' ),
 				'checks'       => array(
 					__( 'Multi-site Ready', 'site-blocks' ),
-					__( 'Australian Monitoring', 'site-blocks' ),
+					__( 'Monitoring options', 'site-blocks' ),
 					__( 'Licensed Guarding', 'site-blocks' ),
 					__( 'Cloud Console', 'site-blocks' ),
 					__( 'Single Partner', 'site-blocks' ),
@@ -198,7 +198,7 @@ function site_blocks_enterprise_render_promo(): void {
 						</li>
 					<?php endforeach; ?>
 				</ul>
-				<a class="sg-btn sg-btn--primary" href="<?php echo esc_url( (string) $config['cta_url'] ); ?>">
+				<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( (string) $config['cta_url'] ); ?>">
 					<?php echo esc_html( (string) $config['cta_label'] ); ?>
 				</a>
 			</div>
@@ -394,10 +394,10 @@ function site_blocks_enterprise_render_quote(): void {
 			</h2>
 			<p class="sg-enterprise-quote__body"><?php echo esc_html( $config['body'] ); ?></p>
 			<div class="sg-enterprise-quote__links">
-				<a class="sg-btn sg-btn--primary" href="<?php echo esc_url( $config['url'] ); ?>">
+				<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( $config['url'] ); ?>">
 					<?php echo esc_html( $config['label'] ); ?>
 				</a>
-				<a class="sg-btn sg-btn--ghost" href="<?php echo esc_url( 'tel:1300225276' ); ?>">
+				<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( 'tel:1300225276' ); ?>">
 					<?php echo esc_html( $config['phone'] ); ?>
 				</a>
 			</div>

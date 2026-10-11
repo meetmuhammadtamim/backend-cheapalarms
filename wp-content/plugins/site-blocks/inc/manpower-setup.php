@@ -86,7 +86,6 @@ function site_blocks_manpower_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed'         => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'additionalProperty' => array(
 				'@type' => 'PropertyValue',
 				'name'  => 'Security Master Licence',
@@ -100,9 +99,8 @@ function site_blocks_manpower_schema(): void {
 		'@type'       => 'Service',
 		'serviceType' => 'Security manpower and staffing',
 		'provider'    => array( '@id' => $site_url . '#business' ),
-		'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 		'url'         => $page_url,
-		'description' => 'Licensed security manpower across Sydney, static guards, mobile patrols, alarm response and short-notice cover, under Master Licence #000103619.',
+		'description' => 'Licensed security manpower. Static guards, mobile patrols and alarm response, under Master Licence #000103619.',
 	);
 
 	$schema[] = array(

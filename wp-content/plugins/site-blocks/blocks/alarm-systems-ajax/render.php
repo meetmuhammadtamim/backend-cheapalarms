@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $eyebrow    = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : __( 'Safeguard + Ajax', 'site-blocks' );
 $headline   = isset( $attributes['headline'] ) ? (string) $attributes['headline'] : __( 'Wireless done properly', 'site-blocks' );
-$lead       = isset( $attributes['lead'] ) ? (string) $attributes['lead'] : __( 'Ajax is the system we\'ll design with you end-to-end online, wireless, refined, genuinely smart. The hardware is only half of it; the difference is how it\'s specified, installed and supported.', 'site-blocks' );
+$lead       = isset( $attributes['lead'] ) ? (string) $attributes['lead'] : __( 'Ajax is the system we\'ll design with you: wireless, refined and genuinely smart. The hardware is only half of it; the difference is how it\'s specified, installed and supported.', 'site-blocks' );
 $cta_label  = isset( $attributes['ctaLabel'] ) ? (string) $attributes['ctaLabel'] : __( 'Explore Ajax with Safeguard', 'site-blocks' );
 $cta_url    = isset( $attributes['ctaUrl'] ) ? (string) $attributes['ctaUrl'] : '/ajax-alarm-systems/';
 

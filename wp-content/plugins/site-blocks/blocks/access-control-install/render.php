@@ -54,7 +54,7 @@ $sectors = array(
 				<span class="sg-accent"><?php esc_html_e( 'install', 'site-blocks' ); ?></span>
 			</h2>
 			<p class="sg-section-intro sg-section-intro--center">
-				<?php esc_html_e( 'From a single door to multi-reader sites across Greater Sydney.', 'site-blocks' ); ?>
+				<?php esc_html_e( 'From a single door to multi-reader sites.', 'site-blocks' ); ?>
 			</p>
 		</header>
 

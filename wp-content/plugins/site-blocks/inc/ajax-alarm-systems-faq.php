@@ -28,11 +28,11 @@ function site_blocks_get_ajax_alarm_faq_items(): array {
 		),
 		array(
 			'q' => __( 'How much does an Ajax alarm system cost?', 'site-blocks' ),
-			'a' => __( 'Cost depends on your property size, device count and monitoring choice. Use our free instant online quote for a tailored estimate reviewed by a real technician.', 'site-blocks' ),
+			'a' => __( 'Cost depends on your property size, device count and monitoring choice. Request a quote and a technician reviews the design.', 'site-blocks' ),
 		),
 		array(
 			'q' => __( 'Can Ajax be professionally monitored?', 'site-blocks' ),
-			'a' => __( 'Yes. Ajax systems can connect to professional monitoring using IP and cellular paths when configured by an accredited installer.', 'site-blocks' ),
+			'a' => __( 'Yes. Ajax systems can connect to professional monitoring using IP and cellular paths when monitoring is selected for the job.', 'site-blocks' ),
 		),
 		array(
 			'q' => __( 'Can Ajax work with an old wired alarm?', 'site-blocks' ),
@@ -56,7 +56,7 @@ function site_blocks_get_ajax_alarm_faq_items(): array {
 		),
 		array(
 			'q' => __( 'How do I get an Ajax alarm quote?', 'site-blocks' ),
-			'a' => __( 'Start our free Ajax calculator online or call 1300 225 276. You will receive a tailored recommendation and can track progress in your secure customer portal.', 'site-blocks' ),
+			'a' => __( 'Call 1300 225 276 or send a message. A person on the team reviews the property and confirms the scope before work begins.', 'site-blocks' ),
 		),
 	);
 }

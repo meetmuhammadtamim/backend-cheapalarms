@@ -127,7 +127,7 @@ $status_message = isset( $status_messages[ $form_status ] ) ? $status_messages[ 
 		</div>
 
 		<div class="sg-contact-form__actions">
-			<button type="submit" class="sg-btn sg-btn--primary sg-contact-form__submit">
+			<button type="submit" class="sg-btn sg-btn--orange sg-contact-form__submit">
 				<span class="sg-contact-form__submit-text"><?php echo esc_html( $submit_label ); ?></span>
 				<span class="sg-contact-form__submit-spinner" aria-hidden="true"></span>
 			</button>

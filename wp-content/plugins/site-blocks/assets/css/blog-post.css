@@ -1,0 +1,543 @@
+/* HubSpot-style blog article. Case studies do not load this file. */
+
+.sg-blog-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 200;
+  background: rgba(12, 45, 68, 0.08);
+  pointer-events: none;
+}
+
+.sg-blog-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--sg-orange, #fb7523);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+body.admin-bar .sg-header {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar .sg-header {
+    top: 46px;
+  }
+}
+
+.sg-blog-page {
+  background: #fff;
+  color: var(--sg-navy, #0c2d44);
+  font-family: var(--sg-font-body, "Inter", ui-sans-serif, system-ui, sans-serif);
+}
+
+.sg-blog__grid {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.sg-blog__crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  color: var(--sg-muted, #5a6b77);
+  font-size: 0.8125rem;
+}
+
+.sg-blog__crumbs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sg-blog__crumbs a:hover {
+  color: var(--sg-blue);
+}
+
+.sg-blog__crumbs .sg-lucide-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: currentColor;
+}
+
+.sg-blog__crumbs li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-left: 0.5rem;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.sg-blog__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: var(--sg-orange-wash);
+  color: var(--sg-orange);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.sg-blog__title {
+  margin: 0;
+  max-width: 16em;
+  color: var(--sg-navy, #0c2d44);
+  font-family: var(--sg-font-head, "Chakra Petch", ui-sans-serif, sans-serif);
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.sg-blog__byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sg-line);
+}
+
+.sg-blog__author {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+}
+
+.sg-blog__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--sg-orange-wash);
+}
+
+.sg-blog__name {
+  margin: 0;
+  color: var(--sg-navy);
+  font-weight: 700;
+}
+
+.sg-blog__meta {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+  color: var(--sg-muted);
+  font-size: 0.875rem;
+}
+
+.sg-blog__share-label {
+  color: var(--sg-muted);
+  font-size: 0.875rem;
+}
+
+.sg-blog__share--inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sg-blog__share--inline a,
+.sg-blog__share--inline button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid rgb(12 45 68 / 8%);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--sg-navy);
+  cursor: pointer;
+}
+
+.sg-blog__share--inline .sg-lucide-icon {
+  width: 1rem;
+  height: 1rem;
+  color: currentColor;
+}
+
+.sg-blog__share--inline a:hover,
+.sg-blog__share--inline button:hover,
+.sg-blog__share a:hover,
+.sg-blog__share button:hover {
+  border-color: var(--sg-orange, #fb7523);
+  color: var(--sg-orange, #fb7523);
+}
+
+.sg-blog__share svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sg-blog__figure {
+  margin: 1.75rem 0 0;
+}
+
+.sg-blog__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 28rem;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.sg-blog__toc-mobile {
+  margin-top: 1.5rem;
+  border: 1px solid rgb(12 45 68 / 6%);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  box-shadow: 0 10px 30px rgb(12 45 68 / 8%);
+}
+
+.sg-blog__toc-mobile summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.sg-blog__toc-mobile ol,
+.sg-blog__toc ol {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sg-blog__toc-mobile li + li,
+.sg-blog__toc li + li {
+  margin-top: 0.45rem;
+}
+
+.sg-blog__toc-mobile a,
+.sg-blog__toc a {
+  display: block;
+  padding: 0.15rem 0 0.15rem 0.75rem;
+  border-left: 3px solid transparent;
+  color: var(--sg-muted);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.sg-blog__toc a.is-active {
+  border-left-color: var(--sg-orange);
+  color: var(--sg-navy);
+  font-weight: 700;
+}
+
+.sg-blog__toc a:hover,
+.sg-blog__toc-mobile a:hover {
+  color: var(--sg-navy);
+}
+
+.sg-blog__content {
+  max-width: 42rem;
+  margin-top: 1.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.sg-blog__content > *:first-child {
+  margin-top: 0;
+}
+
+.sg-blog__content h2,
+.sg-blog__content h3 {
+  color: var(--sg-navy, #0c2d44);
+  font-family: var(--sg-font-head, "Chakra Petch", ui-sans-serif, sans-serif);
+  line-height: 1.2;
+  scroll-margin-top: 0;
+}
+
+.sg-blog__content h2 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.75rem;
+}
+
+.sg-blog__content h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.sg-blog__content p,
+.sg-blog__content li {
+  margin: 0 0 1rem;
+}
+
+.sg-blog__content ul,
+.sg-blog__content ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.sg-blog__content a {
+  color: var(--sg-blue, #1769a1);
+}
+
+.sg-blog__content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 4px solid var(--sg-orange, #fb7523);
+  color: var(--sg-navy, #0c2d44);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.sg-blog__content code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  background: #f1f5f8;
+  font-size: 0.9em;
+}
+
+.sg-blog__content img,
+.sg-blog__content figure {
+  max-width: 100%;
+  height: auto;
+}
+
+.sg-blog__content figure {
+  margin: 1.5rem 0;
+}
+
+.sg-blog__content img {
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.sg-blog__banner,
+.sg-blog__lead,
+.sg-blog__card {
+  border-radius: 0.75rem;
+}
+
+.sg-blog__banner,
+.sg-blog__lead {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--sg-navy, #0c2d44);
+  color: #fff;
+}
+
+.sg-blog__banner h2,
+.sg-blog__lead h2,
+.sg-blog__card h2,
+.sg-blog__content .sg-blog__banner h2 {
+  margin: 0.35rem 0 0.6rem;
+  color: #fff;
+  font-family: var(--sg-font-head, "Chakra Petch", ui-sans-serif, sans-serif);
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.sg-blog__card h2 {
+  color: var(--sg-navy, #0c2d44);
+}
+
+.sg-blog__banner p,
+.sg-blog__lead p {
+  margin: 0;
+}
+
+.sg-blog__banner-kicker {
+  color: var(--sg-orange, #fb7523);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sg-blog__banner-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--sg-orange);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sg-blog__card .sg-btn {
+  margin-top: 1rem;
+}
+
+.sg-blog__card .sg-btn .sg-lucide-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.sg-blog__banner-btn:hover {
+  background: var(--sg-orange-deep);
+}
+
+.sg-blog__rail {
+  display: none;
+}
+
+.sg-blog__card {
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid rgb(12 45 68 / 6%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgb(12 45 68 / 8%);
+}
+
+.sg-blog__card-logo {
+  display: block;
+  width: auto;
+  max-width: 11rem;
+  height: auto;
+}
+
+.sg-blog__card-licence {
+  margin: 0.85rem 0 0;
+  color: var(--sg-muted);
+  font-size: 0.875rem;
+}
+
+.sg-blog__card-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  color: var(--sg-navy);
+  font-family: var(--sg-font-head, "Chakra Petch", ui-sans-serif, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sg-blog__card-phone .sg-lucide-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--sg-orange);
+}
+
+.sg-blog__card-note {
+  margin: 0.2rem 0 0;
+  color: var(--sg-muted);
+  font-size: 0.875rem;
+}
+
+.sg-blog__card-proof {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--sg-line);
+  color: var(--sg-muted);
+  font-size: 0.875rem;
+}
+
+.sg-blog__card-proof .sg-lucide-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--sg-navy);
+}
+
+.sg-blog__related p {
+  margin: 0 0 0.75rem;
+  color: #5c6b76;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sg-blog__related ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sg-blog__related li + li {
+  margin-top: 0.75rem;
+}
+
+.sg-blog__related a {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0.7rem;
+  align-items: center;
+  color: var(--sg-navy, #0c2d44);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sg-blog__related img {
+  width: 4.5rem;
+  height: 3.2rem;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (min-width: 960px) {
+  .sg-blog__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: 2.5rem;
+    align-items: start;
+    width: min(1200px, calc(100% - 3rem));
+  }
+
+  .sg-blog__toc-mobile {
+    display: none;
+  }
+
+  .sg-blog__rail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: var(--sg-sticky-top, 8rem);
+  }
+
+  .sg-blog__toc {
+    padding: 1.15rem 1.15rem 1.15rem 1.25rem;
+    border: 1px solid rgb(12 45 68 / 6%);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgb(12 45 68 / 8%);
+  }
+
+  .sg-blog__toc > p {
+    margin: 0 0 0.75rem;
+    color: var(--sg-muted);
+    font-family: var(--sg-font-head, "Chakra Petch", ui-sans-serif, sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .sg-blog__related {
+    margin-top: 1.25rem;
+  }
+}

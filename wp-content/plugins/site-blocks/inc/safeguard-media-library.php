@@ -84,6 +84,11 @@ function site_blocks_media_library_url( string $relative_path ): string {
 function site_blocks_media_source_exists( string $relative_path ): bool {
 	$relative_path = site_blocks_resolve_asset_path( ltrim( str_replace( '\\', '/', $relative_path ), '/' ) );
 
+	$upload = function_exists( 'site_blocks_safeguard_upload_disk' ) ? site_blocks_safeguard_upload_disk( $relative_path ) : '';
+	if ( '' !== $upload && is_readable( $upload ) ) {
+		return true;
+	}
+
 	if ( site_blocks_media_attachment_id( $relative_path ) > 0 ) {
 		return true;
 	}
@@ -98,7 +103,21 @@ function site_blocks_media_source_exists( string $relative_path ): bool {
  */
 function site_blocks_print_managed_image( string $relative_path, string $alt, string $class, string $loading = 'lazy' ): bool {
 	$relative_path = site_blocks_resolve_asset_path( ltrim( str_replace( '\\', '/', $relative_path ), '/' ) );
-	$id            = site_blocks_media_attachment_id( $relative_path );
+	$upload_disk   = function_exists( 'site_blocks_safeguard_upload_disk' ) ? site_blocks_safeguard_upload_disk( $relative_path ) : '';
+	$upload_url    = function_exists( 'site_blocks_safeguard_upload_url' ) ? site_blocks_safeguard_upload_url( $relative_path ) : '';
+
+	if ( '' !== $upload_disk && is_readable( $upload_disk ) && '' !== $upload_url ) {
+		printf(
+			'<img class="%s" src="%s" alt="%s" loading="%s" decoding="async" />',
+			esc_attr( $class ),
+			esc_url( $upload_url ),
+			esc_attr( $alt ),
+			esc_attr( $loading )
+		);
+		return true;
+	}
+
+	$id = site_blocks_media_attachment_id( $relative_path );
 
 	if ( $id > 0 ) {
 		$attr = array(
@@ -169,6 +188,61 @@ function site_blocks_media_discover_files(): array {
 }
 
 /**
+ * True when an attachment post exists but its file is gone from uploads.
+ */
+function site_blocks_media_attachment_file_missing( int $attachment_id ): bool {
+	if ( $attachment_id <= 0 ) {
+		return true;
+	}
+
+	$path = get_attached_file( $attachment_id );
+
+	return ! is_string( $path ) || '' === $path || ! is_readable( $path );
+}
+
+/**
+ * Copy a plugin image back onto an existing attachment path (keeps the same URL).
+ *
+ * @return bool True when a missing file was restored.
+ */
+function site_blocks_media_restore_missing_file( int $attachment_id, string $source ): bool {
+	if ( $attachment_id <= 0 || ! is_readable( $source ) ) {
+		return false;
+	}
+
+	if ( ! site_blocks_media_attachment_file_missing( $attachment_id ) ) {
+		return false;
+	}
+
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+
+	$relative = (string) get_post_meta( $attachment_id, '_wp_attached_file', true );
+	$uploads  = wp_upload_dir();
+	if ( ! empty( $uploads['error'] ) ) {
+		return false;
+	}
+
+	$dest = '' !== $relative
+		? trailingslashit( (string) $uploads['basedir'] ) . ltrim( str_replace( '\\', '/', $relative ), '/' )
+		: trailingslashit( (string) $uploads['path'] ) . wp_basename( $source );
+
+	wp_mkdir_p( dirname( $dest ) );
+
+	if ( ! copy( $source, $dest ) ) {
+		return false;
+	}
+
+	update_attached_file( $attachment_id, $dest );
+	$meta = wp_generate_attachment_metadata( $attachment_id, $dest );
+	if ( is_array( $meta ) ) {
+		wp_update_attachment_metadata( $attachment_id, $meta );
+	}
+
+	return true;
+}
+
+/**
  * Import one plugin image into the Media Library.
  *
  * @return array{ok: bool, id?: int, path: string, skipped?: bool, error?: string}
@@ -188,6 +262,14 @@ function site_blocks_media_import_one( string $relative_path, array &$map ): arr
 	if ( isset( $map[ $relative_path ] ) ) {
 		$existing = (int) $map[ $relative_path ];
 		if ( $existing > 0 && get_post_type( $existing ) === 'attachment' ) {
+			if ( site_blocks_media_restore_missing_file( $existing, $disk ) ) {
+				return array(
+					'ok'   => true,
+					'id'   => $existing,
+					'path' => $relative_path,
+				);
+			}
+
 			return array(
 				'ok'      => true,
 				'id'      => $existing,
@@ -379,7 +461,7 @@ function site_blocks_media_admin_page(): void {
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Safeguard Media Import', 'site-blocks' ); ?></h1>
 		<p>
-			<?php esc_html_e( 'Copies marketing images from the site-blocks plugin into the WordPress Media Library and links each page slot to the right attachment. Safe to run more than once (already-imported files are skipped).', 'site-blocks' ); ?>
+			<?php esc_html_e( 'Copies marketing images from the site-blocks plugin into the WordPress Media Library and links each page slot to the right attachment. Safe to run more than once. Missing upload files are restored; intact files are skipped.', 'site-blocks' ); ?>
 		</p>
 		<p>
 			<strong><?php esc_html_e( 'On disk in plugin:', 'site-blocks' ); ?></strong>

@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/ajax-alarm-systems-icons.php';
 
-$portal_img = site_blocks_asset_url( 'images/portal/portal-2.webp' );
-
 $bullets = array(
 	__( 'Property-specific device selection', 'site-blocks' ),
 	__( 'Clean installation and thoughtful device placement', 'site-blocks' ),
@@ -35,9 +33,6 @@ $bullets = array(
 				<p class="sg-ajax-difference__intro">
 					<?php esc_html_e( 'We design, install and support Ajax systems that actually suit your property, not a generic kit picked off a shelf.', 'site-blocks' ); ?>
 				</p>
-				<p class="sg-ajax-difference__intro">
-					<?php esc_html_e( 'Start with a free instant online quote, then manage everything in your secure portal, no waiting days for a callback or a salesperson at your door.', 'site-blocks' ); ?>
-				</p>
 				<ul class="sg-ajax-difference__list" role="list">
 					<?php foreach ( $bullets as $bullet ) : ?>
 						<li>
@@ -48,15 +43,6 @@ $bullets = array(
 				</ul>
 			</div>
 
-			<div class="sg-ajax-difference__visual">
-				<img
-					class="sg-ajax-difference__img"
-					src="<?php echo esc_url( $portal_img ); ?>"
-					alt="<?php esc_attr_e( 'Safeguard customer portal showing quote summary, installation progress, messages and quote approval', 'site-blocks' ); ?>"
-					loading="lazy"
-					decoding="async"
-				/>
-			</div>
 		</div>
 	</div>
 </section>

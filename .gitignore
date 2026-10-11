@@ -1,5 +1,5 @@
-# Backend repo: track cheapalarms-plugin + site-blocks (Safeguard marketing) — nothing else.
-# WordPress core and all other wp-content are intentionally untracked.
+# Backend repo: cheapalarms-plugin, site-blocks, safeguard-live-chat, and the Kadence child theme.
+# WordPress core and all other wp-content stay untracked. No images or media.
 
 # 1) Ignore everything at the repo root...
 /*
@@ -12,6 +12,11 @@
 /wp-content/plugins/*
 !/wp-content/plugins/cheapalarms-plugin
 !/wp-content/plugins/site-blocks
+!/wp-content/plugins/safeguard-live-chat
+
+!/wp-content/themes
+/wp-content/themes/*
+!/wp-content/themes/kadence-child
 
 # 3) Never commit real secrets / per-instance config (defense in depth;
 #    the plugin's own .gitignore also covers these).
@@ -25,3 +30,17 @@ wp-content/plugins/cheapalarms-plugin/*.zip
 wp-content/plugins/cheapalarms-plugin/deploy/*.zip
 wp-content/plugins/site-blocks/deploy/*.zip
 wp-content/plugins/*.zip
+
+# Images and media stay off this repo. Code and styles only.
+wp-content/plugins/site-blocks/assets/images/
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.avif
+*.mp4
+*.webm
+*.pdf

@@ -66,6 +66,7 @@ body.safeguard-monitoring-page .entry-content ol.sg-alarm-steps__list > li {
   padding: clamp(1.125rem, 2vw, 1.5rem);
   background: var(--sg-blue-wash);
   border: 1px solid var(--sg-line);
+  border-radius: 12px;
 }
 
 .sg-monitoring-paths__title {

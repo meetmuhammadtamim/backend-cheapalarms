@@ -69,10 +69,10 @@ while ( have_posts() ) :
 					</div>
 
 					<footer class="sg-enterprise-article__footer">
-						<a class="sg-btn sg-btn--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+						<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 							<?php esc_html_e( 'Book a site assessment', 'site-blocks' ); ?>
 						</a>
-						<a class="sg-btn sg-btn--ghost" href="<?php echo esc_url( $hub_url ); ?>">
+						<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( $hub_url ); ?>">
 							<?php esc_html_e( 'Back to Enterprise Solutions', 'site-blocks' ); ?>
 						</a>
 					</footer>

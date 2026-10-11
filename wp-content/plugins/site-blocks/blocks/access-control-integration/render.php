@@ -35,7 +35,7 @@ $links = array(
 	),
 	array(
 		'title' => __( 'Monitoring & Response', 'site-blocks' ),
-		'desc'  => __( 'Professional eyes on your alerts 24/7.', 'site-blocks' ),
+		'desc'  => __( 'Alarm monitoring linked to the response plan for the site.', 'site-blocks' ),
 		'url'   => home_url( '/monitoring/' ),
 		'icon'  => 'support.png',
 	),

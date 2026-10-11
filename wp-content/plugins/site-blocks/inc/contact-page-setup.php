@@ -60,7 +60,13 @@ function site_blocks_enqueue_contact_page_assets(): void {
 
 	$dep = site_blocks_enqueue_safeguard_style( 'safeguard-hero-variants', 'safeguard-hero-variants.css', $dep );
 
-	$dep = site_blocks_enqueue_safeguard_style( 'safeguard-contact', 'safeguard-contact.css', $dep );
+	$contact_css = SITE_BLOCKS_DIR . 'assets/css/safeguard-contact.css';
+	wp_enqueue_style(
+		'safeguard-contact',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-contact.css',
+		array( $dep ),
+		file_exists( $contact_css ) ? (string) filemtime( $contact_css ) : SITE_BLOCKS_VERSION
+	);
 
 	site_blocks_enqueue_safeguard_home_script();
 

@@ -22,6 +22,7 @@ function site_blocks_register_blocks(): void {
 		'package-grid',
 		'home-hero',
 		'safeguard-homepage',
+		'about-page',
 		'safeguard-header',
 		'safeguard-footer',
 		'alarm-systems-hero',
@@ -44,6 +45,7 @@ function site_blocks_register_blocks(): void {
 		'ajax-calculator-portal',
 		'ajax-calculator-faq',
 		'ajax-calculator-quote-cta',
+		'manpower-calculator-embed',
 		'ajax-alarm-systems-hero',
 		'ajax-alarm-systems-process',
 		'ajax-alarm-systems-difference',
@@ -55,6 +57,10 @@ function site_blocks_register_blocks(): void {
 		'ajax-alarm-systems-quote-cta',
 		'ajax-alarm-systems-portal',
 		'ajax-alarm-systems-related',
+		'paradox-m25-hero',
+		'paradox-m25-section',
+		'akuvox-hero',
+		'akuvox-section',
 		'cctv-hero',
 		'cctv-intro',
 		'cctv-spotlight',
@@ -106,6 +112,7 @@ function site_blocks_register_blocks(): void {
 		'monitoring-section',
 		'enterprise-hero',
 		'enterprise-section',
+		'tech-brand',
 	);
 
 	foreach ( $blocks as $block ) {
@@ -143,6 +150,16 @@ function site_blocks_register_patterns(): void {
 		register_block_pattern( 'site/contact-page', $pattern );
 	}
 
+	$about_pattern_file = SITE_BLOCKS_DIR . 'patterns/about-page.php';
+
+	if ( file_exists( $about_pattern_file ) ) {
+		$about_pattern = include $about_pattern_file;
+
+		if ( is_array( $about_pattern ) ) {
+			register_block_pattern( 'site/about-page', $about_pattern );
+		}
+	}
+
 	$home_pattern_file = SITE_BLOCKS_DIR . 'patterns/home-page.php';
 
 	if ( file_exists( $home_pattern_file ) ) {
@@ -170,6 +187,26 @@ function site_blocks_register_patterns(): void {
 
 		if ( is_array( $ajax_landing_pattern ) ) {
 			register_block_pattern( 'site/ajax-alarm-systems-page', $ajax_landing_pattern );
+		}
+	}
+
+	$paradox_landing_pattern_file = SITE_BLOCKS_DIR . 'patterns/paradox-m25-page.php';
+
+	if ( file_exists( $paradox_landing_pattern_file ) ) {
+		$paradox_landing_pattern = include $paradox_landing_pattern_file;
+
+		if ( is_array( $paradox_landing_pattern ) ) {
+			register_block_pattern( 'site/paradox-m25-page', $paradox_landing_pattern );
+		}
+	}
+
+	$akuvox_landing_pattern_file = SITE_BLOCKS_DIR . 'patterns/akuvox-page.php';
+
+	if ( file_exists( $akuvox_landing_pattern_file ) ) {
+		$akuvox_landing_pattern = include $akuvox_landing_pattern_file;
+
+		if ( is_array( $akuvox_landing_pattern ) ) {
+			register_block_pattern( 'site/akuvox-page', $akuvox_landing_pattern );
 		}
 	}
 
@@ -296,6 +333,14 @@ function site_blocks_register_patterns(): void {
 		$ajax_calculator_pattern = include $ajax_calculator_pattern_file;
 		if ( is_array( $ajax_calculator_pattern ) ) {
 			register_block_pattern( 'site/ajax-calculator-page', $ajax_calculator_pattern );
+		}
+	}
+
+	$manpower_calculator_pattern_file = SITE_BLOCKS_DIR . 'patterns/manpower-calculator-page.php';
+	if ( file_exists( $manpower_calculator_pattern_file ) ) {
+		$manpower_calculator_pattern = include $manpower_calculator_pattern_file;
+		if ( is_array( $manpower_calculator_pattern ) ) {
+			register_block_pattern( 'site/manpower-calculator-page', $manpower_calculator_pattern );
 		}
 	}
 }

@@ -15,18 +15,18 @@ $logo_count = 6;
 $reviews    = array(
 	array(
 		'quote' => __( 'Placeholder review, client permission required before publishing.', 'site-blocks' ),
-		'meta'  => __( 'Commercial client, Sydney', 'site-blocks' ),
+		'meta'  => __( 'Commercial client', 'site-blocks' ),
 	),
 	array(
 		'quote' => __( 'Placeholder review, client permission required before publishing.', 'site-blocks' ),
-		'meta'  => __( 'Strata building, Greater Sydney', 'site-blocks' ),
+		'meta'  => __( 'Strata building', 'site-blocks' ),
 	),
 );
 ?>
 <section class="sg-band sg-band--blue sg-access-control-social-proof alignfull" aria-labelledby="sg-access-control-social-heading">
 	<div class="sg-container">
 		<h2 id="sg-access-control-social-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-			<?php esc_html_e( 'Trusted by Sydney ', 'site-blocks' ); ?>
+			<?php esc_html_e( 'Trusted by ', 'site-blocks' ); ?>
 			<span class="sg-accent"><?php esc_html_e( 'businesses', 'site-blocks' ); ?></span>
 		</h2>
 

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$quote = esc_url( home_url( '/get-an-instant-quote/' ) );
+$quote = esc_url( home_url( '/contact/' ) );
 ?>
 <section class="sg-band sg-band--white sg-ajax-calculator-hero alignfull" aria-labelledby="sg-ajax-calculator-hero-heading">
 	<div class="sg-container">
@@ -23,7 +23,7 @@ $quote = esc_url( home_url( '/get-an-instant-quote/' ) );
 			<?php esc_html_e( 'Use the calculator below to explore hub, sensors and keypad options for your property. When you are ready, continue in our portal for a technician-reviewed estimate.', 'site-blocks' ); ?>
 		</p>
 		<p class="sg-ajax-calculator-hero__cta">
-			<a class="sg-btn sg-btn--soft-blue" href="<?php echo $quote; ?>"><?php esc_html_e( 'Start full quote instead', 'site-blocks' ); ?></a>
+			<a class="sg-btn sg-btn--orange" href="<?php echo $quote; ?>"><?php esc_html_e( 'Start full quote instead', 'site-blocks' ); ?></a>
 		</p>
 	</div>
 </section>

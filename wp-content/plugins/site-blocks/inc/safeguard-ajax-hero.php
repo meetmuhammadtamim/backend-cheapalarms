@@ -41,11 +41,11 @@ function site_blocks_default_ajax_alarm_hero_config(): array {
 	return array(
 		'heading_id'      => 'sg-ajax-hero-heading',
 		'section_class'   => '',
-		'eyebrow'         => __( 'Ajax alarm systems · Australia', 'site-blocks' ),
+		'eyebrow'         => __( 'Ajax alarm systems', 'site-blocks' ),
 		'title'           => __( 'Ajax alarm systems, professionally installed by Safeguard', 'site-blocks' ),
-		'lead'            => __( 'We design, install and configure Ajax wireless alarm systems for homes, apartments and small businesses across Australia, specified around your property, not sold as a generic kit.', 'site-blocks' ),
-		'primary_label'   => __( 'Design my Ajax system', 'site-blocks' ),
-		'primary_url'     => home_url( '/ajax-calculator/' ),
+		'lead'            => __( 'We design, install and configure Ajax wireless alarm systems for homes, apartments and small businesses, specified around your property, not sold as a generic kit.', 'site-blocks' ),
+		'primary_label'   => __( 'Request a quote', 'site-blocks' ),
+		'primary_url'     => home_url( '/contact/' ),
 		'secondary_label' => __( 'Call 1300 225 276', 'site-blocks' ),
 		'secondary_url'   => 'tel:1300225276',
 		'trust_aria_label'=> __( 'What we include', 'site-blocks' ),
@@ -174,7 +174,7 @@ function site_blocks_render_ajax_style_hero( array $config ): void {
 
 					<div class="sg-ajax-hero__actions">
 						<div class="sg-hero__ctas sg-ajax-hero__ctas">
-							<a class="sg-btn sg-btn--soft-blue sg-ajax-hero__cta" href="<?php echo esc_url( $primary_url ); ?>">
+							<a class="sg-btn sg-btn--orange sg-ajax-hero__cta" href="<?php echo esc_url( $primary_url ); ?>">
 								<?php echo esc_html( $primary_label ); ?>
 							</a>
 							<a class="sg-btn sg-btn--secondary sg-ajax-hero__cta" href="<?php echo esc_attr( $secondary_url ); ?>">

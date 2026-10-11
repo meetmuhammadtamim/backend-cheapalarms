@@ -29,23 +29,20 @@ function site_blocks_register_enterprise_insight_cpt(): void {
 				'search_items'       => __( 'Search Insights', 'site-blocks' ),
 				'not_found'          => __( 'No insights found.', 'site-blocks' ),
 				'not_found_in_trash' => __( 'No insights found in Trash.', 'site-blocks' ),
-				'menu_name'          => __( 'Enterprise Insights', 'site-blocks' ),
+				'menu_name'          => __( 'Retired Insights', 'site-blocks' ),
 			),
-			'public'              => true,
-			'publicly_queryable'  => true,
+			'public'              => false,
+			'publicly_queryable'  => false,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
-			'show_in_rest'        => true,
-			'menu_icon'           => 'dashicons-welcome-write-blog',
-			'menu_position'       => 27,
+			'show_in_rest'        => false,
+			'menu_icon'           => 'dashicons-hidden',
+			'menu_position'       => 80,
 			'has_archive'         => false,
-			'rewrite'             => array(
-				'slug'       => 'enterprise-solutions',
-				'with_front' => false,
-			),
+			'rewrite'             => false,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 			'capability_type'     => 'post',
-			'exclude_from_search' => false,
+			'exclude_from_search' => true,
 		)
 	);
 
@@ -64,16 +61,11 @@ function site_blocks_register_enterprise_insight_cpt(): void {
 				'new_item_name' => __( 'New Category Name', 'site-blocks' ),
 				'menu_name'     => __( 'Categories', 'site-blocks' ),
 			),
-			'public'            => true,
+			'public'            => false,
 			'show_ui'           => true,
-			'show_in_rest'      => true,
+			'show_in_rest'      => false,
 			'hierarchical'      => true,
-			'rewrite'           => array(
-				// Keep off the /enterprise-solutions/{slug}/ post namespace.
-				'slug'         => 'enterprise-insight-category',
-				'with_front'   => false,
-				'hierarchical' => true,
-			),
+			'rewrite'           => false,
 			'show_admin_column' => true,
 		)
 	);

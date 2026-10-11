@@ -30,6 +30,8 @@ class ChatLeadService
         'alarms',
         'intercom',
         'monitoring',
+        'manpower',
+        'physical_security',
         'agent_handoff',
     ];
 
@@ -440,10 +442,12 @@ class ChatLeadService
             'access_control' => 'Access control',
             'cctv'           => 'CCTV',
             'alarms'         => 'Alarm systems',
-            'intercom'       => 'Intercom',
-            'monitoring'     => 'Monitoring',
-            'agent_handoff'  => 'Live agent handoff',
-            default          => 'General enquiry',
+            'intercom'          => 'Intercom',
+            'monitoring'        => 'Monitoring',
+            'manpower'          => 'ManPower / guarding',
+            'physical_security' => 'Physical security',
+            'agent_handoff'     => 'Live agent handoff',
+            default             => 'General enquiry',
         };
     }
 

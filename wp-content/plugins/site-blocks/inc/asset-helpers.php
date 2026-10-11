@@ -12,7 +12,59 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Prefer a sibling WebP file when the requested raster asset has one on disk.
+ * Disk path for a photo stored under wp-content/uploads/safeguard/.
+ */
+function site_blocks_safeguard_upload_disk( string $relative_path ): string {
+	if ( ! function_exists( 'wp_upload_dir' ) ) {
+		return '';
+	}
+
+	$uploads = wp_upload_dir();
+	if ( ! empty( $uploads['error'] ) ) {
+		return '';
+	}
+
+	$relative_path = ltrim( str_replace( '\\', '/', $relative_path ), '/' );
+
+	return trailingslashit( (string) $uploads['basedir'] ) . 'safeguard/' . $relative_path;
+}
+
+/**
+ * Public WordPress URL for a photo under wp-content/uploads/safeguard/.
+ */
+function site_blocks_safeguard_upload_url( string $relative_path ): string {
+	if ( ! function_exists( 'wp_upload_dir' ) ) {
+		return '';
+	}
+
+	$uploads = wp_upload_dir();
+	if ( ! empty( $uploads['error'] ) ) {
+		return '';
+	}
+
+	$relative_path = ltrim( str_replace( '\\', '/', $relative_path ), '/' );
+	$segments      = explode( '/', 'safeguard/' . $relative_path );
+	$encoded       = implode( '/', array_map( 'rawurlencode', $segments ) );
+
+	return trailingslashit( (string) $uploads['baseurl'] ) . $encoded;
+}
+
+/**
+ * Whether the photo is already in uploads/safeguard or still in the plugin folder.
+ */
+function site_blocks_asset_file_readable( string $relative_path ): bool {
+	$relative_path = ltrim( str_replace( '\\', '/', $relative_path ), '/' );
+	$upload        = site_blocks_safeguard_upload_disk( $relative_path );
+
+	if ( '' !== $upload && is_readable( $upload ) ) {
+		return true;
+	}
+
+	return is_readable( SITE_BLOCKS_DIR . 'assets/' . $relative_path );
+}
+
+/**
+ * Prefer a sibling WebP file when one exists in uploads or in the plugin folder.
  *
  * @param string $relative_path Path relative to assets/, e.g. images/hero/house.png.
  */
@@ -24,9 +76,7 @@ function site_blocks_resolve_asset_path( string $relative_path ): string {
 	}
 
 	$webp_path = preg_replace( '/\.(png|jpe?g)$/i', '.webp', $relative_path );
-	$disk_path = SITE_BLOCKS_DIR . 'assets/' . $webp_path;
-
-	if ( is_readable( $disk_path ) ) {
+	if ( is_string( $webp_path ) && site_blocks_asset_file_readable( $webp_path ) ) {
 		return $webp_path;
 	}
 
@@ -37,17 +87,18 @@ function site_blocks_resolve_asset_path( string $relative_path ): string {
  * Build a public URL for a file under site-blocks/assets/.
  *
  * Raster paths (.png, .jpg, .jpeg) automatically use a sibling .webp file when present.
- * Image paths under images/ prefer the Media Library URL after import.
+ * Image paths under images/ use wp-content/uploads/safeguard/ when that file is on disk.
  *
  * @param string $relative_path Path relative to assets/, e.g. images/hero/house.png.
  */
 function site_blocks_asset_url( string $relative_path ): string {
 	$relative_path = site_blocks_resolve_asset_path( $relative_path );
 
-	if ( 0 === strpos( $relative_path, 'images/' ) && function_exists( 'site_blocks_media_library_url' ) ) {
-		$ml = site_blocks_media_library_url( $relative_path );
-		if ( '' !== $ml ) {
-			return esc_url( $ml );
+	if ( 0 === strpos( $relative_path, 'images/' ) ) {
+		$upload_disk = site_blocks_safeguard_upload_disk( $relative_path );
+		$upload_url  = site_blocks_safeguard_upload_url( $relative_path );
+		if ( '' !== $upload_disk && is_readable( $upload_disk ) && '' !== $upload_url ) {
+			return esc_url( $upload_url );
 		}
 	}
 

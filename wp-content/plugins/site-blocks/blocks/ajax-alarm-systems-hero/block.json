@@ -17,7 +17,7 @@
   "attributes": {
     "eyebrow": {
       "type": "string",
-      "default": "Ajax alarm systems · Australia"
+      "default": "Ajax alarm systems"
     },
     "headline": {
       "type": "string",
@@ -25,15 +25,15 @@
     },
     "lead": {
       "type": "string",
-      "default": "We design, install and configure Ajax wireless alarm systems for homes, apartments and small businesses across Australia, specified around your property, not sold as a generic kit."
+      "default": "We design, install and configure Ajax wireless alarm systems for homes, apartments and small businesses, specified around your property, not sold as a generic kit."
     },
     "primaryCtaLabel": {
       "type": "string",
-      "default": "Design my Ajax system"
+      "default": "Request a quote"
     },
     "primaryCtaUrl": {
       "type": "string",
-      "default": "/ajax-calculator/"
+      "default": "/contact/"
     },
     "secondaryCtaLabel": {
       "type": "string",

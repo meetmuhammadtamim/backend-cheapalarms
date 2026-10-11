@@ -50,7 +50,7 @@ $features = array(
 	),
 );
 
-$primary_url = home_url( '/get-an-instant-quote/' );
+$primary_url = home_url( '/contact/' );
 ?>
 <section class="sg-intercom-product-hero alignfull" aria-labelledby="<?php echo esc_attr( $id ); ?>">
 	<div class="sg-intercom-product-hero__inner">

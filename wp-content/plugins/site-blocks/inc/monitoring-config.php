@@ -18,10 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function site_blocks_monitoring_ctas(): array {
 	return array(
-		'primary_label'   => __( 'Start My Quote', 'site-blocks' ),
-		'primary_url'     => home_url( '/get-an-instant-quote/' ),
-		'secondary_label' => __( 'Help Me Choose', 'site-blocks' ),
-		'secondary_url'   => home_url( '/design-my-solution/' ),
+		'primary_label'   => __( 'Request a quote', 'site-blocks' ),
+		'primary_url'     => home_url( '/contact/' ),
+		'secondary_label' => __( 'Call 1300 225 276', 'site-blocks' ),
+		'secondary_url'   => 'tel:1300225276',
 	);
 }
 
@@ -66,10 +66,10 @@ function site_blocks_get_monitoring_page_key(): ?string {
  */
 function site_blocks_monitoring_page_sections(): array {
 	return array(
-		'hub'                      => array( 'services', 'how-it-works', 'paths', 'integration', 'industries', 'portal', 'trust', 'related-services', 'faq', 'cta' ),
-		'back-to-base'             => array( 'intro', 'how-it-works', 'communicators', 'response-plans', 'quote', 'portal', 'trust', 'related-services', 'faq', 'cta' ),
-		'virtual-patrol'           => array( 'intro', 'how-it-works', 'compare', 'features', 'industries', 'requirements', 'portal', 'trust', 'related-services', 'faq', 'cta' ),
-		'solar-cameras-monitoring' => array( 'intro', 'how-it-works', 'use-cases', 'technical', 'industries', 'portal', 'monitoring-integration', 'related-services', 'faq', 'cta' ),
+		'hub'                      => array( 'services', 'paths', 'integration', 'industries', 'portal', 'trust', 'faq', 'cta' ),
+		'back-to-base'             => array( 'intro', 'communicators', 'response-plans', 'quote', 'portal', 'trust', 'faq', 'cta' ),
+		'virtual-patrol'           => array( 'intro', 'compare', 'features', 'industries', 'requirements', 'portal', 'trust', 'faq', 'cta' ),
+		'solar-cameras-monitoring' => array( 'intro', 'use-cases', 'technical', 'industries', 'portal', 'monitoring-integration', 'faq', 'cta' ),
 	);
 }
 
@@ -87,7 +87,7 @@ function site_blocks_monitoring_section_applies( string $page_key, string $secti
  */
 function site_blocks_monitoring_document_title( string $page_key ): string {
 	$titles = array(
-		'hub'                      => __( 'Alarm Monitoring Sydney | 24/7 Back-to-Base | Safeguard', 'site-blocks' ),
+		'hub'                      => __( 'Alarm Monitoring Sydney | Back-to-Base | Safeguard', 'site-blocks' ),
 		'back-to-base'             => __( 'Back-to-Base Alarm Monitoring Sydney | Safeguard', 'site-blocks' ),
 		'virtual-patrol'           => __( 'Virtual Patrol Sydney | Remote CCTV Guarding | Safeguard', 'site-blocks' ),
 		'solar-cameras-monitoring' => __( 'Solar CCTV Monitoring Sydney | 4G Site Cameras | Safeguard', 'site-blocks' ),
@@ -101,10 +101,10 @@ function site_blocks_monitoring_document_title( string $page_key ): string {
  */
 function site_blocks_monitoring_get_meta_description( string $page_key ): string {
 	$descriptions = array(
-		'hub'                      => __( '24/7 alarm monitoring across Greater Sydney, back-to-base, virtual patrol and solar CCTV monitoring. One team for install and response. Request a quote today.', 'site-blocks' ),
-		'back-to-base'             => __( 'Back-to-base alarm monitoring in Sydney, professional 24/7 monitoring centre, IP and 4G paths, clear response plans. Request a quote for your property.', 'site-blocks' ),
-		'virtual-patrol'           => __( 'Virtual patrol and remote guarding in Sydney, live CCTV tours, alarm verification and professional monitoring. Cut false callouts. Request an assessment.', 'site-blocks' ),
-		'solar-cameras-monitoring' => __( 'Solar-powered security cameras with professional monitoring for construction, farms and remote NSW sites. 4G back-to-base. Request a site quote.', 'site-blocks' ),
+		'hub'                      => __( 'Alarm monitoring, back-to-base, virtual patrol and solar CCTV monitoring. One team for installation and response planning. Request a quote today.', 'site-blocks' ),
+		'back-to-base'             => __( 'Back-to-base alarm monitoring, IP and 4G paths, clear response plans. Request a quote for your property.', 'site-blocks' ),
+		'virtual-patrol'           => __( 'Virtual patrol and remote guarding, live CCTV tours, alarm verification and professional monitoring. Cut false callouts. Request an assessment.', 'site-blocks' ),
+		'solar-cameras-monitoring' => __( 'Solar-powered security cameras with professional monitoring for construction sites, farms and remote properties. 4G back-to-base. Request a site quote.', 'site-blocks' ),
 	);
 
 	return $descriptions[ $page_key ] ?? '';
@@ -129,11 +129,11 @@ function site_blocks_monitoring_hero_config( string $page_key ): ?array {
 					array( 'label' => __( 'Home', 'site-blocks' ), 'url' => home_url( '/' ) ),
 					array( 'label' => __( 'Monitoring & Response', 'site-blocks' ), 'current' => true ),
 				),
-				'badge'         => __( 'Monitoring & Response · Sydney', 'site-blocks' ),
+				'badge'         => __( 'Monitoring & Response', 'site-blocks' ),
 				'title_before'  => __( 'When your alarm trips, someone should be ', 'site-blocks' ),
 				'title_accent'  => __( 'watching', 'site-blocks' ),
 				'title_after'   => __( '.', 'site-blocks' ),
-				'lead'            => __( 'Safeguard provides professional alarm monitoring across Greater Sydney, back-to-base alarm response, virtual patrol over your CCTV, and monitored solar cameras for remote sites. Because we also install your alarms, cameras and access control, monitoring connects to real response plans, not three vendors pointing at each other.', 'site-blocks' ),
+				'lead'            => __( 'Safeguard provides professional alarm monitoring, back-to-base alarm response, virtual patrol over your CCTV, and monitored solar cameras for remote sites. Because we also install your alarms, cameras and access control, monitoring connects to real response plans, not three vendors pointing at each other.', 'site-blocks' ),
 				'trust_aria_label'=> __( 'Why Safeguard monitoring', 'site-blocks' ),
 				'trust_chips'     => array(
 					array(
@@ -148,8 +148,8 @@ function site_blocks_monitoring_hero_config( string $page_key ): ?array {
 					),
 					array(
 						'icon'  => 'clock',
-						'line1' => __( '24/7', 'site-blocks' ),
-						'line2' => __( 'monitoring centre', 'site-blocks' ),
+						'line1' => __( '20+', 'site-blocks' ),
+						'line2' => __( 'years', 'site-blocks' ),
 					),
 					array(
 						'icon'  => 'wrench',
@@ -189,11 +189,11 @@ function site_blocks_monitoring_hero_config( string $page_key ): ?array {
 					array( 'label' => __( 'Monitoring & Response', 'site-blocks' ), 'url' => $hub ),
 					array( 'label' => __( 'Back-to-Base Monitoring', 'site-blocks' ), 'current' => true ),
 				),
-				'badge'         => __( 'Back-to-Base Monitoring · Sydney', 'site-blocks' ),
+				'badge'         => __( 'Back-to-Base Monitoring', 'site-blocks' ),
 				'title_before'  => __( 'Someone watching when you ', 'site-blocks' ),
 				'title_accent'  => __( 'cannot', 'site-blocks' ),
 				'title_after'   => __( '.', 'site-blocks' ),
-				'lead'            => __( 'Safeguard connects your alarm to professional back-to-base monitoring across Greater Sydney. When sensors trigger, our monitoring centre receives the signal and follows your response plan, contacting keyholders, arranging patrol attendance or escalation as agreed. Because we install and maintain your system too, monitoring is not an afterthought from a third party.', 'site-blocks' ),
+				'lead'            => __( 'Safeguard connects your alarm to professional back-to-base monitoring. When sensors trigger, an agreed response plan can set out keyholder contact, patrol attendance or escalation. Because we install and maintain your system too, monitoring is not an afterthought from a third party.', 'site-blocks' ),
 				'trust_aria_label'=> __( 'Back-to-base monitoring credentials', 'site-blocks' ),
 				'trust_chips'     => array(
 					array(
@@ -249,11 +249,11 @@ function site_blocks_monitoring_hero_config( string $page_key ): ?array {
 					array( 'label' => __( 'Monitoring & Response', 'site-blocks' ), 'url' => $hub ),
 					array( 'label' => __( 'Virtual Patrol', 'site-blocks' ), 'current' => true ),
 				),
-				'badge'         => __( 'Virtual Patrol · Sydney', 'site-blocks' ),
+				'badge'         => __( 'Virtual Patrol', 'site-blocks' ),
 				'title_before'  => __( 'Professional eyes on your cameras, ', 'site-blocks' ),
 				'title_accent'  => __( 'remotely', 'site-blocks' ),
 				'title_after'   => __( '.', 'site-blocks' ),
-				'lead'            => __( 'Safeguard\'s virtual patrol service puts live operators on your CCTV feeds, scheduled tours, alarm-triggered checks and documented reporting, without keeping a static guard on site every hour. Integrated with our monitoring and physical response options when attendance is required.', 'site-blocks' ),
+				'lead'            => __( 'Safeguard\'s virtual patrol service provides scheduled tours, alarm-triggered checks and documented reporting over your CCTV, without keeping a static guard on site every hour. It can be integrated with monitoring and physical response options when attendance is required.', 'site-blocks' ),
 				'trust_aria_label'=> __( 'Virtual patrol credentials', 'site-blocks' ),
 				'trust_chips'     => array(
 					array(
@@ -268,7 +268,7 @@ function site_blocks_monitoring_hero_config( string $page_key ): ?array {
 					),
 					array(
 						'icon'  => 'cctv',
-						'line1' => __( 'Live operator', 'site-blocks' ),
+						'line1' => __( 'Scheduled', 'site-blocks' ),
 						'line2' => __( 'CCTV tours', 'site-blocks' ),
 					),
 					array(
@@ -309,11 +309,11 @@ function site_blocks_monitoring_hero_config( string $page_key ): ?array {
 					array( 'label' => __( 'Monitoring & Response', 'site-blocks' ), 'url' => $hub ),
 					array( 'label' => __( 'Solar Cameras with Monitoring', 'site-blocks' ), 'current' => true ),
 				),
-				'badge'           => __( 'Solar Monitoring · Sydney & NSW', 'site-blocks' ),
+				'badge'           => __( 'Solar Monitoring', 'site-blocks' ),
 				'title_before'    => __( 'Security where there is no power, ', 'site-blocks' ),
 				'title_accent'    => __( 'monitored', 'site-blocks' ),
 				'title_after'     => __( '.', 'site-blocks' ),
-				'lead'            => __( 'Safeguard supplies solar-powered security cameras with 4G connectivity and professional monitoring for construction sites, farms, vacant land and remote properties across Greater Sydney and NSW. Deploy fast, monitor remotely, and escalate to patrol response when your plan requires it, without waiting for mains power or fixed internet.', 'site-blocks' ),
+				'lead'            => __( 'Safeguard supplies solar-powered security cameras with 4G connectivity and professional monitoring for construction sites, farms, vacant land and remote properties. Deploy without mains power or fixed internet, monitor remotely, and escalate to patrol response when your plan requires it.', 'site-blocks' ),
 				'trust_aria_label'=> __( 'Solar monitoring credentials', 'site-blocks' ),
 				'trust_chips'     => array(
 					array(
@@ -376,15 +376,15 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 		'hub' => array(
 			array(
 				'q' => __( 'What is back-to-base alarm monitoring?', 'site-blocks' ),
-				'a' => __( 'Your alarm system sends signals to a professional monitoring centre. When an alert activates, trained operators follow your response plan, contacting you, keyholders or arranging attendance, 24 hours a day.', 'site-blocks' ),
+				'a' => __( 'Your alarm system can send signals to a professional monitoring centre. An agreed response plan can set out contact with you, keyholders or attendance arrangements.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Do I need monitoring if I have the Ajax app?', 'site-blocks' ),
-				'a' => __( 'Self-monitoring via the app suits many homes, you receive alerts on your phone. Professional monitoring adds a centre that acts when you cannot, asleep, overseas or unreachable.', 'site-blocks' ),
+				'a' => __( 'Self-monitoring via the app suits many homes. You receive alerts on your phone. Professional monitoring links the alarm to an agreed response plan for when you are asleep, overseas or unreachable.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'What happens when my alarm activates at 2am?', 'site-blocks' ),
-				'a' => __( 'Our monitoring centre receives the signal, assesses it against your plan and executes the agreed response, typically keyholder notification first, then patrol or alarm response attendance if required.', 'site-blocks' ),
+				'a' => __( 'Alarm monitoring can be linked to an agreed response plan, typically with keyholder notification first, followed by patrol or alarm response attendance if required.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Does monitoring work if my internet drops?', 'site-blocks' ),
@@ -392,7 +392,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'What is virtual patrol?', 'site-blocks' ),
-				'a' => __( 'Live operators review your CCTV on scheduled or alarm-triggered tours, remote guarding without a physical guard on site every hour. See our Virtual Patrol page for detail.', 'site-blocks' ),
+				'a' => __( 'Scheduled and alarm-triggered CCTV tours, remote guarding without a physical guard on site every hour. See our Virtual Patrol page for detail.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Can Safeguard monitor a site with no mains power?', 'site-blocks' ),
@@ -400,7 +400,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'Do you publish monitoring prices on the website?', 'site-blocks' ),
-				'a' => __( 'No. Monitoring is quoted per property based on equipment, communication path and response plan. Request a quote online or speak to our team for a tailored price.', 'site-blocks' ),
+				'a' => __( 'No. Monitoring is quoted per property based on equipment, communication path and response plan. Request a quote or call 1300 225 276 to speak to our team.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Are you licensed to provide monitoring in NSW?', 'site-blocks' ),
@@ -410,7 +410,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 		'back-to-base' => array(
 			array(
 				'q' => __( 'What is back-to-base monitoring?', 'site-blocks' ),
-				'a' => __( 'Your alarm sends signals to a 24/7 monitoring centre. Operators act on alerts using your agreed response plan, not relying on you to see a phone notification.', 'site-blocks' ),
+				'a' => __( 'Your alarm can send signals to a professional monitoring centre. An agreed response plan sets out how alerts are handled, rather than relying on you to see a phone notification.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'What\'s the difference between IP and 4G monitoring?', 'site-blocks' ),
@@ -422,7 +422,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'What is a daily test or poll signal?', 'site-blocks' ),
-				'a' => __( 'Regular check-ins confirm your system is communicating with the monitoring centre. If communication fails, you are notified to arrange service.', 'site-blocks' ),
+				'a' => __( 'Regular check-ins confirm your system is still communicating. If communication fails, you are notified to arrange service.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Who gets called first when my alarm trips?', 'site-blocks' ),
@@ -430,7 +430,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'Do you publish monitoring prices online?', 'site-blocks' ),
-				'a' => __( 'No. We quote monitoring per property. Request a quote or use our Ajax calculator for a system quote that includes monitoring options.', 'site-blocks' ),
+				'a' => __( 'No. We quote monitoring per property. Request a quote and the team will include monitoring options where they belong in the job.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Can I switch from self-monitoring to back-to-base later?', 'site-blocks' ),
@@ -444,7 +444,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 		'virtual-patrol' => array(
 			array(
 				'q' => __( 'What is virtual patrol?', 'site-blocks' ),
-				'a' => __( 'Live operators review your CCTV on scheduled or alarm-triggered tours, remote guarding without a physical guard on site every hour.', 'site-blocks' ),
+				'a' => __( 'Scheduled and alarm-triggered CCTV tours, remote guarding without a physical guard on site every hour.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'How is virtual patrol different from mobile patrol?', 'site-blocks' ),
@@ -452,7 +452,7 @@ function site_blocks_monitoring_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'Do I need speakers for virtual patrol?', 'site-blocks' ),
-				'a' => __( 'Not always, tours and verification work without audio. Speakers allow operator challenge where installed.', 'site-blocks' ),
+				'a' => __( 'Not always. Tours and checks work without audio. Speakers allow a voice challenge where they are installed.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Can virtual patrol replace a static guard?', 'site-blocks' ),
@@ -535,7 +535,7 @@ function site_blocks_monitoring_hub_photo_services(): array {
 	return array(
 		array(
 			'title' => __( 'Back-to-Base Alarm Monitoring', 'site-blocks' ),
-			'desc'  => __( 'Your alarm connects to our monitoring centre. When sensors trigger, trained operators follow your response plan, day or night.', 'site-blocks' ),
+			'desc'  => __( 'Alarm monitoring linked to the response plan for the site.', 'site-blocks' ),
 			'url'   => home_url( '/monitoring/back-to-base/' ),
 			'image' => 'images/monitoring/back-to-base-monitoring-centre.webp',
 			'alt'   => __( 'Operators in a professional back-to-base monitoring centre', 'site-blocks' ),
@@ -543,7 +543,7 @@ function site_blocks_monitoring_hub_photo_services(): array {
 		),
 		array(
 			'title' => __( 'Virtual Patrol & Remote Guarding', 'site-blocks' ),
-			'desc'  => __( 'Scheduled and alarm-triggered CCTV tours by live operators, professional cover without a guard on site every hour.', 'site-blocks' ),
+			'desc'  => __( 'Scheduled and alarm-triggered CCTV tours, professional cover without a guard on site every hour.', 'site-blocks' ),
 			'url'   => home_url( '/monitoring/virtual-patrol/' ),
 			'image' => 'images/monitoring/virtual-patrol-hero.webp',
 			'alt'   => __( 'Virtual patrol operators reviewing live CCTV feeds', 'site-blocks' ),
@@ -568,7 +568,7 @@ function site_blocks_monitoring_hub_photo_services(): array {
 function site_blocks_monitoring_services_heading(): array {
 	return array(
 		'title' => __( 'Choose the monitoring that fits your site', 'site-blocks' ),
-		'intro' => __( 'Three ways Safeguard keeps eyes on your property, whether your alarm trips, your cameras need scheduled checks, or your site has no fixed power.', 'site-blocks' ),
+		'intro' => __( 'Three ways to cover a site, whether your alarm trips, your cameras need scheduled checks, or the site has no fixed power.', 'site-blocks' ),
 	);
 }
 
@@ -631,13 +631,13 @@ function site_blocks_monitoring_related_services_config( $variant ): ?array {
 	$solar_cards = array(
 		array(
 			'title' => __( 'Back-to-Base Monitoring', 'site-blocks' ),
-			'desc'  => __( '24/7 alarm monitoring for connected systems.', 'site-blocks' ),
+			'desc'  => __( 'Alarm monitoring for connected systems.', 'site-blocks' ),
 			'url'   => home_url( '/monitoring/back-to-base/' ),
 			'icon'  => 'back-to-base',
 		),
 		array(
 			'title' => __( 'Virtual Patrol', 'site-blocks' ),
-			'desc'  => __( 'Live CCTV monitoring with operator response.', 'site-blocks' ),
+			'desc'  => __( 'Scheduled and alarm-triggered CCTV checks.', 'site-blocks' ),
 			'url'   => home_url( '/monitoring/virtual-patrol/' ),
 			'icon'  => 'virtual-patrol',
 		),
@@ -694,7 +694,7 @@ function site_blocks_monitoring_related_services_config( $variant ): ?array {
 					),
 					array(
 						'title' => __( 'Virtual Patrol', 'site-blocks' ),
-						'desc'  => __( 'Live CCTV monitoring with operator response.', 'site-blocks' ),
+						'desc'  => __( 'Scheduled and alarm-triggered CCTV checks.', 'site-blocks' ),
 						'url'   => home_url( '/monitoring/virtual-patrol/' ),
 						'icon'  => 'virtual-patrol',
 					),
@@ -772,7 +772,7 @@ function site_blocks_monitoring_related_page_grid_config( string $page_key ): ?a
 			'title_before'  => __( 'Works best ', 'site-blocks' ),
 			'title_accent'  => __( 'with', 'site-blocks' ),
 			'cards'         => array(
-				array( 'title' => __( 'CCTV & Security Cameras', 'site-blocks' ), 'desc' => __( 'Camera systems operators tour and verify.', 'site-blocks' ), 'url' => home_url( '/cctv-security-cameras/' ), 'icon' => 'ip-camera.png' ),
+				array( 'title' => __( 'CCTV & Security Cameras', 'site-blocks' ), 'desc' => __( 'Camera systems used for checks and verification.', 'site-blocks' ), 'url' => home_url( '/cctv-security-cameras/' ), 'icon' => 'ip-camera.png' ),
 				array( 'title' => __( 'Back-to-Base Monitoring', 'site-blocks' ), 'desc' => __( 'Alarm signals with agreed response plans.', 'site-blocks' ), 'url' => home_url( '/monitoring/back-to-base/' ), 'icon' => 'support.png' ),
 				array( 'title' => __( 'Solar Camera Monitoring', 'site-blocks' ), 'desc' => __( 'Temporary and remote sites on 4G.', 'site-blocks' ), 'url' => home_url( '/monitoring/solar-cameras-monitoring/' ), 'icon' => 'ip-camera.png' ),
 				array( 'title' => __( 'Mobile Patrols', 'site-blocks' ), 'desc' => __( 'Escalate to on-site attendance when required.', 'site-blocks' ), 'url' => home_url( '/physical-security/mobile-patrols/' ), 'icon' => 'support.png' ),
@@ -784,7 +784,7 @@ function site_blocks_monitoring_related_page_grid_config( string $page_key ): ?a
 			'title_before'  => __( 'Related ', 'site-blocks' ),
 			'title_accent'  => __( 'services', 'site-blocks' ),
 			'cards'         => array(
-				array( 'title' => __( 'Back-to-Base Monitoring', 'site-blocks' ), 'desc' => __( '24/7 centre cover for connected alarms.', 'site-blocks' ), 'url' => home_url( '/monitoring/back-to-base/' ), 'icon' => 'support.png' ),
+				array( 'title' => __( 'Back-to-Base Monitoring', 'site-blocks' ), 'desc' => __( 'Back-to-base cover for connected alarms.', 'site-blocks' ), 'url' => home_url( '/monitoring/back-to-base/' ), 'icon' => 'support.png' ),
 				array( 'title' => __( 'Virtual Patrol', 'site-blocks' ), 'desc' => __( 'Operator tours over live camera feeds.', 'site-blocks' ), 'url' => home_url( '/monitoring/virtual-patrol/' ), 'icon' => 'ip-camera.png' ),
 				array( 'title' => __( 'CCTV & Security Cameras', 'site-blocks' ), 'desc' => __( 'Permanent camera systems for powered sites.', 'site-blocks' ), 'url' => home_url( '/cctv-security-cameras/' ), 'icon' => 'ip-camera.png' ),
 				array( 'title' => __( 'Mobile Patrols', 'site-blocks' ), 'desc' => __( 'Physical checks and alarm response.', 'site-blocks' ), 'url' => home_url( '/physical-security/mobile-patrols/' ), 'icon' => 'support.png' ),
@@ -816,7 +816,7 @@ function site_blocks_monitoring_process_steps(): array {
 		),
 		array(
 			'title'       => __( 'Monitoring & reporting', 'site-blocks' ),
-			'description' => __( '24/7 centre cover with clear incident logs and agreed notifications.', 'site-blocks' ),
+			'description' => __( 'Clear incident logs and agreed notifications.', 'site-blocks' ),
 		),
 		array(
 			'title'       => __( 'Review', 'site-blocks' ),
@@ -841,11 +841,11 @@ function site_blocks_monitoring_paths_config(): array {
 			),
 			array(
 				'title' => __( 'Professional back-to-base', 'site-blocks' ),
-				'body'  => __( 'Your system reports to our monitoring centre 24/7. When an alarm activates, operators follow your response plan, contacting keyholders, arranging patrol attendance or escalation as agreed. Ideal when you cannot rely on being reachable at 2am.', 'site-blocks' ),
+				'body'  => __( 'When an alarm activates, the agreed response plan sets out keyholder contact, patrol attendance or escalation. This suits a site where someone may not be reachable at 2am.', 'site-blocks' ),
 			),
 			array(
 				'title' => __( 'Virtual patrol', 'site-blocks' ),
-				'body'  => __( 'Live operators tour your CCTV feeds on a schedule or when alarms trigger, a remote guarding layer for warehouses, yards and after-hours sites. Different from mobile patrols: no vehicle on site unless your plan requires it.', 'site-blocks' ),
+				'body'  => __( 'CCTV feeds are checked on a schedule or when alarms trigger, a remote guarding layer for warehouses, yards and after-hours sites. Different from mobile patrols: no vehicle on site unless your plan requires it.', 'site-blocks' ),
 			),
 		),
 		'note'    => __( 'Monitoring is quoted per property based on communication path, response plan and equipment. We do not publish standard rates on this site, request a quote for your site.', 'site-blocks' ),
@@ -870,8 +870,8 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 				'title_after'  => __( ' in four steps', 'site-blocks' ),
 				'list'         => array(
 					array( 'title' => __( 'Signal', 'site-blocks' ), 'desc' => __( 'Your alarm, camera or sensor detects an event and sends a signal to Safeguard\'s monitoring path.', 'site-blocks' ) ),
-					array( 'title' => __( 'Receive', 'site-blocks' ), 'desc' => __( 'Our monitoring centre receives the alert and assesses it against your site profile and response plan.', 'site-blocks' ) ),
-					array( 'title' => __( 'Verify', 'site-blocks' ), 'desc' => __( 'Where cameras are integrated, operators can verify the cause before escalating, reducing false callouts.', 'site-blocks' ) ),
+					array( 'title' => __( 'Receive', 'site-blocks' ), 'desc' => __( 'The alert is checked against your site profile and response plan.', 'site-blocks' ) ),
+					array( 'title' => __( 'Verify', 'site-blocks' ), 'desc' => __( 'Where cameras are integrated, the cause can be checked before escalating, reducing false callouts.', 'site-blocks' ) ),
 					array( 'title' => __( 'Respond', 'site-blocks' ), 'desc' => __( 'Keyholders are notified, virtual patrol checks run, mobile patrols or alarm response officers are dispatched, per your agreed plan.', 'site-blocks' ) ),
 				),
 				'image'        => 'hub-how-it-works.webp',
@@ -886,8 +886,8 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 				'title_accent' => __( 'responded to', 'site-blocks' ),
 				'title_after'  => __( ' by one team', 'site-blocks' ),
 				'paragraphs'   => array(
-					__( 'Most monitoring providers only watch signals. Most installers only fit hardware. Safeguard does both, so your alarms, CCTV, access control and guarding work together when something happens.', 'site-blocks' ),
-					__( 'A camera flags movement, monitoring verifies it, and a guard responds. It\'s one coordinated response, not three vendors pointing at each other.', 'site-blocks' ),
+					__( 'Safeguard installs the alarms, cameras, access control and guarding, and links monitoring to the response plan, so the parts work together when something happens.', 'site-blocks' ),
+					__( 'A camera flags movement, the plan sets out who checks it, and a guard responds when attendance is required. It\'s one coordinated response, not three vendors pointing at each other.', 'site-blocks' ),
 				),
 				'image'        => 'hub-integration.webp',
 				'alt'          => __( 'Safeguard technician linking alarm and CCTV systems', 'site-blocks' ),
@@ -902,10 +902,10 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 				'title_accent' => __( 'off', 'site-blocks' ),
 				'title_after'  => __( '.', 'site-blocks' ),
 				'paragraphs'   => array(
-					__( 'App alerts work until you are asleep, in a meeting, on a flight or simply miss the notification. Back-to-base monitoring puts a professional centre between your alarm and your response plan, 24 hours a day.', 'site-blocks' ),
+					__( 'App alerts work until you are asleep, in a meeting, on a flight or simply miss the notification. Back-to-base monitoring links the alarm to an agreed response plan.', 'site-blocks' ),
 					sprintf(
 						/* translators: %s: link to monitoring hub */
-						__( 'Part of Safeguard\'s %s across Greater Sydney.', 'site-blocks' ),
+						__( 'Part of Safeguard\'s %s.', 'site-blocks' ),
 						'<a href="' . esc_url( $hub ) . '">' . esc_html__( 'alarm monitoring services', 'site-blocks' ) . '</a>'
 					),
 				),
@@ -937,7 +937,7 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 					),
 					array(
 						'title' => __( 'Video verification', 'site-blocks' ),
-						'desc'  => __( 'Where CCTV is integrated, operators can review footage before escalating, reducing false callouts.', 'site-blocks' ),
+						'desc'  => __( 'Where CCTV is integrated, footage can be checked before escalating, reducing false callouts.', 'site-blocks' ),
 					),
 					array(
 						'title' => __( 'Emergency services', 'site-blocks' ),
@@ -962,7 +962,7 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 					),
 					array(
 						'title' => __( 'Upgraded wired systems', 'site-blocks' ),
-						'desc'  => __( 'Legacy panels upgraded to report to a monitoring centre.', 'site-blocks' ),
+						'desc'  => __( 'Legacy panels upgraded so they can report when monitoring is selected for the job.', 'site-blocks' ),
 					),
 					array(
 						'title' => __( 'Existing panels', 'site-blocks' ),
@@ -980,7 +980,7 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 				'title_accent' => __( 'after', 'site-blocks' ),
 				'title_after'  => __( ' the fact.', 'site-blocks' ),
 				'paragraphs'   => array(
-					__( 'Cameras record incidents, but without someone watching, you often learn about problems too late. Virtual patrol adds live operator tours of your feeds on a schedule or when alarms trigger.', 'site-blocks' ),
+					__( 'Cameras record incidents, but a recording is often seen too late. Virtual patrol adds scheduled checks of your feeds, and extra checks when alarms trigger.', 'site-blocks' ),
 					sprintf(
 						/* translators: 1: monitoring hub link, 2: mobile patrols link */
 						__( 'Part of Safeguard\'s %1$s, distinct from %2$s, where licensed officers attend in person.', 'site-blocks' ),
@@ -1051,8 +1051,8 @@ function site_blocks_monitoring_split_config( string $page_key, string $section 
 				'title_accent' => __( 'recorded', 'site-blocks' ),
 				'title_after'  => '',
 				'list'         => array(
-					array( 'title' => __( 'Alarm events report to Safeguard\'s monitoring centre', 'site-blocks' ), 'desc' => '' ),
-					array( 'title' => __( 'Operators verify via live view where cameras allow', 'site-blocks' ), 'desc' => '' ),
+					array( 'title' => __( 'Alarm events can be reported to a monitoring service when monitoring is selected for the job', 'site-blocks' ), 'desc' => '' ),
+					array( 'title' => __( 'Live view can be checked where the cameras allow', 'site-blocks' ), 'desc' => '' ),
 					array( 'title' => __( 'Keyholders notified; patrol dispatched per response plan', 'site-blocks' ), 'desc' => '' ),
 					array( 'title' => __( 'Tour logs for construction managers and asset owners', 'site-blocks' ), 'desc' => '' ),
 					array( 'title' => __( 'One vendor for install, monitoring and physical response, not three vendors pointing at each other.', 'site-blocks' ), 'desc' => '' ),
@@ -1080,7 +1080,7 @@ function site_blocks_monitoring_steps_config( string $page_key ): ?array {
 			'title_accent'  => __( 'works', 'site-blocks' ),
 			'steps'         => array(
 				array( 'title' => __( 'Alarm activates', 'site-blocks' ), 'desc' => __( 'A sensor, door contact or panic button triggers your system.', 'site-blocks' ) ),
-				array( 'title' => __( 'Signal sent', 'site-blocks' ), 'desc' => __( 'Your communicator sends the alert to the monitoring centre over IP, 4G or dual path.', 'site-blocks' ) ),
+				array( 'title' => __( 'Signal sent', 'site-blocks' ), 'desc' => __( 'Your communicator sends the alert over IP, 4G or dual path.', 'site-blocks' ) ),
 				array( 'title' => __( 'Operator assesses', 'site-blocks' ), 'desc' => __( 'Trained staff review the signal against your site profile and event type.', 'site-blocks' ) ),
 				array( 'title' => __( 'Response executed', 'site-blocks' ), 'desc' => __( 'Keyholders are called in order; patrol or alarm response attendance is arranged per your plan.', 'site-blocks' ) ),
 				array( 'title' => __( 'Logged and reported', 'site-blocks' ), 'desc' => __( 'Incidents are recorded for your records and future review.', 'site-blocks' ) ),
@@ -1129,7 +1129,7 @@ function site_blocks_monitoring_communicators_config(): array {
 			array(
 				'path'         => __( 'Dual path', 'site-blocks' ),
 				'best_for'     => __( 'Higher reliability needs', 'site-blocks' ),
-				'summary'      => __( 'Ethernet or Wi‑Fi plus cellular backup, common on modern smart alarm systems.', 'site-blocks' ),
+				'summary'      => __( 'Ethernet or Wiâ€‘Fi plus cellular backup, common on modern smart alarm systems.', 'site-blocks' ),
 				'card_summary' => __( 'For sites with higher reliability needs.', 'site-blocks' ),
 				'icon'         => 'shield',
 			),
@@ -1154,13 +1154,13 @@ function site_blocks_monitoring_compare_config(): array {
 		'rows'    => array(
 			array(
 				'label' => __( 'Cover type', 'site-blocks' ),
-				'virtual' => __( 'Remote, operators on CCTV', 'site-blocks' ),
+				'virtual' => __( 'Remote checks on CCTV', 'site-blocks' ),
 				'mobile'  => __( 'Physical, licensed officer on site', 'site-blocks' ),
 			),
 			array(
 				'label' => __( 'Best for', 'site-blocks' ),
 				'virtual' => __( 'Warehouses, yards, after-hours commercial', 'site-blocks' ),
-				'mobile'  => __( 'Lock-ups, alarm response, visible deterrence', 'site-blocks' ),
+				'mobile'  => __( 'Alarm response and visible deterrence', 'site-blocks' ),
 			),
 			array(
 				'label' => __( 'Cost profile', 'site-blocks' ),
@@ -1186,7 +1186,7 @@ function site_blocks_monitoring_compare_config(): array {
 		),
 		'clarifier_html' => sprintf(
 			/* translators: %s: mobile patrols link */
-			__( 'Need a guard on site? See %s. Need 24/7 eyes on cameras? Virtual patrol is the answer.', 'site-blocks' ),
+			__( 'Need a guard on site? See %s. Need scheduled checks on the cameras? Virtual patrol covers that.', 'site-blocks' ),
 			'<a href="' . esc_url( home_url( '/physical-security/mobile-patrols/' ) ) . '">' . esc_html__( 'Mobile Patrols', 'site-blocks' ) . '</a>'
 		),
 	);
@@ -1348,7 +1348,7 @@ function site_blocks_monitoring_package_inclusions_config( string $page_key ): ?
 		'checks'       => array(
 			__( 'Installed to site requirements', 'site-blocks' ),
 			__( 'Commissioned and tested', 'site-blocks' ),
-			__( 'Monitored and supported 24/7', 'site-blocks' ),
+			__( 'Monitored and supported', 'site-blocks' ),
 		),
 	);
 }
@@ -1421,20 +1421,16 @@ function site_blocks_monitoring_requirements_config(): array {
 function site_blocks_monitoring_quote_config(): array {
 	return array(
 		'title' => __( 'Request a quote for your property', 'site-blocks' ),
-		'body'  => __( 'Monitoring cost depends on your communicator path, response plan and property type. Safeguard does not publish monitoring prices on this website, every site is different. Request a quote online and our team will recommend the right back-to-base setup with a tailored price.', 'site-blocks' ),
+		'body'  => __( 'Monitoring cost depends on your communicator path, response plan and property type. Safeguard does not publish monitoring prices on this website, every site is different. Request a quote and the team will recommend the right back-to-base setup.', 'site-blocks' ),
 		'links' => array(
 			array(
-				'label' => __( 'Start My Quote', 'site-blocks' ),
-				'url'   => home_url( '/get-an-instant-quote/' ),
+				'label' => __( 'Request a quote', 'site-blocks' ),
+				'url'   => home_url( '/contact/' ),
 				'primary' => true,
 			),
 			array(
-				'label' => __( 'Ajax calculator', 'site-blocks' ),
-				'url'   => home_url( '/ajax-calculator/' ),
-			),
-			array(
 				'label' => __( 'Speak to Us', 'site-blocks' ),
-				'url'   => home_url( '/contact/' ),
+				'url'   => 'tel:1300225276',
 			),
 		),
 	);

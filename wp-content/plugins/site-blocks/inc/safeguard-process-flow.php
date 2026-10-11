@@ -27,9 +27,8 @@ require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
  * }|null $config Section content.
  */
 function site_blocks_render_process_flow( ?array $config ): void {
-	if ( null === $config ) {
-		return;
-	}
+	// Site-wide: "How it works" / process-flow sections removed.
+	return;
 
 	$steps = $config['steps'] ?? array();
 

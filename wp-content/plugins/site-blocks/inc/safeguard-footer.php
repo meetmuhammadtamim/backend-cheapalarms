@@ -85,6 +85,8 @@ function site_blocks_render_safeguard_footer(): void {
 				<ul class="sg-footer__links" role="list">
 					<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/ajax-alarm-systems/' ) ); ?>"><?php esc_html_e( 'Ajax Alarm Systems', 'site-blocks' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/paradox-m25/' ) ); ?>"><?php esc_html_e( 'Paradox M25', 'site-blocks' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/akuvox/' ) ); ?>"><?php esc_html_e( 'Akuvox Intercoms', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/service-area/' ) ); ?>"><?php esc_html_e( 'Service Area', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/reviews/' ) ); ?>"><?php esc_html_e( 'Reviews', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'site-blocks' ); ?></a></li>
@@ -103,7 +105,7 @@ function site_blocks_render_safeguard_footer(): void {
 		</div>
 		<div class="sg-footer__bar">
 			<div class="sg-container sg-footer__bar-inner">
-				<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php esc_html_e( 'Safeguard Security Services · Master Licence No. 000103619', 'site-blocks' ); ?></p>
+				<p>© <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php esc_html_e( 'Safeguard Security Services · Master Licence No. 000103619 · ASIAL member', 'site-blocks' ); ?></p>
 				<p><a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'Privacy Policy', 'site-blocks' ); ?></a> · <a href="<?php echo esc_url( home_url( '/terms-of-service/' ) ); ?>"><?php esc_html_e( 'Terms of Service', 'site-blocks' ); ?></a></p>
 			</div>
 		</div>
@@ -118,8 +120,8 @@ function site_blocks_render_safeguard_mobile_bar(): void {
 	$contact = site_blocks_get_safeguard_contact();
 	?>
 	<div class="sg-mobile-bar" id="sg-mobile-bar" aria-hidden="true">
-		<a class="sg-btn sg-btn--primary" href="<?php echo esc_url( $contact['quote'] ); ?>"><?php esc_html_e( 'Instant Quote', 'site-blocks' ); ?></a>
-		<a class="sg-btn sg-btn--orange" href="<?php echo esc_attr( $contact['phone_href'] ); ?>"><?php esc_html_e( 'Call', 'site-blocks' ); ?></a>
+		<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( $contact['quote'] ); ?>"><?php esc_html_e( 'Request a quote', 'site-blocks' ); ?></a>
+		<a class="sg-btn sg-btn--secondary" href="<?php echo esc_attr( $contact['phone_href'] ); ?>"><?php esc_html_e( 'Call', 'site-blocks' ); ?></a>
 	</div>
 	<?php
 }

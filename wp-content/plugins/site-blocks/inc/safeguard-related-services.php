@@ -61,9 +61,8 @@ function site_blocks_related_services_render_icon( string $icon_key, bool $use_b
  * }|null $config Section config.
  */
 function site_blocks_render_related_services( ?array $config ): void {
-	if ( null === $config || empty( $config['cards'] ) ) {
-		return;
-	}
+	// Site-wide: "Related services" sections removed.
+	return;
 
 	$use_icons = ! empty( $config['use_brand_icons'] );
 	$hub_link  = $config['hub_link'] ?? null;
@@ -112,9 +111,8 @@ function site_blocks_render_related_services( ?array $config ): void {
  * @param array<string, mixed>|null $config Same shape as site_blocks_render_related_services().
  */
 function site_blocks_render_related_services_band( ?array $config ): void {
-	if ( null === $config ) {
-		return;
-	}
+	// Site-wide: "Related services" sections removed.
+	return;
 
 	echo '<div class="sg-container">';
 	site_blocks_render_related_services( $config );
@@ -134,7 +132,8 @@ function site_blocks_render_related_services_band( ?array $config ): void {
  * } $config Section content.
  */
 function site_blocks_render_related_services_page_grid( array $config ): void {
-	$cards = $config['cards'] ?? array();
+	// Site-wide: "Related services" sections removed.
+	return;
 
 	if ( $cards === array() ) {
 		return;

@@ -17,9 +17,9 @@ require_once SITE_BLOCKS_DIR . 'inc/safeguard-section-icons.php';
  * @param array{quote_url?: string, ajax_url?: string, calc_url?: string} $args Optional URLs.
  */
 function site_blocks_render_safeguard_ajax_card( array $args = array() ): void {
-	$quote_url = isset( $args['quote_url'] ) ? (string) $args['quote_url'] : home_url( '/get-an-instant-quote/' );
+	$quote_url = isset( $args['quote_url'] ) ? (string) $args['quote_url'] : home_url( '/contact/' );
 	$ajax_url  = isset( $args['ajax_url'] ) ? (string) $args['ajax_url'] : home_url( '/ajax-alarm-systems/' );
-	$calc_url  = isset( $args['calc_url'] ) ? (string) $args['calc_url'] : home_url( '/ajax-calculator/' );
+	$calc_url  = isset( $args['calc_url'] ) ? (string) $args['calc_url'] : home_url( '/contact/' );
 
 	$ajax_img = site_blocks_asset_url( 'images/ajax/ajax-products.png' );
 	?>
@@ -60,11 +60,11 @@ function site_blocks_render_safeguard_ajax_card( array $args = array() ): void {
 			</li>
 		</ul>
 		<div class="sg-ajax-card__actions">
-			<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( $calc_url ); ?>">
-				<?php esc_html_e( 'Start My Quote', 'site-blocks' ); ?>
+			<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo esc_url( $calc_url ); ?>">
+				<?php esc_html_e( 'Request a quote', 'site-blocks' ); ?>
 				<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
 			</a>
-			<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( $ajax_url ); ?>">
+			<a class="sg-btn sg-btn--primary sg-btn--sm" href="<?php echo esc_url( $ajax_url ); ?>">
 				<?php esc_html_e( 'Explore Ajax', 'site-blocks' ); ?>
 				<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
 			</a>

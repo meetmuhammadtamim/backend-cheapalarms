@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site/akuvox-hero",
+  "version": "1.0.0",
+  "title": "Akuvox Hero",
+  "category": "theme",
+  "icon": "video-alt3",
+  "description": "Stage hero for the Akuvox intercom landing page.",
+  "keywords": ["akuvox", "intercom", "video", "safeguard"],
+  "textdomain": "site-blocks",
+  "supports": { "html": false, "align": ["full"], "multiple": false },
+  "render": "file:./render.php"
+}

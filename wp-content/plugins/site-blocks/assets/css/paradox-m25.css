@@ -1,0 +1,673 @@
+/* Paradox M25 landing — thin overlays on Ajax product-landing CSS */
+
+/* -------------------------------------------------------------------------- */
+/* Hero — banner full-bleed; hummingbird + H1 above CTAs, bottom-center       */
+/* -------------------------------------------------------------------------- */
+
+.sg-paradox-m25-hero.sg-cctv-stage-hero {
+  position: relative;
+  color: var(--sg-ink, #1e2a33);
+  background: var(--sg-paradox-hero) right center / cover no-repeat;
+  padding: clamp(2.25rem, 4.5vw, 3.75rem) 1.25rem 0;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__bg,
+.sg-paradox-m25-hero .sg-cctv-stage-hero__breadcrumb {
+  display: none;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__inner {
+  display: block;
+  position: relative;
+  grid-template-columns: none;
+  min-height: clamp(20rem, 36vw, 28rem);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__copy {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  animation: none;
+  text-align: center;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__mascot {
+  margin: 0;
+  line-height: 0;
+  flex: 0 0 auto;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__mascot-img {
+  display: block;
+  width: 3.5rem;
+  height: auto;
+  background: transparent;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__title {
+  margin: 0;
+  max-width: none;
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  color: var(--sg-ink, #1e2a33);
+  text-align: center;
+}
+
+.sg-paradox-m25-hero .sg-cctv-stage-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+}
+
+.sg-paradox-m25-hero .sg-btn--ghost {
+  color: var(--sg-navy, #061b33);
+  border-color: var(--sg-navy, #061b33);
+}
+
+.sg-paradox-m25-hero .sg-btn--ghost:hover,
+.sg-paradox-m25-hero .sg-btn--ghost:focus-visible {
+  background: transparent;
+  color: var(--sg-navy, #061b33);
+  border-color: var(--sg-navy, #061b33);
+}
+
+@media (min-width: 960px) {
+  .sg-paradox-m25-hero.sg-cctv-stage-hero {
+    padding: clamp(2.75rem, 5vw, 4.25rem) 1.5rem 0;
+  }
+
+  .sg-paradox-m25-hero .sg-cctv-stage-hero__inner {
+    display: block;
+    grid-template-columns: none;
+    align-items: unset;
+    min-height: clamp(22rem, 38vw, 28rem);
+  }
+
+  .sg-paradox-m25-hero .sg-cctv-stage-hero__copy {
+    align-self: unset;
+    padding: 0;
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 959px) {
+  .sg-paradox-m25-hero.sg-cctv-stage-hero {
+    background-position: 78% 40%;
+    padding: 2.25rem 1.125rem 0;
+  }
+
+  .sg-paradox-m25-hero .sg-cctv-stage-hero__copy {
+    bottom: 22px;
+  }
+
+  .sg-paradox-m25-hero .sg-cctv-stage-hero__mascot-img {
+    width: 3rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Difference — white band; desktop copy|house; mobile house first */
+/* -------------------------------------------------------------------------- */
+
+.sg-paradox-difference {
+  background: #fff;
+  padding-block: clamp(2rem, 4vw, 3.25rem);
+}
+
+.sg-paradox-difference__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+  align-items: center;
+}
+
+.sg-paradox-difference__copy {
+  min-width: 0;
+  order: 2;
+}
+
+.sg-paradox-difference__media {
+  order: 1;
+  margin: 0;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sg-paradox-difference__frame {
+  position: relative;
+  width: min(100%, 22rem);
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
+  padding: 50px 0;
+  box-sizing: border-box;
+}
+
+.sg-paradox-difference__img,
+.sg-paradox-difference__frame .sg-cctv-media-placeholder {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #1a2430;
+}
+
+.sg-paradox-difference__title {
+  margin: 0;
+  font-family: var(--sg-font-head, inherit);
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--sg-ink, #1e2a33);
+}
+
+.sg-paradox-difference__intro {
+  margin: 0.85rem 0 1.5rem;
+  font-family: var(--sg-font-body, inherit);
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  line-height: 1.65;
+  color: var(--sg-muted, #5a6b77);
+}
+
+.sg-paradox-difference__points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+body.safeguard-paradox-page .entry-content ol.sg-paradox-difference__points,
+body.safeguard-paradox-page .entry-content ol.sg-paradox-difference__points > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sg-paradox-difference__point {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  column-gap: 0.85rem;
+  align-items: start;
+}
+
+.sg-paradox-difference__num {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--sg-font-head, inherit);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--sg-ink, #1e2a33);
+  background: #eef1f4;
+}
+
+.sg-paradox-difference__rule {
+  display: block;
+  width: 2px;
+  align-self: stretch;
+  min-height: 2.5rem;
+  margin-top: 0.15rem;
+  background: var(--sg-orange, #fb7523);
+}
+
+.sg-paradox-difference__point-body {
+  min-width: 0;
+  padding-top: 0.2rem;
+}
+
+.sg-paradox-difference__point-title {
+  margin: 0 0 0.3rem;
+  font-family: var(--sg-font-head, inherit);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--sg-ink, #1e2a33);
+}
+
+.sg-paradox-difference__point-desc {
+  margin: 0;
+  font-family: var(--sg-font-body, inherit);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--sg-muted, #5a6b77);
+}
+
+/* Mobile: center the house + header block like the mockup */
+@media (max-width: 899px) {
+  .sg-paradox-difference__copy {
+    text-align: center;
+  }
+
+  .sg-paradox-difference__points {
+    text-align: left;
+    max-width: 28rem;
+    margin-inline: auto;
+  }
+
+  .sg-paradox-difference__frame {
+    width: min(100%, 18.5rem);
+  }
+}
+
+@media (min-width: 900px) {
+  .sg-paradox-difference__layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .sg-paradox-difference__copy {
+    order: 1;
+  }
+
+  .sg-paradox-difference__media {
+    order: 2;
+    justify-content: flex-end;
+  }
+
+  .sg-paradox-difference__frame {
+    width: min(100%, 28rem);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Property fit stats                                                         */
+/* -------------------------------------------------------------------------- */
+
+.sg-paradox-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.875rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.sg-paradox-stats__item {
+  padding: clamp(1.125rem, 2vw, 1.5rem) 0.75rem;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--sg-line);
+}
+
+.sg-paradox-stats__value {
+  margin: 0;
+  font-family: var(--sg-font-display, inherit);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--sg-ink, #061b33);
+}
+
+.sg-paradox-stats__label {
+  margin: 0.375rem 0 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sg-muted, rgba(6, 27, 51, 0.62));
+}
+
+.sg-paradox-property-fit .sg-ajax-section__header {
+  max-width: 40rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BlueEye                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.sg-paradox-blueeye .sg-portal-band__grid {
+  align-items: center;
+}
+
+.sg-paradox-blueeye__mark {
+  margin: 0 0 1rem;
+  line-height: 0;
+}
+
+.sg-paradox-blueeye__mark-img {
+  display: block;
+  width: 3.5rem;
+  height: auto;
+  background: transparent;
+}
+
+.sg-paradox-blueeye__phone {
+  display: flex;
+  justify-content: center;
+}
+
+.sg-paradox-blueeye__img,
+.sg-paradox-blueeye__phone .sg-cctv-media-placeholder {
+  width: min(100%, 11.5rem);
+  min-height: 0;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 0;
+  background: transparent;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Products — intro + featured + 3-up; mobile horizontal cards                */
+/* -------------------------------------------------------------------------- */
+
+body.safeguard-paradox-page .wp-block-site-paradox-m25-section,
+body.safeguard-paradox-page .wp-block-site-paradox-m25-hero {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.sg-paradox-products,
+.sg-paradox-products__panel {
+  background: #fff;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 0;
+}
+
+.sg-paradox-products {
+  padding-block: clamp(2rem, 4vw, 3.25rem);
+}
+
+.sg-paradox-products__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.sg-paradox-products__title {
+  margin: 0;
+  font-family: var(--sg-font-head, inherit);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--sg-ink, #1e2a33);
+}
+
+.sg-paradox-products__lead {
+  margin: 0.9rem 0 1.35rem;
+  font-family: var(--sg-font-body, inherit);
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--sg-muted, #5a6b77);
+}
+
+.sg-paradox-products__cta {
+  width: 100%;
+  justify-content: center;
+}
+
+.sg-paradox-products__trust {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.safeguard-paradox-page .entry-content ul.sg-paradox-products__trust,
+body.safeguard-paradox-page .entry-content ul.sg-paradox-products__trust > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sg-paradox-products__trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.sg-paradox-products__trust-icon {
+  display: inline-flex;
+  color: var(--sg-muted, #5a6b77);
+}
+
+.sg-paradox-products__trust-icon .sg-lucide-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.sg-paradox-products__trust-label {
+  font-family: var(--sg-font-body, inherit);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--sg-muted, #5a6b77);
+}
+
+.sg-paradox-products__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-width: 0;
+}
+
+.sg-paradox-products__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.875rem;
+}
+
+.sg-paradox-product {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 7rem) minmax(0, 1fr);
+  gap: 0.85rem 1rem;
+  align-items: center;
+  padding: 1rem;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.sg-paradox-product__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.5rem;
+  padding: 0.35rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0.65rem;
+}
+
+.sg-paradox-product__img,
+.sg-paradox-product__media img,
+.sg-paradox-product__media .sg-cctv-media-placeholder {
+  display: block;
+  width: 100%;
+  max-height: 6.5rem;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+body.safeguard-paradox-page .entry-content .sg-paradox-products img,
+body.safeguard-paradox-page .entry-content .sg-paradox-product__media img {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.sg-paradox-product__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sg-paradox-product__title {
+  margin: 0 0 0.2rem;
+  font-family: var(--sg-font-head, inherit);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--sg-ink, #1e2a33);
+}
+
+.sg-paradox-product__tag {
+  margin: 0 0 0.4rem;
+  font-family: var(--sg-font-body, inherit);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--sg-orange, #fb7523);
+}
+
+.sg-paradox-product__desc {
+  margin: 0;
+  font-family: var(--sg-font-body, inherit);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--sg-muted, #5a6b77);
+}
+
+.sg-paradox-product--featured {
+  grid-template-columns: minmax(5.5rem, 7.5rem) minmax(0, 1fr);
+}
+
+.sg-paradox-product--featured .sg-paradox-product__media {
+  align-self: stretch;
+  min-height: 6.5rem;
+}
+
+@media (min-width: 900px) {
+  .sg-paradox-products__layout {
+    grid-template-columns: minmax(15rem, 0.9fr) minmax(0, 1.35fr);
+    gap: clamp(1.75rem, 3vw, 2.75rem);
+    align-items: start;
+  }
+
+  .sg-paradox-products__cta {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .sg-paradox-products__trust {
+    justify-items: start;
+  }
+
+  .sg-paradox-products__trust-item {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .sg-paradox-products__row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sg-paradox-product {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.15rem;
+  }
+
+  .sg-paradox-product__body {
+    display: contents;
+  }
+
+  .sg-paradox-product__media {
+    order: 1;
+    width: 100%;
+    min-height: 7.5rem;
+  }
+
+  .sg-paradox-product__img,
+  .sg-paradox-product__media .sg-cctv-media-placeholder {
+    max-height: 7.5rem;
+  }
+
+  .sg-paradox-product__text {
+    order: 2;
+    width: 100%;
+  }
+
+  .sg-paradox-product--featured {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.9fr) minmax(0, 1.2fr);
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1.25rem 1.35rem;
+  }
+
+  .sg-paradox-product--featured .sg-paradox-product__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sg-paradox-product--featured .sg-paradox-product__media {
+    order: 0;
+    min-height: 9rem;
+    align-self: stretch;
+  }
+
+  .sg-paradox-product--featured .sg-paradox-product__img,
+  .sg-paradox-product--featured .sg-paradox-product__media .sg-cctv-media-placeholder {
+    max-height: 10rem;
+    object-position: right center;
+  }
+
+  .sg-paradox-product--featured .sg-paradox-product__title {
+    font-size: 1.125rem;
+  }
+
+  .sg-paradox-product--featured .sg-paradox-product__desc {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .sg-paradox-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sg-paradox-blueeye .sg-portal-band__grid {
+    grid-template-columns: 1fr;
+  }
+}

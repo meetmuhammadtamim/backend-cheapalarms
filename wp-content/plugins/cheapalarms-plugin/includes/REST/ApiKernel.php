@@ -17,6 +17,7 @@ use CheapAlarms\Plugin\REST\Controllers\AdminEstimateController;
 use CheapAlarms\Plugin\REST\Controllers\AdminInvoiceController;
 use CheapAlarms\Plugin\REST\Controllers\AdminSettingsController;
 use CheapAlarms\Plugin\REST\Controllers\QuoteRequestController;
+use CheapAlarms\Plugin\REST\Controllers\GuardingQuoteController;
 use CheapAlarms\Plugin\REST\Controllers\CalculatorController;
 use CheapAlarms\Plugin\REST\Controllers\XeroController;
 use CheapAlarms\Plugin\REST\Controllers\StripeController;
@@ -24,10 +25,7 @@ use CheapAlarms\Plugin\REST\Controllers\GhlWebhookController;
 use CheapAlarms\Plugin\REST\Controllers\HealthController;
 use CheapAlarms\Plugin\REST\Controllers\SetupBootstrapController;
 use CheapAlarms\Plugin\REST\Controllers\LogController;
-use CheapAlarms\Plugin\REST\Controllers\ChatController;
-use CheapAlarms\Plugin\REST\Controllers\AdminChatController;
 use CheapAlarms\Plugin\REST\Controllers\OtpController;
-use CheapAlarms\Plugin\REST\Controllers\TelegramWebhookController;
 use CheapAlarms\Plugin\Services\Container;
 
 class ApiKernel
@@ -56,15 +54,13 @@ class ApiKernel
             new AdminSettingsController($this->container),
             new AdminGhlContactsController($this->container),
             new QuoteRequestController($this->container),
+            new GuardingQuoteController($this->container),
             new CalculatorController($this->container),
             new XeroController($this->container),
             new StripeController($this->container),
             new GhlWebhookController($this->container),
             new LogController($this->container),
-            new ChatController($this->container),
-            new AdminChatController($this->container),
             new OtpController($this->container),
-            new TelegramWebhookController($this->container),
         ];
 
         foreach ($controllers as $controller) {

@@ -33,12 +33,12 @@ function site_blocks_get_cctv_faq_items(): array {
 			'a' => __( 'We usually recommend wired PoE for reliability. Wireless suits spots where cabling isn\'t practical.', 'site-blocks' ),
 		),
 		array(
-			'q' => __( 'Is the online estimate final?', 'site-blocks' ),
-			'a' => __( 'It\'s a tailored estimate, reviewed by technicians before you approve, so no surprises on the day.', 'site-blocks' ),
+			'q' => __( 'Is the quote the final price?', 'site-blocks' ),
+			'a' => __( 'A technician reviews the scope before you approve, so there are no surprises on the day.', 'site-blocks' ),
 		),
 		array(
 			'q' => __( 'Can I talk to someone?', 'site-blocks' ),
-			'a' => __( 'Yes, choose Help Me Choose and we\'ll guide the design with you.', 'site-blocks' ),
+			'a' => __( 'Yes. Call 1300 225 276 or request a quote and we will go through the design with you.', 'site-blocks' ),
 		),
 	);
 }

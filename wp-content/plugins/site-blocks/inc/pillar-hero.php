@@ -77,7 +77,7 @@ function site_blocks_render_pillar_hero( array $args ): void {
 				<p class="sg-hero__sub sg-hero__sub--dark"><?php echo esc_html( (string) $args['lead'] ); ?></p>
 
 				<div class="sg-hero__ctas">
-					<a class="sg-btn sg-btn--soft-blue" href="<?php echo esc_url( (string) $args['primary_url'] ); ?>">
+					<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( (string) $args['primary_url'] ); ?>">
 						<?php echo esc_html( (string) $args['primary_label'] ); ?>
 					</a>
 					<a class="sg-btn sg-btn--ghost" href="<?php echo esc_url( (string) $args['secondary_url'] ); ?>">

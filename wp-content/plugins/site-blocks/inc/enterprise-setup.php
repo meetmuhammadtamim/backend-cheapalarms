@@ -68,8 +68,8 @@ function site_blocks_enterprise_schema(): void {
 	$phone    = '1300225276';
 
 	$service_descriptions = array(
-		'hub'                 => 'Integrated commercial and enterprise security across Sydney: CCTV, access control, monitoring and licensed guards from one accountable team.',
-		'safeguard-solutions' => 'Safeguard Solutions cloud security platform: video, access, AI analytics and multi-site management in one console for Sydney businesses.',
+		'hub'                 => 'Integrated commercial security: CCTV, access control, monitoring and licensed guards from one team. NSW Master Licence #000103619.',
+		'safeguard-solutions' => 'Safeguard Solutions is our cloud security platform: video, access, AI analytics and multi-site management in one console.',
 	);
 
 	$service_types = array(
@@ -95,7 +95,6 @@ function site_blocks_enterprise_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed'         => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'additionalProperty' => array(
 				'@type' => 'PropertyValue',
 				'name'  => 'Security Master Licence',
@@ -109,7 +108,6 @@ function site_blocks_enterprise_schema(): void {
 		'@type'       => 'Service',
 		'serviceType' => $service_types[ $page_key ],
 		'provider'    => array( '@id' => $site_url . '#business' ),
-		'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 		'url'         => $page_url,
 		'description' => $service_descriptions[ $page_key ],
 	);
@@ -230,55 +228,7 @@ function site_blocks_enterprise_insight_seed_articles(): array {
  * Seed Enterprise Insight posts once. Never overwrite editor changes on upgrade.
  */
 function site_blocks_seed_enterprise_insight_posts(): void {
-	if ( ! post_type_exists( 'enterprise_insight' ) ) {
-		return;
-	}
-
-	site_blocks_seed_enterprise_insight_categories();
-
-	foreach ( site_blocks_enterprise_insight_seed_articles() as $article ) {
-		$existing_posts = get_posts(
-			array(
-				'name'           => $article['slug'],
-				'post_type'      => 'enterprise_insight',
-				'post_status'    => 'any',
-				'posts_per_page' => 1,
-			)
-		);
-
-		// Skip existing slugs - bosses must be able to edit without deploy overwriting.
-		if ( ! empty( $existing_posts ) ) {
-			continue;
-		}
-
-		$post_id = wp_insert_post(
-			array(
-				'post_title'   => $article['title'],
-				'post_name'    => $article['slug'],
-				'post_excerpt' => $article['excerpt'],
-				'post_content' => $article['content'],
-				'post_status'  => 'publish',
-				'post_type'    => 'enterprise_insight',
-				'post_author'  => 1,
-			),
-			true
-		);
-
-		if ( is_wp_error( $post_id ) || ! $post_id ) {
-			continue;
-		}
-
-		$post_id = (int) $post_id;
-		update_post_meta( $post_id, '_kad_post_layout', 'fullwidth' );
-		update_post_meta( $post_id, '_kad_post_content_style', 'unboxed' );
-		update_post_meta( $post_id, '_kad_post_title', 'hide' );
-		update_post_meta( $post_id, '_kad_post_header', 'disable' );
-		update_post_meta( $post_id, '_kad_post_footer', 'disable' );
-
-		if ( taxonomy_exists( 'enterprise_insight_category' ) && ! empty( $article['category'] ) ) {
-			wp_set_object_terms( $post_id, array( $article['category'] ), 'enterprise_insight_category', false );
-		}
-	}
+	return;
 }
 
 /**

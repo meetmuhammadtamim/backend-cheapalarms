@@ -17,7 +17,7 @@
   "attributes": {
     "eyebrow": {
       "type": "string",
-      "default": "Alarm Systems · Sydney"
+      "default": "Alarm Systems"
     },
     "headline": {
       "type": "string",
@@ -29,23 +29,23 @@
     },
     "note": {
       "type": "string",
-      "default": "We specify, install and support alarm systems for homes and businesses across Greater Sydney. You get clear recommendations, professional installation, and a team you can reach when it matters."
+      "default": "We specify, install and support alarm systems for homes and businesses. You get clear recommendations, professional installation, and a team you can reach when it matters."
     },
     "primaryCtaLabel": {
       "type": "string",
-      "default": "Start My Quote"
+      "default": "Request a quote"
     },
     "primaryCtaUrl": {
       "type": "string",
-      "default": "/get-an-instant-quote/"
+      "default": "/contact/"
     },
     "secondaryCtaLabel": {
       "type": "string",
-      "default": "Help Me Choose"
+      "default": "Call 1300 225 276"
     },
     "secondaryCtaUrl": {
       "type": "string",
-      "default": "/design-my-solution/"
+      "default": "tel:1300225276"
     }
   },
   "render": "file:./render.php"

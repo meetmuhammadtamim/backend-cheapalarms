@@ -37,8 +37,8 @@ function site_blocks_get_access_control_faq_items(): array {
 			'a' => __( 'Depending on your site: cards and fobs, PIN codes, smartphone credentials, biometric readers, and intercom-based visitor entry, often mixed on the same system.', 'site-blocks' ),
 		),
 		array(
-			'q' => __( 'Is the online estimate the final price?', 'site-blocks' ),
-			'a' => __( 'It\'s a tailored estimate. For most jobs it\'s reviewed by our technicians before approval, so you can proceed with confidence and no surprises on install day.', 'site-blocks' ),
+			'q' => __( 'Is the quote the final price?', 'site-blocks' ),
+			'a' => __( 'A technician reviews the scope before you approve, so you can proceed with confidence and there are no surprises on install day.', 'site-blocks' ),
 		),
 	);
 }

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site/tech-brand",
+  "version": "1.0.0",
+  "title": "Technology Brand Page",
+  "category": "theme",
+  "icon": "layout",
+  "description": "Milesight, NX Witness, or Hanwha Vision page.",
+  "keywords": ["milesight", "nx witness", "hanwha", "safeguard"],
+  "textdomain": "site-blocks",
+  "attributes": {
+    "brand": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": { "html": false, "align": ["full"], "multiple": false },
+  "render": "file:./render.php"
+}

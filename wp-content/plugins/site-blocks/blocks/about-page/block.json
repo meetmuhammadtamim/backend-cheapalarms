@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site/about-page",
+  "version": "1.0.0",
+  "title": "About Page",
+  "category": "theme",
+  "icon": "id",
+  "description": "Safeguard Security Services about page.",
+  "keywords": ["about", "safeguard"],
+  "textdomain": "site-blocks",
+  "supports": {
+    "html": false,
+    "align": ["full"],
+    "multiple": false
+  },
+  "render": "file:./render.php"
+}

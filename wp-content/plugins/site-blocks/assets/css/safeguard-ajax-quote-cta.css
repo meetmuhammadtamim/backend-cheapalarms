@@ -23,7 +23,7 @@ body.safeguard-ajax-page .entry-content ul.sg-ajax-quote-cta__trust-list > li {
 .sg-ajax-quote-cta__panel {
   position: relative;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 12px;
   background-color: #061b33;
   background-image:
     linear-gradient(90deg, rgba(6, 27, 51, 0.92) 0%, rgba(6, 27, 51, 0.55) 42%, rgba(6, 27, 51, 0.35) 62%, rgba(6, 27, 51, 0.55) 100%),

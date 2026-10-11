@@ -68,9 +68,9 @@ function site_blocks_physical_security_schema(): void {
 	$phone    = '1300225276';
 
 	$service_descriptions = array(
-		'hub'            => 'Licensed static guards, mobile patrols, alarm response, event and retail security across Sydney, integrated with CCTV, alarms and monitoring.',
-		'static-guards'  => 'Licensed static security guards providing a constant on-site presence for retail, offices, warehouses, strata, construction and events across Sydney, integrated with CCTV, alarms and monitoring.',
-		'mobile-patrols' => 'GPS-tracked mobile security patrols across Sydney with scheduled and random checks, lock-ups, alarm response and welfare checks, plus digital reporting, integrated with CCTV and alarms.',
+		'hub'            => 'Licensed security officers and patrols. Static guarding, mobile patrols and alarm response, under Master Licence #000103619.',
+		'static-guards'  => 'Licensed static security guards. A dedicated officer on site for the shift, managing access and responding when something happens.',
+		'mobile-patrols' => 'GPS-tracked mobile security patrols. Scheduled and random checks, alarm response and digital reporting after each visit.',
 	);
 
 	$service_types = array(
@@ -98,7 +98,6 @@ function site_blocks_physical_security_schema(): void {
 				'postalCode'      => '2565',
 				'addressCountry'  => 'AU',
 			),
-			'areaServed'         => array( '@type' => 'City', 'name' => 'Sydney' ),
 			'additionalProperty' => array(
 				'@type' => 'PropertyValue',
 				'name'  => 'Security Master Licence',
@@ -112,7 +111,6 @@ function site_blocks_physical_security_schema(): void {
 		'@type'       => 'Service',
 		'serviceType' => $service_types[ $page_key ],
 		'provider'    => array( '@id' => $site_url . '#business' ),
-		'areaServed'  => array( '@type' => 'City', 'name' => 'Sydney' ),
 		'url'         => $page_url,
 		'description' => $service_descriptions[ $page_key ],
 	);

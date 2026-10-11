@@ -63,7 +63,7 @@ function site_blocks_get_electronic_security_page_key(): ?string {
  */
 function site_blocks_electronic_security_page_sections(): array {
 	return array(
-		'hub' => array( 'covers', 'services', 'integration', 'why', 'process', 'portal', 'trust', 'related-services', 'faq', 'cta' ),
+		'hub' => array( 'covers', 'services', 'integration', 'why', 'portal', 'trust', 'faq', 'cta' ),
 	);
 }
 
@@ -92,7 +92,7 @@ function site_blocks_electronic_security_document_title( string $page_key ): str
  */
 function site_blocks_electronic_security_get_meta_description( string $page_key ): string {
 	$descriptions = array(
-		'hub' => __( 'Alarms, CCTV, access control, intercoms and monitoring for Sydney homes and businesses, designed, installed and supported by Safeguard under Master Licence #000103619.', 'site-blocks' ),
+		'hub' => __( 'Alarms, CCTV, access control, intercoms and monitoring, designed, installed and supported by Safeguard under Master Licence #000103619.', 'site-blocks' ),
 	);
 
 	return $descriptions[ $page_key ] ?? '';
@@ -117,9 +117,9 @@ function site_blocks_electronic_security_hero_config( string $page_key ): ?array
 				'title_before'    => __( 'Smarter technology. Stronger protection. All in one place.', 'site-blocks' ),
 				'title_accent'    => '',
 				'title_after'     => '',
-				'lead'            => __( 'Alarms, CCTV, access control, intercoms and monitoring — designed, installed and supported as one connected system across Greater Sydney.', 'site-blocks' ),
+				'lead'            => __( 'Alarms, CCTV, access control, intercoms and monitoring, designed, installed and supported as one connected system.', 'site-blocks' ),
 				'primary_label'   => __( 'Explore Solutions', 'site-blocks' ),
-				'primary_url'     => home_url( '/get-an-instant-quote/' ),
+				'primary_url'     => home_url( '/contact/' ),
 				'secondary_label' => '1300 225 276',
 				'secondary_url'   => 'tel:1300225276',
 				'primary_icon'    => '',
@@ -174,7 +174,7 @@ function site_blocks_electronic_security_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'Do you cover both homes and commercial sites?', 'site-blocks' ),
-				'a' => __( 'Yes. From apartments and townhouses to retail, offices and industrial sites across Greater Sydney.', 'site-blocks' ),
+				'a' => __( 'Yes. From apartments and townhouses to retail, offices and industrial sites.', 'site-blocks' ),
 			),
 			array(
 				'q' => __( 'Can you upgrade existing cameras or alarms?', 'site-blocks' ),
@@ -182,7 +182,7 @@ function site_blocks_electronic_security_faq_items( string $page_key ): array {
 			),
 			array(
 				'q' => __( 'How do I get a quote?', 'site-blocks' ),
-				'a' => __( 'Request a quote online or call our team. We review your property, risk and goals, then provide a tailored scope and price.', 'site-blocks' ),
+				'a' => __( 'Request a quote or call our team. We review your property, risk and goals, then provide a tailored scope and price.', 'site-blocks' ),
 			),
 		),
 	);
@@ -234,6 +234,14 @@ function site_blocks_electronic_security_hub_photo_services(): array {
 			'icon'  => 'smartphone',
 		),
 		array(
+			'title' => __( 'Paradox M25', 'site-blocks' ),
+			'desc'  => __( 'Hybrid wireless console with PoE install and BlueEye app control.', 'site-blocks' ),
+			'url'   => home_url( '/paradox-m25/' ),
+			'image' => 'images/paradox/hero-m25.webp',
+			'alt'   => __( 'Paradox M25 wireless alarm system', 'site-blocks' ),
+			'icon'  => 'cpu',
+		),
+		array(
 			'title' => __( 'CCTV & Security Cameras', 'site-blocks' ),
 			'desc'  => __( 'See and record activity across your site.', 'site-blocks' ),
 			'url'   => home_url( '/cctv-security-cameras/' ),
@@ -259,10 +267,10 @@ function site_blocks_electronic_security_hub_photo_services(): array {
 		),
 		array(
 			'title' => __( 'Monitoring & Response', 'site-blocks' ),
-			'desc'  => __( '24/7 alarm monitoring and coordinated response across Sydney.', 'site-blocks' ),
+			'desc'  => __( 'Alarm monitoring linked to the response plan for the site.', 'site-blocks' ),
 			'url'   => home_url( '/monitoring/' ),
 			'image' => 'images/monitoring/hub-hero.webp',
-			'alt'   => __( '24/7 professional alarm monitoring centre', 'site-blocks' ),
+			'alt'   => __( 'Alarm monitoring linked to a response plan', 'site-blocks' ),
 			'icon'  => 'headset',
 		),
 	);
@@ -324,8 +332,8 @@ function site_blocks_electronic_security_split_config( string $page_key, string 
 				'list'         => array(
 					array( 'title' => __( 'Master Licence holder', 'site-blocks' ), 'desc' => __( 'NSW Master Licence #000103619 for install and monitoring work.', 'site-blocks' ) ),
 					array( 'title' => __( 'One accountable partner', 'site-blocks' ), 'desc' => __( 'Design, install, monitoring and response under one team.', 'site-blocks' ) ),
-					array( 'title' => __( 'Tested products', 'site-blocks' ), 'desc' => __( 'Reliable alarm, camera and access platforms chosen for Sydney conditions.', 'site-blocks' ) ),
-					array( 'title' => __( 'ASIAL member', 'site-blocks' ), 'desc' => __( 'Industry-accredited security operations across Greater Sydney.', 'site-blocks' ) ),
+					array( 'title' => __( 'Tested products', 'site-blocks' ), 'desc' => __( 'Reliable alarm, camera and access platforms.', 'site-blocks' ) ),
+					array( 'title' => __( 'ASIAL member', 'site-blocks' ), 'desc' => __( 'ASIAL member.', 'site-blocks' ) ),
 				),
 				'image'        => 'why.webp',
 				'alt'          => __( 'Safeguard technician commissioning electronic security in Sydney', 'site-blocks' ),

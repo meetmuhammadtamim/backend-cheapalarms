@@ -107,6 +107,14 @@ function site_blocks_enqueue_process_flow_styles( string $dep ): void {
  * Enqueue shared Safeguard page assets based on current page.
  */
 function site_blocks_enqueue_safeguard_silo_assets(): void {
+	if ( function_exists( 'site_blocks_is_tech_brand_page' ) && site_blocks_is_tech_brand_page() ) {
+		site_blocks_enqueue_safeguard_fonts( 'safeguard-tech-brand-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-tech-brand-fonts' );
+		site_blocks_enqueue_safeguard_style( 'safeguard-tech-brand', 'tech-brand.css', $dep );
+		site_blocks_enqueue_safeguard_home_script();
+		return;
+	}
+
 	if ( function_exists( 'site_blocks_is_ajax_alarm_systems_page' ) && site_blocks_is_ajax_alarm_systems_page() ) {
 		site_blocks_enqueue_safeguard_fonts( 'safeguard-ajax-fonts' );
 		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-ajax-fonts' );
@@ -119,6 +127,33 @@ function site_blocks_enqueue_safeguard_silo_assets(): void {
 		return;
 	}
 
+	if ( function_exists( 'site_blocks_is_paradox_m25_page' ) && site_blocks_is_paradox_m25_page() ) {
+		site_blocks_enqueue_safeguard_fonts( 'safeguard-paradox-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-paradox-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-cctv', 'cctv.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-ajax-quote-cta', 'safeguard-ajax-quote-cta.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-related-services', 'safeguard-related-services.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-ajax-alarm-systems', 'ajax-alarm-systems.css', $dep );
+		site_blocks_enqueue_safeguard_style( 'safeguard-paradox-m25', 'paradox-m25.css', $dep );
+		site_blocks_enqueue_process_flow_styles( $dep );
+		site_blocks_enqueue_safeguard_home_script();
+		return;
+	}
+
+	if ( function_exists( 'site_blocks_is_akuvox_page' ) && site_blocks_is_akuvox_page() ) {
+		site_blocks_enqueue_safeguard_fonts( 'safeguard-akuvox-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-akuvox-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-cctv', 'cctv.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-intercom', 'intercom.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-ajax-quote-cta', 'safeguard-ajax-quote-cta.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-ajax-alarm-systems', 'ajax-alarm-systems.css', $dep );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-paradox-m25', 'paradox-m25.css', $dep );
+		site_blocks_enqueue_safeguard_style( 'safeguard-akuvox', 'akuvox.css', $dep );
+		site_blocks_enqueue_process_flow_styles( $dep );
+		site_blocks_enqueue_safeguard_home_script();
+		return;
+	}
+
 	if ( function_exists( 'site_blocks_is_ajax_calculator_page' ) && site_blocks_is_ajax_calculator_page() ) {
 		site_blocks_enqueue_safeguard_fonts( 'safeguard-ajax-calculator-fonts' );
 		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-ajax-calculator-fonts' );
@@ -126,6 +161,13 @@ function site_blocks_enqueue_safeguard_silo_assets(): void {
 		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-ajax-quote-cta', 'safeguard-ajax-quote-cta.css', $dep );
 		site_blocks_enqueue_safeguard_style( 'safeguard-ajax-alarm-systems', 'ajax-alarm-systems.css', $dep );
 		site_blocks_enqueue_process_flow_styles( $dep );
+		site_blocks_enqueue_safeguard_home_script();
+		return;
+	}
+
+	if ( function_exists( 'site_blocks_is_manpower_calculator_page' ) && site_blocks_is_manpower_calculator_page() ) {
+		site_blocks_enqueue_safeguard_fonts( 'safeguard-manpower-calculator-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-manpower-calculator-fonts' );
 		site_blocks_enqueue_safeguard_home_script();
 		return;
 	}
@@ -323,10 +365,37 @@ function site_blocks_safeguard_silo_body_class( array $classes ): array {
 		$classes[] = 'safeguard-homepage';
 	}
 
+	if ( function_exists( 'site_blocks_is_ajax_alarm_systems_page' ) && site_blocks_is_ajax_alarm_systems_page() ) {
+		$classes[] = 'safeguard-ajax-page';
+		$classes[] = 'safeguard-homepage';
+	}
+
+	if ( function_exists( 'site_blocks_is_paradox_m25_page' ) && site_blocks_is_paradox_m25_page() ) {
+		$classes[] = 'safeguard-ajax-page';
+		$classes[] = 'safeguard-paradox-page';
+		$classes[] = 'safeguard-homepage';
+	}
+
+	if ( function_exists( 'site_blocks_is_akuvox_page' ) && site_blocks_is_akuvox_page() ) {
+		$classes[] = 'safeguard-ajax-page';
+		$classes[] = 'safeguard-akuvox-page';
+		$classes[] = 'safeguard-homepage';
+	}
+
+	if ( function_exists( 'site_blocks_is_tech_brand_page' ) && site_blocks_is_tech_brand_page() ) {
+		$classes[] = 'safeguard-tech-brand-page';
+		$classes[] = 'safeguard-homepage';
+	}
+
 	if ( function_exists( 'site_blocks_is_ajax_calculator_page' ) && site_blocks_is_ajax_calculator_page() ) {
 		$classes[] = 'safeguard-ajax-page';
 		$classes[] = 'safeguard-homepage';
 		$classes[] = 'sg-ajax-calculator-page';
+	}
+
+	if ( function_exists( 'site_blocks_is_manpower_calculator_page' ) && site_blocks_is_manpower_calculator_page() ) {
+		$classes[] = 'safeguard-homepage';
+		$classes[] = 'sg-manpower-calculator-page';
 	}
 
 	if ( function_exists( 'site_blocks_is_enterprise_context' ) && site_blocks_is_enterprise_context() ) {

@@ -269,13 +269,13 @@ function site_blocks_monitoring_render_services(): void {
 			'intro'         => (string) $heading['intro'],
 			'items'         => site_blocks_monitoring_hub_photo_services(),
 			'cta'           => array(
-				'title'        => __( 'Eyes on your site, day and night.', 'site-blocks' ),
+				'title'        => __( 'Tell us the site. A person checks the scope.', 'site-blocks' ),
 				'checks'       => array(
-					__( 'Australian Monitoring Centre', 'site-blocks' ),
-					__( '24/7 Operators', 'site-blocks' ),
-					__( 'Video Verification', 'site-blocks' ),
-					__( 'Clear Escalation Plans', 'site-blocks' ),
-					__( 'Portal Visibility', 'site-blocks' ),
+					__( 'Master Licence #000103619', 'site-blocks' ),
+					__( '20+ years', 'site-blocks' ),
+					__( 'Video checks', 'site-blocks' ),
+					__( 'Clear escalation plans', 'site-blocks' ),
+					__( 'ASIAL member', 'site-blocks' ),
 				),
 				'button_label' => __( 'Request a Quote', 'site-blocks' ),
 				'button_url'   => home_url( '/contact/' ),
@@ -527,7 +527,7 @@ function site_blocks_monitoring_render_quote(): void {
 			<div class="sg-monitoring-quote__links">
 				<?php foreach ( $config['links'] as $link ) : ?>
 					<a
-						class="sg-btn <?php echo ! empty( $link['primary'] ) ? 'sg-btn--primary' : 'sg-btn--ghost'; ?>"
+						class="sg-btn <?php echo ! empty( $link['primary'] ) ? 'sg-btn--orange' : 'sg-btn--ghost'; ?>"
 						href="<?php echo esc_url( $link['url'] ); ?>"
 					>
 						<?php echo esc_html( $link['label'] ); ?>
@@ -632,8 +632,8 @@ function site_blocks_monitoring_render_trust( string $page_key ): void {
 
 	$items = array(
 		array(
-			'title' => __( 'Licensed monitoring centre', 'site-blocks' ),
-			'desc'  => __( 'Professional operators following agreed response plans.', 'site-blocks' ),
+			'title' => __( 'Licensed', 'site-blocks' ),
+			'desc'  => __( 'Master Licence #000103619. ASIAL member.', 'site-blocks' ),
 			'icon'  => 'shield-check',
 		),
 		array(
@@ -647,7 +647,7 @@ function site_blocks_monitoring_render_trust( string $page_key ): void {
 			'icon'  => 'phone',
 		),
 		array(
-			'title' => __( 'Sydney-wide cover', 'site-blocks' ),
+			'title' => __( 'Homes and sites', 'site-blocks' ),
 			'desc'  => __( 'Residential, commercial, strata and remote sites.', 'site-blocks' ),
 			'icon'  => 'map-pin',
 		),
@@ -657,8 +657,8 @@ function site_blocks_monitoring_render_trust( string $page_key ): void {
 		array(
 			'heading_id'    => 'sg-monitoring-trust-heading-' . sanitize_html_class( $page_key ),
 			'section_class' => 'sg-monitoring-trust sg-monitoring-trust--' . sanitize_html_class( $page_key ),
-			'title_before'  => __( 'Monitoring backed by experienced ', 'site-blocks' ),
-			'title_accent'  => __( 'operators', 'site-blocks' ),
+			'title_before'  => __( 'Monitoring backed by a licensed ', 'site-blocks' ),
+			'title_accent'  => __( 'team', 'site-blocks' ),
 			'items'         => $items,
 			'icon_renderer' => $renderer,
 		)

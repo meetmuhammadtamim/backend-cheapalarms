@@ -22,19 +22,19 @@ $cards = array(
 	array(
 		'title'       => __( 'Wireless & smart alarms', 'site-blocks' ),
 		'description' => __( 'Ajax-grade systems, app-controlled, no mess of cabling.', 'site-blocks' ),
-		'url'         => '/get-an-instant-quote/',
+		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_wireless',
 	),
 	array(
 		'title'       => __( 'Home alarm systems', 'site-blocks' ),
 		'description' => __( 'Considered protection for the family home, without the clutter.', 'site-blocks' ),
-		'url'         => '/get-an-instant-quote/',
+		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_home',
 	),
 	array(
 		'title'       => __( 'Business alarm systems', 'site-blocks' ),
 		'description' => __( 'Multi-zone intrusion detection for offices, retail and warehouses.', 'site-blocks' ),
-		'url'         => '/get-an-instant-quote/',
+		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_business',
 	),
 	array(
@@ -51,7 +51,7 @@ $cards = array(
 	),
 	array(
 		'title'       => __( 'Back-to-base monitoring', 'site-blocks' ),
-		'description' => __( 'Someone watching when the alarm trips, 24/7.', 'site-blocks' ),
+		'description' => __( 'Alarm monitoring linked to the response plan for the site.', 'site-blocks' ),
 		'url'         => '/monitoring/back-to-base/',
 		'icon'        => 'site_blocks_alarm_icon_monitoring',
 	),

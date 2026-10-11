@@ -78,6 +78,8 @@ function site_blocks_stage_hero_media( string $relative_path, string $alt, strin
  *   frame_alt?: string,
  *   phone_image?: string,
  *   phone_alt?: string,
+ *   mascot_image?: string,
+ *   mascot_alt?: string,
  * } $args Hero content.
  */
 function site_blocks_render_stage_hero( array $args ): void {
@@ -88,14 +90,18 @@ function site_blocks_render_stage_hero( array $args ): void {
 	$eyebrow    = (string) ( $args['eyebrow'] ?? '' );
 	$title      = (string) ( $args['title'] ?? '' );
 	$lead       = (string) ( $args['lead'] ?? '' );
-	$primary_l  = (string) ( $args['primary_label'] ?? __( 'Start My Quote', 'site-blocks' ) );
-	$primary_u  = (string) ( $args['primary_url'] ?? home_url( '/get-an-instant-quote/' ) );
-	$secondary_l = (string) ( $args['secondary_label'] ?? __( 'Help Me Choose', 'site-blocks' ) );
-	$secondary_u = (string) ( $args['secondary_url'] ?? home_url( '/design-my-solution/' ) );
+	$primary_l  = (string) ( $args['primary_label'] ?? __( 'Request a quote', 'site-blocks' ) );
+	$primary_u  = (string) ( $args['primary_url'] ?? home_url( '/contact/' ) );
+	$secondary_l = (string) ( $args['secondary_label'] ?? __( 'Call 1300 225 276', 'site-blocks' ) );
+	$secondary_u = (string) ( $args['secondary_url'] ?? 'tel:1300225276' );
 	$frame_image = (string) ( $args['frame_image'] ?? '' );
 	$frame_alt   = (string) ( $args['frame_alt'] ?? '' );
 	$phone_image = (string) ( $args['phone_image'] ?? '' );
 	$phone_alt   = (string) ( $args['phone_alt'] ?? '' );
+	$mascot_image = (string) ( $args['mascot_image'] ?? '' );
+	$mascot_alt   = (string) ( $args['mascot_alt'] ?? '' );
+	$background   = (string) ( $args['background_image'] ?? '' );
+	$show_visual  = ( '' !== $frame_image || '' !== $phone_image );
 
 	$breadcrumb = isset( $args['breadcrumb'] ) && is_array( $args['breadcrumb'] ) ? $args['breadcrumb'] : array();
 	$trust      = isset( $args['trust'] ) && is_array( $args['trust'] ) ? $args['trust'] : array(
@@ -113,7 +119,7 @@ function site_blocks_render_stage_hero( array $args ): void {
 		),
 	);
 	?>
-<section class="<?php echo esc_attr( $class ); ?>" aria-labelledby="<?php echo esc_attr( $id ); ?>">
+<section class="<?php echo esc_attr( $class ); ?>" aria-labelledby="<?php echo esc_attr( $id ); ?>"<?php echo '' !== $background ? ' style="' . esc_attr( '--sg-paradox-hero: url(' . esc_url( $background ) . ')' ) . '"' : ''; ?>>
 	<div class="sg-cctv-stage-hero__bg" aria-hidden="true">
 		<span class="sg-cctv-stage-hero__base"></span>
 		<span class="sg-cctv-stage-hero__gradient"></span>
@@ -151,9 +157,27 @@ function site_blocks_render_stage_hero( array $args ): void {
 				<p class="sg-cctv-stage-hero__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
 			<?php endif; ?>
 
-			<h1 id="<?php echo esc_attr( $id ); ?>" class="sg-cctv-stage-hero__title">
-				<?php echo esc_html( $title ); ?>
-			</h1>
+			<?php if ( '' !== $mascot_image ) : ?>
+				<div class="sg-cctv-stage-hero__heading">
+					<div class="sg-cctv-stage-hero__mascot">
+						<?php
+						site_blocks_stage_hero_media(
+							$mascot_image,
+							$mascot_alt,
+							'sg-cctv-stage-hero__mascot-img',
+							'eager'
+						);
+						?>
+					</div>
+					<h1 id="<?php echo esc_attr( $id ); ?>" class="sg-cctv-stage-hero__title">
+						<?php echo esc_html( $title ); ?>
+					</h1>
+				</div>
+			<?php else : ?>
+				<h1 id="<?php echo esc_attr( $id ); ?>" class="sg-cctv-stage-hero__title">
+					<?php echo esc_html( $title ); ?>
+				</h1>
+			<?php endif; ?>
 
 			<?php if ( '' !== $lead ) : ?>
 				<p class="sg-cctv-stage-hero__lead"><?php echo esc_html( $lead ); ?></p>
@@ -182,19 +206,22 @@ function site_blocks_render_stage_hero( array $args ): void {
 			<?php endif; ?>
 		</div>
 
+		<?php if ( $show_visual ) : ?>
 		<div class="sg-cctv-stage-hero__visual">
-			<figure class="sg-cctv-stage-hero__frame">
-				<div class="sg-cctv-stage-hero__frame-inner">
-					<?php
-					site_blocks_stage_hero_media(
-						$frame_image,
-						$frame_alt,
-						'sg-cctv-stage-hero__house',
-						'eager'
-					);
-					?>
-				</div>
-			</figure>
+			<?php if ( '' !== $frame_image ) : ?>
+				<figure class="sg-cctv-stage-hero__frame">
+					<div class="sg-cctv-stage-hero__frame-inner">
+						<?php
+						site_blocks_stage_hero_media(
+							$frame_image,
+							$frame_alt,
+							'sg-cctv-stage-hero__house',
+							'eager'
+						);
+						?>
+					</div>
+				</figure>
+			<?php endif; ?>
 
 			<?php if ( '' !== $phone_image ) : ?>
 				<div class="sg-cctv-stage-hero__phone">
@@ -209,6 +236,7 @@ function site_blocks_render_stage_hero( array $args ): void {
 				</div>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 	</div>
 </section>
 	<?php
