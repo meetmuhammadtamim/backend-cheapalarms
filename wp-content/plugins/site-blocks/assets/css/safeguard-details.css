@@ -1,0 +1,122 @@
+/* Safeguard homepage: "details behind a reliable system" section.
+   Centred intro, three illustrated points. Colours, fonts and container come
+   from the site's design tokens (see safeguard-home.css). */
+
+.sg-details {
+  padding: 2.75rem 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .sg-details {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Intro */
+.sg-details__intro {
+  max-width: 58rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.sg-details .sg-details__title {
+  margin: 0 auto 1.25rem;
+  max-width: 24ch;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-details .sg-details__lead {
+  margin: 0 auto;
+  max-width: 52rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 768px) {
+  .sg-details__intro {
+    margin-bottom: 3.5rem;
+  }
+
+  .sg-details .sg-details__lead {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Points */
+.sg-details__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .sg-details__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+.sg-details__item {
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* All three canvases share one frame; each image is offset (inline `top`) so
+   the artwork's bottom edge sits on a common baseline. */
+.sg-details__art {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  margin: 0 auto 1.5rem;
+  aspect-ratio: 1448 / 1000;
+  overflow: hidden;
+}
+
+.sg-details__img {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+.sg-details .sg-details__item-title {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--sg-navy);
+}
+
+/* Short brand-orange rule under each title */
+.sg-details .sg-details__item-title::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin: 0.9rem auto 1rem;
+  background: var(--sg-orange);
+}
+
+.sg-details .sg-details__item-desc {
+  margin: 0 auto;
+  max-width: 30ch;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--sg-muted);
+}

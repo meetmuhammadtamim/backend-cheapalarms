@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$heading      = isset( $attributes['heading'] ) ? $attributes['heading'] : __( 'Security packages', 'site-blocks' );
+$heading      = isset( $attributes['heading'] ) ? $attributes['heading'] : __( 'Security Packages', 'site-blocks' );
 $intro        = isset( $attributes['intro'] ) ? $attributes['intro'] : '';
 $package_type = isset( $attributes['packageType'] ) ? $attributes['packageType'] : '';
 $limit        = isset( $attributes['limit'] ) ? (int) $attributes['limit'] : 0;

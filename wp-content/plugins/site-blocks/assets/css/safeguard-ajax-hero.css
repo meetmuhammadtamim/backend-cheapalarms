@@ -163,9 +163,9 @@ body.safeguard-monitoring-page .entry-content ul.sg-ajax-hero__caption-list > li
   object-fit: contain;
 }
 
-/* Lucide glyphs: 2rem inside 4.5rem slot (see --sg-icon-size) */
-.sg-ajax-hero__trust-icon .sg-lucide-icon,
-.sg-ajax-hero__caption-icon .sg-lucide-icon {
+/* MDI glyphs: 2rem inside 4.5rem slot (see --sg-icon-size) */
+.sg-ajax-hero__trust-icon .sg-icon,
+.sg-ajax-hero__caption-icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -259,7 +259,7 @@ body.safeguard-monitoring-page .entry-content ul.sg-ajax-hero__caption-list > li
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  text-transform: none;
+  text-transform: capitalize;
   color: var(--sg-ajax-navy);
   text-align: center;
   text-wrap: balance;

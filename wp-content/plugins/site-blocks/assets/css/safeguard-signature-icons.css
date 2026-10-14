@@ -1,6 +1,6 @@
 /**
  * Safeguard signature icon pack
- * Navy circle (#0C2D44 / --sg-navy) + white Lucide line glyph.
+ * Navy circle (#0C2D44 / --sg-navy) + white MDI line glyph.
  *
  * Use on decorative / feature icons. Do NOT apply to:
  * buttons, header chrome, chat UI, accordion chevrons, inline arrows.
@@ -81,33 +81,33 @@
 }
 
 /* Glyphs inside signature circles */
-.sg-alarm-service-card__icon .sg-lucide-icon,
-.sg-alarm-why__icon .sg-lucide-icon,
-.sg-alarm-step-card__icon .sg-lucide-icon,
-.sg-cctv-icon .sg-lucide-icon,
-.sg-cctv-bento__icon .sg-lucide-icon,
-.sg-cctv-layered__card-icon .sg-lucide-icon,
-.sg-ajax-icon-card__icon .sg-lucide-icon,
-.sg-ajax-process__icon .sg-lucide-icon,
-.sg-ajax-hero__trust-icon .sg-lucide-icon,
-.sg-ajax-hero__caption-icon .sg-lucide-icon,
-.sg-ajax-trust__icon .sg-lucide-icon,
-.sg-related-services__icon .sg-lucide-icon,
-.sg-scenario-grid__icon .sg-lucide-icon,
-.sg-monitoring-package__icon .sg-lucide-icon,
-.sg-service-card__icon .sg-lucide-icon,
-.sg-funnel-card__icon .sg-lucide-icon,
-.sg-benefit-card__icon .sg-lucide-icon,
-.sg-benefit-trust-card__icon .sg-lucide-icon,
-.sg-team-card__icon .sg-lucide-icon,
-.sg-design-card__icon .sg-lucide-icon,
-.sg-step-card__icon .sg-lucide-icon,
+.sg-alarm-service-card__icon .sg-icon,
+.sg-alarm-why__icon .sg-icon,
+.sg-alarm-step-card__icon .sg-icon,
+.sg-cctv-icon .sg-icon,
+.sg-cctv-bento__icon .sg-icon,
+.sg-cctv-layered__card-icon .sg-icon,
+.sg-ajax-icon-card__icon .sg-icon,
+.sg-ajax-process__icon .sg-icon,
+.sg-ajax-hero__trust-icon .sg-icon,
+.sg-ajax-hero__caption-icon .sg-icon,
+.sg-ajax-trust__icon .sg-icon,
+.sg-related-services__icon .sg-icon,
+.sg-scenario-grid__icon .sg-icon,
+.sg-monitoring-package__icon .sg-icon,
+.sg-service-card__icon .sg-icon,
+.sg-funnel-card__icon .sg-icon,
+.sg-benefit-card__icon .sg-icon,
+.sg-benefit-trust-card__icon .sg-icon,
+.sg-team-card__icon .sg-icon,
+.sg-design-card__icon .sg-icon,
+.sg-step-card__icon .sg-icon,
 .sg-step-card__icon svg,
-.sg-enterprise-trust__icon .sg-lucide-icon,
-.sg-ac-options__icon .sg-lucide-icon,
-.sg-ac-options__cta-icon .sg-lucide-icon,
-.sg-contact-detail__icon .sg-lucide-icon,
-.sg-hero__feature-icon .sg-lucide-icon,
+.sg-enterprise-trust__icon .sg-icon,
+.sg-ac-options__icon .sg-icon,
+.sg-ac-options__cta-icon .sg-icon,
+.sg-contact-detail__icon .sg-icon,
+.sg-hero__feature-icon .sg-icon,
 .sg-hero__feature-icon svg,
 .sg-home-hero__shield-icon,
 .sg-alarm-service-card__icon svg,
@@ -168,10 +168,10 @@
   min-height: var(--sg-sig-icon-size-sm);
 }
 
-.sg-contact-detail__icon .sg-lucide-icon,
-.sg-hero__feature-icon .sg-lucide-icon,
+.sg-contact-detail__icon .sg-icon,
+.sg-hero__feature-icon .sg-icon,
 .sg-hero__feature-icon svg,
-.sg-team-card__icon .sg-lucide-icon,
+.sg-team-card__icon .sg-icon,
 .sg-team-card__icon svg {
   width: var(--sg-sig-icon-glyph-sm) !important;
   height: var(--sg-sig-icon-glyph-sm) !important;
@@ -190,12 +190,12 @@
   min-height: var(--sg-sig-icon-size-lg);
 }
 
-.sg-related-services__icon .sg-lucide-icon,
-.sg-scenario-grid__icon .sg-lucide-icon,
-.sg-ajax-icon-card__icon .sg-lucide-icon,
-.sg-ajax-process__icon .sg-lucide-icon,
-.sg-alarm-why__icon .sg-lucide-icon,
-.sg-monitoring-package__icon .sg-lucide-icon,
+.sg-related-services__icon .sg-icon,
+.sg-scenario-grid__icon .sg-icon,
+.sg-ajax-icon-card__icon .sg-icon,
+.sg-ajax-process__icon .sg-icon,
+.sg-alarm-why__icon .sg-icon,
+.sg-monitoring-package__icon .sg-icon,
 .sg-related-services__icon-img,
 .sg-scenario-grid__icon-img,
 .sg-ajax-icon-card__icon .sg-ajax-hero__icon-img,
@@ -205,15 +205,15 @@
 }
 
 /* ── Exclusions: UI chrome keeps currentColor ── */
-.sg-btn .sg-lucide-icon,
-.sg-btn__icon.sg-lucide-icon,
-.sg-header__phone .sg-lucide-icon,
-.sg-related-services__arrow .sg-lucide-icon,
-.sg-ac-options__cta-chevron .sg-lucide-icon,
+.sg-btn .sg-icon,
+.sg-btn__icon.sg-icon,
+.sg-header__phone .sg-icon,
+.sg-related-services__arrow .sg-icon,
+.sg-ac-options__cta-chevron .sg-icon,
 .sg-value-faq__chevron,
 .sg-accordion__chevron,
-.sg-process-flow__arrow-btn .sg-lucide-icon,
-.sg-chat .sg-lucide-icon {
+.sg-process-flow__arrow-btn .sg-icon,
+.sg-chat .sg-icon {
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
@@ -226,18 +226,18 @@
   filter: none !important;
 }
 
-.sg-btn .sg-lucide-icon,
-.sg-btn__icon.sg-lucide-icon,
-.sg-header__phone .sg-lucide-icon,
-.sg-related-services__arrow .sg-lucide-icon {
+.sg-btn .sg-icon,
+.sg-btn__icon.sg-icon,
+.sg-header__phone .sg-icon,
+.sg-related-services__arrow .sg-icon {
   width: var(--sg-icon-size-sm, 1.125rem) !important;
   height: var(--sg-icon-size-sm, 1.125rem) !important;
 }
 
 /* Portal success checks stay filled blue (not signature circles) */
 .sg-portal-band__check,
-.sg-lucide-icon--filled-check,
-.sg-lucide-icon--success {
+.sg-icon--filled-check,
+.sg-icon--success {
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;

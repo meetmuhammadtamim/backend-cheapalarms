@@ -51,6 +51,57 @@ function site_blocks_enqueue_safeguard_home(): void {
 		SITE_BLOCKS_VERSION,
 		true
 	);
+
+	wp_enqueue_style(
+		'safeguard-details',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-details.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
+		'safeguard-coverage',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-coverage.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
+		'safeguard-quality',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-quality.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
+		'safeguard-connected',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-connected.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_script(
+		'safeguard-connected',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-connected.js',
+		array(),
+		SITE_BLOCKS_VERSION,
+		true
+	);
+
+	wp_enqueue_style(
+		'safeguard-motion',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-motion.css',
+		array( 'safeguard-details', 'safeguard-coverage', 'safeguard-quality', 'safeguard-connected' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_script(
+		'safeguard-motion',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-motion.js',
+		array(),
+		SITE_BLOCKS_VERSION,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'site_blocks_enqueue_safeguard_home', 30 );
 

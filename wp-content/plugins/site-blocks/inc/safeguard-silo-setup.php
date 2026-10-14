@@ -107,11 +107,42 @@ function site_blocks_enqueue_process_flow_styles( string $dep ): void {
  * Enqueue shared Safeguard page assets based on current page.
  */
 function site_blocks_enqueue_safeguard_silo_assets(): void {
+	if ( is_404() ) {
+		site_blocks_enqueue_safeguard_fonts( 'safeguard-404-fonts' );
+		site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-404-fonts' );
+		site_blocks_enqueue_safeguard_home_script();
+		return;
+	}
+
+	if ( function_exists( 'site_blocks_is_brands_index' ) && site_blocks_is_brands_index() ) {
+		site_blocks_enqueue_safeguard_fonts( 'safeguard-brands-fonts' );
+		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-brands-fonts' );
+		site_blocks_enqueue_safeguard_style( 'safeguard-tech-brand', 'tech-brand.css', $dep );
+		site_blocks_enqueue_safeguard_home_script();
+		return;
+	}
+
 	if ( function_exists( 'site_blocks_is_tech_brand_page' ) && site_blocks_is_tech_brand_page() ) {
 		site_blocks_enqueue_safeguard_fonts( 'safeguard-tech-brand-fonts' );
 		$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-tech-brand-fonts' );
 		site_blocks_enqueue_safeguard_style( 'safeguard-tech-brand', 'tech-brand.css', $dep );
 		site_blocks_enqueue_safeguard_home_script();
+		wp_enqueue_script(
+			'site-blocks-tech-brand-rail',
+			SITE_BLOCKS_URL . 'assets/js/tech-brand-rail.js',
+			array(),
+			SITE_BLOCKS_VERSION,
+			true
+		);
+		if ( is_page( 'nx-witness' ) ) {
+			wp_enqueue_script(
+				'site-blocks-nx-story',
+				SITE_BLOCKS_URL . 'assets/js/nx-story.js',
+				array(),
+				SITE_BLOCKS_VERSION,
+				true
+			);
+		}
 		return;
 	}
 
@@ -308,6 +339,10 @@ add_action( 'wp_enqueue_scripts', 'site_blocks_enqueue_safeguard_silo_assets', 3
  * @return string[]
  */
 function site_blocks_safeguard_silo_body_class( array $classes ): array {
+	if ( is_404() ) {
+		$classes[] = 'safeguard-homepage';
+	}
+
 	if ( function_exists( 'site_blocks_is_monitoring_page' ) && site_blocks_is_monitoring_page() ) {
 		$classes[] = 'safeguard-monitoring-page';
 		$classes[] = 'safeguard-access-control-page';
@@ -379,6 +414,10 @@ function site_blocks_safeguard_silo_body_class( array $classes ): array {
 	if ( function_exists( 'site_blocks_is_akuvox_page' ) && site_blocks_is_akuvox_page() ) {
 		$classes[] = 'safeguard-ajax-page';
 		$classes[] = 'safeguard-akuvox-page';
+		$classes[] = 'safeguard-homepage';
+	}
+
+	if ( function_exists( 'site_blocks_is_brands_index' ) && site_blocks_is_brands_index() ) {
 		$classes[] = 'safeguard-homepage';
 	}
 

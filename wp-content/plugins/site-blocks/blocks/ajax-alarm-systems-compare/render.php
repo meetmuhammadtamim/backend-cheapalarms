@@ -46,7 +46,7 @@ $rows = array(
 		<header class="sg-ajax-section__header">
 			<p class="sg-ajax-section__eyebrow"><?php esc_html_e( 'Compare', 'site-blocks' ); ?></p>
 			<h2 id="sg-ajax-compare-heading" class="sg-ajax-section__title">
-				<?php esc_html_e( 'Ajax vs traditional wired alarms.', 'site-blocks' ); ?>
+				<?php esc_html_e( 'Ajax Vs Traditional Wired Alarms.', 'site-blocks' ); ?>
 			</h2>
 		</header>
 

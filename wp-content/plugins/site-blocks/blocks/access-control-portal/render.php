@@ -15,8 +15,8 @@ site_blocks_render_portal_band(
 	array(
 		'heading_id'    => 'sg-access-control-portal-heading',
 		'section_class' => 'sg-access-control-portal',
-		'title_before'  => __( 'Access control quotes in ', 'site-blocks' ),
-		'title_accent'  => __( 'one portal', 'site-blocks' ),
+		'title_before'  => __( 'Access Control Quotes In ', 'site-blocks' ),
+		'title_accent'  => __( 'One Portal', 'site-blocks' ),
 		'intro'         => __( 'Share door schedules, user lists and site photos online so we can scope readers, credentials and integration before install.', 'site-blocks' ),
 		'bullets'       => array(
 			__( 'Track your quote progress in real time', 'site-blocks' ),

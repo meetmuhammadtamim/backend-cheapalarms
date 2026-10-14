@@ -17,7 +17,7 @@ require_once SITE_BLOCKS_DIR . 'inc/access-control-split.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-related-services.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-scenario-grid.php';
 require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow-configs.php';
 
@@ -152,12 +152,12 @@ function site_blocks_enterprise_render_solutions(): void {
 			'section_class' => 'sg-enterprise-solutions',
 			'band'          => 'white',
 			'eyebrow'       => __( 'Enterprise Solutions', 'site-blocks' ),
-			'title_before'  => __( 'Everything your operation needs, ', 'site-blocks' ),
-			'title_accent'  => __( 'integrated', 'site-blocks' ),
+			'title_before'  => __( 'Everything Your Operation Needs, ', 'site-blocks' ),
+			'title_accent'  => __( 'Integrated', 'site-blocks' ),
 			'intro'         => __( 'CCTV, access, alarms, monitoring, guarding and cloud software under one commercial partner.', 'site-blocks' ),
 			'items'         => site_blocks_enterprise_hub_photo_solutions(),
 			'cta'           => array(
-				'title'        => __( 'Security built for multi-site operations.', 'site-blocks' ),
+				'title'        => __( 'Security Built For Multi-Site Operations.', 'site-blocks' ),
 				'checks'       => array(
 					__( 'Multi-site Ready', 'site-blocks' ),
 					__( 'Monitoring options', 'site-blocks' ),
@@ -192,7 +192,7 @@ function site_blocks_enterprise_render_promo(): void {
 					<?php foreach ( $config['bullets'] as $bullet ) : ?>
 						<li>
 							<span class="sg-enterprise-promo__check" aria-hidden="true">
-								<?php site_blocks_lucide_icon( 'circle-check', 18 ); ?>
+								<?php site_blocks_icon( 'circle-check', 18 ); ?>
 							</span>
 							<?php echo esc_html( (string) $bullet ); ?>
 						</li>
@@ -229,7 +229,7 @@ function site_blocks_enterprise_render_trust(): void {
 				<?php foreach ( $config['items'] as $item ) : ?>
 					<li class="sg-enterprise-trust__item">
 						<span class="sg-enterprise-trust__icon" aria-hidden="true">
-							<?php site_blocks_lucide_icon( (string) $item['icon'], 26 ); ?>
+							<?php site_blocks_icon( (string) $item['icon'], 26 ); ?>
 						</span>
 						<span class="sg-enterprise-trust__value"><?php echo esc_html( (string) $item['value'] ); ?></span>
 						<span class="sg-enterprise-trust__label"><?php echo esc_html( (string) $item['label'] ); ?></span>
@@ -264,8 +264,8 @@ function site_blocks_enterprise_render_capabilities(): void {
 	<section class="sg-band sg-band--white sg-enterprise-capabilities alignfull" aria-labelledby="sg-enterprise-capabilities-heading">
 		<div class="sg-container">
 			<h2 id="sg-enterprise-capabilities-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-				<?php esc_html_e( 'What the platform ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'delivers', 'site-blocks' ); ?></span>
+				<?php esc_html_e( 'What The Platform ', 'site-blocks' ); ?>
+				<span class="sg-accent"><?php esc_html_e( 'Delivers', 'site-blocks' ); ?></span>
 			</h2>
 			<ul class="sg-enterprise-capabilities__list" role="list">
 				<?php foreach ( $items as $item ) : ?>
@@ -287,8 +287,8 @@ function site_blocks_enterprise_render_spoke_teasers(): void {
 		<div class="sg-container">
 			<header class="sg-alarm-services__header">
 				<h2 id="sg-enterprise-spokes-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-					<?php esc_html_e( 'Platform capabilities, ', 'site-blocks' ); ?>
-					<span class="sg-accent"><?php esc_html_e( 'in depth', 'site-blocks' ); ?></span>
+					<?php esc_html_e( 'Platform Capabilities, ', 'site-blocks' ); ?>
+					<span class="sg-accent"><?php esc_html_e( 'In Depth', 'site-blocks' ); ?></span>
 				</h2>
 				<p class="sg-section-intro sg-section-intro--center">
 					<?php esc_html_e( 'Dedicated feature pages are coming soon. Talk to our team about any capability below.', 'site-blocks' ); ?>
@@ -340,8 +340,8 @@ function site_blocks_enterprise_render_insights_feed(): void {
 		<div class="sg-container">
 			<header class="sg-alarm-services__header">
 				<h2 id="sg-enterprise-insights-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-					<?php esc_html_e( 'Latest enterprise ', 'site-blocks' ); ?>
-					<span class="sg-accent"><?php esc_html_e( 'insights', 'site-blocks' ); ?></span>
+					<?php esc_html_e( 'Latest Enterprise ', 'site-blocks' ); ?>
+					<span class="sg-accent"><?php esc_html_e( 'Insights', 'site-blocks' ); ?></span>
 				</h2>
 				<p class="sg-section-intro sg-section-intro--center">
 					<?php esc_html_e( 'Practical thinking on commercial and multi-site security technology.', 'site-blocks' ); ?>

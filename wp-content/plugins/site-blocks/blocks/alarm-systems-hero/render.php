@@ -40,7 +40,7 @@ site_blocks_render_stage_hero(
 			),
 		),
 		'eyebrow'         => $eyebrow,
-		'title'           => __( 'Alarm systems that earn their keep.', 'site-blocks' ),
+		'title'           => __( 'Alarm Systems That Earn Their Keep.', 'site-blocks' ),
 		'lead'            => __( 'Wireless and smart alarms designed around your property, not an off-the-shelf kit. A technician reviews the scope.', 'site-blocks' ),
 		'primary_label'   => $cta_label,
 		'primary_url'     => ( 0 === strpos( $cta_url, 'tel:' ) || 0 === strpos( $cta_url, 'http' ) ) ? $cta_url : home_url( $cta_url ),

@@ -18,7 +18,7 @@ require_once SITE_BLOCKS_DIR . 'inc/safeguard-section-icons.php';
  */
 function site_blocks_render_safeguard_ajax_card( array $args = array() ): void {
 	$quote_url = isset( $args['quote_url'] ) ? (string) $args['quote_url'] : home_url( '/contact/' );
-	$ajax_url  = isset( $args['ajax_url'] ) ? (string) $args['ajax_url'] : home_url( '/ajax-alarm-systems/' );
+	$ajax_url  = isset( $args['ajax_url'] ) ? (string) $args['ajax_url'] : home_url( '/brands/ajax-alarm-systems/' );
 	$calc_url  = isset( $args['calc_url'] ) ? (string) $args['calc_url'] : home_url( '/contact/' );
 
 	$ajax_img = site_blocks_asset_url( 'images/ajax/ajax-products.png' );
@@ -26,7 +26,7 @@ function site_blocks_render_safeguard_ajax_card( array $args = array() ): void {
 	<div class="sg-ajax-card">
 		<h2 class="sg-ajax-card__title">
 			<?php esc_html_e( 'Safeguard + Ajax,', 'site-blocks' ); ?><br>
-			<?php esc_html_e( 'professionally installed.', 'site-blocks' ); ?>
+			<?php esc_html_e( 'Professionally Installed.', 'site-blocks' ); ?>
 		</h2>
 		<p class="sg-ajax-card__intro">
 			<?php esc_html_e( 'We partner with Ajax Systems to deliver intelligent, reliable security, installed and supported by experienced technicians.', 'site-blocks' ); ?>
@@ -62,11 +62,11 @@ function site_blocks_render_safeguard_ajax_card( array $args = array() ): void {
 		<div class="sg-ajax-card__actions">
 			<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo esc_url( $calc_url ); ?>">
 				<?php esc_html_e( 'Request a quote', 'site-blocks' ); ?>
-				<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
+				<?php site_blocks_icon( 'arrow-right', 16 ); ?>
 			</a>
 			<a class="sg-btn sg-btn--primary sg-btn--sm" href="<?php echo esc_url( $ajax_url ); ?>">
 				<?php esc_html_e( 'Explore Ajax', 'site-blocks' ); ?>
-				<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
+				<?php site_blocks_icon( 'arrow-right', 16 ); ?>
 			</a>
 		</div>
 	</div>

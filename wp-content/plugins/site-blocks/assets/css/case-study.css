@@ -140,7 +140,7 @@ body.admin-bar .sg-header {
   font-weight: 600;
 }
 
-.sg-study__facts-row .sg-lucide-icon {
+.sg-study__facts-row .sg-icon {
   width: 1.25rem;
   height: 1.25rem;
   color: var(--sg-navy, #0c2d44);
@@ -279,7 +279,7 @@ body.admin-bar .sg-header {
   text-decoration: none;
 }
 
-.sg-study__brief-phone .sg-lucide-icon {
+.sg-study__brief-phone .sg-icon {
   width: 1.15rem;
   height: 1.15rem;
   color: var(--sg-navy, #0c2d44);
@@ -314,7 +314,7 @@ body.admin-bar .sg-header {
   transform: translateY(-1px);
 }
 
-.sg-study__brief-btn .sg-lucide-icon {
+.sg-study__brief-btn .sg-icon {
   width: 0.95rem;
   height: 0.95rem;
   color: #fff;

@@ -41,7 +41,7 @@ $products = array(
 		'tag'         => __( 'Perimeter Protection', 'site-blocks' ),
 		'description' => __( 'Detects door and window opening in real time.', 'site-blocks' ),
 		'image'       => 'images/ajax/products/doorprotect.webp',
-		'icon'        => 'door-closed',
+		'icon'        => 'lock-smart',
 		'modifier'    => 'door',
 		'alt'         => __( 'Ajax DoorProtect contact sensor on a window frame', 'site-blocks' ),
 	),
@@ -53,7 +53,7 @@ $products = array(
 			<div class="sg-ajax-products__intro">
 				<p class="sg-ajax-section__eyebrow"><?php esc_html_e( 'The Products', 'site-blocks' ); ?></p>
 				<h2 id="sg-ajax-products-heading" class="sg-ajax-section__title">
-					<?php esc_html_e( 'Common Ajax components we may include in your design.', 'site-blocks' ); ?>
+					<?php esc_html_e( 'Common Ajax Components We May Include In Your Design.', 'site-blocks' ); ?>
 				</h2>
 				<span class="sg-ajax-products__rule" aria-hidden="true"></span>
 				<p class="sg-ajax-products__lead">
@@ -61,7 +61,7 @@ $products = array(
 				</p>
 				<a class="sg-btn sg-btn--orange sg-ajax-products__cta" href="<?php echo esc_url( $calc_url ); ?>">
 					<?php esc_html_e( 'Request a quote', 'site-blocks' ); ?>
-					<span class="sg-btn__arrow" aria-hidden="true"><?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?></span>
+					<span class="sg-btn__arrow" aria-hidden="true"><?php site_blocks_icon( 'arrow-right', 16 ); ?></span>
 				</a>
 			</div>
 
@@ -83,7 +83,7 @@ $products = array(
 						</div>
 						<div class="sg-ajax-product-card__body">
 							<span class="sg-ajax-product-card__icon" aria-hidden="true">
-								<?php site_blocks_lucide_icon( $product['icon'] ); ?>
+								<?php site_blocks_icon( $product['icon'] ); ?>
 							</span>
 							<div class="sg-ajax-product-card__text">
 								<h3 class="sg-ajax-product-card__title"><?php echo esc_html( $product['title'] ); ?></h3>

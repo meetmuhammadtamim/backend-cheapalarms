@@ -328,7 +328,7 @@ body.safeguard-alarm-page .sg-alarm-hero .sg-btn {
 }
 
 .sg-alarm-service-card__icon svg,
-.sg-alarm-service-card__icon .sg-lucide-icon {
+.sg-alarm-service-card__icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -447,7 +447,7 @@ body.safeguard-alarm-page .sg-alarm-hero .sg-btn {
 }
 
 .sg-alarm-why__icon svg,
-.sg-alarm-why__icon .sg-lucide-icon {
+.sg-alarm-why__icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -734,7 +734,7 @@ body.safeguard-alarm-page .entry-content ol.sg-alarm-steps__list {
 }
 
 .sg-alarm-step-card__icon svg,
-.sg-alarm-step-card__icon .sg-lucide-icon {
+.sg-alarm-step-card__icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);

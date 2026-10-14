@@ -26,8 +26,8 @@ $reviews    = array(
 <section class="sg-band sg-band--blue sg-access-control-social-proof alignfull" aria-labelledby="sg-access-control-social-heading">
 	<div class="sg-container">
 		<h2 id="sg-access-control-social-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-			<?php esc_html_e( 'Trusted by ', 'site-blocks' ); ?>
-			<span class="sg-accent"><?php esc_html_e( 'businesses', 'site-blocks' ); ?></span>
+			<?php esc_html_e( 'Trusted By ', 'site-blocks' ); ?>
+			<span class="sg-accent"><?php esc_html_e( 'Businesses', 'site-blocks' ); ?></span>
 		</h2>
 
 		<div class="sg-ac-social__logos" role="list" aria-label="<?php esc_attr_e( 'Client logo placeholders', 'site-blocks' ); ?>">

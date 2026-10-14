@@ -15,42 +15,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/alarm-systems-icons.php';
 
-$heading = isset( $attributes['heading'] ) ? (string) $attributes['heading'] : __( 'What we install', 'site-blocks' );
+$heading = isset( $attributes['heading'] ) ? (string) $attributes['heading'] : __( 'What We Install', 'site-blocks' );
 $intro   = isset( $attributes['intro'] ) ? (string) $attributes['intro'] : __( 'Wireless, wired and smart alarm solutions, specified for your property, not pulled off a shelf.', 'site-blocks' );
 
 $cards = array(
 	array(
-		'title'       => __( 'Wireless & smart alarms', 'site-blocks' ),
+		'title'       => __( 'Wireless & Smart Alarms', 'site-blocks' ),
 		'description' => __( 'Ajax-grade systems, app-controlled, no mess of cabling.', 'site-blocks' ),
 		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_wireless',
 	),
 	array(
-		'title'       => __( 'Home alarm systems', 'site-blocks' ),
+		'title'       => __( 'Home Alarm Systems', 'site-blocks' ),
 		'description' => __( 'Considered protection for the family home, without the clutter.', 'site-blocks' ),
 		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_home',
 	),
 	array(
-		'title'       => __( 'Business alarm systems', 'site-blocks' ),
+		'title'       => __( 'Business Alarm Systems', 'site-blocks' ),
 		'description' => __( 'Multi-zone intrusion detection for offices, retail and warehouses.', 'site-blocks' ),
 		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_business',
 	),
 	array(
-		'title'       => __( 'Alarm upgrades', 'site-blocks' ),
+		'title'       => __( 'Alarm Upgrades', 'site-blocks' ),
 		'description' => __( 'Replace an old or false-triggering panel with something you\'ll actually trust.', 'site-blocks' ),
 		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_upgrade',
 	),
 	array(
-		'title'       => __( 'Servicing & repairs', 'site-blocks' ),
+		'title'       => __( 'Servicing & Repairs', 'site-blocks' ),
 		'description' => __( 'Keep an existing system performing, or get a dead one back online.', 'site-blocks' ),
 		'url'         => '/contact/',
 		'icon'        => 'site_blocks_alarm_icon_service',
 	),
 	array(
-		'title'       => __( 'Back-to-base monitoring', 'site-blocks' ),
+		'title'       => __( 'Back-To-Base Monitoring', 'site-blocks' ),
 		'description' => __( 'Alarm monitoring linked to the response plan for the site.', 'site-blocks' ),
 		'url'         => '/monitoring/back-to-base/',
 		'icon'        => 'site_blocks_alarm_icon_monitoring',
@@ -82,7 +82,7 @@ $cards = array(
 					<p class="sg-alarm-service-card__desc"><?php echo esc_html( $card['description'] ); ?></p>
 					<a class="sg-alarm-service-card__link" href="<?php echo esc_url( home_url( $card['url'] ) ); ?>">
 						<?php esc_html_e( 'Learn more', 'site-blocks' ); ?>
-						<?php site_blocks_lucide_icon( 'arrow-right', 14 ); ?>
+						<?php site_blocks_icon( 'arrow-right', 14 ); ?>
 					</a>
 				</article>
 			<?php endforeach; ?>

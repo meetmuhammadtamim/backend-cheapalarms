@@ -17,8 +17,8 @@ site_blocks_render_intro_proofs(
 	array(
 		'heading_id'    => 'sg-intercom-intro-heading',
 		'section_class' => 'sg-intercom-intro',
-		'title_before'  => __( 'Every entry is a ', 'site-blocks' ),
-		'title_accent'  => __( 'decision', 'site-blocks' ),
+		'title_before'  => __( 'Every Entry Is A ', 'site-blocks' ),
+		'title_accent'  => __( 'Decision', 'site-blocks' ),
 		'body'          => __( 'The front door is where security is decided. An intercom lets you see and speak to visitors before anything opens, from the monitor or your phone, wherever you are.', 'site-blocks' ),
 		'proofs'        => array(
 			array(
@@ -27,12 +27,12 @@ site_blocks_render_intro_proofs(
 				'icon'  => 'ip-camera.png',
 			),
 			array(
-				'title' => __( 'Answer anywhere', 'site-blocks' ),
+				'title' => __( 'Answer Anywhere', 'site-blocks' ),
 				'desc'  => __( 'Take door calls and release entry from your phone.', 'site-blocks' ),
 				'icon'  => 'remote-app.png',
 			),
 			array(
-				'title' => __( 'Control access', 'site-blocks' ),
+				'title' => __( 'Control Access', 'site-blocks' ),
 				'desc'  => __( 'Buzz in deliveries and tradespeople without a key handover.', 'site-blocks' ),
 				'icon'  => 'access-control.png',
 			),

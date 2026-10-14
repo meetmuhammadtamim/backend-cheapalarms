@@ -77,7 +77,7 @@ function site_blocks_get_safeguard_nav_items(): array {
 			'path'        => '/physical-security/',
 			'mega'        => true,
 			'mega_layout' => 'feature',
-			'heading'     => __( 'Our services', 'site-blocks' ),
+			'heading'     => __( 'Our Services', 'site-blocks' ),
 			'cta_label'   => __( 'See all services', 'site-blocks' ),
 			'children'    => array(
 				array(
@@ -165,31 +165,39 @@ function site_blocks_get_safeguard_nav_items(): array {
 					'type'    => 'brands',
 					'links'   => array(
 						array(
-							'path'  => '/ajax-alarm-systems/',
+							'path'  => '/brands/ajax-alarm-systems/',
 							'label' => 'Ajax',
 							'logo'  => 'images/brands/ajax.webp',
 						),
 						array(
-							'path'  => '/paradox-m25/',
+							'path'  => '/brands/paradox-m25/',
 							'label' => 'Paradox',
 							'logo'  => 'images/brands/paradox.webp',
 						),
 						array(
-							'path'  => '/milesight/',
+							'path'  => '/brands/milesight/',
 							'label' => 'Milesight',
+							'logo'  => 'images/brands/milesight.png',
 						),
 						array(
-							'path'  => '/nx-witness/',
+							'path'  => '/brands/nx-witness/',
 							'label' => 'NX Witness',
+							'logo'  => 'images/brands/nx-witness.png',
 						),
 						array(
-							'path'  => '/hanwha-vision/',
+							'path'  => '/brands/hanwha-vision/',
 							'label' => 'Hanwha Vision',
+							'logo'  => 'images/brands/hanwha-vision.png',
 						),
 						array(
-							'path'  => '/akuvox/',
+							'path'  => '/brands/akuvox/',
 							'label' => 'Akuvox',
 							'logo'  => 'images/brands/akuvox.webp',
+						),
+						array(
+							'path'   => '/brands/',
+							'label'  => 'See all',
+							'anchor' => true,
 						),
 					),
 				),
@@ -463,7 +471,7 @@ function site_blocks_render_mega_category_thumb( array $link ): void {
 
 	echo '<span class="sg-header__mega-category-thumb sg-header__mega-category-thumb--icon" aria-hidden="true">';
 	if ( '' !== $icon ) {
-		site_blocks_lucide_icon( $icon, 18 );
+		site_blocks_icon( $icon, 18 );
 	}
 	echo '</span>';
 }
@@ -644,7 +652,7 @@ function site_blocks_render_safeguard_feature_mega( array $item, string $group_i
 									<span class="sg-header__mega-feature-icon" aria-hidden="true">
 										<?php
 										if ( '' !== $icon ) {
-											site_blocks_lucide_icon( $icon, 18 );
+											site_blocks_icon( $icon, 18 );
 										}
 										?>
 									</span>
@@ -669,13 +677,13 @@ function site_blocks_render_safeguard_feature_mega( array $item, string $group_i
 					</div>
 					<a class="sg-header__mega-feature-title" href="<?php echo esc_url( home_url( $active_path ) ); ?>">
 						<span class="sg-header__mega-feature-title-text"><?php echo esc_html( $active_label ); ?></span>
-						<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
+						<?php site_blocks_icon( 'arrow-right', 16 ); ?>
 					</a>
 					<p class="sg-header__mega-feature-blurb"><?php echo esc_html( $active_blurb ); ?></p>
 					<?php if ( '' !== $cta_label && '' !== $cta_path ) : ?>
 						<a class="sg-header__mega-feature-cta" href="<?php echo esc_url( home_url( $cta_path ) ); ?>">
 							<span><?php echo esc_html( $cta_label ); ?></span>
-							<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
+							<?php site_blocks_icon( 'arrow-right', 16 ); ?>
 						</a>
 					<?php endif; ?>
 				</div>
@@ -719,7 +727,7 @@ function site_blocks_render_safeguard_mega_menu( array $item, string $group_id )
 							<ul class="sg-header__mega-brands" role="list">
 								<?php foreach ( $links as $link ) : ?>
 									<?php
-									if ( ! is_array( $link ) ) {
+									if ( ! is_array( $link ) || ! empty( $link['anchor'] ) ) {
 										continue;
 									}
 									$is_current = site_blocks_safeguard_nav_is_current( (string) ( $link['path'] ?? '' ), false );
@@ -746,6 +754,22 @@ function site_blocks_render_safeguard_mega_menu( array $item, string $group_id )
 												<span class="sg-header__mega-brand-text"><?php echo esc_html( (string) ( $link['label'] ?? '' ) ); ?></span>
 											<?php endif; ?>
 										</a>
+									</li>
+								<?php endforeach; ?>
+								<?php foreach ( $links as $link ) : ?>
+									<?php
+									if ( ! is_array( $link ) || empty( $link['anchor'] ) ) {
+										continue;
+									}
+									$is_current = site_blocks_safeguard_nav_is_current( (string) ( $link['path'] ?? '' ), false );
+									$attrs      = $is_current ? ' aria-current="page"' : '';
+									?>
+									<li class="sg-header__mega-brand-more-item">
+										<a
+											class="sg-header__mega-brand-more"
+											href="<?php echo esc_url( home_url( (string) ( $link['path'] ?? '' ) ) ); ?>"
+											<?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										><?php echo esc_html( (string) ( $link['label'] ?? '' ) ); ?></a>
 									</li>
 								<?php endforeach; ?>
 							</ul>
@@ -807,18 +831,17 @@ function site_blocks_render_safeguard_header(): void {
 	$phone_h   = $contact['phone_href'];
 	$email     = $contact['email'];
 	$email_h   = $contact['email_href'];
-	$quote     = $contact['quote'];
 	?>
 	<div class="sg-utility" role="complementary" aria-label="<?php esc_attr_e( 'Service information', 'site-blocks' ); ?>">
 		<div class="sg-container sg-utility__inner">
 			<span class="sg-utility__location"><?php esc_html_e( 'NSW Master Licence #000103619', 'site-blocks' ); ?></span>
 			<div class="sg-utility__contacts">
 				<a class="sg-utility__link" href="<?php echo esc_url( $email_h ); ?>">
-					<?php site_blocks_lucide_icon( 'mail', 14 ); ?>
+					<?php site_blocks_icon( 'mail', 14 ); ?>
 					<?php echo esc_html( $email ); ?>
 				</a>
 				<a class="sg-utility__link" href="<?php echo esc_attr( $phone_h ); ?>">
-					<?php site_blocks_lucide_icon( 'phone', 14 ); ?>
+					<?php site_blocks_icon( 'phone', 14 ); ?>
 					<?php echo esc_html( $phone ); ?>
 				</a>
 			</div>
@@ -915,13 +938,12 @@ function site_blocks_render_safeguard_header(): void {
 
 			<div class="sg-header__actions">
 				<a class="sg-header__phone" href="<?php echo esc_attr( $phone_h ); ?>">
-					<?php site_blocks_lucide_icon( 'phone', 18 ); ?>
+					<?php site_blocks_icon( 'phone', 18 ); ?>
 					<?php echo esc_html( $phone ); ?>
 				</a>
 				<button type="button" class="sg-header__menu-btn" aria-expanded="false" aria-controls="sg-mobile-panel" aria-label="<?php esc_attr_e( 'Open menu', 'site-blocks' ); ?>">
 					<span></span><span></span><span></span>
 				</button>
-				<a class="sg-btn sg-btn--orange sg-btn--sm sg-header__quote-mobile" href="<?php echo esc_url( $quote ); ?>"><?php esc_html_e( 'Quote', 'site-blocks' ); ?></a>
 			</div>
 		</div>
 
@@ -1019,7 +1041,8 @@ function site_blocks_uses_safeguard_chrome(): bool {
 		|| is_page( 'about' )
 		|| is_singular( array( 'post', 'case_study' ) )
 		|| is_post_type_archive( 'case_study' )
-		|| is_tax( 'case_study_hub' );
+		|| is_tax( 'case_study_hub' )
+		|| is_404();
 }
 
 /**
@@ -1080,3 +1103,22 @@ function site_blocks_safeguard_kadence_layout( array $layout ): array {
 	return $layout;
 }
 add_filter( 'kadence_post_layout', 'site_blocks_safeguard_kadence_layout' );
+
+/**
+ * Use the Safeguard shell for missing pages instead of the theme 404.
+ *
+ * @param string $template Template path.
+ */
+function site_blocks_404_template( string $template ): string {
+	if ( ! is_404() ) {
+		return $template;
+	}
+
+	$file = SITE_BLOCKS_DIR . 'templates/404.php';
+	if ( file_exists( $file ) ) {
+		return $file;
+	}
+
+	return $template;
+}
+add_filter( 'template_include', 'site_blocks_404_template', 99 );

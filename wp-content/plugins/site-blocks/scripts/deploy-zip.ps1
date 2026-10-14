@@ -2,13 +2,14 @@
 # Do NOT zip the inner files only (that breaks WP and causes "Plugin file does not exist").
 #
 # Usage:
-#   .\deploy-zip.ps1              # full package (default) — avoid WP Admin; use SFTP/rsync
-#   .\deploy-zip.ps1 -CodeOnly    # ~1 MB PHP/CSS/JS only (WP Admin will wipe plugin images!)
+#   .\deploy-zip.ps1 -CodeOnly    # live upload. PHP/CSS/JS only. This is the zip for WP Admin.
+#   .\deploy-zip.ps1              # full package — do not upload this in WP Admin
+#   .\photos-zip.ps1              # photos only, for wp-content/uploads/safeguard/
 #
-# Long-term: do NOT install this plugin via WP Admin → Plugins → Upload.
-# WP writes the zip into wp-content/uploads/YYYY/MM first, then deletes the whole
-# plugin folder and extracts. That path fills the disk and is why installs fail/hang.
-# Prefer: SFTP/rsync onto the Coolify bind-mounted plugins directory.
+# WP Admin plugin upload copies the zip into uploads, deletes the plugin folder, then
+# extracts. A zip with photos fills the disk and the install hangs or fails.
+# Photos go by SFTP into wp-content/uploads/safeguard/ (see photos-zip.ps1).
+# The site serves that folder first, so a later code-only plugin upload does not remove them.
 
 param(
     [switch]$CodeOnly
@@ -109,5 +110,5 @@ Write-Host "  Also: $zipCopy"
 Write-Host ""
 Write-Host "Prefer SFTP/rsync to Coolify plugins bind-mount over WP Admin upload." -ForegroundColor Yellow
 if ($CodeOnly) {
-    Write-Host "Code-only via WP Admin deletes the plugin folder - re-sync assets/images after install." -ForegroundColor Yellow
+    Write-Host "Photos are not in this zip. They belong in wp-content/uploads/safeguard/ (safeguard-photos.zip)." -ForegroundColor Yellow
 }

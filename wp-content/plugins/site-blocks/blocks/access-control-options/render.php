@@ -19,12 +19,12 @@ site_blocks_render_photo_options_grid(
 		'section_class' => 'sg-access-control-options',
 		'band'          => 'white',
 		'eyebrow'       => __( 'Access Control', 'site-blocks' ),
-		'title_before'  => __( 'Access options for every ', 'site-blocks' ),
-		'title_accent'  => __( 'entry point', 'site-blocks' ),
+		'title_before'  => __( 'Access Options For Every ', 'site-blocks' ),
+		'title_accent'  => __( 'Entry Point', 'site-blocks' ),
 		'intro'         => __( 'One system. Multiple ways in. Match credentials to how each door is used.', 'site-blocks' ),
 		'items'         => array(
 			array(
-				'title' => __( 'Card & fob', 'site-blocks' ),
+				'title' => __( 'Card & Fob', 'site-blocks' ),
 				'desc'  => __( 'Reliable tap-and-go entry for staff and regular visitors.', 'site-blocks' ),
 				'best'  => __( 'offices, warehouses, strata common areas', 'site-blocks' ),
 				'image' => 'images/access-control/option-01.webp',
@@ -32,7 +32,7 @@ site_blocks_render_photo_options_grid(
 				'icon'  => 'id-card',
 			),
 			array(
-				'title' => __( 'PIN codes', 'site-blocks' ),
+				'title' => __( 'PIN Codes', 'site-blocks' ),
 				'desc'  => __( 'Keypad entry without issuing physical credentials.', 'site-blocks' ),
 				'best'  => __( 'after-hours staff, shared service doors', 'site-blocks' ),
 				'image' => 'images/access-control/option-02.webp',
@@ -40,7 +40,7 @@ site_blocks_render_photo_options_grid(
 				'icon'  => 'calculator',
 			),
 			array(
-				'title' => __( 'Mobile credentials', 'site-blocks' ),
+				'title' => __( 'Mobile Credentials', 'site-blocks' ),
 				'desc'  => __( 'Unlock doors from a smartphone, no card to lose or replace.', 'site-blocks' ),
 				'best'  => __( 'agile teams, hot-desking, visitor passes', 'site-blocks' ),
 				'image' => 'images/access-control/option-03.webp',
@@ -56,7 +56,7 @@ site_blocks_render_photo_options_grid(
 				'icon'  => 'fingerprint',
 			),
 			array(
-				'title' => __( 'Intercom entry', 'site-blocks' ),
+				'title' => __( 'Intercom Entry', 'site-blocks' ),
 				'desc'  => __( 'Verify visitors on video or audio before releasing the door.', 'site-blocks' ),
 				'best'  => __( 'reception, apartment lobbies, after-hours deliveries', 'site-blocks' ),
 				'image' => 'images/access-control/option-05.webp',
@@ -64,7 +64,7 @@ site_blocks_render_photo_options_grid(
 				'icon'  => 'video',
 			),
 			array(
-				'title' => __( 'Gate & perimeter', 'site-blocks' ),
+				'title' => __( 'Gate & Perimeter', 'site-blocks' ),
 				'desc'  => __( 'Readers on car park gates, boom barriers and external doors.', 'site-blocks' ),
 				'best'  => __( 'industrial sites, strata car parks, loading bays', 'site-blocks' ),
 				'image' => 'images/access-control/option-06.webp',
@@ -73,7 +73,7 @@ site_blocks_render_photo_options_grid(
 			),
 		),
 		'cta'           => array(
-			'title'         => __( 'One system. Total control.', 'site-blocks' ),
+			'title'         => __( 'One System. Total Control.', 'site-blocks' ),
 			'text'          => __( 'Manage every door, user and access rule from a single platform—secure, scalable and easy to manage.', 'site-blocks' ),
 			'button_label'  => __( 'Get a Quote', 'site-blocks' ),
 			'button_url'    => home_url( '/contact/' ),

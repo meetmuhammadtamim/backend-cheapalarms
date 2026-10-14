@@ -1,0 +1,66 @@
+/* Safeguard homepage: coverage consultation section.
+   Copy left, image right (stacked on small screens). Uses the site's tokens. */
+
+.sg-coverage {
+  padding: 2.75rem 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .sg-coverage {
+    padding: 4.5rem 0;
+  }
+}
+
+.sg-coverage__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .sg-coverage__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 4rem;
+  }
+}
+
+.sg-coverage .sg-coverage__title {
+  margin: 0 0 1.25rem;
+  max-width: 20ch;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-coverage .sg-coverage__text {
+  margin: 0;
+  max-width: 34rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 768px) {
+  .sg-coverage .sg-coverage__text {
+    font-size: 1.0625rem;
+  }
+}
+
+.sg-coverage__media {
+  min-width: 0;
+}
+
+.sg-coverage__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+  border-radius: var(--sg-radius);
+}

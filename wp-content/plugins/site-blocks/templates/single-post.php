@@ -45,7 +45,7 @@ while ( have_posts() ) :
 							<ol role="list">
 								<li>
 									<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-										<?php site_blocks_lucide_icon( 'house', 16 ); ?>
+										<?php site_blocks_icon( 'house', 16 ); ?>
 										<?php esc_html_e( 'Home', 'site-blocks' ); ?>
 									</a>
 								</li>
@@ -76,16 +76,16 @@ while ( have_posts() ) :
 							<div class="sg-blog__share sg-blog__share--inline">
 								<span class="sg-blog__share-label"><?php esc_html_e( 'Share', 'site-blocks' ); ?></span>
 								<a href="<?php echo esc_url( 'https://www.linkedin.com/sharing/share-offsite/?url=' . $share ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Share on LinkedIn', 'site-blocks' ); ?>">
-									<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+									<?php site_blocks_icon( 'linkedin', 16 ); ?>
 								</a>
 								<a href="<?php echo esc_url( 'https://twitter.com/intent/tweet?url=' . $share . '&text=' . $title_q ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Share on X', 'site-blocks' ); ?>">
-									<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l6.5 8.2L4.4 20H6.6l4.7-5.8L15.6 20H20l-6.8-8.6L19.4 4h-2.2l-4.3 5.4L8.4 4H4z"/></svg>
+									<?php site_blocks_icon( 'twitter', 16 ); ?>
 								</a>
 								<button type="button" data-sg-copy="<?php echo esc_url( get_permalink() ); ?>" aria-label="<?php esc_attr_e( 'Copy link', 'site-blocks' ); ?>">
-									<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+									<?php site_blocks_icon( 'link', 16 ); ?>
 								</button>
 								<a href="<?php echo esc_url( 'mailto:?subject=' . rawurlencode( wp_strip_all_tags( get_the_title() ) ) . '&body=' . rawurlencode( (string) get_permalink() ) ); ?>" aria-label="<?php esc_attr_e( 'Share by email', 'site-blocks' ); ?>">
-									<?php site_blocks_lucide_icon( 'mail', 16 ); ?>
+									<?php site_blocks_icon( 'mail', 16 ); ?>
 								</a>
 							</div>
 						</div>
@@ -120,16 +120,16 @@ while ( have_posts() ) :
 							<img class="sg-blog__card-logo" src="<?php echo esc_url( site_blocks_asset_url( 'images/brand/safeguard-logo.png' ) ); ?>" alt="<?php esc_attr_e( 'Safeguard Security Services', 'site-blocks' ); ?>" width="168" height="48" />
 							<p class="sg-blog__card-licence"><?php esc_html_e( 'Master Licence #000103619', 'site-blocks' ); ?></p>
 							<a class="sg-blog__card-phone" href="tel:1300225276">
-								<?php site_blocks_lucide_icon( 'phone', 20 ); ?>
+								<?php site_blocks_icon( 'phone', 20 ); ?>
 								<span>1300 225 276</span>
 							</a>
 							<p class="sg-blog__card-note"><?php esc_html_e( 'Speak to our team', 'site-blocks' ); ?></p>
 							<a class="sg-btn sg-btn--orange sg-btn--sm sg-blog__card-btn" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 								<?php esc_html_e( 'Send a message', 'site-blocks' ); ?>
-								<?php site_blocks_lucide_icon( 'arrow-right', 18 ); ?>
+								<?php site_blocks_icon( 'arrow-right', 18 ); ?>
 							</a>
 							<p class="sg-blog__card-proof">
-								<?php site_blocks_lucide_icon( 'shield-check', 18 ); ?>
+								<?php site_blocks_icon( 'shield-check', 18 ); ?>
 								<span><?php esc_html_e( 'ASIAL member', 'site-blocks' ); ?></span>
 							</p>
 						</aside>

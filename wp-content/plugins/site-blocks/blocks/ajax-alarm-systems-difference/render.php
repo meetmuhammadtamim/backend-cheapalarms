@@ -28,7 +28,7 @@ $bullets = array(
 			<div class="sg-ajax-difference__copy">
 				<p class="sg-ajax-difference__eyebrow"><?php esc_html_e( 'The Safeguard difference', 'site-blocks' ); ?></p>
 				<h2 id="sg-ajax-difference-heading" class="sg-ajax-difference__title">
-					<?php esc_html_e( 'An Ajax installer should do ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'more', 'site-blocks' ); ?></span><br class="sg-ajax-difference__title-break" aria-hidden="true"><?php esc_html_e( 'than sell a starter kit.', 'site-blocks' ); ?>
+					<?php esc_html_e( 'An Ajax Installer Should Do ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'More', 'site-blocks' ); ?></span><br class="sg-ajax-difference__title-break" aria-hidden="true"><?php esc_html_e( 'Than Sell A Starter Kit.', 'site-blocks' ); ?>
 				</h2>
 				<p class="sg-ajax-difference__intro">
 					<?php esc_html_e( 'We design, install and support Ajax systems that actually suit your property, not a generic kit picked off a shelf.', 'site-blocks' ); ?>

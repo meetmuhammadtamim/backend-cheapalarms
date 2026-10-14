@@ -88,19 +88,19 @@ function site_blocks_paradox_m25_hero_config(): array {
 function site_blocks_paradox_m25_difference_config(): array {
 	return array(
 		'eyebrow'    => __( 'The Paradox difference', 'site-blocks' ),
-		'title'      => __( 'The Paradox difference', 'site-blocks' ),
+		'title'      => __( 'The Paradox Difference', 'site-blocks' ),
 		'intro'      => __( 'Built for clean installs and reliable control: PoE power, multi-path communication, and encrypted M wireless.', 'site-blocks' ),
 		'points'     => array(
 			array(
-				'title'       => __( 'One-cable PoE install', 'site-blocks' ),
+				'title'       => __( 'One-Cable PoE Install', 'site-blocks' ),
 				'description' => __( 'Power and network over a single Cat6. Less wall clutter, faster commissioning.', 'site-blocks' ),
 			),
 			array(
-				'title'       => __( 'Direct-connect ready', 'site-blocks' ),
+				'title'       => __( 'Direct-Connect Ready', 'site-blocks' ),
 				'description' => __( 'Reporting paths that do not depend on a single cloud hop for every alarm event.', 'site-blocks' ),
 			),
 			array(
-				'title'       => __( 'Encrypted M wireless', 'site-blocks' ),
+				'title'       => __( 'Encrypted M Wireless', 'site-blocks' ),
 				'description' => __( 'Frequency and encryption hopping across the M System device range.', 'site-blocks' ),
 			),
 		),
@@ -119,7 +119,7 @@ function site_blocks_paradox_m25_portal_config(): array {
 	return array(
 		'heading_id'    => 'sg-paradox-blueeye-heading',
 		'section_class' => 'sg-paradox-blueeye',
-		'title_before'  => __( 'Control the system from ', 'site-blocks' ),
+		'title_before'  => __( 'Control The System From ', 'site-blocks' ),
 		'title_accent'  => __( 'BlueEye', 'site-blocks' ),
 		'intro'         => __( 'Arm, disarm and manage users from the Paradox BlueEye app.', 'site-blocks' ),
 		'bullets'       => array(
@@ -145,7 +145,7 @@ function site_blocks_paradox_m25_products_config(): array {
 
 	return array(
 		'eyebrow'  => __( 'The Products', 'site-blocks' ),
-		'title'    => __( 'Common Paradox M System components we may include in your design.', 'site-blocks' ),
+		'title'    => __( 'Common Paradox M System Components We May Include In Your Design.', 'site-blocks' ),
 		'lead'     => __( 'Every property is different. Exact devices depend on layout, risks and how you use the site. M25 has no native CCTV yet; cameras are specified as a separate pathway when needed.', 'site-blocks' ),
 		'cta'      => array(
 			'label' => $ctas['primary_label'],
@@ -210,21 +210,21 @@ function site_blocks_paradox_m25_products_config(): array {
 function site_blocks_paradox_m25_monitoring_config(): array {
 	return array(
 		'eyebrow' => __( 'Monitoring Options', 'site-blocks' ),
-		'title'   => __( 'Choose how your Paradox M25 system is monitored', 'site-blocks' ),
+		'title'   => __( 'Choose How Your Paradox M25 System Is Monitored', 'site-blocks' ),
 		'lead'    => __( 'Safeguard can configure BlueEye self-monitoring, discuss professional back-to-base options, and plan communication paths so alerts still get through when broadband is down.', 'site-blocks' ),
 		'options' => array(
 			array(
-				'title'       => __( 'Self-monitoring via BlueEye', 'site-blocks' ),
+				'title'       => __( 'Self-Monitoring Via BlueEye', 'site-blocks' ),
 				'description' => __( 'Arm, disarm and receive alerts on your phone with role-based users.', 'site-blocks' ),
 				'icon'        => 'smartphone',
 			),
 			array(
-				'title'       => __( 'Professional monitoring', 'site-blocks' ),
+				'title'       => __( 'Professional Monitoring', 'site-blocks' ),
 				'description' => __( 'Connect the system to an alarm monitoring service when monitoring is selected for the job.', 'site-blocks' ),
 				'icon'        => 'headset',
 			),
 			array(
-				'title'       => __( 'Backup communication', 'site-blocks' ),
+				'title'       => __( 'Backup Communication', 'site-blocks' ),
 				'description' => __( 'Ethernet, Wi-Fi and LTE (on M25 LTE) can be planned as failover paths.', 'site-blocks' ),
 				'icon'        => 'shield-check',
 			),
@@ -243,7 +243,7 @@ function site_blocks_paradox_m25_monitoring_config(): array {
 function site_blocks_paradox_m25_property_fit_config(): array {
 	return array(
 		'eyebrow' => __( 'Property Fit', 'site-blocks' ),
-		'title'   => __( 'Sized for homes, ready for small business growth', 'site-blocks' ),
+		'title'   => __( 'Sized For Homes, Ready For Small Business Growth', 'site-blocks' ),
 		'lead'    => __( 'M25 has enough headroom for apartments through larger sites. We only install what the property needs first.', 'site-blocks' ),
 		'stats'   => array(
 			array(
@@ -274,7 +274,7 @@ function site_blocks_paradox_m25_property_fit_config(): array {
 function site_blocks_paradox_m25_compare_config(): array {
 	return array(
 		'eyebrow'       => __( 'Compare', 'site-blocks' ),
-		'title'         => __( 'Paradox M25 vs Ajax with Safeguard.', 'site-blocks' ),
+		'title'         => __( 'Paradox M25 Vs Ajax With Safeguard.', 'site-blocks' ),
 		'left_heading'  => __( 'Paradox M25', 'site-blocks' ),
 		'right_heading' => __( 'Ajax', 'site-blocks' ),
 		'rows'          => array(
@@ -361,7 +361,7 @@ function site_blocks_paradox_m25_quote_cta_config(): array {
 	return array(
 		'heading_id'      => 'sg-paradox-quote-cta-heading',
 		'eyebrow'         => __( 'Request a quote', 'site-blocks' ),
-		'title'           => __( 'Design your Paradox M25 system with Safeguard.', 'site-blocks' ),
+		'title'           => __( 'Design Your Paradox M25 System With Safeguard.', 'site-blocks' ),
 		'lead'            => __( 'Tell us about the property, get pricing guidance quickly, and we will design the right M25 layout with BlueEye handover.', 'site-blocks' ),
 		'primary_label'   => $ctas['primary_label'],
 		'primary_url'     => $ctas['primary_url'],
@@ -376,19 +376,19 @@ function site_blocks_paradox_m25_quote_cta_config(): array {
 		'bg_image'        => site_blocks_asset_url( 'images/paradox/wb-m25.webp' ),
 		'features'        => array(
 			array(
-				'title'       => __( 'Property-led design', 'site-blocks' ),
+				'title'       => __( 'Property-Led Design', 'site-blocks' ),
 				'description' => __( 'Devices chosen for your layout and risks.', 'site-blocks' ),
 				'icon'        => 'technician.png',
 				'accent'      => 'blue',
 			),
 			array(
-				'title'       => __( 'Clear install path', 'site-blocks' ),
+				'title'       => __( 'Clear Install Path', 'site-blocks' ),
 				'description' => __( 'PoE planning, pairing and testing included.', 'site-blocks' ),
 				'icon'        => 'dollar.png',
 				'accent'      => 'orange',
 			),
 			array(
-				'title'       => __( 'Track everything', 'site-blocks' ),
+				'title'       => __( 'Track Everything', 'site-blocks' ),
 				'description' => __( 'A person on the team confirms the scope before work begins.', 'site-blocks' ),
 				'icon'        => 'secure.png',
 				'accent'      => 'blue',

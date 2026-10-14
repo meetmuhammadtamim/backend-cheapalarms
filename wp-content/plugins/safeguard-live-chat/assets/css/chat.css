@@ -67,9 +67,9 @@ body:has(.sg-mobile-bar:not([aria-hidden="true"])) .sg-chat {
   outline-offset: 3px;
 }
 
-.sg-chat__toggle .sg-lucide-icon,
-.sg-chat__close .sg-lucide-icon,
-.sg-chat__send .sg-lucide-icon {
+.sg-chat__toggle .sg-icon,
+.sg-chat__close .sg-icon,
+.sg-chat__send .sg-icon {
   width: var(--sg-icon-size-sm, 1.125rem);
   height: var(--sg-icon-size-sm, 1.125rem);
   color: currentColor;

@@ -262,7 +262,7 @@ function site_blocks_create_ajax_alarm_systems_page(): void {
 		return;
 	}
 
-	$existing = get_page_by_path( 'ajax-alarm-systems' );
+	$existing = function_exists( 'site_blocks_find_brand_page' ) ? site_blocks_find_brand_page( 'ajax-alarm-systems' ) : get_page_by_path( 'ajax-alarm-systems' );
 
 	$page_data = array(
 		'post_title'   => __( 'Ajax Alarm Systems', 'site-blocks' ),
@@ -314,7 +314,7 @@ function site_blocks_create_paradox_m25_page(): void {
 		return;
 	}
 
-	$existing = get_page_by_path( 'paradox-m25' );
+	$existing = function_exists( 'site_blocks_find_brand_page' ) ? site_blocks_find_brand_page( 'paradox-m25' ) : get_page_by_path( 'paradox-m25' );
 
 	$page_data = array(
 		'post_title'   => __( 'Paradox M25', 'site-blocks' ),
@@ -366,7 +366,7 @@ function site_blocks_create_akuvox_page(): void {
 		return;
 	}
 
-	$existing = get_page_by_path( 'akuvox' );
+	$existing = function_exists( 'site_blocks_find_brand_page' ) ? site_blocks_find_brand_page( 'akuvox' ) : get_page_by_path( 'akuvox' );
 
 	$page_data = array(
 		'post_title'   => __( 'Akuvox', 'site-blocks' ),
@@ -762,7 +762,7 @@ function site_blocks_create_monitoring_pages(): void {
 	$spokes = array(
 		array(
 			'slug'    => 'back-to-base',
-			'title'   => __( 'Back-to-Base Monitoring', 'site-blocks' ),
+			'title'   => __( 'Back-To-Base Monitoring', 'site-blocks' ),
 			'pattern' => 'monitoring-back-to-base-page',
 		),
 		array(
@@ -772,7 +772,7 @@ function site_blocks_create_monitoring_pages(): void {
 		),
 		array(
 			'slug'    => 'solar-cameras-monitoring',
-			'title'   => __( 'Solar Cameras with Monitoring', 'site-blocks' ),
+			'title'   => __( 'Solar Cameras With Monitoring', 'site-blocks' ),
 			'pattern' => 'monitoring-solar-cameras-monitoring-page',
 		),
 	);

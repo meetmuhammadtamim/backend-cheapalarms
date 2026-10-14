@@ -39,9 +39,9 @@ $links = array(
 	<div class="sg-container sg-cctv-layered__inner">
 		<header class="sg-cctv-layered__header">
 			<h2 id="sg-cctv-layered-heading" class="sg-section-title sg-section-title--ink sg-cctv-layered__title">
-				<?php esc_html_e( 'CCTV works best as part of a ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'layered', 'site-blocks' ); ?></span>
-				<?php esc_html_e( ' system', 'site-blocks' ); ?>
+				<?php esc_html_e( 'CCTV Works Best As Part Of A ', 'site-blocks' ); ?>
+				<span class="sg-accent"><?php esc_html_e( 'Layered', 'site-blocks' ); ?></span>
+				<?php esc_html_e( ' System', 'site-blocks' ); ?>
 			</h2>
 			<span class="sg-cctv-layered__rule" aria-hidden="true"></span>
 			<p class="sg-cctv-layered__lead">

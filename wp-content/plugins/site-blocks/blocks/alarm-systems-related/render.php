@@ -19,12 +19,12 @@ site_blocks_render_related_services_page_grid(
 		'heading_id'    => 'sg-alarm-related-heading',
 		'section_class' => 'sg-alarm-related',
 		'title_before'  => __( 'Related ', 'site-blocks' ),
-		'title_accent'  => __( 'services', 'site-blocks' ),
+		'title_accent'  => __( 'Services', 'site-blocks' ),
 		'cards'         => array(
 			array(
 				'title' => __( 'Ajax Alarm Systems', 'site-blocks' ),
 				'desc'  => __( 'Wireless Grade 2 systems designed for your property.', 'site-blocks' ),
-				'url'   => home_url( '/ajax-alarm-systems/' ),
+				'url'   => home_url( '/brands/ajax-alarm-systems/' ),
 				'icon'  => 'alarm-systems.png',
 			),
 			array(

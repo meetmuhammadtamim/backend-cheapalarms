@@ -39,6 +39,14 @@ function kadence_child_enqueue_assets(): void {
 		array( 'kadence-child-tokens' ),
 		KADENCE_CHILD_VERSION
 	);
+
+	// Title case for headings and buttons, site-wide.
+	wp_enqueue_style(
+		'kadence-child-typography',
+		KADENCE_CHILD_URI . '/assets/css/typography.css',
+		array( 'kadence-child-main' ),
+		KADENCE_CHILD_VERSION . '.' . (string) filemtime( KADENCE_CHILD_DIR . '/assets/css/typography.css' )
+	);
 }
 add_action( 'wp_enqueue_scripts', 'kadence_child_enqueue_assets', 20 );
 

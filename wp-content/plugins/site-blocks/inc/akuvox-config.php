@@ -62,7 +62,7 @@ function site_blocks_akuvox_hero_config(): array {
 		'id'              => 'sg-akuvox-hero-heading',
 		'class'           => 'sg-akuvox-hero',
 		'eyebrow'         => __( 'Akuvox · installed by Safeguard', 'site-blocks' ),
-		'title'           => __( 'See who’s at the door. Unlock from your phone. Keep the wiring you already have.', 'site-blocks' ),
+		'title'           => __( 'See Who’s At The Door. Unlock From Your Phone. Keep The Wiring You Already Have.', 'site-blocks' ),
 		'lead'            => __( 'Safeguard designs and installs Akuvox video intercoms for homes, apartments and commercial entries: new IP systems or 2-wire upgrades on cabling that is already in the wall.', 'site-blocks' ),
 		'primary_label'   => $ctas['primary_label'],
 		'primary_url'     => $ctas['primary_url'],
@@ -99,19 +99,19 @@ function site_blocks_akuvox_hero_config(): array {
 function site_blocks_akuvox_difference_config(): array {
 	return array(
 		'eyebrow'   => __( 'The Akuvox difference', 'site-blocks' ),
-		'title'     => __( 'A SIP video intercom, not a doorbell kit.', 'site-blocks' ),
+		'title'     => __( 'A SIP Video Intercom, Not A Doorbell Kit.', 'site-blocks' ),
 		'intro'     => __( 'Akuvox is specified for the door, the wiring and the people who use it. Safeguard installs it under a Master Licence so entry, CCTV and access can sit in one design.', 'site-blocks' ),
 		'points'    => array(
 			array(
-				'title'       => __( 'SIP video at the door', 'site-blocks' ),
+				'title'       => __( 'SIP Video At The Door', 'site-blocks' ),
 				'description' => __( 'See and speak to visitors before you unlock. This is a proper video intercom, not a consumer doorbell stuck on the facade.', 'site-blocks' ),
 			),
 			array(
-				'title'       => __( 'Upgrade on 2-wire you already have', 'site-blocks' ),
+				'title'       => __( 'Upgrade On 2-Wire You Already Have', 'site-blocks' ),
 				'description' => __( 'Many Sydney apartments and older homes can keep existing 2-wire runs. We confirm that on site before anyone chases new cable.', 'site-blocks' ),
 			),
 			array(
-				'title'       => __( 'Open stack, one installer', 'site-blocks' ),
+				'title'       => __( 'Open Stack, One Installer', 'site-blocks' ),
 				'description' => __( 'ONVIF cameras, access readers and the intercom can be planned together, so you are not juggling three contractors at the front door.', 'site-blocks' ),
 			),
 		),
@@ -129,7 +129,7 @@ function site_blocks_akuvox_portal_config(): array {
 	return array(
 		'heading_id'    => 'sg-akuvox-smartplus-heading',
 		'section_class' => 'sg-paradox-blueeye sg-akuvox-smartplus',
-		'title_before'  => __( 'Answer and unlock from ', 'site-blocks' ),
+		'title_before'  => __( 'Answer And Unlock From ', 'site-blocks' ),
 		'title_accent'  => __( 'SmartPlus', 'site-blocks' ),
 		'intro'         => __( 'SmartPlus is the Akuvox app for video calls, remote unlock and visitor codes.', 'site-blocks' ),
 		'bullets'       => array(
@@ -155,7 +155,7 @@ function site_blocks_akuvox_products_config(): array {
 
 	return array(
 		'eyebrow'  => __( 'The Products', 'site-blocks' ),
-		'title'    => __( 'Common Akuvox components we may include in your design.', 'site-blocks' ),
+		'title'    => __( 'Common Akuvox Components We May Include In Your Design.', 'site-blocks' ),
 		'lead'     => __( 'Every door is different. Exact devices depend on the entry, existing cable and how many people need to answer or unlock. We spec the station, monitor and credentials after the site check — not from a catalogue page.', 'site-blocks' ),
 		'cta'      => array(
 			'label' => $ctas['primary_label'],
@@ -180,7 +180,7 @@ function site_blocks_akuvox_products_config(): array {
 			),
 		),
 		'featured' => array(
-			'title'       => __( 'Akuvox door station', 'site-blocks' ),
+			'title'       => __( 'Akuvox Door Station', 'site-blocks' ),
 			'tag'         => __( 'Outdoor video phone', 'site-blocks' ),
 			'description' => __( 'The face of the system. Visitors call, you see them, then you unlock. Weather-rated stations for houses, apartments and commercial entries.', 'site-blocks' ),
 			'image'       => 'images/intercom/hero.webp',
@@ -188,21 +188,21 @@ function site_blocks_akuvox_products_config(): array {
 		),
 		'items'    => array(
 			array(
-				'title'       => __( 'Indoor monitor', 'site-blocks' ),
+				'title'       => __( 'Indoor Monitor', 'site-blocks' ),
 				'tag'         => __( 'Answer at home', 'site-blocks' ),
 				'description' => __( 'Wall monitor so someone can take the call without picking up a phone. Still works locally if the internet drops.', 'site-blocks' ),
 				'image'       => 'images/ajax/property/home.webp',
 				'alt'         => __( 'Indoor video intercom monitor in a Sydney home', 'site-blocks' ),
 			),
 			array(
-				'title'       => __( 'Access reader', 'site-blocks' ),
+				'title'       => __( 'Access Reader', 'site-blocks' ),
 				'tag'         => __( 'Cards, fobs, codes', 'site-blocks' ),
 				'description' => __( 'Residents and staff can unlock without a call. We match credentials to how the building already works.', 'site-blocks' ),
 				'image'       => 'images/access-control/hero.webp',
 				'alt'         => __( 'Access reader at a Sydney building entrance', 'site-blocks' ),
 			),
 			array(
-				'title'       => __( '2-wire upgrade kit', 'site-blocks' ),
+				'title'       => __( '2-Wire Upgrade Kit', 'site-blocks' ),
 				'tag'         => __( 'Keep existing cable', 'site-blocks' ),
 				'description' => __( 'Where the run is sound, we convert old 2-wire intercoms to IP video instead of recabling the whole building.', 'site-blocks' ),
 				'image'       => 'images/ajax/property/apartments.webp',
@@ -220,23 +220,23 @@ function site_blocks_akuvox_products_config(): array {
 function site_blocks_akuvox_property_fit_config(): array {
 	return array(
 		'eyebrow' => __( 'Property Fit', 'site-blocks' ),
-		'title'   => __( 'Specified for the door you actually have.', 'site-blocks' ),
+		'title'   => __( 'Specified For The Door You Actually Have.', 'site-blocks' ),
 		'lead'    => __( 'House, strata or commercial — the station, wiring path and who can unlock all change. We design around that, then install it.', 'site-blocks' ),
 		'panels'  => array(
 			array(
-				'title' => __( 'House or townhouse', 'site-blocks' ),
+				'title' => __( 'House Or Townhouse', 'site-blocks' ),
 				'desc'  => __( 'Front door or gate station, indoor monitor and phone answering. Add a second entry if the property needs it.', 'site-blocks' ),
 				'image' => 'images/ajax/property/home.webp',
 				'alt'   => __( 'Akuvox intercom for a home', 'site-blocks' ),
 			),
 			array(
-				'title' => __( 'Strata and apartments', 'site-blocks' ),
+				'title' => __( 'Strata And Apartments', 'site-blocks' ),
 				'desc'  => __( 'Directory panels, per-unit call routing and building-manager access, planned around strata and fire-egress rules. 2-wire reuse where it is sound.', 'site-blocks' ),
 				'image' => 'images/ajax/property/apartments.webp',
 				'alt'   => __( 'Akuvox intercom for Sydney apartments and strata', 'site-blocks' ),
 			),
 			array(
-				'title' => __( 'Commercial entries', 'site-blocks' ),
+				'title' => __( 'Commercial Entries', 'site-blocks' ),
 				'desc'  => __( 'Verified visitors, remote release for deliveries, and readers for staff — integrated with CCTV and access when the site needs both.', 'site-blocks' ),
 				'image' => 'images/ajax/property/small-business.webp',
 				'alt'   => __( 'Akuvox intercom for a Sydney commercial entry', 'site-blocks' ),
@@ -253,15 +253,15 @@ function site_blocks_akuvox_property_fit_config(): array {
 function site_blocks_akuvox_install_config(): array {
 	return array(
 		'eyebrow' => __( 'How installation works', 'site-blocks' ),
-		'title'   => __( 'Four steps from site check to SmartPlus handover.', 'site-blocks' ),
+		'title'   => __( 'Four Steps From Site Check To SmartPlus Handover.', 'site-blocks' ),
 		'steps'   => array(
 			array(
-				'title'       => __( 'Site check', 'site-blocks' ),
+				'title'       => __( 'Site Check', 'site-blocks' ),
 				'description' => __( 'We look at the door, gate and existing cable before anyone specs hardware.', 'site-blocks' ),
 				'icon'        => 'clipboard-check',
 			),
 			array(
-				'title'       => __( 'Spec IP or 2-wire', 'site-blocks' ),
+				'title'       => __( 'Spec IP Or 2-Wire', 'site-blocks' ),
 				'description' => __( 'Reuse sound 2-wire, or plan a new IP run when the pair will not carry video.', 'site-blocks' ),
 				'icon'        => 'network',
 			),
@@ -271,7 +271,7 @@ function site_blocks_akuvox_install_config(): array {
 				'icon'        => 'wrench',
 			),
 			array(
-				'title'       => __( 'SmartPlus handover', 'site-blocks' ),
+				'title'       => __( 'SmartPlus Handover', 'site-blocks' ),
 				'description' => __( 'App users, codes and roles set up.', 'site-blocks' ),
 				'icon'        => 'smartphone',
 			),
@@ -287,7 +287,7 @@ function site_blocks_akuvox_install_config(): array {
 function site_blocks_akuvox_compare_config(): array {
 	return array(
 		'eyebrow'      => __( 'Compare', 'site-blocks' ),
-		'title'        => __( 'Doorbell kit, recable, or Akuvox with Safeguard.', 'site-blocks' ),
+		'title'        => __( 'Doorbell Kit, Recable, Or Akuvox With Safeguard.', 'site-blocks' ),
 		'left_heading' => __( 'Video doorbell', 'site-blocks' ),
 		'mid_heading'  => __( 'Recable everything', 'site-blocks' ),
 		'right_heading'=> __( 'Akuvox with Safeguard', 'site-blocks' ),
@@ -386,7 +386,7 @@ function site_blocks_akuvox_quote_cta_config(): array {
 	return array(
 		'heading_id'      => 'sg-akuvox-quote-cta-heading',
 		'eyebrow'         => __( 'Request a quote', 'site-blocks' ),
-		'title'           => __( 'Design your Akuvox intercom with Safeguard.', 'site-blocks' ),
+		'title'           => __( 'Design Your Akuvox Intercom With Safeguard.', 'site-blocks' ),
 		'lead'            => __( 'Tell us about the door, the wiring and who needs to answer. We will spec IP or a 2-wire upgrade and hand over SmartPlus after install.', 'site-blocks' ),
 		'primary_label'   => $ctas['primary_label'],
 		'primary_url'     => $ctas['primary_url'],
@@ -401,19 +401,19 @@ function site_blocks_akuvox_quote_cta_config(): array {
 		'bg_image'        => site_blocks_asset_url( 'images/intercom/hero.webp' ),
 		'features'        => array(
 			array(
-				'title'       => __( 'Property-led design', 'site-blocks' ),
+				'title'       => __( 'Property-Led Design', 'site-blocks' ),
 				'description' => __( 'Station and cable path chosen for your entry.', 'site-blocks' ),
 				'icon'        => 'technician.png',
 				'accent'      => 'blue',
 			),
 			array(
-				'title'       => __( 'Clear install path', 'site-blocks' ),
+				'title'       => __( 'Clear Install Path', 'site-blocks' ),
 				'description' => __( 'IP or 2-wire, then SmartPlus handover.', 'site-blocks' ),
 				'icon'        => 'dollar.png',
 				'accent'      => 'orange',
 			),
 			array(
-				'title'       => __( 'Track everything', 'site-blocks' ),
+				'title'       => __( 'Track Everything', 'site-blocks' ),
 				'description' => __( 'A person on the team confirms the scope before work begins.', 'site-blocks' ),
 				'icon'        => 'secure.png',
 				'accent'      => 'blue',

@@ -69,7 +69,7 @@ function site_blocks_render_safeguard_footer(): void {
 					></iframe>
 				</div>
 				<div class="sg-social" aria-label="<?php esc_attr_e( 'Social media', 'site-blocks' ); ?>">
-					<a href="<?php echo esc_url( $facebook ); ?>" rel="noopener noreferrer" target="_blank" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+					<a href="<?php echo esc_url( $facebook ); ?>" rel="noopener noreferrer" target="_blank" aria-label="Facebook"><?php site_blocks_icon( 'facebook', 20 ); ?></a>
 				</div>
 			</div>
 			<div>
@@ -84,9 +84,10 @@ function site_blocks_render_safeguard_footer(): void {
 				<h3 class="sg-footer__heading"><?php esc_html_e( 'Company', 'site-blocks' ); ?></h3>
 				<ul class="sg-footer__links" role="list">
 					<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About', 'site-blocks' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/ajax-alarm-systems/' ) ); ?>"><?php esc_html_e( 'Ajax Alarm Systems', 'site-blocks' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/paradox-m25/' ) ); ?>"><?php esc_html_e( 'Paradox M25', 'site-blocks' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/akuvox/' ) ); ?>"><?php esc_html_e( 'Akuvox Intercoms', 'site-blocks' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/brands/' ) ); ?>"><?php esc_html_e( 'Brands', 'site-blocks' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/brands/ajax-alarm-systems/' ) ); ?>"><?php esc_html_e( 'Ajax Alarm Systems', 'site-blocks' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/brands/paradox-m25/' ) ); ?>"><?php esc_html_e( 'Paradox M25', 'site-blocks' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/brands/akuvox/' ) ); ?>"><?php esc_html_e( 'Akuvox Intercoms', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/service-area/' ) ); ?>"><?php esc_html_e( 'Service Area', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/reviews/' ) ); ?>"><?php esc_html_e( 'Reviews', 'site-blocks' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'site-blocks' ); ?></a></li>
@@ -121,7 +122,10 @@ function site_blocks_render_safeguard_mobile_bar(): void {
 	?>
 	<div class="sg-mobile-bar" id="sg-mobile-bar" aria-hidden="true">
 		<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( $contact['quote'] ); ?>"><?php esc_html_e( 'Request a quote', 'site-blocks' ); ?></a>
-		<a class="sg-btn sg-btn--secondary" href="<?php echo esc_attr( $contact['phone_href'] ); ?>"><?php esc_html_e( 'Call', 'site-blocks' ); ?></a>
+		<a class="sg-btn sg-btn--secondary sg-mobile-bar__call" href="<?php echo esc_attr( $contact['phone_href'] ); ?>">
+			<?php site_blocks_icon( 'phone', 18 ); ?>
+			<span><?php echo esc_html( $contact['phone'] ); ?></span>
+		</a>
 	</div>
 	<?php
 }

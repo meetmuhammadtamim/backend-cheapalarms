@@ -66,7 +66,7 @@ body.admin-bar .sg-header {
   color: var(--sg-blue);
 }
 
-.sg-blog__crumbs .sg-lucide-icon {
+.sg-blog__crumbs .sg-icon {
   width: 0.9rem;
   height: 0.9rem;
   color: currentColor;
@@ -171,7 +171,7 @@ body.admin-bar .sg-header {
   cursor: pointer;
 }
 
-.sg-blog__share--inline .sg-lucide-icon {
+.sg-blog__share--inline .sg-icon {
   width: 1rem;
   height: 1rem;
   color: currentColor;
@@ -188,11 +188,7 @@ body.admin-bar .sg-header {
 .sg-blog__share svg {
   width: 1rem;
   height: 1rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.75;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  fill: currentColor;
 }
 
 .sg-blog__figure {
@@ -387,7 +383,7 @@ body.admin-bar .sg-header {
   margin-top: 1rem;
 }
 
-.sg-blog__card .sg-btn .sg-lucide-icon {
+.sg-blog__card .sg-btn .sg-icon {
   width: 0.95rem;
   height: 0.95rem;
 }
@@ -433,7 +429,7 @@ body.admin-bar .sg-header {
   text-decoration: none;
 }
 
-.sg-blog__card-phone .sg-lucide-icon {
+.sg-blog__card-phone .sg-icon {
   width: 1.25rem;
   height: 1.25rem;
   color: var(--sg-orange);
@@ -456,7 +452,7 @@ body.admin-bar .sg-header {
   font-size: 0.875rem;
 }
 
-.sg-blog__card-proof .sg-lucide-icon {
+.sg-blog__card-proof .sg-icon {
   width: 1.1rem;
   height: 1.1rem;
   color: var(--sg-navy);

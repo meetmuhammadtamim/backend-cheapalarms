@@ -134,7 +134,7 @@ body.safeguard-ajax-page .entry-content ul.sg-ajax-quote-cta__trust-list > li {
   opacity: 0.96;
 }
 
-.sg-ajax-quote-cta__feature-icon .sg-lucide-icon {
+.sg-ajax-quote-cta__feature-icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -227,7 +227,7 @@ body.safeguard-ajax-page .entry-content ul.sg-ajax-quote-cta__trust-list > li {
   opacity: 0.96;
 }
 
-.sg-ajax-quote-cta__trust-icon .sg-lucide-icon {
+.sg-ajax-quote-cta__trust-icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);

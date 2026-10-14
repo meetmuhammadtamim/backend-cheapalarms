@@ -118,7 +118,7 @@
   color: var(--sg-blue);
 }
 
-.sg-contact-detail__icon .sg-lucide-icon {
+.sg-contact-detail__icon .sg-icon {
   width: var(--sg-icon-size-sm, 1.125rem);
   height: var(--sg-icon-size-sm, 1.125rem);
 }
@@ -407,7 +407,7 @@
   box-shadow: 0 8px 18px rgb(251 117 35 / 28%);
 }
 
-.sg-contact-hero__phone-mark .sg-lucide-icon {
+.sg-contact-hero__phone-mark .sg-icon {
   width: 1.25rem;
   height: 1.25rem;
   color: #fff;
@@ -435,7 +435,7 @@
   text-decoration: none;
 }
 
-.sg-contact-hero__btn .sg-lucide-icon {
+.sg-contact-hero__btn .sg-icon {
   width: 1rem;
   height: 1rem;
   color: currentColor;
@@ -504,7 +504,7 @@
   border: 1px solid var(--sg-line);
 }
 
-.sg-contact-hero__fact-icon .sg-lucide-icon {
+.sg-contact-hero__fact-icon .sg-icon {
   width: 1.15rem;
   height: 1.15rem;
   color: var(--sg-blue);

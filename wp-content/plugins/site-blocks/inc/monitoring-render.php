@@ -15,7 +15,7 @@ require_once SITE_BLOCKS_DIR . 'inc/monitoring-config.php';
 require_once SITE_BLOCKS_DIR . 'inc/monitoring-media.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-related-services.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-scenario-grid.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
 
 /**
@@ -158,7 +158,7 @@ function site_blocks_monitoring_render_package_inclusions( string $page_key ): v
 					<?php foreach ( $config['checks'] as $check ) : ?>
 						<div class="sg-monitoring-package__check" role="listitem">
 							<span class="sg-monitoring-package__check-icon" aria-hidden="true">
-								<?php site_blocks_lucide_icon( 'circle-check', 18 ); ?>
+								<?php site_blocks_icon( 'circle-check', 18 ); ?>
 							</span>
 							<span><?php echo esc_html( (string) $check ); ?></span>
 						</div>
@@ -171,25 +171,25 @@ function site_blocks_monitoring_render_package_inclusions( string $page_key ): v
 }
 
 /**
- * Render Lucide icon for solar package cards.
+ * Render MDI icon for solar package cards.
  */
 function site_blocks_monitoring_render_package_icon( string $icon ): void {
-	if ( ! function_exists( 'site_blocks_lucide_icon_from_legacy' ) ) {
-		require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	if ( ! function_exists( 'site_blocks_icon_from_legacy' ) ) {
+		require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 	}
 
-	site_blocks_lucide_icon_from_legacy( $icon, 32 );
+	site_blocks_icon_from_legacy( $icon, 32 );
 }
 
 /**
- * Render Lucide icon for monitoring communication paths.
+ * Render MDI icon for monitoring communication paths.
  */
 function site_blocks_monitoring_render_communicator_icon( string $icon ): void {
-	if ( ! function_exists( 'site_blocks_lucide_icon_from_legacy' ) ) {
-		require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	if ( ! function_exists( 'site_blocks_icon_from_legacy' ) ) {
+		require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 	}
 
-	site_blocks_lucide_icon_from_legacy( $icon, 32 );
+	site_blocks_icon_from_legacy( $icon, 32 );
 }
 
 /**
@@ -264,12 +264,12 @@ function site_blocks_monitoring_render_services(): void {
 			'section_class' => 'sg-monitoring-services',
 			'band'          => 'white',
 			'eyebrow'       => __( 'Monitoring', 'site-blocks' ),
-			'title_before'  => __( 'Choose the monitoring that fits your ', 'site-blocks' ),
-			'title_accent'  => __( 'site', 'site-blocks' ),
+			'title_before'  => __( 'Choose The Monitoring That Fits Your ', 'site-blocks' ),
+			'title_accent'  => __( 'Site', 'site-blocks' ),
 			'intro'         => (string) $heading['intro'],
 			'items'         => site_blocks_monitoring_hub_photo_services(),
 			'cta'           => array(
-				'title'        => __( 'Tell us the site. A person checks the scope.', 'site-blocks' ),
+				'title'        => __( 'Tell Us The Site. A Person Checks The Scope.', 'site-blocks' ),
 				'checks'       => array(
 					__( 'Master Licence #000103619', 'site-blocks' ),
 					__( '20+ years', 'site-blocks' ),
@@ -462,8 +462,8 @@ function site_blocks_monitoring_render_features(): void {
 	<section class="sg-band sg-band--blue sg-monitoring-features alignfull" aria-labelledby="sg-monitoring-features-heading">
 		<div class="sg-container">
 			<h2 id="sg-monitoring-features-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-				<?php esc_html_e( 'What virtual patrol ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'delivers', 'site-blocks' ); ?></span>
+				<?php esc_html_e( 'What Virtual Patrol ', 'site-blocks' ); ?>
+				<span class="sg-accent"><?php esc_html_e( 'Delivers', 'site-blocks' ); ?></span>
 			</h2>
 
 			<ul class="sg-monitoring-features__list" role="list">
@@ -563,8 +563,8 @@ function site_blocks_monitoring_render_portal( string $page_key ): void {
 		'hub' => array(
 			'heading_id'    => 'sg-monitoring-hub-portal-heading',
 			'section_class' => 'sg-monitoring-hub-portal',
-			'title_before'  => __( 'Monitoring quotes and updates in ', 'site-blocks' ),
-			'title_accent'  => __( 'one portal', 'site-blocks' ),
+			'title_before'  => __( 'Monitoring Quotes And Updates In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Portal', 'site-blocks' ),
 			'intro'         => __( 'Request monitoring cover online, upload site details and approve scope without waiting on callbacks.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Track your monitoring quote progress', 'site-blocks' ),
@@ -575,8 +575,8 @@ function site_blocks_monitoring_render_portal( string $page_key ): void {
 		'back-to-base' => array(
 			'heading_id'    => 'sg-monitoring-b2b-portal-heading',
 			'section_class' => 'sg-monitoring-b2b-portal',
-			'title_before'  => __( 'Back-to-base quotes in ', 'site-blocks' ),
-			'title_accent'  => __( 'one place', 'site-blocks' ),
+			'title_before'  => __( 'Back-To-Base Quotes In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Place', 'site-blocks' ),
 			'intro'         => __( 'Start your monitoring application online and keep communicator paths, keyholders and response notes organised in our portal.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Document IP, Wi-Fi and 4G communicator options', 'site-blocks' ),
@@ -587,8 +587,8 @@ function site_blocks_monitoring_render_portal( string $page_key ): void {
 		'virtual-patrol' => array(
 			'heading_id'    => 'sg-monitoring-vp-portal-heading',
 			'section_class' => 'sg-monitoring-vp-portal',
-			'title_before'  => __( 'Virtual patrol assessments in ', 'site-blocks' ),
-			'title_accent'  => __( 'one portal', 'site-blocks' ),
+			'title_before'  => __( 'Virtual Patrol Assessments In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Portal', 'site-blocks' ),
 			'intro'         => __( 'Share camera layouts, tour schedules and escalation contacts so operators can review your site before cover begins.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Upload site maps and camera positions', 'site-blocks' ),
@@ -599,8 +599,8 @@ function site_blocks_monitoring_render_portal( string $page_key ): void {
 		'solar-cameras-monitoring' => array(
 			'heading_id'    => 'sg-monitoring-solar-portal-heading',
 			'section_class' => 'sg-monitoring-solar-portal',
-			'title_before'  => __( 'Remote site quotes and updates in ', 'site-blocks' ),
-			'title_accent'  => __( 'one portal', 'site-blocks' ),
+			'title_before'  => __( 'Remote Site Quotes And Updates In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Portal', 'site-blocks' ),
 			'intro'         => __( 'Share site photos, approve estimates and message our team without chasing email threads, especially helpful for construction and rural projects.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Track your solar monitoring quote progress', 'site-blocks' ),
@@ -624,10 +624,10 @@ function site_blocks_monitoring_render_portal( string $page_key ): void {
  */
 function site_blocks_monitoring_render_trust( string $page_key ): void {
 	/**
-	 * @param string $icon Lucide icon key.
+	 * @param string $icon MDI icon key.
 	 */
 	$renderer = static function ( string $icon ): void {
-		site_blocks_lucide_icon( $icon, 24 );
+		site_blocks_icon( $icon, 24 );
 	};
 
 	$items = array(
@@ -637,17 +637,17 @@ function site_blocks_monitoring_render_trust( string $page_key ): void {
 			'icon'  => 'shield-check',
 		),
 		array(
-			'title' => __( 'Installer + monitor', 'site-blocks' ),
+			'title' => __( 'Installer + Monitor', 'site-blocks' ),
 			'desc'  => __( 'One team for alarms, cameras, access and monitoring paths.', 'site-blocks' ),
 			'icon'  => 'layers',
 		),
 		array(
-			'title' => __( 'Clear escalation', 'site-blocks' ),
+			'title' => __( 'Clear Escalation', 'site-blocks' ),
 			'desc'  => __( 'Keyholders, patrols and authorities per your documented plan.', 'site-blocks' ),
 			'icon'  => 'phone',
 		),
 		array(
-			'title' => __( 'Homes and sites', 'site-blocks' ),
+			'title' => __( 'Homes And Sites', 'site-blocks' ),
 			'desc'  => __( 'Residential, commercial, strata and remote sites.', 'site-blocks' ),
 			'icon'  => 'map-pin',
 		),
@@ -657,8 +657,8 @@ function site_blocks_monitoring_render_trust( string $page_key ): void {
 		array(
 			'heading_id'    => 'sg-monitoring-trust-heading-' . sanitize_html_class( $page_key ),
 			'section_class' => 'sg-monitoring-trust sg-monitoring-trust--' . sanitize_html_class( $page_key ),
-			'title_before'  => __( 'Monitoring backed by a licensed ', 'site-blocks' ),
-			'title_accent'  => __( 'team', 'site-blocks' ),
+			'title_before'  => __( 'Monitoring Backed By A Licensed ', 'site-blocks' ),
+			'title_accent'  => __( 'Team', 'site-blocks' ),
 			'items'         => $items,
 			'icon_renderer' => $renderer,
 		)

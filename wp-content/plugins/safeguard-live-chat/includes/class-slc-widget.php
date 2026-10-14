@@ -113,12 +113,15 @@ class Slc_Widget
         return '/';
     }
 
+    /**
+     * Material Design Icons (https://pictogrammers.com/library/mdi/), single filled paths.
+     */
     private static function icon(string $name): void
     {
         $paths = [
-            'x'              => '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>',
-            'send'           => '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path>',
-            'message-circle' => '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>',
+            'x'              => 'M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z', // mdi:close
+            'send'           => 'm4 6.03l7.5 3.22l-7.5-1zm7.5 8.72L4 17.97v-2.22zM2 3v7l15 2l-15 2v7l21-9z', // mdi:send-outline
+            'message-circle' => 'M12 3C6.5 3 2 6.58 2 11a7.22 7.22 0 0 0 2.75 5.5c0 .6-.42 2.17-2.75 4.5c2.37-.11 4.64-1 6.47-2.5c1.14.33 2.34.5 3.53.5c5.5 0 10-3.58 10-8s-4.5-8-10-8m0 14c-4.42 0-8-2.69-8-6s3.58-6 8-6s8 2.69 8 6s-3.58 6-8 6', // mdi:chat-outline
         ];
 
         if (!isset($paths[$name])) {
@@ -126,8 +129,8 @@ class Slc_Widget
         }
 
         printf(
-            '<svg class="sg-lucide-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg>',
-            $paths[$name] // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG paths.
+            '<svg class="sg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="%s"/></svg>',
+            esc_attr($paths[$name])
         );
     }
 }

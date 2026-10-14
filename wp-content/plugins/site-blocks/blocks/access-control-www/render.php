@@ -19,8 +19,8 @@ site_blocks_render_access_control_split(
 		'id'           => 'sg-access-control-www-heading',
 		'class'        => 'sg-access-control-www',
 		'reverse'      => true,
-		'title_before' => __( 'Who gets in, where, and ', 'site-blocks' ),
-		'title_accent' => __( 'when', 'site-blocks' ),
+		'title_before' => __( 'Who Gets In, Where, And ', 'site-blocks' ),
+		'title_accent' => __( 'When', 'site-blocks' ),
 		'list'         => array(
 			array(
 				'title' => __( 'Who', 'site-blocks' ),

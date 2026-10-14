@@ -113,6 +113,7 @@ function site_blocks_register_blocks(): void {
 		'enterprise-hero',
 		'enterprise-section',
 		'tech-brand',
+		'brands-index',
 	);
 
 	foreach ( $blocks as $block ) {

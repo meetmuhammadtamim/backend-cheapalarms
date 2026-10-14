@@ -92,7 +92,7 @@ body.safeguard-electronic-security-page .sg-es-product-hero__phone-icon {
   color: var(--sg-blue);
 }
 
-body.safeguard-electronic-security-page .sg-es-product-hero__phone-icon .sg-lucide-icon {
+body.safeguard-electronic-security-page .sg-es-product-hero__phone-icon .sg-icon {
   --sg-icon-size: 1.125rem;
   width: var(--sg-icon-size);
   height: var(--sg-icon-size);
@@ -140,8 +140,8 @@ body.safeguard-electronic-security-page .sg-es-product-hero__feature-icon,
   box-shadow: none;
 }
 
-body.safeguard-electronic-security-page .sg-es-product-hero__feature-icon .sg-lucide-icon,
-.sg-es-product-hero__feature-icon .sg-lucide-icon {
+body.safeguard-electronic-security-page .sg-es-product-hero__feature-icon .sg-icon,
+.sg-es-product-hero__feature-icon .sg-icon {
   --sg-icon-size: 1.375rem;
   display: block;
   width: var(--sg-icon-size);

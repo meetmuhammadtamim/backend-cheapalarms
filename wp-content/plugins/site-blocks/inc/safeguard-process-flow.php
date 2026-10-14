@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Render the skeleton process flow section.
@@ -45,7 +45,7 @@ function site_blocks_render_process_flow( ?array $config ): void {
 			<header class="sg-process-flow__header">
 				<p class="sg-process-flow__eyebrow">
 					<span class="sg-process-flow__eyebrow-pill">
-						<?php site_blocks_lucide_icon( 'signal' ); ?>
+						<?php site_blocks_icon( 'signal' ); ?>
 						<?php echo esc_html( $eyebrow ); ?>
 					</span>
 				</p>
@@ -72,7 +72,7 @@ function site_blocks_render_process_flow( ?array $config ): void {
 						</div>
 						<p class="sg-process-flow__badge">
 							<span class="sg-process-flow__badge-pill">
-								<?php site_blocks_lucide_icon( 'shield-check' ); ?>
+								<?php site_blocks_icon( 'shield-check' ); ?>
 								<span><?php echo esc_html( (string) $step['badge'] ); ?></span>
 							</span>
 						</p>
@@ -80,7 +80,7 @@ function site_blocks_render_process_flow( ?array $config ): void {
 					<?php if ( $index < $last_index ) : ?>
 						<span class="sg-process-flow__arrow" aria-hidden="true">
 							<span class="sg-process-flow__arrow-btn">
-								<?php site_blocks_lucide_icon( 'chevron-right' ); ?>
+								<?php site_blocks_icon( 'chevron-right' ); ?>
 							</span>
 						</span>
 					<?php endif; ?>
@@ -101,7 +101,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 			<div class="sg-pf-sk sg-pf-sk--schedule">
 				<div class="sg-pf-sk__mock">
 					<div class="sg-pf-sk__mock-row">
-						<span class="sg-pf-sk__mock-icon"><?php site_blocks_lucide_icon( 'calendar-clock' ); ?></span>
+						<span class="sg-pf-sk__mock-icon"><?php site_blocks_icon( 'calendar-clock' ); ?></span>
 						<span class="sg-pf-sk__bar sg-pf-sk__bar--lg"></span>
 					</div>
 					<div class="sg-pf-sk__mock-row sg-pf-sk__mock-row--fields">
@@ -121,7 +121,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 			<div class="sg-pf-sk sg-pf-sk--quote">
 				<div class="sg-pf-sk__mock">
 					<div class="sg-pf-sk__mock-row">
-						<span class="sg-pf-sk__mock-icon"><?php site_blocks_lucide_icon( 'shield-check' ); ?></span>
+						<span class="sg-pf-sk__mock-icon"><?php site_blocks_icon( 'shield-check' ); ?></span>
 						<span class="sg-pf-sk__bar sg-pf-sk__bar--lg"></span>
 					</div>
 					<div class="sg-pf-sk__mock-row sg-pf-sk__mock-row--fields">
@@ -141,7 +141,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 			<div class="sg-pf-sk sg-pf-sk--photos">
 				<div class="sg-pf-sk__mock">
 					<div class="sg-pf-sk__mock-row">
-						<span class="sg-pf-sk__mock-icon"><?php site_blocks_lucide_icon( 'cctv' ); ?></span>
+						<span class="sg-pf-sk__mock-icon"><?php site_blocks_icon( 'cctv' ); ?></span>
 						<span class="sg-pf-sk__bar sg-pf-sk__bar--lg"></span>
 					</div>
 					<div class="sg-pf-sk__photo-grid">
@@ -163,9 +163,9 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 						<span class="sg-pf-sk__map-pin"></span>
 					</div>
 					<div class="sg-pf-sk__checklist">
-						<span class="sg-pf-sk__check-item"><?php site_blocks_lucide_icon( 'shield-check' ); ?></span>
-						<span class="sg-pf-sk__check-item"><?php site_blocks_lucide_icon( 'shield-check' ); ?></span>
-						<span class="sg-pf-sk__check-item"><?php site_blocks_lucide_icon( 'shield-check' ); ?></span>
+						<span class="sg-pf-sk__check-item"><?php site_blocks_icon( 'shield-check' ); ?></span>
+						<span class="sg-pf-sk__check-item"><?php site_blocks_icon( 'shield-check' ); ?></span>
+						<span class="sg-pf-sk__check-item"><?php site_blocks_icon( 'shield-check' ); ?></span>
 					</div>
 				</div>
 			</div>
@@ -175,9 +175,9 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 			?>
 			<div class="sg-pf-sk sg-pf-sk--install">
 				<div class="sg-pf-sk__mock sg-pf-sk__mock--install">
-					<span class="sg-pf-sk__device sg-pf-sk__device--cam"><?php site_blocks_lucide_icon( 'cctv' ); ?></span>
-					<span class="sg-pf-sk__device sg-pf-sk__device--hub"><?php site_blocks_lucide_icon( 'router' ); ?></span>
-					<span class="sg-pf-sk__device sg-pf-sk__device--phone"><?php site_blocks_lucide_icon( 'smartphone' ); ?></span>
+					<span class="sg-pf-sk__device sg-pf-sk__device--cam"><?php site_blocks_icon( 'cctv' ); ?></span>
+					<span class="sg-pf-sk__device sg-pf-sk__device--hub"><?php site_blocks_icon( 'router' ); ?></span>
+					<span class="sg-pf-sk__device sg-pf-sk__device--phone"><?php site_blocks_icon( 'smartphone' ); ?></span>
 				</div>
 			</div>
 			<?php
@@ -187,7 +187,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 			<div class="sg-pf-sk sg-pf-sk--signal">
 				<div class="sg-pf-sk__mock">
 					<div class="sg-pf-sk__mock-row">
-						<span class="sg-pf-sk__mock-icon"><?php site_blocks_lucide_icon( 'bell-ring' ); ?></span>
+						<span class="sg-pf-sk__mock-icon"><?php site_blocks_icon( 'bell-ring' ); ?></span>
 						<span class="sg-pf-sk__bar sg-pf-sk__bar--lg"></span>
 					</div>
 					<div class="sg-pf-sk__mock-row sg-pf-sk__mock-row--fields">
@@ -209,10 +209,10 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 						<span class="sg-pf-sk__feed-cell"></span>
 						<span class="sg-pf-sk__feed-cell"></span>
 						<span class="sg-pf-sk__feed-cell sg-pf-sk__feed-cell--live">
-							<?php site_blocks_lucide_icon( 'cctv' ); ?>
+							<?php site_blocks_icon( 'cctv' ); ?>
 						</span>
 					</div>
-					<span class="sg-pf-sk__feed-check"><?php site_blocks_lucide_icon( 'shield-check' ); ?></span>
+					<span class="sg-pf-sk__feed-check"><?php site_blocks_icon( 'shield-check' ); ?></span>
 				</div>
 			</div>
 			<?php
@@ -227,7 +227,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 						<span class="sg-pf-sk__map-pin"></span>
 					</div>
 					<div class="sg-pf-sk__alert-toast">
-						<span class="sg-pf-sk__alert-icon"><?php site_blocks_lucide_icon( 'bell-ring' ); ?></span>
+						<span class="sg-pf-sk__alert-icon"><?php site_blocks_icon( 'bell-ring' ); ?></span>
 						<span class="sg-pf-sk__alert-copy">
 							<strong><?php esc_html_e( 'ALERT', 'site-blocks' ); ?></strong>
 							<em><?php esc_html_e( 'Activity flagged', 'site-blocks' ); ?></em>
@@ -247,7 +247,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 						<span class="sg-pf-sk__bar sg-pf-sk__bar--sm"></span>
 					</div>
 					<div class="sg-pf-sk__report-done">
-						<?php site_blocks_lucide_icon( 'clipboard-list' ); ?>
+						<?php site_blocks_icon( 'clipboard-list' ); ?>
 						<span><?php esc_html_e( 'Log ready', 'site-blocks' ); ?></span>
 					</div>
 				</div>
@@ -259,7 +259,7 @@ function site_blocks_render_process_flow_skeleton( string $type ): void {
 			<div class="sg-pf-sk sg-pf-sk--support">
 				<div class="sg-pf-sk__mock">
 					<div class="sg-pf-sk__mock-row">
-						<span class="sg-pf-sk__mock-icon"><?php site_blocks_lucide_icon( 'phone' ); ?></span>
+						<span class="sg-pf-sk__mock-icon"><?php site_blocks_icon( 'phone' ); ?></span>
 						<span class="sg-pf-sk__bar sg-pf-sk__bar--lg"></span>
 					</div>
 					<div class="sg-pf-sk__mock-row sg-pf-sk__mock-row--fields">

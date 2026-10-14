@@ -1889,13 +1889,13 @@
   color: oklch(14% 0.03 260);
 }
 
-.home-hero-visual__orbit .sg-lucide-icon {
+.home-hero-visual__orbit .sg-icon {
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
   color: oklch(78% 0.14 195);
 }
 
-.home-hero-visual__shield .sg-lucide-icon,
+.home-hero-visual__shield .sg-icon,
 .home-hero-visual__shield .sg-home-hero__shield-icon {
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);

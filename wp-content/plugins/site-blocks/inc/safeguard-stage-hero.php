@@ -83,7 +83,7 @@ function site_blocks_stage_hero_media( string $relative_path, string $alt, strin
  * } $args Hero content.
  */
 function site_blocks_render_stage_hero( array $args ): void {
-	require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 	$id         = (string) ( $args['id'] ?? 'sg-stage-hero-heading' );
 	$class      = trim( 'sg-cctv-stage-hero sg-stage-hero alignfull ' . (string) ( $args['class'] ?? '' ) );
@@ -197,7 +197,7 @@ function site_blocks_render_stage_hero( array $args ): void {
 					<?php foreach ( $trust as $item ) : ?>
 						<li>
 							<span class="sg-cctv-stage-hero__trust-icon" aria-hidden="true">
-								<?php site_blocks_lucide_icon( (string) ( $item['icon'] ?? 'shield' ), 16 ); ?>
+								<?php site_blocks_icon( (string) ( $item['icon'] ?? 'shield' ), 16 ); ?>
 							</span>
 							<span><?php echo esc_html( (string) ( $item['label'] ?? '' ) ); ?></span>
 						</li>

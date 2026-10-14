@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 $proofs = array(
 	array(
@@ -64,7 +64,7 @@ $capabilities = array(
 		<div class="sg-cctv-intro__grid">
 			<div class="sg-cctv-intro__copy">
 				<h2 id="sg-cctv-intro-heading" class="sg-cctv-intro__title">
-					<?php esc_html_e( 'Why well-placed cameras work', 'site-blocks' ); ?>
+					<?php esc_html_e( 'Why Well-Placed Cameras Work', 'site-blocks' ); ?>
 				</h2>
 				<p>
 					<?php esc_html_e( 'Cameras deter, record and let you check in remotely, but only when they\'re placed, angled and wired correctly. That\'s what we design for.', 'site-blocks' ); ?>
@@ -93,7 +93,7 @@ $capabilities = array(
 				<?php foreach ( $capabilities as $cap ) : ?>
 					<li class="sg-cctv-intro__cap">
 						<span class="sg-cctv-intro__cap-icon" aria-hidden="true">
-							<?php site_blocks_lucide_icon( $cap['icon'], 28 ); ?>
+							<?php site_blocks_icon( $cap['icon'], 28 ); ?>
 						</span>
 						<span class="sg-cctv-intro__cap-label"><?php echo esc_html( $cap['label'] ); ?></span>
 					</li>

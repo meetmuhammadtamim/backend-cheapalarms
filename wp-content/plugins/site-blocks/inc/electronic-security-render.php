@@ -16,7 +16,7 @@ require_once SITE_BLOCKS_DIR . 'inc/electronic-security-media.php';
 require_once SITE_BLOCKS_DIR . 'inc/access-control-split.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-related-services.php';
 require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow-configs.php';
 
@@ -105,12 +105,12 @@ function site_blocks_electronic_security_render_services(): void {
 			'section_class' => 'sg-es-services',
 			'band'          => 'white',
 			'eyebrow'       => __( 'Electronic Security', 'site-blocks' ),
-			'title_before'  => __( 'Electronic security, matched to your ', 'site-blocks' ),
-			'title_accent'  => __( 'site', 'site-blocks' ),
+			'title_before'  => __( 'Electronic Security, Matched To Your ', 'site-blocks' ),
+			'title_accent'  => __( 'Site', 'site-blocks' ),
 			'intro'         => __( 'Alarms, CCTV, access control, intercoms and monitoring designed to work together.', 'site-blocks' ),
 			'items'         => site_blocks_electronic_security_hub_photo_services(),
 			'cta'           => array(
-				'title'        => __( 'One system. Total control.', 'site-blocks' ),
+				'title'        => __( 'One System. Total Control.', 'site-blocks' ),
 				'checks'       => array(
 					__( 'Master Licence Holder', 'site-blocks' ),
 					__( 'ASIAL Member', 'site-blocks' ),
@@ -145,8 +145,8 @@ function site_blocks_electronic_security_render_portal( string $page_key ): void
 		'hub' => array(
 			'heading_id'    => 'sg-es-hub-portal-heading',
 			'section_class' => 'sg-es-hub-portal',
-			'title_before'  => __( 'Quotes and scope in ', 'site-blocks' ),
-			'title_accent'  => __( 'one portal', 'site-blocks' ),
+			'title_before'  => __( 'Quotes And Scope In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Portal', 'site-blocks' ),
 			'intro'         => __( 'Request alarms, CCTV or access control online, share site photos and approve scope without chasing email threads.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Document rooms, entries and existing equipment', 'site-blocks' ),
@@ -170,20 +170,20 @@ function site_blocks_electronic_security_render_portal( string $page_key ): void
  */
 function site_blocks_electronic_security_render_trust( string $page_key ): void {
 	$renderer = static function ( string $icon ): void {
-		site_blocks_lucide_icon( $icon, 24 );
+		site_blocks_icon( $icon, 24 );
 	};
 
 	site_blocks_render_trust_panel(
 		array(
 			'heading_id'    => 'sg-es-trust-heading-' . sanitize_html_class( $page_key ),
 			'section_class' => 'sg-es-trust sg-es-trust--' . sanitize_html_class( $page_key ),
-			'title_before'  => __( 'Electronic security delivered by licensed ', 'site-blocks' ),
-			'title_accent'  => __( 'professionals', 'site-blocks' ),
+			'title_before'  => __( 'Electronic Security Delivered By Licensed ', 'site-blocks' ),
+			'title_accent'  => __( 'Professionals', 'site-blocks' ),
 			'items'         => array(
-				array( 'title' => __( 'Master Licence holder', 'site-blocks' ), 'desc' => __( 'NSW-licensed install and monitoring.', 'site-blocks' ), 'icon' => 'badge-check' ),
-				array( 'title' => __( 'Integrated systems', 'site-blocks' ), 'desc' => __( 'Alarms, CCTV, access and monitoring together.', 'site-blocks' ), 'icon' => 'layers' ),
-				array( 'title' => __( 'Commercial & residential', 'site-blocks' ), 'desc' => __( 'From apartments to multi-site programs.', 'site-blocks' ), 'icon' => 'building-2' ),
-				array( 'title' => __( 'ASIAL member', 'site-blocks' ), 'desc' => __( 'ASIAL member.', 'site-blocks' ), 'icon' => 'award' ),
+				array( 'title' => __( 'Master Licence Holder', 'site-blocks' ), 'desc' => __( 'NSW-licensed install and monitoring.', 'site-blocks' ), 'icon' => 'badge-check' ),
+				array( 'title' => __( 'Integrated Systems', 'site-blocks' ), 'desc' => __( 'Alarms, CCTV, access and monitoring together.', 'site-blocks' ), 'icon' => 'layers' ),
+				array( 'title' => __( 'Commercial & Residential', 'site-blocks' ), 'desc' => __( 'From apartments to multi-site programs.', 'site-blocks' ), 'icon' => 'building-2' ),
+				array( 'title' => __( 'ASIAL Member', 'site-blocks' ), 'desc' => __( 'ASIAL member.', 'site-blocks' ), 'icon' => 'award' ),
 			),
 			'icon_renderer' => $renderer,
 		)

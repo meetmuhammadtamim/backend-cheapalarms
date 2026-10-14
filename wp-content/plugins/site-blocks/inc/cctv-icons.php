@@ -1,6 +1,6 @@
 <?php
 /**
- * CCTV page icon helpers (Lucide).
+ * CCTV page icon helpers (MDI).
  *
  * @package Site_Blocks
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Render a CCTV section icon.
@@ -22,5 +22,5 @@ require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
  */
 function site_blocks_cctv_icon( string $filename, int $size = 72, string $class = 'sg-cctv-icon__img' ): void {
 	unset( $class );
-	site_blocks_lucide_icon_from_legacy( $filename, $size );
+	site_blocks_icon_from_legacy( $filename, $size );
 }

@@ -15,32 +15,32 @@ require_once SITE_BLOCKS_DIR . 'inc/intercom-icons.php';
 
 $cards = array(
 	array(
-		'title' => __( 'Video intercoms', 'site-blocks' ),
+		'title' => __( 'Video Intercoms', 'site-blocks' ),
 		'desc'  => __( 'See and speak to visitors on a clear screen before you open up.', 'site-blocks' ),
 		'icon'  => 'ip-camera.png',
 	),
 	array(
-		'title' => __( 'Audio intercoms', 'site-blocks' ),
+		'title' => __( 'Audio Intercoms', 'site-blocks' ),
 		'desc'  => __( 'Reliable two-way audio entry where video isn\'t needed.', 'site-blocks' ),
 		'icon'  => 'support.png',
 	),
 	array(
-		'title' => __( 'Answer on your phone', 'site-blocks' ),
+		'title' => __( 'Answer On Your Phone', 'site-blocks' ),
 		'desc'  => __( 'Take door and gate calls, and release entry, from a mobile app.', 'site-blocks' ),
 		'icon'  => 'remote-app.png',
 	),
 	array(
-		'title' => __( 'Door & gate release', 'site-blocks' ),
+		'title' => __( 'Door & Gate Release', 'site-blocks' ),
 		'desc'  => __( 'Electric strikes, magnetic locks and gate motors, wired to work.', 'site-blocks' ),
 		'icon'  => 'access-control.png',
 	),
 	array(
-		'title' => __( 'Apartment & strata', 'site-blocks' ),
+		'title' => __( 'Apartment & Strata', 'site-blocks' ),
 		'desc'  => __( 'Directory panels, call routing per unit, and building-manager access.', 'site-blocks' ),
 		'icon'  => 'property-coverage.png',
 	),
 	array(
-		'title' => __( 'Wired, 2-wire & IP', 'site-blocks' ),
+		'title' => __( 'Wired, 2-Wire & IP', 'site-blocks' ),
 		'desc'  => __( 'New cabling or reusing existing wiring, chosen for your building.', 'site-blocks' ),
 		'icon'  => 'home-camera.png',
 	),
@@ -50,8 +50,8 @@ $cards = array(
 	<div class="sg-container">
 		<header class="sg-alarm-services__header">
 			<h2 id="sg-intercom-install-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-				<?php esc_html_e( 'What we design and ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'install', 'site-blocks' ); ?></span>
+				<?php esc_html_e( 'What We Design And ', 'site-blocks' ); ?>
+				<span class="sg-accent"><?php esc_html_e( 'Install', 'site-blocks' ); ?></span>
 			</h2>
 			<p class="sg-section-intro sg-section-intro--center">
 				<?php esc_html_e( 'We match the system to the entry you actually have, and to how you want to answer it.', 'site-blocks' ); ?>

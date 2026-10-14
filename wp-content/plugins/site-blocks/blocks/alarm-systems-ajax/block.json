@@ -33,7 +33,7 @@
     },
     "ctaUrl": {
       "type": "string",
-      "default": "/ajax-alarm-systems/"
+      "default": "/brands/ajax-alarm-systems/"
     }
   },
   "render": "file:./render.php"

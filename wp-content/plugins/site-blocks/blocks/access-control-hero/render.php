@@ -32,7 +32,7 @@ site_blocks_render_stage_hero(
 			),
 		),
 		'eyebrow'     => __( 'Access Control', 'site-blocks' ),
-		'title'       => __( 'Replace keys with access you can control.', 'site-blocks' ),
+		'title'       => __( 'Replace Keys With Access You Can Control.', 'site-blocks' ),
 		'lead'        => __( 'Cards, mobile credentials, PINs and biometrics, designed, installed and supported. A technician reviews the scope.', 'site-blocks' ),
 		'trust'       => array(
 			array(

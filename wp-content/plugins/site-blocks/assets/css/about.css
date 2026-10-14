@@ -85,14 +85,14 @@
   text-decoration: none;
 }
 
-.sg-about-hero__btn .sg-lucide-icon {
+.sg-about-hero__btn .sg-icon {
   width: 1.05rem;
   height: 1.05rem;
   color: inherit;
   stroke: currentColor;
 }
 
-.sg-about-hero__btn--primary .sg-lucide-icon {
+.sg-about-hero__btn--primary .sg-icon {
   color: #fff;
   stroke: #fff;
 }
@@ -150,7 +150,7 @@
   color: var(--sg-blue);
 }
 
-.sg-about-hero__proof-icon .sg-lucide-icon {
+.sg-about-hero__proof-icon .sg-icon {
   width: 1.15rem;
   height: 1.15rem;
 }

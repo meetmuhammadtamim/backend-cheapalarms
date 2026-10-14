@@ -17,16 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 function site_blocks_render_safeguard_homepage(): void {
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-chrome.php';
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-section-icons.php';
-	require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow.php';
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow-configs.php';
+	require_once SITE_BLOCKS_DIR . 'inc/safeguard-details-section.php';
+	require_once SITE_BLOCKS_DIR . 'inc/safeguard-coverage-section.php';
+	require_once SITE_BLOCKS_DIR . 'inc/safeguard-quality-section.php';
+	require_once SITE_BLOCKS_DIR . 'inc/safeguard-connected-section.php';
 
-	$hero_house  = site_blocks_asset_url( 'images/hero/house.png' );
+	$hero_house   = site_blocks_asset_url( 'images/hero/house.png' );
+	$hero_desktop = site_blocks_asset_url( 'images/hero/home-rack.webp' );
 	$logo_mark   = site_blocks_asset_url( 'images/brand/safeguard-logo-mark.png' );
 	$ajax_img    = site_blocks_asset_url( 'images/ajax/ajax-products.png' );
 	$quote       = esc_url( home_url( '/contact/' ) );
 	$design      = esc_url( home_url( '/contact/' ) );
-	$ajax_page   = esc_url( home_url( '/ajax-alarm-systems/' ) );
+	$ajax_page   = esc_url( home_url( '/brands/ajax-alarm-systems/' ) );
 
 	$service_cards = array(
 		array(
@@ -86,40 +91,84 @@ function site_blocks_render_safeguard_homepage(): void {
 	<?php site_blocks_render_safeguard_header(); ?>
 
 	<main id="main" class="sg-main">
+		<?php // Hero: sits inside the standard site container (.sg-rack-hero--inset). ?>
+		<section class="sg-rack-hero sg-rack-hero--inset" aria-labelledby="sg-rack-hero-heading">
+			<div class="sg-container">
+				<div class="sg-rack-hero__frame">
+					<picture class="sg-rack-hero__photo">
+						<img
+							class="sg-rack-hero__img"
+							src="<?php echo esc_url( $hero_desktop ); ?>"
+							alt="<?php esc_attr_e( 'Technician connecting network cables inside an open cabinet.', 'site-blocks' ); ?>"
+							width="1774"
+							height="887"
+							loading="eager"
+							decoding="async"
+						/>
+					</picture>
+					<div class="sg-rack-hero__copy">
+						<h2 id="sg-rack-hero-heading" class="sg-rack-hero__title">
+							<?php esc_html_e( 'Security systems that work properly from day one.', 'site-blocks' ); ?>
+						</h2>
+						<p class="sg-rack-hero__lead">
+							<?php esc_html_e( 'Safeguard designs, installs, integrates, and supports professional security systems for homes, businesses, and complex sites.', 'site-blocks' ); ?>
+						</p>
+						<div class="sg-rack-hero__ctas">
+							<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+								<?php esc_html_e( 'Talk to a security specialist', 'site-blocks' ); ?>
+							</a>
+							<a class="sg-btn sg-btn--secondary sg-hv__btn-on-dark" href="#sg-benefit-quotes-heading">
+								<?php esc_html_e( 'See how we work', 'site-blocks' ); ?>
+							</a>
+						</div>
+						<p class="sg-rack-hero__meta"><?php esc_html_e( 'Designed · Installed · Integrated · Supported', 'site-blocks' ); ?></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<?php site_blocks_render_details_section(); ?>
+
+		<?php site_blocks_render_coverage_section(); ?>
+
+		<?php site_blocks_render_quality_section(); ?>
+
+		<?php site_blocks_render_connected_section(); ?>
+
 		<section class="sg-home-hero-v2 sg-reveal" aria-labelledby="sg-home-hero-v2-heading">
 			<div class="sg-container sg-home-hero-v2__grid">
 				<div class="sg-home-hero-v2__copy">
 					<p class="sg-home-hero-v2__badge">
-						<span class="sg-home-hero-v2__badge-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'shield-check', 16 ); ?></span>
+						<span class="sg-home-hero-v2__badge-icon" aria-hidden="true"><?php site_blocks_icon( 'shield-check', 16 ); ?></span>
 						<?php esc_html_e( 'Security systems installed and integrated by Safeguard Security Services.', 'site-blocks' ); ?>
 					</p>
 					<h1 id="sg-home-hero-v2-heading" class="sg-home-hero-v2__title">
-						<?php esc_html_e( 'Electronic security installation and integration for commercial and residential properties.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Electronic Security Installation And Integration For Commercial And Residential Properties.', 'site-blocks' ); ?>
 					</h1>
 					<p class="sg-home-hero-v2__lead">
 						<?php esc_html_e( 'Safeguard Security Services is an installation partner to a security integrator.', 'site-blocks' ); ?>
 					</p>
 					<div class="sg-home-hero-v2__ctas">
 						<a class="sg-btn sg-btn--orange sg-home-hero-v2__btn" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
-							<span class="sg-home-hero-v2__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'calendar', 18 ); ?></span>
+							<span class="sg-home-hero-v2__btn-icon" aria-hidden="true"><?php site_blocks_icon( 'calendar', 18 ); ?></span>
 							<?php esc_html_e( 'Request a Quote', 'site-blocks' ); ?>
 						</a>
 						<a class="sg-btn sg-btn--secondary sg-home-hero-v2__btn" href="tel:1300225276">
-							<span class="sg-home-hero-v2__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'phone', 18 ); ?></span>
+							<span class="sg-home-hero-v2__btn-icon" aria-hidden="true"><?php site_blocks_icon( 'phone', 18 ); ?></span>
 							<?php esc_html_e( 'Speak to Our Team', 'site-blocks' ); ?>
 						</a>
 					</div>
 					<ul class="sg-home-hero-v2__trust" role="list">
 						<li>
-							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'shield-check', 18 ); ?></span>
+							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_icon( 'shield-check', 18 ); ?></span>
 							<?php esc_html_e( 'Master Licence #000103619', 'site-blocks' ); ?>
 						</li>
 						<li>
-							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'user-check', 18 ); ?></span>
+							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_icon( 'user-check', 18 ); ?></span>
 							<?php esc_html_e( 'ASIAL member', 'site-blocks' ); ?>
 						</li>
 						<li>
-							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'clock', 18 ); ?></span>
+							<span class="sg-home-hero-v2__trust-icon" aria-hidden="true"><?php site_blocks_icon( 'clock', 18 ); ?></span>
 							<?php esc_html_e( 'Over 20 years of experience', 'site-blocks' ); ?>
 						</li>
 					</ul>
@@ -199,7 +248,7 @@ function site_blocks_render_safeguard_homepage(): void {
 						aria-hidden="true"
 					/>
 					<p class="sg-home-proof__stat"><?php esc_html_e( '20+', 'site-blocks' ); ?></p>
-					<h2 class="sg-home-proof__experience-title"><?php esc_html_e( 'Years of experience', 'site-blocks' ); ?></h2>
+					<h2 class="sg-home-proof__experience-title"><?php esc_html_e( 'Years Of Experience', 'site-blocks' ); ?></h2>
 				</article>
 
 				<article class="sg-home-proof__panel sg-home-proof__panel--solutions">
@@ -208,7 +257,7 @@ function site_blocks_render_safeguard_homepage(): void {
 						<?php foreach ( $proof_solutions as $solution ) : ?>
 							<li>
 								<a class="sg-home-proof__solution" href="<?php echo esc_url( (string) $solution['url'] ); ?>">
-									<span class="sg-home-proof__solution-icon" aria-hidden="true"><?php site_blocks_lucide_icon( (string) $solution['icon'], 22 ); ?></span>
+									<span class="sg-home-proof__solution-icon" aria-hidden="true"><?php site_blocks_icon( (string) $solution['icon'], 22 ); ?></span>
 									<span class="sg-home-proof__solution-label"><?php echo esc_html( (string) $solution['label'] ); ?></span>
 								</a>
 							</li>
@@ -221,7 +270,7 @@ function site_blocks_render_safeguard_homepage(): void {
 					<ul class="sg-home-proof__why" role="list">
 						<?php foreach ( $proof_why as $item ) : ?>
 							<li>
-								<span class="sg-home-proof__why-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'circle-check', 18, 'sg-lucide-icon--filled-check' ); ?></span>
+								<span class="sg-home-proof__why-icon" aria-hidden="true"><?php site_blocks_icon( 'circle-check', 18, 'sg-icon--filled-check' ); ?></span>
 								<span><?php echo esc_html( $item ); ?></span>
 							</li>
 						<?php endforeach; ?>
@@ -250,7 +299,7 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-hero__copy sg-hero__copy--dark">
 					<p class="sg-hero__badge"><?php esc_html_e( 'SMART SECURITY, DESIGNED AROUND YOU.', 'site-blocks' ); ?></p>
 					<h2 id="sg-hero-heading" class="sg-hero__title sg-hero__title--dark">
-						<?php esc_html_e( 'Request a quote. A person on the team checks it.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Request A Quote. A Person On The Team Checks It.', 'site-blocks' ); ?>
 					</h2>
 					<p class="sg-hero__sub sg-hero__sub--dark"><?php esc_html_e( 'Tell us the site and what you need. We confirm the scope before work begins.', 'site-blocks' ); ?></p>
 					<div class="sg-hero__ctas">
@@ -309,14 +358,14 @@ function site_blocks_render_safeguard_homepage(): void {
 		<section class="sg-band sg-band--white sg-reveal" aria-labelledby="sg-funnel-heading">
 			<div class="sg-container">
 				<h2 id="sg-funnel-heading" class="sg-section-title sg-section-title--center">
-					<?php esc_html_e( 'Two ways to start, whichever suits ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'you', 'site-blocks' ); ?></span>
+					<?php esc_html_e( 'Two Ways To Start, Whichever Suits ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'You', 'site-blocks' ); ?></span>
 				</h2>
 
 				<div class="sg-funnel-grid">
 					<article class="sg-funnel-card">
 						<div class="sg-funnel-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_funnel_quote(); ?></div>
 						<div class="sg-funnel-card__body">
-							<h3><?php esc_html_e( 'I know what I need', 'site-blocks' ); ?></h3>
+							<h3><?php esc_html_e( 'I Know What I Need', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'Tell us what you\'re looking for and we\'ll design a tailored solution for your site.', 'site-blocks' ); ?></p>
 							<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo $quote; ?>"><?php esc_html_e( 'Request a quote', 'site-blocks' ); ?></a>
 						</div>
@@ -324,9 +373,9 @@ function site_blocks_render_safeguard_homepage(): void {
 					<article class="sg-funnel-card">
 						<div class="sg-funnel-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_funnel_help(); ?></div>
 						<div class="sg-funnel-card__body">
-							<h3><?php esc_html_e( 'Help me choose', 'site-blocks' ); ?></h3>
+							<h3><?php esc_html_e( 'Help Me Choose', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'Not sure where to start? We\'ll guide you to the right system for your needs.', 'site-blocks' ); ?></p>
-							<a class="sg-btn sg-btn--secondary sg-btn--sm" href="<?php echo $design; ?>"><?php esc_html_e( 'Help Me Choose', 'site-blocks' ); ?></a>
+							<a class="sg-btn sg-btn--secondary sg-btn--sm" href="<?php echo $design; ?>"><?php esc_html_e( 'Help me choose', 'site-blocks' ); ?></a>
 						</div>
 					</article>
 				</div>
@@ -334,7 +383,7 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-design">
 					<div class="sg-design__main">
 						<h2 id="sg-design-heading" class="sg-design__title">
-							<?php esc_html_e( 'What we ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'design', 'site-blocks' ); ?></span><?php esc_html_e( ' and install', 'site-blocks' ); ?>
+							<?php esc_html_e( 'What We ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'Design', 'site-blocks' ); ?></span><?php esc_html_e( ' And Install', 'site-blocks' ); ?>
 						</h2>
 
 						<div class="sg-design__grid">
@@ -360,7 +409,7 @@ function site_blocks_render_safeguard_homepage(): void {
 						<div class="sg-ajax-card">
 							<h2 id="sg-ajax-heading" class="sg-ajax-card__title">
 								<?php esc_html_e( 'Safeguard + Ajax,', 'site-blocks' ); ?><br>
-								<?php esc_html_e( 'professionally installed.', 'site-blocks' ); ?>
+								<?php esc_html_e( 'Professionally Installed.', 'site-blocks' ); ?>
 							</h2>
 							<p class="sg-ajax-card__intro"><?php esc_html_e( 'We partner with Ajax Systems to deliver intelligent, reliable security, installed and supported by experienced technicians.', 'site-blocks' ); ?></p>
 							<div class="sg-ajax-visual">
@@ -394,11 +443,11 @@ function site_blocks_render_safeguard_homepage(): void {
 							<div class="sg-ajax-card__actions">
 								<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo $quote; ?>">
 									<?php esc_html_e( 'Request a quote', 'site-blocks' ); ?>
-									<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
+									<?php site_blocks_icon( 'arrow-right', 16 ); ?>
 								</a>
 								<a class="sg-btn sg-btn--primary sg-btn--sm" href="<?php echo $ajax_page; ?>">
 									<?php esc_html_e( 'Explore Ajax', 'site-blocks' ); ?>
-									<?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?>
+									<?php site_blocks_icon( 'arrow-right', 16 ); ?>
 								</a>
 							</div>
 						</div>
@@ -412,26 +461,26 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-container sg-value-row__grid">
 					<div class="sg-value-row__copy">
 						<h2 class="sg-value-row__title" id="sg-benefit-quotes-heading">
-							<?php esc_html_e( 'Less waiting.', 'site-blocks' ); ?><br>
-							<?php esc_html_e( 'Less guesswork.', 'site-blocks' ); ?><br>
-							<span class="sg-accent"><?php esc_html_e( 'Better-prepared', 'site-blocks' ); ?></span><br>
-							<?php esc_html_e( 'quotes.', 'site-blocks' ); ?>
+							<?php esc_html_e( 'Less Waiting.', 'site-blocks' ); ?><br>
+							<?php esc_html_e( 'Less Guesswork.', 'site-blocks' ); ?><br>
+							<span class="sg-accent"><?php esc_html_e( 'Better-Prepared', 'site-blocks' ); ?></span><br>
+							<?php esc_html_e( 'Quotes.', 'site-blocks' ); ?>
 						</h2>
 					</div>
 					<div class="sg-value-row__content sg-value-row__content--cards">
 						<article class="sg-benefit-card">
 							<div class="sg-benefit-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_benefit_remote(); ?></div>
-							<h3><?php esc_html_e( 'We review remotely where possible', 'site-blocks' ); ?></h3>
+							<h3><?php esc_html_e( 'We Review Remotely Where Possible', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'Our team reviews your photos and details to understand your site before any visit.', 'site-blocks' ); ?></p>
 						</article>
 						<article class="sg-benefit-card">
 							<div class="sg-benefit-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_benefit_visit(); ?></div>
-							<h3><?php esc_html_e( 'Site visits when they\'re needed', 'site-blocks' ); ?></h3>
+							<h3><?php esc_html_e( 'Site Visits When They\'re Needed', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'When required, we visit your site to confirm details and ensure accuracy.', 'site-blocks' ); ?></p>
 						</article>
 						<article class="sg-benefit-card">
 							<div class="sg-benefit-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_benefit_estimate(); ?></div>
-							<h3><?php esc_html_e( 'Better-prepared estimates', 'site-blocks' ); ?></h3>
+							<h3><?php esc_html_e( 'Better-Prepared Estimates', 'site-blocks' ); ?></h3>
 							<p><?php esc_html_e( 'You receive a complete, accurate quote that reflects your site and requirements.', 'site-blocks' ); ?></p>
 						</article>
 					</div>
@@ -442,10 +491,10 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-container sg-value-row__grid">
 					<div class="sg-value-row__copy">
 						<h2 class="sg-value-row__title" id="sg-benefit-estimate-heading">
-							<span class="sg-accent"><?php esc_html_e( 'One clear', 'site-blocks' ); ?></span>
-							<?php esc_html_e( ' estimate for the whole solution.', 'site-blocks' ); ?>
+							<span class="sg-accent"><?php esc_html_e( 'One Clear', 'site-blocks' ); ?></span>
+							<?php esc_html_e( ' Estimate For The Whole Solution.', 'site-blocks' ); ?>
 						</h2>
-						<p class="sg-value-row__intro"><?php esc_html_e( 'No part-by-part pricing. You get one comprehensive estimate covering the complete system we design and install for your site.', 'site-blocks' ); ?></p>
+						<p class="sg-value-row__intro"><?php esc_html_e( 'No part-by-part pricing. you get one comprehensive estimate covering the complete system we design and install for your site.', 'site-blocks' ); ?></p>
 					</div>
 					<div class="sg-value-row__content sg-value-row__content--estimate">
 						<article class="sg-benefit-estimate-card">
@@ -488,29 +537,29 @@ function site_blocks_render_safeguard_homepage(): void {
 				<div class="sg-container sg-value-row__grid">
 					<div class="sg-value-row__copy">
 						<h2 class="sg-value-row__title" id="sg-benefit-team-heading">
-							<?php esc_html_e( 'Designed and supported by ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'experienced', 'site-blocks' ); ?></span><br>
-							<?php esc_html_e( 'technicians.', 'site-blocks' ); ?>
+							<?php esc_html_e( 'Designed And Supported By ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'Experienced', 'site-blocks' ); ?></span><br>
+							<?php esc_html_e( 'Technicians.', 'site-blocks' ); ?>
 						</h2>
 					</div>
 					<div class="sg-value-row__content sg-value-row__content--team">
 						<article class="sg-team-card">
 							<div class="sg-team-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_team_technician(); ?></div>
 							<div class="sg-team-card__body">
-								<h3><?php esc_html_e( 'Experienced technicians', 'site-blocks' ); ?></h3>
+								<h3><?php esc_html_e( 'Experienced Technicians', 'site-blocks' ); ?></h3>
 								<p><?php esc_html_e( 'Qualified, industry-trained professionals you can trust.', 'site-blocks' ); ?></p>
 							</div>
 						</article>
 						<article class="sg-team-card">
 							<div class="sg-team-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_team_buildings(); ?></div>
 							<div class="sg-team-card__body">
-								<h3><?php esc_html_e( 'Residential & commercial', 'site-blocks' ); ?></h3>
+								<h3><?php esc_html_e( 'Residential & Commercial', 'site-blocks' ); ?></h3>
 								<p><?php esc_html_e( 'Solutions for homes, businesses and large-scale sites.', 'site-blocks' ); ?></p>
 							</div>
 						</article>
 						<article class="sg-team-card">
 							<div class="sg-team-card__icon" aria-hidden="true"><?php site_blocks_sg_icon_team_docs(); ?></div>
 							<div class="sg-team-card__body">
-								<h3><?php esc_html_e( 'Support & documentation', 'site-blocks' ); ?></h3>
+								<h3><?php esc_html_e( 'Support & Documentation', 'site-blocks' ); ?></h3>
 								<p><?php esc_html_e( 'Clear handovers, user guides and ongoing support.', 'site-blocks' ); ?></p>
 							</div>
 						</article>
@@ -565,17 +614,17 @@ function site_blocks_render_safeguard_homepage(): void {
 }
 
 function site_blocks_sg_icon_portal_check(): void {
-	site_blocks_lucide_icon( 'circle-check', 22, 'sg-lucide-icon--filled-check' );
+	site_blocks_icon( 'circle-check', 22, 'sg-icon--filled-check' );
 }
 
 function site_blocks_sg_icon_feature_shield(): void {
-	site_blocks_lucide_icon( 'shield-check', 18 );
+	site_blocks_icon( 'shield-check', 18 );
 }
 
 function site_blocks_sg_icon_feature_target(): void {
-	site_blocks_lucide_icon( 'target', 18 );
+	site_blocks_icon( 'target', 18 );
 }
 
 function site_blocks_sg_icon_feature_gear(): void {
-	site_blocks_lucide_icon( 'settings', 18 );
+	site_blocks_icon( 'settings', 18 );
 }

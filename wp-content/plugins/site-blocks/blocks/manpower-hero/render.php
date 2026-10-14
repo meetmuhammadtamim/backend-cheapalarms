@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/manpower-config.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-stage-hero.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 $page_key = site_blocks_get_manpower_page_key();
 
@@ -81,7 +81,7 @@ $breadcrumb = isset( $config['breadcrumb'] ) && is_array( $config['breadcrumb'] 
 					<?php foreach ( $features as $item ) : ?>
 						<li class="sg-mp-trio-hero__feature">
 							<span class="sg-mp-trio-hero__feature-icon" aria-hidden="true">
-								<?php site_blocks_lucide_icon( (string) ( $item['icon'] ?? 'user-check' ), 22 ); ?>
+								<?php site_blocks_icon( (string) ( $item['icon'] ?? 'user-check' ), 22 ); ?>
 							</span>
 							<div class="sg-mp-trio-hero__feature-copy">
 								<span class="sg-mp-trio-hero__feature-title"><?php echo esc_html( (string) ( $item['label'] ?? $item['title'] ?? '' ) ); ?></span>

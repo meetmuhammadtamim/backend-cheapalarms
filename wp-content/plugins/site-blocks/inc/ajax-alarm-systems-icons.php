@@ -1,6 +1,6 @@
 <?php
 /**
- * Ajax Alarm Systems icon helpers (Lucide).
+ * Ajax Alarm Systems icon helpers (MDI).
  *
  * @package Site_Blocks
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Render a hero icon.
@@ -20,14 +20,14 @@ require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
  * @param int    $size     Display width/height in pixels.
  */
 function site_blocks_ajax_hero_icon( string $filename, int $size = 72 ): void {
-	site_blocks_lucide_icon_from_legacy( $filename, $size );
+	site_blocks_icon_from_legacy( $filename, $size );
 }
 
 /**
  * Blue circle checkmark for Ajax difference lists.
  */
 function site_blocks_ajax_difference_check(): void {
-	site_blocks_lucide_icon( 'circle-check', 22, 'sg-lucide-icon--filled-check' );
+	site_blocks_icon( 'circle-check', 22, 'sg-icon--filled-check' );
 }
 
 /**
@@ -60,5 +60,5 @@ function site_blocks_ajax_card_image( string $relative_path, string $alt = '' ):
  * @param int    $size     Display width/height in pixels.
  */
 function site_blocks_ajax_cta_icon( string $filename, int $size = 72 ): void {
-	site_blocks_lucide_icon_from_legacy( $filename, $size );
+	site_blocks_icon_from_legacy( $filename, $size );
 }

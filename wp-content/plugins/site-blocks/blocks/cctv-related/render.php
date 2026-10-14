@@ -19,7 +19,7 @@ site_blocks_render_related_services_page_grid(
 		'heading_id'    => 'sg-cctv-related-heading',
 		'section_class' => 'sg-cctv-related',
 		'title_before'  => __( 'Related ', 'site-blocks' ),
-		'title_accent'  => __( 'services', 'site-blocks' ),
+		'title_accent'  => __( 'Services', 'site-blocks' ),
 		'cards'         => array(
 			array( 'title' => __( 'Alarm Systems', 'site-blocks' ), 'desc' => __( 'Detection that triggers recording and response.', 'site-blocks' ), 'url' => home_url( '/alarm-systems/' ), 'icon' => 'alarm-systems.png' ),
 			array( 'title' => __( 'Access Control', 'site-blocks' ), 'desc' => __( 'See who entered and when.', 'site-blocks' ), 'url' => home_url( '/access-control/' ), 'icon' => 'access-control.png' ),

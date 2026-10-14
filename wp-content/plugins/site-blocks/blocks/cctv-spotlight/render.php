@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once SITE_BLOCKS_DIR . 'inc/cctv-media.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 $quote_url = home_url( '/contact/' );
 $phone     = '1300225276';
@@ -71,14 +71,14 @@ if ( ! is_readable( SITE_BLOCKS_DIR . 'assets/' . $image_path ) ) {
 
 				<div class="sg-product-spotlight__content">
 					<h2 id="sg-cctv-spotlight-heading" class="sg-product-spotlight__title">
-						<?php esc_html_e( 'Commercial CCTV designed for complete visibility.', 'site-blocks' ); ?>
+						<?php esc_html_e( 'Commercial CCTV Designed For Complete Visibility.', 'site-blocks' ); ?>
 					</h2>
 
 					<ul class="sg-product-spotlight__features" role="list">
 						<?php foreach ( $features as $feature ) : ?>
 							<li>
 								<span class="sg-product-spotlight__feature-icon" aria-hidden="true">
-									<?php site_blocks_lucide_icon( $feature['icon'], 18 ); ?>
+									<?php site_blocks_icon( $feature['icon'], 18 ); ?>
 								</span>
 								<span class="sg-product-spotlight__feature-copy">
 									<span class="sg-product-spotlight__feature-title"><?php echo esc_html( $feature['title'] ); ?></span>
@@ -90,7 +90,7 @@ if ( ! is_readable( SITE_BLOCKS_DIR . 'assets/' . $image_path ) ) {
 
 				<div class="sg-product-spotlight__ctas">
 					<a class="sg-btn sg-btn--secondary sg-product-spotlight__btn" href="<?php echo esc_url( 'tel:' . $phone ); ?>">
-						<span class="sg-btn__icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'phone', 16 ); ?></span>
+						<span class="sg-btn__icon" aria-hidden="true"><?php site_blocks_icon( 'phone', 16 ); ?></span>
 						<?php echo esc_html( $phone_fmt ); ?>
 					</a>
 					<a class="sg-btn sg-btn--orange sg-product-spotlight__btn" href="<?php echo esc_url( $quote_url ); ?>">

@@ -31,7 +31,7 @@ $checks = array(
 			<div class="sg-ajax-property__copy">
 				<p class="sg-ajax-section__eyebrow"><?php esc_html_e( 'Property Fit', 'site-blocks' ); ?></p>
 				<h2 id="sg-ajax-property-heading" class="sg-ajax-section__title">
-					<?php esc_html_e( 'Ajax systems designed for homes', 'site-blocks' ); ?>
+					<?php esc_html_e( 'Ajax Systems Designed For Homes', 'site-blocks' ); ?>
 				</h2>
 				<p class="sg-ajax-property__lead">
 					<?php esc_html_e( 'Safeguard designs Ajax alarm systems for residential properties, with layouts tailored to how your home is used.', 'site-blocks' ); ?>
@@ -41,7 +41,7 @@ $checks = array(
 					<?php foreach ( $checks as $item ) : ?>
 						<li class="sg-ajax-property__check">
 							<span class="sg-ajax-property__check-icon" aria-hidden="true">
-								<?php site_blocks_lucide_icon( 'check', 16 ); ?>
+								<?php site_blocks_icon( 'check', 16 ); ?>
 							</span>
 							<span class="sg-ajax-property__check-text"><?php echo esc_html( $item ); ?></span>
 						</li>
@@ -50,12 +50,12 @@ $checks = array(
 
 				<a class="sg-btn sg-btn--orange sg-ajax-property__cta" href="<?php echo esc_url( $calc_url ); ?>">
 					<?php esc_html_e( 'Request a quote', 'site-blocks' ); ?>
-					<span class="sg-btn__arrow" aria-hidden="true"><?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?></span>
+					<span class="sg-btn__arrow" aria-hidden="true"><?php site_blocks_icon( 'arrow-right', 16 ); ?></span>
 				</a>
 
 				<p class="sg-ajax-property__note">
 					<span class="sg-ajax-property__note-icon" aria-hidden="true">
-						<?php site_blocks_lucide_icon( 'shield-check', 16 ); ?>
+						<?php site_blocks_icon( 'shield-check', 16 ); ?>
 					</span>
 					<?php esc_html_e( 'Designed around the property, not a generic kit.', 'site-blocks' ); ?>
 				</p>

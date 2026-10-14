@@ -294,7 +294,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 		return;
 	}
 
-	require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 	$heading_id    = (string) ( $config['heading_id'] ?? 'sg-photo-options-heading' );
 	$section_class = (string) ( $config['section_class'] ?? '' );
@@ -350,7 +350,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 							<h3 class="sg-ac-options__title">
 								<?php echo esc_html( (string) ( $item['title'] ?? '' ) ); ?>
 								<?php if ( '' !== $url ) : ?>
-									<span class="sg-ac-options__title-chevron" aria-hidden="true"><?php site_blocks_lucide_icon( 'chevron-right', 16 ); ?></span>
+									<span class="sg-ac-options__title-chevron" aria-hidden="true"><?php site_blocks_icon( 'chevron-right', 16 ); ?></span>
 								<?php endif; ?>
 							</h3>
 							<p class="sg-ac-options__desc"><?php echo esc_html( (string) ( $item['desc'] ?? '' ) ); ?></p>
@@ -362,7 +362,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 							<?php endif; ?>
 						</div>
 						<span class="sg-ac-options__icon" aria-hidden="true">
-							<?php site_blocks_lucide_icon( $icon, 22 ); ?>
+							<?php site_blocks_icon( $icon, 22 ); ?>
 						</span>
 					<?php if ( 'a' === $tag ) : ?>
 						</a>
@@ -383,7 +383,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 				?>
 				<div class="sg-ac-options__cta<?php echo $cta_checks !== array() ? ' sg-ac-options__cta--checks' : ''; ?>">
 					<div class="sg-ac-options__cta-icon" aria-hidden="true">
-						<?php site_blocks_lucide_icon( $cta_icon, 22 ); ?>
+						<?php site_blocks_icon( $cta_icon, 22 ); ?>
 					</div>
 					<div class="sg-ac-options__cta-copy">
 						<?php if ( '' !== $cta_title ) : ?>
@@ -393,7 +393,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 							<ul class="sg-ac-options__cta-checks">
 								<?php foreach ( $cta_checks as $check ) : ?>
 									<li class="sg-ac-options__cta-check">
-										<span class="sg-ac-options__cta-check-icon" aria-hidden="true"><?php site_blocks_lucide_icon( 'circle-check', 16 ); ?></span>
+										<span class="sg-ac-options__cta-check-icon" aria-hidden="true"><?php site_blocks_icon( 'circle-check', 16 ); ?></span>
 										<?php echo esc_html( (string) $check ); ?>
 									</li>
 								<?php endforeach; ?>
@@ -405,7 +405,7 @@ function site_blocks_render_photo_options_grid( array $config ): void {
 					<?php if ( '' !== $cta_label && '' !== $cta_url ) : ?>
 						<a class="sg-btn sg-btn--orange sg-btn--sm sg-ac-options__cta-btn" href="<?php echo esc_url( $cta_url ); ?>">
 							<?php echo esc_html( $cta_label ); ?>
-							<span class="sg-ac-options__cta-chevron" aria-hidden="true"><?php site_blocks_lucide_icon( 'chevron-right', 18 ); ?></span>
+							<span class="sg-ac-options__cta-chevron" aria-hidden="true"><?php site_blocks_icon( 'chevron-right', 18 ); ?></span>
 						</a>
 					<?php endif; ?>
 				</div>
@@ -750,7 +750,7 @@ function site_blocks_default_ajax_quote_cta_config(): array {
 	return array(
 		'heading_id'         => 'sg-ajax-quote-cta-heading',
 		'eyebrow'            => __( 'Request a quote', 'site-blocks' ),
-		'title'              => __( 'Design your Ajax system with Safeguard.', 'site-blocks' ),
+		'title'              => __( 'Design Your Ajax System With Safeguard.', 'site-blocks' ),
 		'lead'               => __( 'Tell us about the property. A person on the team checks the scope before work begins.', 'site-blocks' ),
 		'primary_label'      => __( 'Request a quote', 'site-blocks' ),
 		'primary_url'        => home_url( '/contact/' ),
@@ -770,19 +770,19 @@ function site_blocks_default_ajax_quote_cta_config(): array {
 		'alignfull'          => true,
 		'features'           => array(
 			array(
-				'title'       => __( 'A person checks it', 'site-blocks' ),
+				'title'       => __( 'A Person Checks It', 'site-blocks' ),
 				'description' => __( 'Tell us the site and what you need.', 'site-blocks' ),
 				'icon'        => 'dollar.png',
 				'accent'      => 'orange',
 			),
 			array(
-				'title'       => __( 'Technician-reviewed', 'site-blocks' ),
+				'title'       => __( 'Technician-Reviewed', 'site-blocks' ),
 				'description' => __( 'Our experts design the right system for complex sites.', 'site-blocks' ),
 				'icon'        => 'technician.png',
 				'accent'      => 'blue',
 			),
 			array(
-				'title'       => __( 'One scope', 'site-blocks' ),
+				'title'       => __( 'One Scope', 'site-blocks' ),
 				'description' => __( 'The team confirms what is included before work begins.', 'site-blocks' ),
 				'icon'        => 'secure.png',
 				'accent'      => 'blue',
@@ -873,11 +873,11 @@ function site_blocks_render_ajax_quote_cta( array $config ): void {
 						<div class="sg-ajax-quote-cta__actions">
 							<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( $primary_url ); ?>">
 								<?php echo esc_html( $primary_label ); ?>
-								<?php site_blocks_lucide_icon( 'arrow-right', 16, 'sg-btn__icon' ); ?>
+								<?php site_blocks_icon( 'arrow-right', 16, 'sg-btn__icon' ); ?>
 							</a>
 							<?php if ( '' !== $secondary_label && '' !== $secondary_url ) : ?>
 								<a class="sg-btn sg-btn--ghost" href="<?php echo esc_attr( $secondary_url ); ?>">
-									<?php site_blocks_lucide_icon( 'phone', 16, 'sg-btn__icon' ); ?>
+									<?php site_blocks_icon( 'phone', 16, 'sg-btn__icon' ); ?>
 									<?php echo esc_html( $secondary_label ); ?>
 								</a>
 							<?php endif; ?>

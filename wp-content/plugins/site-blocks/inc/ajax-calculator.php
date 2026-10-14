@@ -91,7 +91,7 @@ function site_blocks_create_ajax_calculator_page(): void {
 	$existing = get_page_by_path( 'ajax-calculator' );
 
 	$page_data = array(
-		'post_title'   => __( 'Design my Ajax system', 'site-blocks' ),
+		'post_title'   => __( 'Design My Ajax System', 'site-blocks' ),
 		'post_name'    => 'ajax-calculator',
 		'post_content' => $content,
 		'post_status'  => 'publish',

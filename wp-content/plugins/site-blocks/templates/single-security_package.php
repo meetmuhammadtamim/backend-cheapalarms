@@ -54,7 +54,7 @@ while ( have_posts() ) :
 
 				<?php if ( ! empty( $package['features'] ) ) : ?>
 					<section class="package-single__features" aria-labelledby="package-features-heading">
-						<h2 id="package-features-heading" class="package-single__section-title"><?php esc_html_e( 'What\'s included', 'site-blocks' ); ?></h2>
+						<h2 id="package-features-heading" class="package-single__section-title"><?php esc_html_e( 'What\'s Included', 'site-blocks' ); ?></h2>
 						<ul class="package-single__feature-list">
 							<?php foreach ( $package['features'] as $feature ) : ?>
 								<li><?php echo esc_html( $feature ); ?></li>
@@ -79,7 +79,7 @@ while ( have_posts() ) :
 				<?php endif; ?>
 
 				<div class="package-single__cta-card">
-					<h2 class="package-single__cta-title"><?php esc_html_e( 'Ready to secure your property?', 'site-blocks' ); ?></h2>
+					<h2 class="package-single__cta-title"><?php esc_html_e( 'Ready To Secure Your Property?', 'site-blocks' ); ?></h2>
 					<p class="package-single__cta-text"><?php esc_html_e( 'Tell us about your site and we will recommend the right configuration.', 'site-blocks' ); ?></p>
 					<a class="package-single__cta-button" href="<?php echo esc_url( $package['cta_url'] ); ?>">
 						<?php echo esc_html( $package['cta_label'] ); ?>

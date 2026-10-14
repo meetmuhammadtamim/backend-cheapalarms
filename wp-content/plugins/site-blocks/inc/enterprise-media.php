@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-media.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Render an enterprise image or placeholder.
@@ -37,8 +37,8 @@ function site_blocks_enterprise_hero_image( string $filename, string $alt ): voi
 }
 
 /**
- * Render a Lucide icon for enterprise heroes.
+ * Render a MDI icon for enterprise heroes.
  */
 function site_blocks_enterprise_hero_icon( string $icon ): void {
-	site_blocks_lucide_icon( $icon );
+	site_blocks_icon( $icon );
 }

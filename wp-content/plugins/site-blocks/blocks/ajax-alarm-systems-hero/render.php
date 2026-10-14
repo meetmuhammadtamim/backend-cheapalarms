@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-stage-hero.php';
 
 $eyebrow   = isset( $attributes['eyebrow'] ) ? (string) $attributes['eyebrow'] : __( 'Ajax · Australia', 'site-blocks' );
-$title     = isset( $attributes['headline'] ) ? (string) $attributes['headline'] : __( 'Ajax alarm systems, professionally installed by Safeguard.', 'site-blocks' );
+$title     = isset( $attributes['headline'] ) ? (string) $attributes['headline'] : __( 'Ajax Alarm Systems, Professionally Installed By Safeguard.', 'site-blocks' );
 $lead      = isset( $attributes['lead'] ) ? (string) $attributes['lead'] : __( 'We design, install and configure Ajax wireless alarm systems for homes, apartments and small businesses, specified around your property, not sold as a generic kit.', 'site-blocks' );
 $cta_label = isset( $attributes['primaryCtaLabel'] ) ? (string) $attributes['primaryCtaLabel'] : __( 'Request a quote', 'site-blocks' );
 $cta_url   = isset( $attributes['primaryCtaUrl'] ) ? home_url( (string) $attributes['primaryCtaUrl'] ) : home_url( '/contact/' );

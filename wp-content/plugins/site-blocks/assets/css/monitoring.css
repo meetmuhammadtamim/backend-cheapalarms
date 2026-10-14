@@ -250,7 +250,7 @@ body.safeguard-monitoring-page .sg-ac-split__visual .sg-cctv-media-placeholder {
 }
 
 .sg-monitoring-package__icon svg,
-.sg-monitoring-package__icon .sg-lucide-icon {
+.sg-monitoring-package__icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -294,7 +294,7 @@ body.safeguard-monitoring-page .sg-ac-split__visual .sg-cctv-media-placeholder {
   }
 
   .sg-monitoring-package__icon svg,
-  .sg-monitoring-package__icon .sg-lucide-icon {
+  .sg-monitoring-package__icon .sg-icon {
     width: var(--sg-icon-size, 2rem);
     height: var(--sg-icon-size, 2rem);
   }
@@ -424,11 +424,11 @@ body.safeguard-monitoring-page .sg-ac-split__visual .sg-cctv-media-placeholder {
 }
 
 .sg-monitoring-communicators__card-icon svg,
-.sg-monitoring-communicators__card-icon .sg-lucide-icon,
+.sg-monitoring-communicators__card-icon .sg-icon,
 .sg-monitoring-communicators__path-icon svg,
-.sg-monitoring-communicators__path-icon .sg-lucide-icon,
+.sg-monitoring-communicators__path-icon .sg-icon,
 .sg-monitoring-communicators__note-icon svg,
-.sg-monitoring-communicators__note-icon .sg-lucide-icon {
+.sg-monitoring-communicators__note-icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -467,7 +467,7 @@ body.safeguard-monitoring-page .sg-ac-split__visual .sg-cctv-media-placeholder {
 }
 
 .sg-monitoring-communicators__path-icon svg,
-.sg-monitoring-communicators__path-icon .sg-lucide-icon {
+.sg-monitoring-communicators__path-icon .sg-icon {
   width: var(--sg-icon-size-sm, 1.125rem);
   height: var(--sg-icon-size-sm, 1.125rem);
 }
@@ -489,7 +489,7 @@ body.safeguard-monitoring-page .sg-ac-split__visual .sg-cctv-media-placeholder {
 }
 
 .sg-monitoring-communicators__note-icon svg,
-.sg-monitoring-communicators__note-icon .sg-lucide-icon {
+.sg-monitoring-communicators__note-icon .sg-icon {
   width: var(--sg-icon-size-sm, 1.125rem);
   height: var(--sg-icon-size-sm, 1.125rem);
 }

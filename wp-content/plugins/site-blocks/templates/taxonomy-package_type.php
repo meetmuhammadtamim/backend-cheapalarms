@@ -59,7 +59,7 @@ $types = get_terms(
 		</div>
 	<?php else : ?>
 		<section class="packages-empty">
-			<h2 class="packages-empty__title"><?php esc_html_e( 'No packages in this category yet.', 'site-blocks' ); ?></h2>
+			<h2 class="packages-empty__title"><?php esc_html_e( 'No Packages In This Category Yet.', 'site-blocks' ); ?></h2>
 			<p class="packages-empty__text"><?php esc_html_e( 'Add a package and assign it to this type in the editor sidebar.', 'site-blocks' ); ?></p>
 		</section>
 	<?php endif; ?>

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-stage-hero.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 $id = 'sg-intercom-hero-heading';
 
@@ -96,7 +96,7 @@ $primary_url = home_url( '/contact/' );
 				<?php foreach ( $features as $item ) : ?>
 					<li>
 						<span class="sg-intercom-product-hero__feature-icon" aria-hidden="true">
-							<?php site_blocks_lucide_icon( (string) ( $item['icon'] ?? 'shield' ), 22 ); ?>
+							<?php site_blocks_icon( (string) ( $item['icon'] ?? 'shield' ), 22 ); ?>
 						</span>
 						<span class="sg-intercom-product-hero__feature-label"><?php echo esc_html( (string) ( $item['label'] ?? '' ) ); ?></span>
 					</li>

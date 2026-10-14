@@ -1,0 +1,401 @@
+/* Safeguard homepage: "systems should work together" diagram.
+
+   Layout
+   - From 900px the cards and the pipeline SVG share one 1410 x 480 coordinate
+     system (--x/--y/--w/--h set inline), so lines stay attached to cards at
+     every width, and text scales with the diagram via container query units.
+   - Below 900px the diagram is hidden; the headline, intro and closing
+     statement carry the message.
+
+   Motion (only with prefers-reduced-motion: no-preference)
+   - Plays once, when the diagram itself is on screen (safeguard-connected.js
+     adds .is-playing). It follows the story: devices, then pipes to the
+     infrastructure, then pipes to the single view, then a signal pulse.
+   - Only opacity and transform are animated; nothing shifts layout.
+   - Hovering a node highlights the pipes that belong to it. */
+
+.sg-connected {
+  padding: 2.75rem 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .sg-connected {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Intro */
+.sg-connected__intro {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .sg-connected__intro {
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .sg-connected__intro {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+}
+
+.sg-connected .sg-connected__title {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.9rem, 3.7vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-connected .sg-connected__accent {
+  color: var(--sg-blue-bar);
+}
+
+.sg-connected .sg-connected__lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 960px) {
+  .sg-connected .sg-connected__lead {
+    padding-top: 0.35rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* Diagram: desktop only */
+.sg-connected__diagram {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .sg-connected__diagram {
+    position: relative;
+    display: block;
+    container-type: inline-size;
+    aspect-ratio: 1410 / 480;
+  }
+
+  .sg-connected .sg-connected__col,
+  .sg-connected__node {
+    position: absolute;
+    left: calc(var(--x) / 1410 * 100%);
+    top: calc(var(--y) / 480 * 100%);
+    width: calc(var(--w) / 1410 * 100%);
+    height: calc(var(--h) / 480 * 100%);
+    margin: 0;
+  }
+}
+
+.sg-connected .sg-connected__col {
+  display: flex;
+  align-items: center;
+  font-family: var(--sg-font-head);
+  font-size: 2cqw;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--sg-navy);
+}
+
+.sg-connected__node {
+  z-index: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 1.7cqw;
+  padding: 0 1.9cqw;
+  border-radius: var(--sg-radius);
+}
+
+.sg-connected__node--device {
+  border: 1px solid var(--sg-line);
+  background: #fff;
+  box-shadow: 0 0.5cqw 1.4cqw rgb(12 45 68 / 7%);
+  color: var(--sg-navy);
+}
+
+.sg-connected__node--core,
+.sg-connected__node--result {
+  background: var(--sg-navy);
+  color: #fff;
+}
+
+.sg-connected__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.sg-connected__icon .sg-icon {
+  width: 2.7cqw;
+  height: 2.7cqw;
+  color: inherit;
+}
+
+.sg-connected__label {
+  font-size: 1.45cqw;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Result card: icon above text, orange spark top right */
+.sg-connected__node--result {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.8cqw;
+  padding: 0 2.4cqw;
+}
+
+.sg-connected__node--result .sg-connected__label {
+  font-size: 1.5cqw;
+  line-height: 1.45;
+}
+
+.sg-connected__spark {
+  position: absolute;
+  top: 1.5cqw;
+  right: 1.5cqw;
+  width: 0.85cqw;
+  height: 0.85cqw;
+  border-radius: 50%;
+  background: var(--sg-orange);
+}
+
+/* Pipeline overlay */
+.sg-connected__pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sg-connected__pipe {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-width 0.2s ease;
+}
+
+.sg-connected__pulses {
+  display: none;
+}
+
+/* Hover: highlight the pipes that belong to the hovered node */
+@media (hover: hover) and (pointer: fine) {
+  .sg-connected__node {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sg-connected__node--device:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.7cqw 1.8cqw rgb(12 45 68 / 11%);
+  }
+
+  .sg-connected__diagram:has([data-pipes~="1"]:hover) .sg-connected__pipe--1,
+  .sg-connected__diagram:has([data-pipes~="2"]:hover) .sg-connected__pipe--2,
+  .sg-connected__diagram:has([data-pipes~="3"]:hover) .sg-connected__pipe--3,
+  .sg-connected__diagram:has([data-pipes~="4"]:hover) .sg-connected__pipe--4,
+  .sg-connected__diagram:has([data-pipes~="5"]:hover) .sg-connected__pipe--5,
+  .sg-connected__diagram:has([data-pipes~="6"]:hover) .sg-connected__pipe--6 {
+    stroke-width: 5;
+  }
+}
+
+/* Closing statement */
+.sg-connected__closing {
+  max-width: 54rem;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .sg-connected__closing {
+    margin-top: 3.5rem;
+  }
+}
+
+.sg-connected .sg-connected__closing-title {
+  margin: 0 0 0.9rem;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-connected .sg-connected__closing-text {
+  margin: 0 auto;
+  max-width: 44rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 768px) {
+  .sg-connected .sg-connected__closing-text {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ---- Motion ---- */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  /* Held in the starting state until the diagram is on screen (JS adds
+     .is-armed at load and .is-playing when it scrolls into view). */
+  .sg-connected__diagram.is-armed:not(.is-playing) .sg-connected__col,
+  .sg-connected__diagram.is-armed:not(.is-playing) .sg-connected__node,
+  .sg-connected__diagram.is-armed:not(.is-playing) .sg-connected__pipe,
+  .sg-connected__diagram.is-armed:not(.is-playing) .sg-connected__dot,
+  .sg-connected__diagram.is-armed:not(.is-playing) .sg-connected__spark {
+    opacity: 0;
+  }
+
+  .sg-connected__diagram.is-playing .sg-connected__col,
+  .sg-connected__diagram.is-playing .sg-connected__node,
+  .sg-connected__diagram.is-playing .sg-connected__pipe,
+  .sg-connected__diagram.is-playing .sg-connected__dot,
+  .sg-connected__diagram.is-playing .sg-connected__spark {
+    animation-fill-mode: backwards;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* 1. Column headings */
+  .sg-connected__diagram.is-playing .sg-connected__col {
+    animation-name: sg-conn-rise;
+    animation-duration: 0.6s;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__col--1 { animation-delay: 0s; }
+  .sg-connected__diagram.is-playing .sg-connected__col--2 { animation-delay: 0.7s; }
+  .sg-connected__diagram.is-playing .sg-connected__col--3 { animation-delay: 1.35s; }
+
+  /* 2. Devices slide in, staggered */
+  .sg-connected__diagram.is-playing .sg-connected__node--device {
+    animation-name: sg-conn-slide;
+    animation-duration: 0.55s;
+    animation-delay: calc(0.05s + var(--i) * 0.08s);
+  }
+
+  /* 3. Pipes draw to the infrastructure */
+  .sg-connected__diagram.is-playing .sg-connected__pipe--1,
+  .sg-connected__diagram.is-playing .sg-connected__pipe--2,
+  .sg-connected__diagram.is-playing .sg-connected__pipe--3,
+  .sg-connected__diagram.is-playing .sg-connected__pipe--4 {
+    animation-name: sg-conn-draw;
+    animation-duration: 0.6s;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__pipe--1 { animation-delay: 0.45s; }
+  .sg-connected__diagram.is-playing .sg-connected__pipe--2 { animation-delay: 0.53s; }
+  .sg-connected__diagram.is-playing .sg-connected__pipe--3 { animation-delay: 0.61s; }
+  .sg-connected__diagram.is-playing .sg-connected__pipe--4 { animation-delay: 0.69s; }
+
+  .sg-connected__diagram.is-playing .sg-connected__dot {
+    animation-name: sg-conn-pop;
+    animation-duration: 0.35s;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__dot--src { animation-delay: calc(0.4s + var(--i) * 0.08s); }
+  .sg-connected__diagram.is-playing .sg-connected__dot--merge { animation-delay: calc(1s + var(--i) * 0.08s); }
+
+  /* 4. Infrastructure cards */
+  .sg-connected__diagram.is-playing .sg-connected__node--core {
+    animation-name: sg-conn-rise;
+    animation-duration: 0.6s;
+    animation-delay: calc(0.95s + var(--i) * 0.15s);
+  }
+
+  /* 5. Pipes draw to the single view */
+  .sg-connected__diagram.is-playing .sg-connected__pipe--5,
+  .sg-connected__diagram.is-playing .sg-connected__pipe--6 {
+    animation-name: sg-conn-draw;
+    animation-duration: 0.7s;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__pipe--5 { animation-delay: 1.6s; }
+  .sg-connected__diagram.is-playing .sg-connected__pipe--6 { animation-delay: 1.7s; }
+  .sg-connected__diagram.is-playing .sg-connected__dot--out { animation-delay: calc(1.55s + var(--i) * 0.1s); }
+  .sg-connected__diagram.is-playing .sg-connected__dot--end { animation-name: sg-conn-pop; animation-duration: 0.4s; animation-delay: 2.2s; transform-box: fill-box; transform-origin: center; }
+
+  /* 6. Result card arrives last */
+  .sg-connected__diagram.is-playing .sg-connected__node--result {
+    animation-name: sg-conn-arrive;
+    animation-duration: 0.7s;
+    animation-delay: 2.15s;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__spark {
+    animation: sg-conn-spark 1.4s ease-in-out 2.9s 3 both;
+  }
+
+  /* 7. Signals travel the finished pipes, twice, then rest */
+  .sg-connected__pulses {
+    display: block;
+  }
+  .sg-connected__pulse {
+    opacity: 0;
+    offset-rotate: 0deg;
+    offset-distance: 0%;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__pulse {
+    animation: sg-conn-travel 1.5s ease-in-out 2 both;
+  }
+  .sg-connected__diagram.is-playing .sg-connected__pulse--1 { offset-path: path("M323 106H413Q428 106 428 121V139Q428 154 443 154H542"); animation-delay: 3.4s; }
+  .sg-connected__diagram.is-playing .sg-connected__pulse--2 { offset-path: path("M323 206H413Q428 206 428 191V180Q428 165 443 165H542"); animation-delay: 3.5s; }
+  .sg-connected__diagram.is-playing .sg-connected__pulse--3 { offset-path: path("M323 306H413Q428 306 428 321V332Q428 347 443 347H542"); animation-delay: 3.6s; }
+  .sg-connected__diagram.is-playing .sg-connected__pulse--4 { offset-path: path("M323 406H413Q428 406 428 391V373Q428 358 443 358H542"); animation-delay: 3.7s; }
+  .sg-connected__diagram.is-playing .sg-connected__pulse--5 { offset-path: path("M881 165H936Q951 165 951 180V232Q951 247 966 247H1078"); animation-delay: 3.4s; }
+  .sg-connected__diagram.is-playing .sg-connected__pulse--6 { offset-path: path("M881 356H936Q951 356 951 341V262Q951 247 966 247H1078"); animation-delay: 3.5s; }
+
+  @keyframes sg-conn-rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes sg-conn-slide {
+    from { opacity: 0; transform: translateX(-16px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes sg-conn-arrive {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes sg-conn-draw {
+    0% { stroke-dashoffset: 1; opacity: 0; }
+    1% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+
+  @keyframes sg-conn-pop {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes sg-conn-spark {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(1.7); }
+  }
+
+  @keyframes sg-conn-travel {
+    0% { offset-distance: 0%; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+}

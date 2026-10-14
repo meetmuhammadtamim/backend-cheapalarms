@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 return array(
-	'title'       => __( 'Solar Cameras with Monitoring Page', 'site-blocks' ),
+	'title'       => __( 'Solar Cameras With Monitoring Page', 'site-blocks' ),
 	'description' => __( 'Solar-powered camera monitoring page under Monitoring.', 'site-blocks' ),
 	'categories'  => array( 'site-pages' ),
 	'keywords'    => array( 'solar', 'monitoring', 'safeguard' ),

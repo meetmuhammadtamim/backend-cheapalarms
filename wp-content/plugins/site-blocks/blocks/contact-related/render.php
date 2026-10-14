@@ -18,8 +18,8 @@ site_blocks_render_related_services_page_grid(
 	array(
 		'heading_id'    => 'sg-contact-related-heading',
 		'section_class' => 'sg-contact-related',
-		'title_before'  => __( 'Explore our ', 'site-blocks' ),
-		'title_accent'  => __( 'services', 'site-blocks' ),
+		'title_before'  => __( 'Explore Our ', 'site-blocks' ),
+		'title_accent'  => __( 'Services', 'site-blocks' ),
 		'cards'         => array(
 			array(
 				'title' => __( 'Alarm Systems', 'site-blocks' ),

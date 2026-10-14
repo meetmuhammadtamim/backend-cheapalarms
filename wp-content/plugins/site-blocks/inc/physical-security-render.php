@@ -17,7 +17,7 @@ require_once SITE_BLOCKS_DIR . 'inc/access-control-split.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-related-services.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-scenario-grid.php';
 require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-process-flow-configs.php';
 
@@ -140,12 +140,12 @@ function site_blocks_physical_security_render_services(): void {
 			'section_class' => 'sg-physical-security-services',
 			'band'          => 'white',
 			'eyebrow'       => __( 'Physical Security', 'site-blocks' ),
-			'title_before'  => __( 'Guarding, matched to your ', 'site-blocks' ),
-			'title_accent'  => __( 'site', 'site-blocks' ),
+			'title_before'  => __( 'Guarding, Matched To Your ', 'site-blocks' ),
+			'title_accent'  => __( 'Site', 'site-blocks' ),
 			'intro'         => __( 'Licensed officers and patrols for people, property and operations.', 'site-blocks' ),
 			'items'         => site_blocks_physical_security_hub_photo_services(),
 			'cta'           => array(
-				'title'         => __( 'Security you can rely on.', 'site-blocks' ),
+				'title'         => __( 'Security You Can Rely On.', 'site-blocks' ),
 				'checks'        => array(
 					__( 'Licensed NSW Officers', 'site-blocks' ),
 					__( 'ASIAL member', 'site-blocks' ),
@@ -192,8 +192,8 @@ function site_blocks_physical_security_render_portal( string $page_key ): void {
 		'hub' => array(
 			'heading_id'    => 'sg-ps-hub-portal-heading',
 			'section_class' => 'sg-ps-hub-portal',
-			'title_before'  => __( 'Guarding quotes and scope in ', 'site-blocks' ),
-			'title_accent'  => __( 'one portal', 'site-blocks' ),
+			'title_before'  => __( 'Guarding Quotes And Scope In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Portal', 'site-blocks' ),
 			'intro'         => __( 'Request static or mobile cover online, share site briefs and approve scope without chasing email threads.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Document sites, hours and access requirements', 'site-blocks' ),
@@ -204,8 +204,8 @@ function site_blocks_physical_security_render_portal( string $page_key ): void {
 		'static-guards' => array(
 			'heading_id'    => 'sg-ps-static-portal-heading',
 			'section_class' => 'sg-ps-static-portal',
-			'title_before'  => __( 'Static guard quotes in ', 'site-blocks' ),
-			'title_accent'  => __( 'one place', 'site-blocks' ),
+			'title_before'  => __( 'Static Guard Quotes In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Place', 'site-blocks' ),
 			'intro'         => __( 'Share roster needs, entry points and site rules so we can quote the right on-site cover.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'Outline hours, posts and reporting needs', 'site-blocks' ),
@@ -216,8 +216,8 @@ function site_blocks_physical_security_render_portal( string $page_key ): void {
 		'mobile-patrols' => array(
 			'heading_id'    => 'sg-ps-mobile-portal-heading',
 			'section_class' => 'sg-ps-mobile-portal',
-			'title_before'  => __( 'Patrol quotes and schedules in ', 'site-blocks' ),
-			'title_accent'  => __( 'one portal', 'site-blocks' ),
+			'title_before'  => __( 'Patrol Quotes And Schedules In ', 'site-blocks' ),
+			'title_accent'  => __( 'One Portal', 'site-blocks' ),
 			'intro'         => __( 'Document multiple sites, lock-up times and escalation contacts for GPS-tracked mobile patrols.', 'site-blocks' ),
 			'bullets'       => array(
 				__( 'List sites, keys and check frequencies', 'site-blocks' ),
@@ -241,20 +241,20 @@ function site_blocks_physical_security_render_portal( string $page_key ): void {
  */
 function site_blocks_physical_security_render_trust( string $page_key ): void {
 	$renderer = static function ( string $icon ): void {
-		site_blocks_lucide_icon( $icon, 24 );
+		site_blocks_icon( $icon, 24 );
 	};
 
 	site_blocks_render_trust_panel(
 		array(
 			'heading_id'    => 'sg-ps-trust-heading-' . sanitize_html_class( $page_key ),
 			'section_class' => 'sg-ps-trust sg-ps-trust--' . sanitize_html_class( $page_key ),
-			'title_before'  => __( 'Physical security delivered by licensed ', 'site-blocks' ),
-			'title_accent'  => __( 'professionals', 'site-blocks' ),
+			'title_before'  => __( 'Physical Security Delivered By Licensed ', 'site-blocks' ),
+			'title_accent'  => __( 'Professionals', 'site-blocks' ),
 			'items'         => array(
-				array( 'title' => __( 'Master Licence holder', 'site-blocks' ), 'desc' => __( 'NSW-licensed security operations.', 'site-blocks' ), 'icon' => 'badge-check' ),
-				array( 'title' => __( 'GPS-tracked patrols', 'site-blocks' ), 'desc' => __( 'Verified attendance and reporting.', 'site-blocks' ), 'icon' => 'map-pin' ),
-				array( 'title' => __( 'Integrated with tech', 'site-blocks' ), 'desc' => __( 'Alarms, CCTV and access where required.', 'site-blocks' ), 'icon' => 'layers' ),
-				array( 'title' => __( 'Supervised teams', 'site-blocks' ), 'desc' => __( 'Clear escalation to management.', 'site-blocks' ), 'icon' => 'users' ),
+				array( 'title' => __( 'Master Licence Holder', 'site-blocks' ), 'desc' => __( 'NSW-licensed security operations.', 'site-blocks' ), 'icon' => 'badge-check' ),
+				array( 'title' => __( 'GPS-Tracked Patrols', 'site-blocks' ), 'desc' => __( 'Verified attendance and reporting.', 'site-blocks' ), 'icon' => 'map-pin' ),
+				array( 'title' => __( 'Integrated With Tech', 'site-blocks' ), 'desc' => __( 'Alarms, CCTV and access where required.', 'site-blocks' ), 'icon' => 'layers' ),
+				array( 'title' => __( 'Supervised Teams', 'site-blocks' ), 'desc' => __( 'Clear escalation to management.', 'site-blocks' ), 'icon' => 'users' ),
 			),
 			'icon_renderer' => $renderer,
 		)

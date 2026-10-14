@@ -44,8 +44,8 @@ $links = array(
 <section class="sg-band sg-band--blue sg-access-control-integration alignfull" aria-labelledby="sg-access-control-integration-heading">
 	<div class="sg-container">
 		<h2 id="sg-access-control-integration-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-			<?php esc_html_e( 'Works with your wider ', 'site-blocks' ); ?>
-			<span class="sg-accent"><?php esc_html_e( 'security stack', 'site-blocks' ); ?></span>
+			<?php esc_html_e( 'Works With Your Wider ', 'site-blocks' ); ?>
+			<span class="sg-accent"><?php esc_html_e( 'Security Stack', 'site-blocks' ); ?></span>
 		</h2>
 		<p class="sg-section-intro sg-section-intro--center">
 			<?php esc_html_e( 'Access control is strongest as part of a layered system, one team plans, installs and supports it all.', 'site-blocks' ); ?>

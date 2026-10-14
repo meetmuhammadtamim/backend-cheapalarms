@@ -41,8 +41,8 @@ $rows = array(
 		<div class="sg-ac-keys__grid">
 			<div class="sg-ac-keys__copy">
 				<h2 id="sg-access-control-keys-heading" class="sg-section-title sg-section-title--ink">
-					<?php esc_html_e( 'Replace keys, not just ', 'site-blocks' ); ?>
-					<span class="sg-accent"><?php esc_html_e( 'locks', 'site-blocks' ); ?></span>
+					<?php esc_html_e( 'Replace Keys, Not Just ', 'site-blocks' ); ?>
+					<span class="sg-accent"><?php esc_html_e( 'Locks', 'site-blocks' ); ?></span>
 				</h2>
 				<p class="sg-ac-split__intro">
 					<?php esc_html_e( 'Physical keys create hidden risk, copies you can\'t track, rekeying costs, and no record of who came in after hours.', 'site-blocks' ); ?>

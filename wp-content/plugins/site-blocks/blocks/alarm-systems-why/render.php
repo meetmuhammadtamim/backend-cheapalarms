@@ -22,17 +22,17 @@ $headline_after   = isset( $attributes['headlineAfter'] ) ? (string) $attributes
 
 $items = array(
 	array(
-		'title'       => __( 'Designed around your home', 'site-blocks' ),
+		'title'       => __( 'Designed Around Your Home', 'site-blocks' ),
 		'description' => __( 'A real installer plans the system for your property, not a generic kit.', 'site-blocks' ),
 		'icon'        => 'site_blocks_alarm_icon_why_design',
 	),
 	array(
-		'title'       => __( 'Installed properly', 'site-blocks' ),
+		'title'       => __( 'Installed Properly', 'site-blocks' ),
 		'description' => __( 'Tidy work, clean cabling, and a clear walkthrough before we leave.', 'site-blocks' ),
 		'icon'        => 'site_blocks_alarm_icon_why_install',
 	),
 	array(
-		'title'       => __( 'Supported for years', 'site-blocks' ),
+		'title'       => __( 'Supported For Years', 'site-blocks' ),
 		'description' => __( 'Servicing and monitoring long after install, not just on day one.', 'site-blocks' ),
 		'icon'        => 'site_blocks_alarm_icon_why_support',
 	),

@@ -133,14 +133,14 @@
   object-position: left center;
 }
 
-.sg-related-services__icon .sg-lucide-icon {
+.sg-related-services__icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
   color: var(--sg-blue);
 }
 
-.sg-related-services__arrow .sg-lucide-icon {
+.sg-related-services__arrow .sg-icon {
   color: currentColor;
 }
 

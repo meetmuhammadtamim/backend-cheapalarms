@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once SITE_BLOCKS_DIR . 'inc/home-hero-icons.php';
 
 $eyebrow     = isset( $attributes['eyebrow'] ) ? $attributes['eyebrow'] : __( 'Safeguard Security · Sydney', 'site-blocks' );
-$headline    = isset( $attributes['headline'] ) ? $attributes['headline'] : __( 'Protection you can see.', 'site-blocks' );
+$headline    = isset( $attributes['headline'] ) ? $attributes['headline'] : __( 'Protection You Can See.', 'site-blocks' );
 $subhead     = isset( $attributes['subhead'] ) ? $attributes['subhead'] : __( 'Professional camera, alarm, and intercom installation for homes and businesses across Sydney. Designed, installed, and supported by one local team.', 'site-blocks' );
 $cta_label   = isset( $attributes['ctaLabel'] ) ? $attributes['ctaLabel'] : __( 'Get a free quote', 'site-blocks' );
 $cta_url     = isset( $attributes['ctaUrl'] ) ? $attributes['ctaUrl'] : '/contact/';

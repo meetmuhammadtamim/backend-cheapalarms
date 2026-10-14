@@ -19,7 +19,7 @@ site_blocks_render_related_services_page_grid(
 		'heading_id'    => 'sg-access-control-related-heading',
 		'section_class' => 'sg-access-control-related',
 		'title_before'  => __( 'Related ', 'site-blocks' ),
-		'title_accent'  => __( 'services', 'site-blocks' ),
+		'title_accent'  => __( 'Services', 'site-blocks' ),
 		'cards'         => array(
 			array(
 				'title' => __( 'CCTV & Security Cameras', 'site-blocks' ),

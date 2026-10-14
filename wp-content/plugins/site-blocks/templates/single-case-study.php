@@ -65,28 +65,28 @@ while ( have_posts() ) :
 				<div class="sg-study__facts">
 					<div class="sg-study__wrap sg-study__facts-row">
 						<div>
-							<?php site_blocks_lucide_icon( 'house', 20 ); ?>
+							<?php site_blocks_icon( 'house', 20 ); ?>
 							<div>
 								<p><?php esc_html_e( 'Hub', 'site-blocks' ); ?></p>
 								<strong><?php echo esc_html( $hub instanceof WP_Term ? $hub->name : __( 'Enterprise', 'site-blocks' ) ); ?></strong>
 							</div>
 						</div>
 						<div>
-							<?php site_blocks_lucide_icon( 'user', 20 ); ?>
+							<?php site_blocks_icon( 'user', 20 ); ?>
 							<div>
 								<p><?php esc_html_e( 'Role', 'site-blocks' ); ?></p>
 								<strong><?php esc_html_e( 'Installation partner', 'site-blocks' ); ?></strong>
 							</div>
 						</div>
 						<div>
-							<?php site_blocks_lucide_icon( 'calendar', 20 ); ?>
+							<?php site_blocks_icon( 'calendar', 20 ); ?>
 							<div>
 								<p><?php esc_html_e( 'Published', 'site-blocks' ); ?></p>
 								<strong><time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></strong>
 							</div>
 						</div>
 						<div>
-							<?php site_blocks_lucide_icon( 'clock', 20 ); ?>
+							<?php site_blocks_icon( 'clock', 20 ); ?>
 							<div>
 								<p><?php esc_html_e( 'Read time', 'site-blocks' ); ?></p>
 								<strong><?php echo esc_html( sprintf( /* translators: %d: minutes */ __( '%d min', 'site-blocks' ), $minutes ) ); ?></strong>
@@ -113,13 +113,13 @@ while ( have_posts() ) :
 						<h2><?php echo esc_html( $hub instanceof WP_Term ? $hub->name : __( 'Enterprise', 'site-blocks' ) ); ?></h2>
 						<p><?php esc_html_e( 'The building is not named. Photos are hardware only.', 'site-blocks' ); ?></p>
 						<a class="sg-study__brief-phone" href="tel:1300225276">
-							<?php site_blocks_lucide_icon( 'phone', 20 ); ?>
+							<?php site_blocks_icon( 'phone', 20 ); ?>
 							<span>1300 225 276</span>
 						</a>
 						<p class="sg-study__brief-note"><?php esc_html_e( 'Speak to our team', 'site-blocks' ); ?></p>
 						<a class="sg-btn sg-btn--orange sg-btn--sm" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 							<?php esc_html_e( 'Start a similar job', 'site-blocks' ); ?>
-							<?php site_blocks_lucide_icon( 'arrow-right', 18 ); ?>
+							<?php site_blocks_icon( 'arrow-right', 18 ); ?>
 						</a>
 					</aside>
 				</div>

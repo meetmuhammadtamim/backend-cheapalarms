@@ -33,8 +33,8 @@ $panels = array(
 <section class="sg-band sg-band--blue sg-cctv-segments alignfull" aria-labelledby="sg-cctv-segments-heading">
 	<div class="sg-container">
 		<h2 id="sg-cctv-segments-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-			<?php esc_html_e( 'Homes and businesses, planned ', 'site-blocks' ); ?>
-			<span class="sg-accent"><?php esc_html_e( 'differently', 'site-blocks' ); ?></span>
+			<?php esc_html_e( 'Homes And Businesses, Planned ', 'site-blocks' ); ?>
+			<span class="sg-accent"><?php esc_html_e( 'Differently', 'site-blocks' ); ?></span>
 		</h2>
 
 		<div class="sg-cctv-segments__grid">

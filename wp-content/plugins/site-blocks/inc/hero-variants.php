@@ -231,14 +231,14 @@ function site_blocks_render_hero_variant_stack( array $args ): void {
 
 /**
  * Light split: copy on white left, full-bleed photo right with soft edge fade.
- * Optional `features` list: array of { icon: lucide-name, label: string }.
- * Optional CTA icons: `primary_icon`, `secondary_icon` (lucide names).
+ * Optional `features` list: array of { icon: mdi-name, label: string }.
+ * Optional CTA icons: `primary_icon`, `secondary_icon` (mdi names).
  * Optional `secondary_class` (default `sg-btn--secondary` — transparent blue on light).
  *
  * @param array<string, mixed> $args Args.
  */
 function site_blocks_render_hero_variant_split( array $args ): void {
-	require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 	$heading_id      = sanitize_html_class( (string) ( $args['id'] ?? 'sg-hv-split-heading' ) );
 	$class           = trim( 'sg-hv sg-hv--split alignfull ' . (string) ( $args['class'] ?? '' ) );
@@ -273,13 +273,13 @@ function site_blocks_render_hero_variant_split( array $args ): void {
 					<div class="sg-hv__ctas">
 						<a class="sg-btn sg-btn--orange sg-hv--split__btn" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
 							<?php if ( '' !== $primary_icon ) : ?>
-								<span class="sg-hv--split__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $primary_icon, 18 ); ?></span>
+								<span class="sg-hv--split__btn-icon" aria-hidden="true"><?php site_blocks_icon( $primary_icon, 18 ); ?></span>
 							<?php endif; ?>
 							<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
 						</a>
 						<a class="sg-btn <?php echo esc_attr( $secondary_class ); ?> sg-hv--split__btn" href="<?php echo esc_url( (string) ( $args['secondary_url'] ?? '#' ) ); ?>">
 							<?php if ( '' !== $secondary_icon ) : ?>
-								<span class="sg-hv--split__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $secondary_icon, 18 ); ?></span>
+								<span class="sg-hv--split__btn-icon" aria-hidden="true"><?php site_blocks_icon( $secondary_icon, 18 ); ?></span>
 							<?php endif; ?>
 							<?php echo esc_html( (string) ( $args['secondary_label'] ?? '' ) ); ?>
 						</a>
@@ -310,7 +310,7 @@ function site_blocks_render_hero_variant_split( array $args ): void {
 							?>
 							<li>
 								<?php if ( '' !== $icon ) : ?>
-									<span class="sg-hv--split__feature-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $icon, 20 ); ?></span>
+									<span class="sg-hv--split__feature-icon" aria-hidden="true"><?php site_blocks_icon( $icon, 20 ); ?></span>
 								<?php endif; ?>
 								<span><?php echo esc_html( $label ); ?></span>
 							</li>
@@ -326,13 +326,13 @@ function site_blocks_render_hero_variant_split( array $args ): void {
 /**
  * V2 — Full-bleed photo with light left wash + overlay copy + feature banner.
  *
- * Optional `features` list: array of { icon: lucide-name, label: string }.
- * Optional CTA icons: `primary_icon`, `secondary_icon` (lucide names).
+ * Optional `features` list: array of { icon: mdi-name, label: string }.
+ * Optional CTA icons: `primary_icon`, `secondary_icon` (mdi names).
  *
  * @param array<string, mixed> $args Args.
  */
 function site_blocks_render_hero_variant_bleed( array $args ): void {
-	require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 	$heading_id     = sanitize_html_class( (string) ( $args['id'] ?? 'sg-hv-bleed-heading' ) );
 	$class          = trim( 'sg-hv sg-hv--bleed alignfull ' . (string) ( $args['class'] ?? '' ) );
@@ -374,13 +374,13 @@ function site_blocks_render_hero_variant_bleed( array $args ): void {
 				<div class="sg-hv__ctas">
 					<a class="sg-btn sg-btn--orange sg-hv--bleed__btn" href="<?php echo esc_url( (string) ( $args['primary_url'] ?? '#' ) ); ?>">
 						<?php if ( '' !== $primary_icon ) : ?>
-							<span class="sg-hv--bleed__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $primary_icon, 18 ); ?></span>
+							<span class="sg-hv--bleed__btn-icon" aria-hidden="true"><?php site_blocks_icon( $primary_icon, 18 ); ?></span>
 						<?php endif; ?>
 						<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
 					</a>
 					<a class="sg-btn sg-btn--secondary sg-hv--bleed__btn" href="<?php echo esc_url( (string) ( $args['secondary_url'] ?? '#' ) ); ?>">
 						<?php if ( '' !== $secondary_icon ) : ?>
-							<span class="sg-hv--bleed__btn-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $secondary_icon, 18 ); ?></span>
+							<span class="sg-hv--bleed__btn-icon" aria-hidden="true"><?php site_blocks_icon( $secondary_icon, 18 ); ?></span>
 						<?php endif; ?>
 						<?php echo esc_html( (string) ( $args['secondary_label'] ?? '' ) ); ?>
 					</a>
@@ -406,7 +406,7 @@ function site_blocks_render_hero_variant_bleed( array $args ): void {
 							?>
 							<li>
 								<?php if ( '' !== $icon ) : ?>
-									<span class="sg-hv--split__feature-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $icon, 20 ); ?></span>
+									<span class="sg-hv--split__feature-icon" aria-hidden="true"><?php site_blocks_icon( $icon, 20 ); ?></span>
 								<?php endif; ?>
 								<span><?php echo esc_html( $label ); ?></span>
 							</li>
@@ -588,7 +588,7 @@ function site_blocks_render_hero_variant_editorial( array $args ): void {
 				<p class="sg-hv__lead"><?php echo esc_html( (string) ( $args['lead'] ?? '' ) ); ?></p>
 				<?php if ( '' !== $phone_html ) : ?>
 					<p class="sg-hv--editorial__phone">
-						<span class="sg-contact-hero__phone-mark" aria-hidden="true"><?php site_blocks_lucide_icon( 'phone', 22 ); ?></span>
+						<span class="sg-contact-hero__phone-mark" aria-hidden="true"><?php site_blocks_icon( 'phone', 22 ); ?></span>
 						<?php echo $phone_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with esc_* by caller. ?>
 					</p>
 				<?php endif; ?>
@@ -597,13 +597,13 @@ function site_blocks_render_hero_variant_editorial( array $args ): void {
 						<?php if ( ! empty( $args['primary_url'] ) ) : ?>
 							<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( (string) $args['primary_url'] ); ?>">
 								<?php echo esc_html( (string) ( $args['primary_label'] ?? '' ) ); ?>
-								<?php site_blocks_lucide_icon( 'arrow-right', 18 ); ?>
+								<?php site_blocks_icon( 'arrow-right', 18 ); ?>
 							</a>
 						<?php endif; ?>
 						<?php if ( ! empty( $args['secondary_url'] ) ) : ?>
 							<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( (string) $args['secondary_url'] ); ?>">
 								<?php echo esc_html( (string) ( $args['secondary_label'] ?? '' ) ); ?>
-								<?php site_blocks_lucide_icon( 'phone', 18 ); ?>
+								<?php site_blocks_icon( 'phone', 18 ); ?>
 							</a>
 						<?php endif; ?>
 					</div>
@@ -620,7 +620,7 @@ function site_blocks_render_hero_variant_editorial( array $args ): void {
 						?>
 						<li>
 							<?php if ( '' !== $icon ) : ?>
-								<span class="sg-contact-hero__fact-icon" aria-hidden="true"><?php site_blocks_lucide_icon( $icon, 18 ); ?></span>
+								<span class="sg-contact-hero__fact-icon" aria-hidden="true"><?php site_blocks_icon( $icon, 18 ); ?></span>
 							<?php endif; ?>
 							<span>
 								<strong><?php echo esc_html( (string) ( $item['label'] ?? '' ) ); ?></strong>

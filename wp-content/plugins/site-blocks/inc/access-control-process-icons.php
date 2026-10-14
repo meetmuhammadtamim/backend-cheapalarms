@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Hub shield mark for radial process mockup.
  */
 function site_blocks_access_control_process_hub_shield(): void {
-	site_blocks_lucide_icon( 'shield-check', 24, 'sg-ac-process__shield' );
+	site_blocks_icon( 'shield-check', 24, 'sg-ac-process__shield' );
 }
 
 /**

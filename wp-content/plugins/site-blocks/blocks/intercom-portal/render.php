@@ -15,8 +15,8 @@ site_blocks_render_portal_band(
 	array(
 		'heading_id'    => 'sg-intercom-portal-heading',
 		'section_class' => 'sg-intercom-portal',
-		'title_before'  => __( 'Your quote, photos and approvals in ', 'site-blocks' ),
-		'title_accent'  => __( 'one place', 'site-blocks' ),
+		'title_before'  => __( 'Your Quote, Photos And Approvals In ', 'site-blocks' ),
+		'title_accent'  => __( 'One Place', 'site-blocks' ),
 		'intro'         => __( 'Start online, then manage your intercom quote in our secure portal, no waiting days for a callback.', 'site-blocks' ),
 		'bullets'       => array(
 			__( 'Track quote progress in real time', 'site-blocks' ),

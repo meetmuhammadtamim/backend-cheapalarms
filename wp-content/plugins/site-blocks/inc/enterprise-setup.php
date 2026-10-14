@@ -180,7 +180,7 @@ function site_blocks_enterprise_insight_seed_articles(): array {
 	return array(
 		array(
 			'slug'     => 'ai-video-analytics-commercial-security',
-			'title'    => 'AI Video Analytics for Commercial Security: A Practical Guide',
+			'title'    => 'AI Video Analytics For Commercial Security: A Practical Guide',
 			'excerpt'  => 'How AI video analytics helps Sydney businesses cut investigation time, catch threats in real time and get more from existing cameras. Practical, no hype.',
 			'category' => 'video-analytics',
 			'content'  => '<p>Most commercial cameras are still used the old way: something happens, and someone scrubs through hours of footage hoping to find it. AI video analytics changes that. As part of our <a href="' . esc_url( $hub ) . '">Enterprise Solutions</a> approach, Safeguard uses analytics to turn passive recording into an active security tool: one that flags what matters as it happens and finds what you need in seconds.</p>
@@ -195,7 +195,7 @@ function site_blocks_enterprise_insight_seed_articles(): array {
 		),
 		array(
 			'slug'     => 'cloud-cctv-multi-site-business',
-			'title'    => 'Cloud CCTV for Multi-Site Businesses: Why One Login Changes Everything',
+			'title'    => 'Cloud CCTV For Multi-Site Businesses: Why One Login Changes Everything',
 			'excerpt'  => 'Managing CCTV across several sites? Cloud CCTV gives Sydney businesses one login, offsite storage and less hardware to babysit.',
 			'category' => 'multi-site-operations',
 			'content'  => '<p>If your business runs more than one location, traditional CCTV has a hidden tax: every site is its own island. Cloud CCTV removes that friction, and it has become the default we recommend for multi-site commercial clients through our <a href="' . esc_url( $hub ) . '">Enterprise Solutions</a> silo.</p>
@@ -208,7 +208,7 @@ function site_blocks_enterprise_insight_seed_articles(): array {
 		),
 		array(
 			'slug'     => 'smart-sensors-real-time-alerts-facilities',
-			'title'    => 'Smart Sensors and Real-Time Alerts: Seeing What Cameras Cannot',
+			'title'    => 'Smart Sensors And Real-Time Alerts: Seeing What Cameras Cannot',
 			'excerpt'  => 'Cameras cannot see everything. Smart sensors give Sydney facilities real-time alerts on access, environment and occupancy.',
 			'category' => 'monitoring-response',
 			'content'  => '<p>Cameras are the backbone of commercial security, but they have blind spots. Smart sensors fill those gaps, and paired with real-time alerts they turn a facility from reactive to proactive. As part of our <a href="' . esc_url( $hub ) . '">Enterprise Solutions</a> approach, Safeguard uses sensors to extend protection into the places a lens cannot reach.</p>

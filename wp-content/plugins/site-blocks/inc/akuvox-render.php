@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/akuvox-config.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-stage-hero.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Dispatch an Akuvox section render.
@@ -156,7 +156,7 @@ function site_blocks_akuvox_render_portal(): void {
 					<?php foreach ( $config['bullets'] as $bullet ) : ?>
 						<li>
 							<span class="sg-portal-band__check" aria-hidden="true">
-								<?php site_blocks_lucide_icon( 'check', 16 ); ?>
+								<?php site_blocks_icon( 'check', 16 ); ?>
 							</span>
 							<?php echo esc_html( (string) $bullet ); ?>
 						</li>
@@ -187,13 +187,13 @@ function site_blocks_akuvox_render_products(): void {
 					<p class="sg-paradox-products__lead"><?php echo esc_html( (string) $config['lead'] ); ?></p>
 					<a class="sg-btn sg-btn--orange sg-paradox-products__cta" href="<?php echo esc_url( (string) $cta['url'] ); ?>">
 						<?php echo esc_html( (string) $cta['label'] ); ?>
-						<span class="sg-btn__arrow" aria-hidden="true"><?php site_blocks_lucide_icon( 'arrow-right', 16 ); ?></span>
+						<span class="sg-btn__arrow" aria-hidden="true"><?php site_blocks_icon( 'arrow-right', 16 ); ?></span>
 					</a>
 					<ul class="sg-paradox-products__trust" role="list">
 						<?php foreach ( $config['trust'] as $trust ) : ?>
 							<li class="sg-paradox-products__trust-item">
 								<span class="sg-paradox-products__trust-icon" aria-hidden="true">
-									<?php site_blocks_lucide_icon( (string) $trust['icon'], 18 ); ?>
+									<?php site_blocks_icon( (string) $trust['icon'], 18 ); ?>
 								</span>
 								<span class="sg-paradox-products__trust-label"><?php echo esc_html( (string) $trust['label'] ); ?></span>
 							</li>
@@ -289,7 +289,7 @@ function site_blocks_akuvox_render_install(): void {
 				<?php foreach ( $config['steps'] as $step ) : ?>
 					<li class="sg-ajax-process__item">
 						<span class="sg-ajax-process__icon" aria-hidden="true">
-							<?php site_blocks_lucide_icon( (string) $step['icon'], 32 ); ?>
+							<?php site_blocks_icon( (string) $step['icon'], 32 ); ?>
 						</span>
 						<div class="sg-ajax-process__copy">
 							<h3 class="sg-ajax-process__title"><?php echo esc_html( (string) $step['title'] ); ?></h3>

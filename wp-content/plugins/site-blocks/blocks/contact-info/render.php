@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-contact-details.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 $info = site_blocks_merge_contact_info_attributes( $attributes );
 
@@ -72,8 +72,8 @@ if ( '' !== trim( $response ) ) {
 ?>
 <div class="sg-contact-details" aria-labelledby="sg-contact-details-heading">
 	<h2 id="sg-contact-details-heading" class="sg-contact-details__title">
-		<?php esc_html_e( 'Get in ', 'site-blocks' ); ?>
-		<span class="sg-accent"><?php esc_html_e( 'touch', 'site-blocks' ); ?></span>
+		<?php esc_html_e( 'Get In ', 'site-blocks' ); ?>
+		<span class="sg-accent"><?php esc_html_e( 'Touch', 'site-blocks' ); ?></span>
 	</h2>
 
 	<address class="sg-contact-details__address">
@@ -98,7 +98,7 @@ if ( '' !== trim( $response ) ) {
 		<?php foreach ( $rows as $row ) : ?>
 			<div class="sg-contact-detail">
 				<dt class="sg-contact-detail__label">
-					<span class="sg-contact-detail__icon" aria-hidden="true"><?php site_blocks_lucide_icon( $row['icon'] ); ?></span>
+					<span class="sg-contact-detail__icon" aria-hidden="true"><?php site_blocks_icon( $row['icon'] ); ?></span>
 					<?php echo esc_html( $row['label'] ); ?>
 				</dt>
 				<dd class="sg-contact-detail__value"><?php echo $row['value']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?></dd>

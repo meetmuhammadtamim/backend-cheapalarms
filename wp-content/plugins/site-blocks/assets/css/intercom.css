@@ -99,7 +99,7 @@ body.safeguard-intercom-page .sg-intercom-product-hero__features,
   align-content: start;
   width: max-content;
   max-width: 100%;
-  /* Optical: Lucide viewBox padding vs solid CTA edge */
+  /* Optical: MDI viewBox padding vs solid CTA edge */
   margin: 0 0 0 -2px;
   padding: 0;
   padding-inline-start: 0;
@@ -135,8 +135,8 @@ body.safeguard-intercom-page .sg-intercom-product-hero__feature-icon,
   color: var(--sg-orange);
 }
 
-body.safeguard-intercom-page .sg-intercom-product-hero__feature-icon .sg-lucide-icon,
-.sg-intercom-product-hero__feature-icon .sg-lucide-icon {
+body.safeguard-intercom-page .sg-intercom-product-hero__feature-icon .sg-icon,
+.sg-intercom-product-hero__feature-icon .sg-icon {
   --sg-icon-size: 1.375rem; /* 22px */
   display: block;
   width: var(--sg-icon-size);

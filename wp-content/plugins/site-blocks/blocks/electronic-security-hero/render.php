@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once SITE_BLOCKS_DIR . 'inc/electronic-security-config.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-stage-hero.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 $page_key = site_blocks_get_electronic_security_page_key();
 
@@ -64,7 +64,7 @@ $hero_alt   = (string) $config['hero_alt'];
 				</a>
 				<a class="sg-btn sg-btn--secondary sg-es-product-hero__phone" href="<?php echo esc_url( $secondary_url ); ?>">
 					<span class="sg-es-product-hero__phone-icon" aria-hidden="true">
-						<?php site_blocks_lucide_icon( 'phone', 18 ); ?>
+						<?php site_blocks_icon( 'phone', 18 ); ?>
 					</span>
 					<?php echo esc_html( $secondary_label ); ?>
 				</a>
@@ -75,7 +75,7 @@ $hero_alt   = (string) $config['hero_alt'];
 					<?php foreach ( $features as $item ) : ?>
 						<li>
 							<span class="sg-es-product-hero__feature-icon" aria-hidden="true">
-								<?php site_blocks_lucide_icon( (string) ( $item['icon'] ?? 'shield-check' ), 22 ); ?>
+								<?php site_blocks_icon( (string) ( $item['icon'] ?? 'shield-check' ), 22 ); ?>
 							</span>
 							<span class="sg-es-product-hero__feature-label"><?php echo esc_html( (string) ( $item['label'] ?? '' ) ); ?></span>
 						</li>

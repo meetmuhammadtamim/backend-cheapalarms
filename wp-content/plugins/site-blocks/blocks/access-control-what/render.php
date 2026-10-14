@@ -18,8 +18,8 @@ site_blocks_render_access_control_split(
 	array(
 		'id'            => 'sg-access-control-what-heading',
 		'class'         => 'sg-access-control-what',
-		'title_before'  => __( 'What is ', 'site-blocks' ),
-		'title_accent'  => __( 'access control', 'site-blocks' ),
+		'title_before'  => __( 'What Is ', 'site-blocks' ),
+		'title_accent'  => __( 'Access Control', 'site-blocks' ),
 		'title_after'   => __( '?', 'site-blocks' ),
 		'intro'         => __( 'Electronic access replaces physical keys with credentials you can issue, schedule and revoke.', 'site-blocks' ),
 		'paragraphs'    => array(

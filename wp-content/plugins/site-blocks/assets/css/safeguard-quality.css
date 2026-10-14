@@ -1,0 +1,99 @@
+/* Safeguard homepage: installation quality section.
+   Image left, copy and checklist right (stacked on small screens, copy first). */
+
+.sg-quality {
+  padding: 2.75rem 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .sg-quality {
+    padding: 4.5rem 0;
+  }
+}
+
+.sg-quality__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .sg-quality__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 3.5rem;
+  }
+
+  .sg-quality__media {
+    order: -1;
+  }
+}
+
+.sg-quality .sg-quality__title {
+  margin: 0 0 1.25rem;
+  max-width: 18ch;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-quality .sg-quality__text {
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 768px) {
+  .sg-quality .sg-quality__text {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Checklist: icon + text, no dividers */
+.sg-quality .sg-quality__list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.sg-quality .sg-quality__list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--sg-navy);
+}
+
+.sg-quality__check {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.sg-quality__check .sg-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sg-quality__media {
+  min-width: 0;
+}
+
+.sg-quality__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1448 / 1086;
+}

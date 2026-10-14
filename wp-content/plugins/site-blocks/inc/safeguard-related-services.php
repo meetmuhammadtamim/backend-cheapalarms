@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Known icon filenames under assets/images/icons/related-services/.
@@ -39,11 +39,11 @@ function site_blocks_related_services_render_icon( string $icon_key, bool $use_b
 		return;
 	}
 
-	if ( ! function_exists( 'site_blocks_lucide_icon_from_legacy' ) ) {
-		require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	if ( ! function_exists( 'site_blocks_icon_from_legacy' ) ) {
+		require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 	}
 
-	site_blocks_lucide_icon_from_legacy( $icon_key, 88 );
+	site_blocks_icon_from_legacy( $icon_key, 88 );
 }
 
 /**
@@ -97,7 +97,7 @@ function site_blocks_render_related_services( ?array $config ): void {
 					</div>
 					<h4 class="sg-related-services__card-title"><?php echo esc_html( (string) $card['title'] ); ?></h4>
 					<p class="sg-related-services__card-desc"><?php echo esc_html( (string) $card['desc'] ); ?></p>
-					<span class="sg-related-services__arrow" aria-hidden="true"><?php site_blocks_lucide_icon( 'arrow-right', 22 ); ?></span>
+					<span class="sg-related-services__arrow" aria-hidden="true"><?php site_blocks_icon( 'arrow-right', 22 ); ?></span>
 				</a>
 			<?php endforeach; ?>
 		</div>

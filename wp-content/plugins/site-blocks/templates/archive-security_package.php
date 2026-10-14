@@ -23,7 +23,7 @@ $types = get_terms(
 <main id="main" class="packages-archive" aria-labelledby="packages-archive-heading">
 	<header class="packages-archive__hero">
 		<p class="packages-archive__eyebrow"><?php esc_html_e( 'Security Packages', 'site-blocks' ); ?></p>
-		<h1 id="packages-archive-heading" class="packages-archive__title"><?php esc_html_e( 'Systems built for real protection.', 'site-blocks' ); ?></h1>
+		<h1 id="packages-archive-heading" class="packages-archive__title"><?php esc_html_e( 'Systems Built For Real Protection.', 'site-blocks' ); ?></h1>
 		<p class="packages-archive__intro"><?php esc_html_e( 'Professional installation packages for cameras, alarms, and intercoms. Choose a starting point, then we tailor the setup to your property.', 'site-blocks' ); ?></p>
 	</header>
 
@@ -51,7 +51,7 @@ $types = get_terms(
 		</div>
 	<?php else : ?>
 		<section class="packages-empty">
-			<h2 class="packages-empty__title"><?php esc_html_e( 'No packages published yet.', 'site-blocks' ); ?></h2>
+			<h2 class="packages-empty__title"><?php esc_html_e( 'No Packages Published Yet.', 'site-blocks' ); ?></h2>
 			<p class="packages-empty__text"><?php esc_html_e( 'Add your first security package in WP Admin → Security Packages → Add Package.', 'site-blocks' ); ?></p>
 		</section>
 	<?php endif; ?>

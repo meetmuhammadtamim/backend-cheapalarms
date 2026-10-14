@@ -18,8 +18,8 @@ site_blocks_render_access_control_split(
 	array(
 		'id'           => 'sg-access-control-remote-heading',
 		'class'        => 'sg-access-control-remote',
-		'title_before' => __( 'Complete control, from ', 'site-blocks' ),
-		'title_accent' => __( 'anywhere', 'site-blocks' ),
+		'title_before' => __( 'Complete Control, From ', 'site-blocks' ),
+		'title_accent' => __( 'Anywhere', 'site-blocks' ),
 		'paragraphs'   => array(
 			__( 'Add a new employee, revoke a lost fob, or extend a contractor\'s access, without visiting the site or calling a locksmith.', 'site-blocks' ),
 			__( 'Cloud-managed systems give you a live audit trail of every entry, plus alerts when doors are forced or held open.', 'site-blocks' ),

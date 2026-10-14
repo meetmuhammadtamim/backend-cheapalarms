@@ -4,6 +4,8 @@
   --sg-blue: #1769A1;
   --sg-blue-dark: #125882;
   --sg-blue-hover: #0f5680;
+  /* The blue of the top utility bar (licence, email, phone). Used for emphasised words. */
+  --sg-blue-bar: #1668B3;
   --sg-orange: #FB7523;
   --sg-orange-deep: #EA7914;
   --sg-navy: #0C2D44;
@@ -70,6 +72,13 @@
   clip-path: inset(50%) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+html,
+body,
+body.safeguard-homepage {
+  background: #fff;
+  background-color: #fff;
 }
 
 html,
@@ -163,7 +172,7 @@ body.safeguard-homepage .sg-page.alignfull {
 
 /* Utility bar */
 .sg-utility {
-  background: #1668B3;
+  background: var(--sg-blue-bar);
   font-size: 0.6875rem;
   color: #fff;
   padding: 0.35rem 0;
@@ -218,7 +227,7 @@ body.safeguard-homepage .sg-page.alignfull {
   text-decoration: underline;
 }
 
-.sg-utility .sg-lucide-icon {
+.sg-utility .sg-icon {
   width: 0.875rem;
   height: 0.875rem;
   color: #fff;
@@ -595,7 +604,7 @@ body.safeguard-homepage .sg-page.alignfull {
   color: #fff;
 }
 
-.sg-header__mega-category-thumb--icon .sg-lucide-icon {
+.sg-header__mega-category-thumb--icon .sg-icon {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -657,11 +666,33 @@ body.safeguard-homepage .sg-page.alignfull {
 
 .sg-header__mega-brand-logo {
   display: block;
-  width: 100%;
+  width: auto;
   max-width: 7.5rem;
   max-height: 2.85rem;
   height: auto;
   object-fit: contain;
+}
+
+.sg-header__mega-brand-more-item {
+  grid-column: 3;
+  justify-self: center;
+  width: min(9rem, 100%);
+  margin-top: 0.15rem;
+  text-align: right;
+}
+
+.sg-header__mega-brand-more {
+  font-family: var(--sg-font-btn);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--sg-blue);
+  text-decoration: none;
+}
+
+.sg-header__mega-brand-more:hover,
+.sg-header__mega-brand-more:focus-visible {
+  text-decoration: underline;
 }
 
 .sg-header__mega-preview {
@@ -808,7 +839,7 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-header__mega-feature-icon .sg-lucide-icon {
+.sg-header__mega-feature-icon .sg-icon {
   width: 1.125rem;
   height: 1.125rem;
   color: currentColor;
@@ -865,8 +896,8 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-header__mega-feature-title .sg-lucide-icon,
-.sg-header__mega-feature-cta .sg-lucide-icon {
+.sg-header__mega-feature-title .sg-icon,
+.sg-header__mega-feature-cta .sg-icon {
   width: 1rem;
   height: 1rem;
   color: currentColor;
@@ -944,6 +975,10 @@ body.safeguard-homepage .sg-page.alignfull {
   .sg-header__mega-categories,
   .sg-header__mega-brands {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sg-header__mega-brand-more-item {
+    grid-column: 2;
   }
 
   .sg-header__mega-preview {
@@ -1179,12 +1214,7 @@ body.safeguard-homepage .sg-page.alignfull {
 
 /* Header CTAs, must follow .sg-btn so display:none is not overridden */
 .sg-btn.sg-header__quote-mobile {
-  display: inline-flex;
-  flex-shrink: 0;
-  min-height: 40px;
-  padding: 0 0.875rem;
-  font-size: 0.8125rem;
-  white-space: nowrap;
+  display: none;
 }
 
 .sg-mobile-panel {
@@ -1271,7 +1301,7 @@ body.safeguard-homepage .sg-page.alignfull {
   font-size: var(--sg-btn-font-size);
   line-height: var(--sg-btn-line-height);
   letter-spacing: 0;
-  text-transform: none;
+  text-transform: capitalize;
   text-decoration: none;
   border: 1px solid transparent;
   box-shadow: none;
@@ -1292,7 +1322,7 @@ body.safeguard-homepage .sg-page.alignfull {
 }
 
 .sg-btn__icon,
-.sg-btn .sg-lucide-icon {
+.sg-btn .sg-icon {
   flex-shrink: 0;
   width: 1.125rem;
   height: 1.125rem;
@@ -1336,7 +1366,7 @@ body.safeguard-homepage .sg-page.alignfull {
   font-weight: var(--sg-btn-font-weight);
   line-height: var(--sg-btn-line-height);
   letter-spacing: 0;
-  text-transform: none;
+  text-transform: capitalize;
   box-shadow: none;
   transform: none;
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
@@ -1646,7 +1676,7 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-home-hero-v2__badge-icon .sg-lucide-icon {
+.sg-home-hero-v2__badge-icon .sg-icon {
   width: 1rem;
   height: 1rem;
 }
@@ -1681,7 +1711,7 @@ body.safeguard-homepage .sg-page.alignfull {
   color: inherit;
 }
 
-.sg-home-hero-v2__btn-icon .sg-lucide-icon {
+.sg-home-hero-v2__btn-icon .sg-icon {
   width: 1rem;
   height: 1rem;
   stroke: currentColor;
@@ -1716,9 +1746,164 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-home-hero-v2__trust-icon .sg-lucide-icon {
+.sg-home-hero-v2__trust-icon .sg-icon {
   width: 1.05rem;
   height: 1.05rem;
+}
+
+.sg-rack-hero {
+  width: 100%;
+  max-width: none;
+  padding: 1.5rem 0;
+  background: #fff;
+}
+
+/* The hero uses the site's normal .sg-container (max-width, centred, gutters). */
+.sg-rack-hero__frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* The source PNG has a transparent margin (the card's soft edge ends at x=33; door reaches x=1764, of 1774px).
+   Scale and offset it so the solid artwork (x 34..1764) spans the full width;
+   the picture box crops the empty margins. The image file itself is untouched. */
+.sg-rack-hero__photo {
+  display: block;
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.sg-rack-hero__img {
+  display: block;
+  width: calc(100% * 1774 / 1730);
+  margin-left: calc(-100% * 34 / 1730);
+  max-width: none;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.sg-rack-hero__copy {
+  padding: 1.5rem;
+  background: var(--sg-navy);
+  color: #fff;
+}
+
+.sg-rack-hero__title {
+  margin: 0 0 1rem;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.85rem, 4vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.sg-rack-hero__lead {
+  margin: 0 0 1rem;
+  max-width: 28rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--sg-cta-sub);
+}
+
+.sg-rack-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.sg-rack-hero__meta {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--sg-cta-sub);
+}
+
+body.safeguard-homepage .sg-rack-hero__title,
+body.safeguard-homepage .sg-rack-hero__lead,
+body.safeguard-homepage .sg-rack-hero__ctas {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+body.safeguard-homepage .sg-rack-hero__meta {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 960px) {
+  .sg-rack-hero__frame {
+    display: block;
+  }
+
+  .sg-rack-hero__copy {
+    position: absolute;
+    top: 50%;
+    left: 2.5rem;
+    width: min(42%, 28rem);
+    padding: 0;
+    background: transparent;
+    transform: translateY(-50%);
+  }
+
+  .sg-rack-hero__ctas {
+    flex-wrap: nowrap;
+  }
+
+  .sg-rack-hero__title {
+    font-size: clamp(2rem, 2.6vw, 2.85rem);
+  }
+}
+
+@media (max-width: 959px) {
+  /* The hero image is a transparent cut-out: the card sits on white and the
+     cabinet door hangs out over the navy copy panel below it. The overlap is
+     the cut-out's bottom margin (68/1730 of the visible width). */
+  .sg-rack-hero {
+    padding-top: calc(1.5rem - 17px);
+  }
+
+  .sg-rack-hero__frame {
+    --sg-rack-overlap: calc(3.93% + 5px);
+  }
+
+  .sg-rack-hero__photo {
+    position: relative;
+    z-index: 2;
+    margin-bottom: calc(-1 * var(--sg-rack-overlap));
+    background: transparent;
+  }
+
+  .sg-rack-hero__img {
+    position: relative;
+    z-index: 2;
+  }
+
+  .sg-rack-hero__copy {
+    position: relative;
+    z-index: 0;
+    padding-top: calc(1.5rem + var(--sg-rack-overlap));
+  }
+}
+
+@media (max-width: 640px) {
+  .sg-rack-hero__ctas {
+    flex-direction: column;
+  }
+
+  .sg-rack-hero__ctas .sg-btn {
+    width: 100%;
+  }
 }
 
 .sg-home-hero-v2__visual {
@@ -1821,7 +2006,7 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-home-hero-v2__card-icon .sg-lucide-icon {
+.sg-home-hero-v2__card-icon .sg-icon {
   width: 1.05rem;
   height: 1.05rem;
 }
@@ -2030,7 +2215,7 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-home-proof__solution-icon .sg-lucide-icon {
+.sg-home-proof__solution-icon .sg-icon {
   width: 1.35rem;
   height: 1.35rem;
 }
@@ -2072,18 +2257,18 @@ body.safeguard-homepage .sg-page.alignfull {
   color: var(--sg-blue);
 }
 
-.sg-home-proof__why-icon .sg-lucide-icon {
+.sg-home-proof__why-icon .sg-icon {
   width: 1.125rem;
   height: 1.125rem;
 }
 
-.sg-home-proof__why-icon .sg-lucide-icon--filled-check {
+.sg-home-proof__why-icon .sg-icon--filled-check {
   color: #fff;
   fill: var(--sg-blue);
   stroke: #fff;
 }
 
-.sg-home-proof__why-icon .sg-lucide-icon--filled-check circle {
+.sg-home-proof__why-icon .sg-icon--filled-check circle {
   fill: var(--sg-blue);
   stroke: var(--sg-blue);
 }
@@ -4151,6 +4336,12 @@ body.safeguard-homepage .entry-content ul.sg-ajax-trust > li {
   border-color: #fff;
 }
 
+.sg-social .sg-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: inherit;
+}
+
 .sg-footer__heading {
   font-family: var(--sg-font-head);
   color: #fff;
@@ -4241,7 +4432,7 @@ body.safeguard-homepage .entry-content ul.sg-ajax-trust > li {
 
 .sg-mobile-bar.is-visible {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .sg-mobile-bar .sg-btn {
@@ -4251,6 +4442,12 @@ body.safeguard-homepage .entry-content ul.sg-ajax-trust > li {
   padding: 0 1rem;
   font-size: 0.875rem;
   font-weight: 700;
+}
+
+.sg-mobile-bar__call {
+  width: auto;
+  padding-inline: 0.85rem;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Scroll reveal */
@@ -4481,13 +4678,29 @@ body.safeguard-homepage .sg-page {
   }
 }
 
-/* ââ Lucide icons (shared) ââ */
-.sg-lucide-icon {
+/* ââ MDI icons (shared) ââ */
+.sg-icon {
   display: block;
   flex-shrink: 0;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
   color: var(--sg-blue);
+}
+
+/* Material Design Icons are filled single-path glyphs: the colour is the
+   element's `color`. Set on the path itself so older stroke-based rules on
+   the <svg> (stroke, stroke-width, fill: none) can never outline or hide it. */
+.sg-icon path {
+  fill: currentColor;
+  stroke: none;
+}
+
+.sg-icon--filled-check path {
+  fill: var(--sg-blue);
+}
+
+.sg-icon--success path {
+  fill: #1f9d57;
 }
 
 /* Card / bento icon slots: fixed box, centered 2rem glyph */
@@ -4514,43 +4727,43 @@ body.safeguard-homepage .sg-page {
   justify-content: center;
 }
 
-.sg-alarm-service-card__icon .sg-lucide-icon,
-.sg-alarm-why__icon .sg-lucide-icon,
-.sg-alarm-step-card__icon .sg-lucide-icon,
-.sg-cctv-icon .sg-lucide-icon,
-.sg-ajax-icon-card__icon .sg-lucide-icon,
-.sg-ajax-process__icon .sg-lucide-icon,
-.sg-related-services__icon .sg-lucide-icon,
-.sg-scenario-grid__icon .sg-lucide-icon,
-.sg-monitoring-package__icon .sg-lucide-icon,
-.sg-service-card__icon .sg-lucide-icon,
-.sg-funnel-card__icon .sg-lucide-icon,
-.sg-benefit-card__icon .sg-lucide-icon,
-.sg-benefit-trust-card__icon .sg-lucide-icon,
-.sg-team-card__icon .sg-lucide-icon,
-.sg-ajax-trust__icon .sg-lucide-icon,
-.sg-cctv-layered__card-icon .sg-lucide-icon {
+.sg-alarm-service-card__icon .sg-icon,
+.sg-alarm-why__icon .sg-icon,
+.sg-alarm-step-card__icon .sg-icon,
+.sg-cctv-icon .sg-icon,
+.sg-ajax-icon-card__icon .sg-icon,
+.sg-ajax-process__icon .sg-icon,
+.sg-related-services__icon .sg-icon,
+.sg-scenario-grid__icon .sg-icon,
+.sg-monitoring-package__icon .sg-icon,
+.sg-service-card__icon .sg-icon,
+.sg-funnel-card__icon .sg-icon,
+.sg-benefit-card__icon .sg-icon,
+.sg-benefit-trust-card__icon .sg-icon,
+.sg-team-card__icon .sg-icon,
+.sg-ajax-trust__icon .sg-icon,
+.sg-cctv-layered__card-icon .sg-icon {
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
 }
 
 /* Inline / UI chrome */
-.sg-btn .sg-lucide-icon,
-.sg-btn__icon.sg-lucide-icon,
-.sg-header__phone .sg-lucide-icon,
-.sg-related-services__arrow .sg-lucide-icon {
+.sg-btn .sg-icon,
+.sg-btn__icon.sg-icon,
+.sg-header__phone .sg-icon,
+.sg-related-services__arrow .sg-icon {
   width: var(--sg-icon-size-sm, 1.125rem);
   height: var(--sg-icon-size-sm, 1.125rem);
   color: currentColor;
 }
 
-.sg-lucide-icon--filled-check,
-.sg-lucide-icon--success {
+.sg-icon--filled-check,
+.sg-icon--success {
   width: var(--sg-icon-size-sm, 1.125rem);
   height: var(--sg-icon-size-sm, 1.125rem);
 }
 
-.sg-lucide-icon--filled-check {
+.sg-icon--filled-check {
   color: #fff;
   fill: var(--sg-blue);
   stroke: #fff;
@@ -4562,12 +4775,12 @@ body.safeguard-homepage .sg-page {
   color: var(--sg-blue);
 }
 
-.sg-portal-band__check .sg-lucide-icon--filled-check circle {
+.sg-portal-band__check .sg-icon--filled-check circle {
   fill: var(--sg-blue);
   stroke: var(--sg-blue);
 }
 
-.sg-lucide-icon--success {
+.sg-icon--success {
   color: #1f9d57;
   stroke: #1f9d57;
 }
@@ -4589,9 +4802,9 @@ body.safeguard-homepage .sg-page {
   -webkit-tap-highlight-color: transparent;
 }
 
-.sg-cta-phone .sg-lucide-icon,
-.sg-cta-callback .sg-lucide-icon,
-.sg-cta-split .sg-lucide-icon {
+.sg-cta-phone .sg-icon,
+.sg-cta-callback .sg-icon,
+.sg-cta-split .sg-icon {
   width: 1.125rem;
   height: 1.125rem;
   color: inherit;
@@ -4774,11 +4987,11 @@ body.safeguard-homepage .sg-page {
   background: #1769a1;
 }
 
-.sg-cta-split__phone:hover .sg-lucide-icon {
+.sg-cta-split__phone:hover .sg-icon {
   transform: rotate(-4deg);
 }
 
-.sg-cta-split__phone .sg-lucide-icon {
+.sg-cta-split__phone .sg-icon {
   transition: transform 180ms ease;
 }
 
@@ -4823,4 +5036,47 @@ body.safeguard-homepage .sg-page {
   .sg-cta-split__phone {
     width: 52px;
   }
+}
+
+.sg-404 {
+  padding: clamp(4.5rem, 12vw, 8rem) 0;
+  background: #fff;
+  color: var(--sg-navy);
+  text-align: center;
+}
+
+.sg-404__kicker {
+  margin: 0 0 0.75rem;
+  font-family: var(--sg-font-btn);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--sg-blue);
+}
+
+.sg-404 h1 {
+  margin: 0 auto;
+  max-width: 14ch;
+  font-family: var(--sg-font-head);
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--sg-navy);
+}
+
+.sg-404 p {
+  margin: 1.1rem auto 0;
+  max-width: 42ch;
+  color: var(--sg-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.sg-404__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
 }

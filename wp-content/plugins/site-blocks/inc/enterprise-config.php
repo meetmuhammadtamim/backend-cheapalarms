@@ -131,8 +131,8 @@ function site_blocks_enterprise_hero_config( string $page_key ): ?array {
 				'id'               => 'sg-enterprise-hero-heading',
 				'class'            => 'sg-enterprise-hero',
 				'badge'            => __( 'Australian owned Â· Master Licence #000103619 Â· ASIAL member', 'site-blocks' ),
-				'title_before'     => __( 'One team for your ', 'site-blocks' ),
-				'title_accent'     => __( 'entire security operation', 'site-blocks' ),
+				'title_before'     => __( 'One Team For Your ', 'site-blocks' ),
+				'title_accent'     => __( 'Entire Security Operation', 'site-blocks' ),
 				'title_after'      => '',
 				'lead'             => __( 'From a single office to a multi-site portfolio, Safeguard designs and installs commercial security systems, provides monitoring and supplies licensed guarding services, so your cameras, access control, alarms, monitoring and personnel can be managed through one accountable partner.', 'site-blocks' ),
 				'trust_aria_label' => __( 'Enterprise security credentials', 'site-blocks' ),
@@ -173,7 +173,7 @@ function site_blocks_enterprise_hero_config( string $page_key ): ?array {
 					array( 'label' => __( 'Safeguard Solutions', 'site-blocks' ), 'current' => true ),
 				),
 				'badge'            => __( 'Safeguard Solutions Â· Cloud platform', 'site-blocks' ),
-				'title_before'     => __( 'Safeguard Solutions: One Platform for ', 'site-blocks' ),
+				'title_before'     => __( 'Safeguard Solutions: One Platform For ', 'site-blocks' ),
 				'title_accent'     => __( 'Every Site', 'site-blocks' ),
 				'title_after'      => '',
 				'lead'             => __( 'Safeguard Solutions is the cloud-managed platform behind our commercial systems: the single console where your video, access control, alerts and analytics come together. Open it from a desk or a phone, see every site at once, and turn hours of footage into answers in seconds.', 'site-blocks' ),
@@ -221,8 +221,8 @@ function site_blocks_enterprise_split_config( string $page_key, string $section 
 				'id'           => 'sg-enterprise-intro-heading',
 				'class'        => 'sg-enterprise-intro',
 				'band'         => 'white',
-				'title_before' => __( 'Built for commercial ', 'site-blocks' ),
-				'title_accent' => __( 'decision-makers', 'site-blocks' ),
+				'title_before' => __( 'Built For Commercial ', 'site-blocks' ),
+				'title_accent' => __( 'Decision-Makers', 'site-blocks' ),
 				'title_after'  => '',
 				'paragraphs'   => array(
 					__( 'Enterprise Solutions is built for the people responsible for keeping commercial sites safe and running: facilities and operations managers, business owners, strata committees, and procurement teams. If you manage more than one location, juggle several security vendors, or need electronic systems and physical presence to work as one, this is where Safeguard brings it together. Everything here is commercial-grade: designed for offices, retail, logistics, healthcare, construction and multi-tenant buildings, not home alarms.', 'site-blocks' ),
@@ -235,8 +235,8 @@ function site_blocks_enterprise_split_config( string $page_key, string $section 
 				'id'           => 'sg-enterprise-approach-heading',
 				'class'        => 'sg-enterprise-approach',
 				'band'         => 'white',
-				'title_before' => __( 'Design, install, monitor, guard: ', 'site-blocks' ),
-				'title_accent' => __( 'one team', 'site-blocks' ),
+				'title_before' => __( 'Design, Install, Monitor, Guard: ', 'site-blocks' ),
+				'title_accent' => __( 'One Team', 'site-blocks' ),
 				'title_after'  => '',
 				'paragraphs'   => array(
 					__( 'Safeguard assesses the risk, designs the system and installs the electronics. Monitoring is linked to the agreed response plan. Licensed static guards or mobile patrols are supplied where the quote includes them. The Safeguard Solutions platform is the one console, for a single site or more than one site.', 'site-blocks' ),
@@ -249,8 +249,8 @@ function site_blocks_enterprise_split_config( string $page_key, string $section 
 				'id'           => 'sg-enterprise-integration-heading',
 				'class'        => 'sg-enterprise-integration',
 				'band'         => 'white',
-				'title_before' => __( 'Where electronic, physical and monitoring ', 'site-blocks' ),
-				'title_accent' => __( 'meet', 'site-blocks' ),
+				'title_before' => __( 'Where Electronic, Physical And Monitoring ', 'site-blocks' ),
+				'title_accent' => __( 'Meet', 'site-blocks' ),
 				'title_after'  => '',
 				'paragraphs'   => array(
 					__( 'Real enterprise security is not a pile of products; it is coordination. A door forced after hours triggers an alarm, the nearest camera can be checked, and a mobile patrol or guard is dispatched when the plan requires it, all recorded for later review. Safeguard installs the electronics and supplies the licensed personnel, so those handoffs sit in one scope instead of across three contracts. The Safeguard Solutions platform is what makes that visible and searchable.', 'site-blocks' ),
@@ -273,8 +273,8 @@ function site_blocks_enterprise_split_config( string $page_key, string $section 
 function site_blocks_enterprise_trust_config(): array {
 	return array(
 		'eyebrow'      => __( 'Licensed & accredited', 'site-blocks' ),
-		'title_before' => __( 'A licensed, Australian-owned ', 'site-blocks' ),
-		'title_accent' => __( 'partner', 'site-blocks' ),
+		'title_before' => __( 'A Licensed, Australian-Owned ', 'site-blocks' ),
+		'title_accent' => __( 'Partner', 'site-blocks' ),
 		'title_after'  => '',
 		'body'         => __( 'Safeguard Security Services is Australian owned and operated, working with commercial clients from our Ingleburn office, proud of the brands we have worked with across retail, logistics, strata and corporate sectors. Licence-backed accountability is not a formality here; it is what your insurer, board and auditors expect, and what we are built to provide.', 'site-blocks' ),
 		'items'        => array(
@@ -309,23 +309,23 @@ function site_blocks_enterprise_trust_config(): array {
  */
 function site_blocks_enterprise_challenges_config(): array {
 	return array(
-		'title' => __( 'The problems we\'re built to solve', 'site-blocks' ),
+		'title' => __( 'The Problems We\'re Built To Solve', 'site-blocks' ),
 		'intro' => '',
 		'cards' => array(
 			array(
-				'title' => __( 'Too many vendors, no single accountability', 'site-blocks' ),
+				'title' => __( 'Too Many Vendors, No Single Accountability', 'site-blocks' ),
 				'body'  => __( 'A camera installer here, a guard company there, a separate monitoring contract, and when something goes wrong, everyone points elsewhere. Safeguard is one contract and one point of accountability.', 'site-blocks' ),
 			),
 			array(
-				'title' => __( 'No central view across sites', 'site-blocks' ),
+				'title' => __( 'No Central View Across Sites', 'site-blocks' ),
 				'body'  => __( 'Footage on one system, door logs on another, alarms on a third. Without a single console, incidents take too long to piece together. Safeguard Solutions gives you one login for every site.', 'site-blocks' ),
 			),
 			array(
-				'title' => __( 'Compliance and reporting pressure', 'site-blocks' ),
+				'title' => __( 'Compliance And Reporting Pressure', 'site-blocks' ),
 				'body'  => __( 'Audit trails, incident records and licence-backed providers matter to insurers, boards and regulators. We deliver documented processes and hold Master Licence #000103619.', 'site-blocks' ),
 			),
 			array(
-				'title' => __( 'After-hours gaps', 'site-blocks' ),
+				'title' => __( 'After-Hours Gaps', 'site-blocks' ),
 				'body'  => __( 'After-hours cover is set in the quote. Back-to-base monitoring, virtual patrols and mobile response are included where the plan requires them.', 'site-blocks' ),
 			),
 		),
@@ -417,7 +417,7 @@ function site_blocks_enterprise_hub_photo_solutions(): array {
  */
 function site_blocks_enterprise_solutions_heading(): array {
 	return array(
-		'title' => __( 'Everything your operation needs, integrated', 'site-blocks' ),
+		'title' => __( 'Everything Your Operation Needs, Integrated', 'site-blocks' ),
 		'intro' => '',
 	);
 }
@@ -431,7 +431,7 @@ function site_blocks_enterprise_promo_config(): array {
 	return array(
 		'heading_id'    => 'sg-enterprise-promo-heading',
 		'section_class' => 'sg-enterprise-promo',
-		'title'         => __( 'Safeguard Solutions: your whole portfolio, one console', 'site-blocks' ),
+		'title'         => __( 'Safeguard Solutions: Your Whole Portfolio, One Console', 'site-blocks' ),
 		'paragraphs'    => array(
 			__( 'Hardware secures a site. Safeguard Solutions runs your whole operation. It is our cloud-managed platform for businesses that need to see and control every location from one place: live video, access events, alerts and analytics unified in a single, permission-controlled console you can open from a desk or a phone.', 'site-blocks' ),
 			__( 'Built for multi-site and enterprise environments, it turns raw footage into fast answers: search video by describing what you are looking for, get real-time alerts the moment something matters, and give each manager exactly the access they need with full audit logging.', 'site-blocks' ),
@@ -456,11 +456,11 @@ function site_blocks_enterprise_promo_config(): array {
  */
 function site_blocks_enterprise_industry_scenario_config(): array {
 	return array(
-		'title_before'    => __( 'Built for the way your sector ', 'site-blocks' ),
-		'title_accent'    => __( 'operates', 'site-blocks' ),
+		'title_before'    => __( 'Built For The Way Your Sector ', 'site-blocks' ),
+		'title_accent'    => __( 'Operates', 'site-blocks' ),
 		'title_after'     => '',
 		'use_brand_icons' => true,
-		'use_lucide_icons'=> true,
+		'use_mdi_icons'=> true,
 		'cards'           => array(
 			array( 'title' => __( 'Retail & Multi-Store', 'site-blocks' ), 'desc' => __( 'Reduce shrinkage and connect every store to one monitored platform.', 'site-blocks' ), 'icon' => 'store' ),
 			array( 'title' => __( 'Logistics & Warehousing', 'site-blocks' ), 'desc' => __( 'Perimeter coverage, dock monitoring and after-hours response for large sites.', 'site-blocks' ), 'icon' => 'warehouse' ),
@@ -479,7 +479,7 @@ function site_blocks_enterprise_industry_scenario_config(): array {
  */
 function site_blocks_enterprise_quote_config(): array {
 	return array(
-		'title'  => __( 'Ready to bring your security under one team?', 'site-blocks' ),
+		'title'  => __( 'Ready To Bring Your Security Under One Team?', 'site-blocks' ),
 		'body'   => __( 'Request a quote and we will map your risks, scope the solution and give you a clear, itemised quote, with no obligation.', 'site-blocks' ),
 		'label'  => __( 'Request a quote', 'site-blocks' ),
 		'url'    => home_url( '/contact/' ),
@@ -620,7 +620,7 @@ function site_blocks_enterprise_related_page_grid_config( string $page_key ): ?a
 			'heading_id'    => 'sg-enterprise-related-heading',
 			'section_class' => 'sg-enterprise-related',
 			'title_before'  => __( 'Related ', 'site-blocks' ),
-			'title_accent'  => __( 'services', 'site-blocks' ),
+			'title_accent'  => __( 'Services', 'site-blocks' ),
 			'cards'         => array(
 				array( 'title' => __( 'CCTV Security Cameras', 'site-blocks' ), 'desc' => __( 'Business-grade cameras with remote viewing and analytics-ready footage.', 'site-blocks' ), 'url' => home_url( '/cctv-security-cameras/' ), 'icon' => 'ip-camera.png' ),
 				array( 'title' => __( 'Access Control', 'site-blocks' ), 'desc' => __( 'Card, mobile and biometric entry with full audit trails.', 'site-blocks' ), 'url' => home_url( '/access-control/' ), 'icon' => 'access-control.png' ),

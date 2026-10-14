@@ -22,7 +22,7 @@ get_header();
 	<main id="main" class="sg-main">
 		<div class="sg-study__wrap sg-study-archive">
 			<p class="sg-study-archive__kicker"><?php esc_html_e( 'Safeguard', 'site-blocks' ); ?></p>
-			<h1><?php echo esc_html( is_tax( 'case_study_hub' ) ? single_term_title( '', false ) : __( 'Case studies', 'site-blocks' ) ); ?></h1>
+			<h1><?php echo esc_html( is_tax( 'case_study_hub' ) ? single_term_title( '', false ) : __( 'Case Studies', 'site-blocks' ) ); ?></h1>
 			<p><?php esc_html_e( 'Enterprise and residential work, written so the building is not identified.', 'site-blocks' ); ?></p>
 			<?php if ( have_posts() ) : ?>
 				<ul class="sg-study-archive__list" role="list">

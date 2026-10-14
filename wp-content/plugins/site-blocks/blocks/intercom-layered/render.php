@@ -80,9 +80,9 @@ $links = array(
 
 			<h2 id="sg-intercom-layered-heading" class="sg-section-title sg-section-title--ink sg-cctv-layered__title">
 
-				<?php esc_html_e( 'Better with the rest of your ', 'site-blocks' ); ?>
+				<?php esc_html_e( 'Better With The Rest Of Your ', 'site-blocks' ); ?>
 
-				<span class="sg-accent"><?php esc_html_e( 'system', 'site-blocks' ); ?></span>
+				<span class="sg-accent"><?php esc_html_e( 'System', 'site-blocks' ); ?></span>
 
 			</h2>
 

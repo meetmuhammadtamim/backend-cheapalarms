@@ -17,7 +17,7 @@ $quote = esc_url( home_url( '/contact/' ) );
 	<div class="sg-container">
 		<p class="sg-ajax-section__eyebrow"><?php esc_html_e( 'Ajax system design', 'site-blocks' ); ?></p>
 		<h1 id="sg-ajax-calculator-hero-heading" class="sg-ajax-section__title">
-			<?php esc_html_e( 'Design your ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'Ajax', 'site-blocks' ); ?></span><?php esc_html_e( ' system online.', 'site-blocks' ); ?>
+			<?php esc_html_e( 'Design Your ', 'site-blocks' ); ?><span class="sg-accent"><?php esc_html_e( 'Ajax', 'site-blocks' ); ?></span><?php esc_html_e( ' System Online.', 'site-blocks' ); ?>
 		</h1>
 		<p class="sg-ajax-section__intro">
 			<?php esc_html_e( 'Use the calculator below to explore hub, sensors and keypad options for your property. When you are ready, continue in our portal for a technician-reviewed estimate.', 'site-blocks' ); ?>

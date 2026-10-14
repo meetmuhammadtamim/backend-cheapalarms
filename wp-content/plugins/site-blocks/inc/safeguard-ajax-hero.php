@@ -42,7 +42,7 @@ function site_blocks_default_ajax_alarm_hero_config(): array {
 		'heading_id'      => 'sg-ajax-hero-heading',
 		'section_class'   => '',
 		'eyebrow'         => __( 'Ajax alarm systems', 'site-blocks' ),
-		'title'           => __( 'Ajax alarm systems, professionally installed by Safeguard', 'site-blocks' ),
+		'title'           => __( 'Ajax Alarm Systems, Professionally Installed By Safeguard', 'site-blocks' ),
 		'lead'            => __( 'We design, install and configure Ajax wireless alarm systems for homes, apartments and small businesses, specified around your property, not sold as a generic kit.', 'site-blocks' ),
 		'primary_label'   => __( 'Request a quote', 'site-blocks' ),
 		'primary_url'     => home_url( '/contact/' ),

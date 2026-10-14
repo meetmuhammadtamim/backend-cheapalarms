@@ -32,7 +32,7 @@ site_blocks_render_stage_hero(
 			),
 		),
 		'eyebrow'       => __( 'CCTV', 'site-blocks' ),
-		'title'         => __( 'A camera on the wall isn\'t security. A properly designed system is.', 'site-blocks' ),
+		'title'         => __( 'A Camera On The Wall Isn\'t Security. A Properly Designed System Is.', 'site-blocks' ),
 		'lead'          => __( 'Planned, installed and supported. A technician reviews the scope.', 'site-blocks' ),
 		'frame_image'   => 'images/cctv/hero.webp',
 		'frame_alt'     => __( 'Modern Sydney home with integrated CCTV cameras at dusk', 'site-blocks' ),

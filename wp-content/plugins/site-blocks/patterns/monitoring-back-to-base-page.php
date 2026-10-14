@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 
-	'title'       => __( 'Back-to-Base Monitoring Page', 'site-blocks' ),
+	'title'       => __( 'Back-To-Base Monitoring Page', 'site-blocks' ),
 
 	'description' => __( 'Back-to-base alarm monitoring service page under Monitoring.', 'site-blocks' ),
 

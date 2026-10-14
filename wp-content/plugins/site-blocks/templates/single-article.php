@@ -89,14 +89,14 @@ while ( have_posts() ) :
 
 						<footer class="sg-read__end">
 							<p class="sg-read__end-kicker"><?php esc_html_e( 'Talk to Safeguard', 'site-blocks' ); ?></p>
-							<h2><?php esc_html_e( 'Want this looked at on your site?', 'site-blocks' ); ?></h2>
+							<h2><?php esc_html_e( 'Want This Looked At On Your Site?', 'site-blocks' ); ?></h2>
 							<p><?php esc_html_e( 'Call 1300 225 276 or send a message. A person on the team replies.', 'site-blocks' ); ?></p>
 							<a class="sg-read__button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact the team', 'site-blocks' ); ?></a>
 						</footer>
 
 						<?php if ( $related ) : ?>
 							<section class="sg-read__related" aria-label="<?php esc_attr_e( 'More to read', 'site-blocks' ); ?>">
-								<h2><?php esc_html_e( 'More to read', 'site-blocks' ); ?></h2>
+								<h2><?php esc_html_e( 'More To Read', 'site-blocks' ); ?></h2>
 								<ul role="list">
 									<?php foreach ( $related as $item ) : ?>
 										<li><a href="<?php echo esc_url( get_permalink( $item ) ); ?>"><?php echo esc_html( get_the_title( $item ) ); ?></a></li>

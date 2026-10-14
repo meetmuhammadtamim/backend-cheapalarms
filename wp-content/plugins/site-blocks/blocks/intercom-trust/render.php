@@ -18,26 +18,26 @@ site_blocks_render_trust_panel(
 		'heading_id'    => 'sg-intercom-trust-heading',
 		'section_class' => 'sg-intercom-trust',
 		'panel_class'   => 'sg-alarm-why__panel sg-cctv-trust__panel',
-		'title_before'  => __( 'Designed and supported by experienced ', 'site-blocks' ),
-		'title_accent'  => __( 'technicians', 'site-blocks' ),
+		'title_before'  => __( 'Designed And Supported By Experienced ', 'site-blocks' ),
+		'title_accent'  => __( 'Technicians', 'site-blocks' ),
 		'items'         => array(
 			array(
-				'title' => __( 'Licensed and accredited', 'site-blocks' ),
+				'title' => __( 'Licensed And Accredited', 'site-blocks' ),
 				'desc'  => __( 'Master Licence · ASIAL member.', 'site-blocks' ),
 				'icon'  => 'weatherproof.png',
 			),
 			array(
-				'title' => __( 'Homes, strata and commercial', 'site-blocks' ),
+				'title' => __( 'Homes, Strata And Commercial', 'site-blocks' ),
 				'desc'  => __( 'From a single front door to multi-unit buildings.', 'site-blocks' ),
 				'icon'  => 'property-coverage.png',
 			),
 			array(
-				'title' => __( 'Built for complex sites', 'site-blocks' ),
+				'title' => __( 'Built For Complex Sites', 'site-blocks' ),
 				'desc'  => __( 'Heritage terraces, long gate runs, existing-cabling upgrades.', 'site-blocks' ),
 				'icon'  => 'home-camera.png',
 			),
 			array(
-				'title' => __( 'Support after install', 'site-blocks' ),
+				'title' => __( 'Support After Install', 'site-blocks' ),
 				'desc'  => __( 'App setup, user handover, maintenance and monitoring.', 'site-blocks' ),
 				'icon'  => 'support.png',
 			),

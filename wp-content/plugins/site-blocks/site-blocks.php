@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Site Blocks
  * Description: Server-rendered Gutenberg blocks, contact page, and security packages.
- * Version: 1.53.9
+ * Version: 1.55.2
  * Requires at least: 6.3
  * Requires PHP: 7.4
  * Author: Site Developer
@@ -17,14 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SITE_BLOCKS_VERSION', '1.53.9' );
+define( 'SITE_BLOCKS_VERSION', '1.55.2' );
 define( 'SITE_BLOCKS_FILE', __FILE__ );
 define( 'SITE_BLOCKS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SITE_BLOCKS_URL', plugin_dir_url( __FILE__ ) );
 
 require_once SITE_BLOCKS_DIR . 'inc/asset-helpers.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-media-library.php';
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 require_once SITE_BLOCKS_DIR . 'inc/register-blocks.php';
 require_once SITE_BLOCKS_DIR . 'inc/setup-pages.php';
 require_once SITE_BLOCKS_DIR . 'inc/form-handler.php';
@@ -130,7 +130,7 @@ register_activation_hook( __FILE__, 'site_blocks_activate' );
  * Refresh Kadence disable flags on existing Safeguard pages.
  */
 function site_blocks_refresh_safeguard_page_meta(): void {
-	$slugs = array( 'home', 'contact', 'about', 'alarm-systems', 'ajax-alarm-systems', 'paradox-m25', 'akuvox', 'milesight', 'nx-witness', 'hanwha-vision', 'ajax-calculator', 'manpower-calculator', 'cctv-security-cameras', 'intercom-systems', 'access-control', 'physical-security', 'physical-security/static-guards', 'physical-security/mobile-patrols', 'electronic-security', 'manpower', 'monitoring', 'monitoring/back-to-base', 'monitoring/virtual-patrol', 'monitoring/solar-cameras-monitoring', 'enterprise-solutions', 'safeguard-solutions' );
+	$slugs = array( 'home', 'contact', 'about', 'alarm-systems', 'brands', 'brands/ajax-alarm-systems', 'brands/paradox-m25', 'brands/akuvox', 'brands/milesight', 'brands/nx-witness', 'brands/hanwha-vision', 'ajax-calculator', 'manpower-calculator', 'cctv-security-cameras', 'intercom-systems', 'access-control', 'physical-security', 'physical-security/static-guards', 'physical-security/mobile-patrols', 'electronic-security', 'manpower', 'monitoring', 'monitoring/back-to-base', 'monitoring/virtual-patrol', 'monitoring/solar-cameras-monitoring', 'enterprise-solutions', 'safeguard-solutions' );
 
 	foreach ( $slugs as $slug ) {
 		$page = get_page_by_path( $slug );

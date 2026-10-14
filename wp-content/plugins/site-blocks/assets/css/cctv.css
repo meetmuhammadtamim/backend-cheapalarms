@@ -188,7 +188,7 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.sg-cctv-stage-hero__trust-icon .sg-lucide-icon {
+.sg-cctv-stage-hero__trust-icon .sg-icon {
   width: 16px;
   height: 16px;
   stroke-width: 1.6;
@@ -492,7 +492,7 @@
   color: var(--sg-navy);
 }
 
-.sg-cctv-intro__cap-icon .sg-lucide-icon {
+.sg-cctv-intro__cap-icon .sg-icon {
   width: 28px;
   height: 28px;
   stroke-width: 1.6;
@@ -626,7 +626,7 @@ body.safeguard-cctv-page .entry-content ol.sg-cctv-difference__steps {
   object-fit: contain;
 }
 
-.sg-cctv-icon .sg-lucide-icon {
+.sg-cctv-icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -655,10 +655,10 @@ body.safeguard-cctv-page .sg-alarm-step-card__icon .sg-cctv-icon__img,
 body.safeguard-cctv-page .sg-alarm-why__icon .sg-cctv-icon__img,
 body.safeguard-intercom-page .sg-alarm-step-card__icon .sg-cctv-icon__img,
 body.safeguard-intercom-page .sg-alarm-why__icon .sg-cctv-icon__img,
-body.safeguard-cctv-page .sg-alarm-step-card__icon .sg-lucide-icon,
-body.safeguard-cctv-page .sg-alarm-why__icon .sg-lucide-icon,
-body.safeguard-intercom-page .sg-alarm-step-card__icon .sg-lucide-icon,
-body.safeguard-intercom-page .sg-alarm-why__icon .sg-lucide-icon {
+body.safeguard-cctv-page .sg-alarm-step-card__icon .sg-icon,
+body.safeguard-cctv-page .sg-alarm-why__icon .sg-icon,
+body.safeguard-intercom-page .sg-alarm-step-card__icon .sg-icon,
+body.safeguard-intercom-page .sg-alarm-why__icon .sg-icon {
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
 }
@@ -921,7 +921,7 @@ body.safeguard-intercom-page .sg-alarm-why__icon .sg-lucide-icon {
   flex-shrink: 0;
 }
 
-.sg-cctv-layered__card-icon .sg-lucide-icon {
+.sg-cctv-layered__card-icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
@@ -1331,7 +1331,7 @@ body.safeguard-cctv-page .sg-cctv-trust__panel {
   color: #fff;
 }
 
-.sg-product-spotlight__feature-icon .sg-lucide-icon {
+.sg-product-spotlight__feature-icon .sg-icon {
   width: 18px;
   height: 18px;
   stroke-width: 1.6;
@@ -1370,7 +1370,7 @@ body.safeguard-cctv-page .sg-cctv-trust__panel {
 }
 
 .sg-product-spotlight__btn .sg-btn__icon,
-.sg-product-spotlight__btn .sg-lucide-icon {
+.sg-product-spotlight__btn .sg-icon {
   color: #fff !important;
   stroke: #fff !important;
 }

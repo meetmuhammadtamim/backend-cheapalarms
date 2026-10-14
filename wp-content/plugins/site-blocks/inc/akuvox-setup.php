@@ -59,7 +59,7 @@ function site_blocks_akuvox_schema(): void {
 	require_once SITE_BLOCKS_DIR . 'inc/akuvox-config.php';
 
 	$site_url = home_url( '/' );
-	$page_url = home_url( '/akuvox/' );
+	$page_url = home_url( '/brands/akuvox/' );
 	$phone    = '1300225276';
 
 	$schema = array(

@@ -466,7 +466,7 @@ body.safeguard-paradox-page .entry-content ul.sg-paradox-products__trust > li {
   color: var(--sg-muted, #5a6b77);
 }
 
-.sg-paradox-products__trust-icon .sg-lucide-icon {
+.sg-paradox-products__trust-icon .sg-icon {
   width: 1.15rem;
   height: 1.15rem;
 }

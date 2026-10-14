@@ -20,7 +20,7 @@ require_once SITE_BLOCKS_DIR . 'inc/hero-variants.php';
 
 $defaults = site_blocks_get_safeguard_contact_details();
 
-$headline = ! empty( $attributes['headline'] ) ? (string) $attributes['headline'] : __( 'Contact us', 'site-blocks' );
+$headline = ! empty( $attributes['headline'] ) ? (string) $attributes['headline'] : __( 'Contact Us', 'site-blocks' );
 $subhead  = ! empty( $attributes['subhead'] ) ? (string) $attributes['subhead'] : __( 'Questions about quotes, installs or support? Call, email or send a message and our team will get back to you.', 'site-blocks' );
 $phone    = $defaults['phone'];
 $phone_h  = 'tel:' . preg_replace( '/[^\d+]/', '', $phone );

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 site_blocks_render_ajax_quote_cta(
 	array(
-		'title'         => __( 'Ready for a technician-reviewed estimate?', 'site-blocks' ),
+		'title'         => __( 'Ready For A Technician-Reviewed Estimate?', 'site-blocks' ),
 		'lead'          => __( 'Continue from the calculator into our portal and we will confirm device choices, coverage and install scope for your property.', 'site-blocks' ),
 		'primary_label' => __( 'Request a quote', 'site-blocks' ),
 		'primary_url'   => home_url( '/contact/' ),

@@ -29,7 +29,7 @@ $gallery_items = array(
 		<header class="sg-alarm-services__header">
 			<h2 id="sg-access-control-gallery-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
 				<?php esc_html_e( 'Recent ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'projects', 'site-blocks' ); ?></span>
+				<span class="sg-accent"><?php esc_html_e( 'Projects', 'site-blocks' ); ?></span>
 			</h2>
 			<p class="sg-section-intro sg-section-intro--center">
 				<?php esc_html_e( 'A selection of access control installations.', 'site-blocks' ); ?>

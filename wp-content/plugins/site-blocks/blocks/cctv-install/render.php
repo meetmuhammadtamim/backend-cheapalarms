@@ -15,12 +15,12 @@ require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
 
 $large = array(
 	array(
-		'title' => __( 'IP & 4K cameras', 'site-blocks' ),
+		'title' => __( 'IP & 4K Cameras', 'site-blocks' ),
 		'desc'  => __( 'Sharp enough for faces and number plates.', 'site-blocks' ),
 		'icon'  => 'ip-camera.png',
 	),
 	array(
-		'title' => __( 'NVR & PoE recording', 'site-blocks' ),
+		'title' => __( 'NVR & PoE Recording', 'site-blocks' ),
 		'desc'  => __( 'Reliable local recording, one cable per camera.', 'site-blocks' ),
 		'icon'  => 'property-coverage.png',
 	),
@@ -28,22 +28,22 @@ $large = array(
 
 $small = array(
 	array(
-		'title' => __( 'Day & night coverage', 'site-blocks' ),
+		'title' => __( 'Day & Night Coverage', 'site-blocks' ),
 		'desc'  => __( 'Infrared and colour night vision.', 'site-blocks' ),
 		'icon'  => 'night-vision.png',
 	),
 	array(
-		'title' => __( 'Smart detection', 'site-blocks' ),
+		'title' => __( 'Smart Detection', 'site-blocks' ),
 		'desc'  => __( 'Person and vehicle alerts, fewer false alarms.', 'site-blocks' ),
 		'icon'  => 'smart-detection.png',
 	),
 	array(
-		'title' => __( 'Indoor & outdoor', 'site-blocks' ),
+		'title' => __( 'Indoor & Outdoor', 'site-blocks' ),
 		'desc'  => __( 'Rated for Sydney heat, rain and coastal air.', 'site-blocks' ),
 		'icon'  => 'weatherproof.png',
 	),
 	array(
-		'title' => __( 'App & remote view', 'site-blocks' ),
+		'title' => __( 'App & Remote View', 'site-blocks' ),
 		'desc'  => __( 'Live view, playback and alerts on your phone.', 'site-blocks' ),
 		'icon'  => 'remote-app.png',
 	),
@@ -53,8 +53,8 @@ $small = array(
 	<div class="sg-container">
 		<header class="sg-alarm-services__header">
 			<h2 id="sg-cctv-install-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-				<?php esc_html_e( 'What we design and ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'install', 'site-blocks' ); ?></span>
+				<?php esc_html_e( 'What We Design And ', 'site-blocks' ); ?>
+				<span class="sg-accent"><?php esc_html_e( 'Install', 'site-blocks' ); ?></span>
 			</h2>
 			<p class="sg-section-intro sg-section-intro--center">
 				<?php esc_html_e( 'Cameras, recording, network and app, designed as one system.', 'site-blocks' ); ?>

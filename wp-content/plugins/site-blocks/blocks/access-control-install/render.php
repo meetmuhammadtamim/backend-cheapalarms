@@ -15,32 +15,32 @@ require_once SITE_BLOCKS_DIR . 'inc/cctv-icons.php';
 
 $sectors = array(
 	array(
-		'title' => __( 'Offices & commercial', 'site-blocks' ),
+		'title' => __( 'Offices & Commercial', 'site-blocks' ),
 		'desc'  => __( 'Reception, staff areas, server rooms and after-hours zones.', 'site-blocks' ),
 		'icon'  => 'property-coverage.png',
 	),
 	array(
-		'title' => __( 'Retail & hospitality', 'site-blocks' ),
+		'title' => __( 'Retail & Hospitality', 'site-blocks' ),
 		'desc'  => __( 'Staff-only areas, stockrooms and manager overrides.', 'site-blocks' ),
 		'icon'  => 'home-camera.png',
 	),
 	array(
-		'title' => __( 'Warehouses & industrial', 'site-blocks' ),
+		'title' => __( 'Warehouses & Industrial', 'site-blocks' ),
 		'desc'  => __( 'Loading docks, perimeter gates and shift-based access.', 'site-blocks' ),
 		'icon'  => 'weatherproof.png',
 	),
 	array(
-		'title' => __( 'Schools & childcare', 'site-blocks' ),
+		'title' => __( 'Schools & Childcare', 'site-blocks' ),
 		'desc'  => __( 'Controlled entry for staff, parents and authorised visitors.', 'site-blocks' ),
 		'icon'  => 'support.png',
 	),
 	array(
-		'title' => __( 'Strata & apartments', 'site-blocks' ),
+		'title' => __( 'Strata & Apartments', 'site-blocks' ),
 		'desc'  => __( 'Common areas, car parks and building-manager access.', 'site-blocks' ),
 		'icon'  => 'remote-app.png',
 	),
 	array(
-		'title' => __( 'Healthcare & clinics', 'site-blocks' ),
+		'title' => __( 'Healthcare & Clinics', 'site-blocks' ),
 		'desc'  => __( 'Restricted zones, pharmacy storage and staff scheduling.', 'site-blocks' ),
 		'icon'  => 'smart-detection.png',
 	),
@@ -50,8 +50,8 @@ $sectors = array(
 	<div class="sg-container">
 		<header class="sg-alarm-services__header">
 			<h2 id="sg-access-control-install-heading" class="sg-section-title sg-section-title--center sg-section-title--ink">
-				<?php esc_html_e( 'Where we ', 'site-blocks' ); ?>
-				<span class="sg-accent"><?php esc_html_e( 'install', 'site-blocks' ); ?></span>
+				<?php esc_html_e( 'Where We ', 'site-blocks' ); ?>
+				<span class="sg-accent"><?php esc_html_e( 'Install', 'site-blocks' ); ?></span>
 			</h2>
 			<p class="sg-section-intro sg-section-intro--center">
 				<?php esc_html_e( 'From a single door to multi-reader sites.', 'site-blocks' ); ?>
@@ -72,7 +72,7 @@ $sectors = array(
 
 		<aside class="sg-ac-repairs" aria-labelledby="sg-access-control-repairs-heading">
 			<h3 id="sg-access-control-repairs-heading" class="sg-ac-repairs__title">
-				<?php esc_html_e( 'Repairs, upgrades & takeovers', 'site-blocks' ); ?>
+				<?php esc_html_e( 'Repairs, Upgrades & Takeovers', 'site-blocks' ); ?>
 			</h3>
 			<p class="sg-ac-repairs__desc">
 				<?php esc_html_e( 'Already have access control? We service, expand and migrate existing systems, including reader replacements, controller upgrades and integration with your CCTV and alarms.', 'site-blocks' ); ?>

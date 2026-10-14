@@ -1,0 +1,30 @@
+/**
+ * Site-wide title case for headings and button labels.
+ *
+ * Every word in an H1-H6 or a button/CTA label starts with a capital letter.
+ * Body copy is deliberately not included.
+ *
+ * Specificity is kept as low as possible so a component that sets its own
+ * text-transform (e.g. an all-caps label) still wins. text-transform only
+ * changes how text is displayed; it never lowercases anything, so acronyms
+ * such as CCTV and NSW stay as written.
+ */
+
+/* Headings and class-based buttons: zero specificity. */
+:where(
+  h1, h2, h3, h4, h5, h6,
+  .sg-btn,
+  .wp-block-button__link,
+  .kb-button,
+  .button
+) {
+  text-transform: capitalize;
+}
+
+/* Native buttons: browsers/normalize set text-transform: none on the element
+   itself, so match that specificity and rely on load order. */
+button,
+input[type="submit"],
+input[type="button"] {
+  text-transform: capitalize;
+}

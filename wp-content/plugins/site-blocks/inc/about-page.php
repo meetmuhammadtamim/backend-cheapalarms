@@ -19,7 +19,7 @@ function site_blocks_render_about_page(): void {
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-footer.php';
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-sections.php';
 	require_once SITE_BLOCKS_DIR . 'inc/safeguard-contact-details.php';
-	require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+	require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 	$details = site_blocks_get_safeguard_contact_details();
 	$phone   = (string) $details['phone'];
@@ -28,14 +28,14 @@ function site_blocks_render_about_page(): void {
 	$sections = array(
 		array(
 			'id'    => 'who-we-are',
-			'title' => __( 'Who we are', 'site-blocks' ),
+			'title' => __( 'Who We Are', 'site-blocks' ),
 			'body'  => array(
 				__( 'Safeguard Security Services is an installation partner to a security integrator. We design, install, integrate and maintain electronic security systems.', 'site-blocks' ),
 			),
 		),
 		array(
 			'id'    => 'what-we-do',
-			'title' => __( 'What we do', 'site-blocks' ),
+			'title' => __( 'What We Do', 'site-blocks' ),
 			'body'  => array(
 				__( 'We install and integrate CCTV, alarms, access control and intercom systems. We also provide guarding, patrols, manpower and monitoring where that work is part of the agreed scope.', 'site-blocks' ),
 			),
@@ -56,7 +56,7 @@ function site_blocks_render_about_page(): void {
 		),
 		array(
 			'id'    => 'how-a-job-starts',
-			'title' => __( 'How a job starts', 'site-blocks' ),
+			'title' => __( 'How A Job Starts', 'site-blocks' ),
 			'body'  => array(
 				__( 'Request a quote for the site and what you need. A member of the team checks the details and confirms the scope before work begins.', 'site-blocks' ),
 			),
@@ -86,10 +86,10 @@ function site_blocks_render_about_page(): void {
 				<div class="sg-about-hero__actions">
 					<a class="sg-btn sg-btn--orange" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
 						<?php esc_html_e( 'Contact the team', 'site-blocks' ); ?>
-						<?php site_blocks_lucide_icon( 'arrow-right' ); ?>
+						<?php site_blocks_icon( 'arrow-right' ); ?>
 					</a>
 					<a class="sg-btn sg-btn--secondary" href="<?php echo esc_url( $phone_h ); ?>">
-						<?php site_blocks_lucide_icon( 'phone' ); ?>
+						<?php site_blocks_icon( 'phone' ); ?>
 						<?php
 						echo esc_html(
 							sprintf(
@@ -103,21 +103,21 @@ function site_blocks_render_about_page(): void {
 				</div>
 				<ul class="sg-about-hero__proof">
 					<li>
-						<span class="sg-about-hero__proof-icon"><?php site_blocks_lucide_icon( 'file-text' ); ?></span>
+						<span class="sg-about-hero__proof-icon"><?php site_blocks_icon( 'file-text' ); ?></span>
 						<span>
 							<span class="sg-about-hero__proof-label"><?php esc_html_e( 'Licence', 'site-blocks' ); ?></span>
 							<span class="sg-about-hero__proof-value"><?php esc_html_e( 'Master Licence #000103619', 'site-blocks' ); ?></span>
 						</span>
 					</li>
 					<li>
-						<span class="sg-about-hero__proof-icon"><?php site_blocks_lucide_icon( 'shield-check' ); ?></span>
+						<span class="sg-about-hero__proof-icon"><?php site_blocks_icon( 'shield-check' ); ?></span>
 						<span>
 							<span class="sg-about-hero__proof-label"><?php esc_html_e( 'Member', 'site-blocks' ); ?></span>
 							<span class="sg-about-hero__proof-value"><?php esc_html_e( 'ASIAL', 'site-blocks' ); ?></span>
 						</span>
 					</li>
 					<li>
-						<span class="sg-about-hero__proof-icon"><?php site_blocks_lucide_icon( 'users' ); ?></span>
+						<span class="sg-about-hero__proof-icon"><?php site_blocks_icon( 'users' ); ?></span>
 						<span>
 							<span class="sg-about-hero__proof-label"><?php esc_html_e( 'Experience', 'site-blocks' ); ?></span>
 							<span class="sg-about-hero__proof-value"><?php esc_html_e( '20+ years', 'site-blocks' ); ?></span>

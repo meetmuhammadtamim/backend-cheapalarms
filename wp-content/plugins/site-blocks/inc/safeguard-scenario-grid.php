@@ -11,24 +11,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once SITE_BLOCKS_DIR . 'inc/lucide-icons.php';
+require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 
 /**
  * Render a scenario icon or placeholder.
  *
  * @param string $icon_key        Icon key from card config.
  * @param bool   $use_brand_icons When false, always show placeholder.
- * @param bool   $use_lucide_icons Unused legacy param (Lucide is always used when icons are enabled).
+ * @param bool   $use_mdi_icons Unused legacy param (MDI is always used when icons are enabled).
  */
-function site_blocks_scenario_grid_render_icon( string $icon_key, bool $use_brand_icons, bool $use_lucide_icons = false ): void {
-	unset( $use_lucide_icons );
+function site_blocks_scenario_grid_render_icon( string $icon_key, bool $use_brand_icons, bool $use_mdi_icons = false ): void {
+	unset( $use_mdi_icons );
 
 	if ( ! $use_brand_icons || '' === $icon_key ) {
 		echo '<span class="sg-scenario-grid__icon-placeholder" aria-hidden="true"></span>';
 		return;
 	}
 
-	site_blocks_lucide_icon_from_legacy( $icon_key, 88 );
+	site_blocks_icon_from_legacy( $icon_key, 88 );
 }
 
 /**
@@ -70,7 +70,7 @@ function site_blocks_render_scenario_grid( ?array $config ): void {
 
 	$layout    = (string) ( $config['layout'] ?? 'default' );
 	$use_icons = ! empty( $config['use_brand_icons'] );
-	$use_lucide = ! empty( $config['use_lucide_icons'] );
+	$use_mdi = ! empty( $config['use_mdi_icons'] );
 	$banner    = $config['banner'] ?? null;
 	$photo     = $config['photo'] ?? null;
 	$card_count = count( $config['cards'] );
@@ -105,7 +105,7 @@ function site_blocks_render_scenario_grid( ?array $config ): void {
 					<?php foreach ( $config['cards'] as $card ) : ?>
 						<article class="sg-scenario-grid__card" role="listitem">
 							<div class="sg-scenario-grid__icon" aria-hidden="true">
-								<?php site_blocks_scenario_grid_render_icon( (string) ( $card['icon'] ?? '' ), $use_icons, $use_lucide ); ?>
+								<?php site_blocks_scenario_grid_render_icon( (string) ( $card['icon'] ?? '' ), $use_icons, $use_mdi ); ?>
 							</div>
 							<h3 class="sg-scenario-grid__card-title"><?php echo esc_html( (string) $card['title'] ); ?></h3>
 							<p class="sg-scenario-grid__card-desc"><?php echo esc_html( (string) $card['desc'] ); ?></p>

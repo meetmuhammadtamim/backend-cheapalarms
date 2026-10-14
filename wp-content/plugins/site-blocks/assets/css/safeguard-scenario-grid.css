@@ -179,7 +179,7 @@
   background: #fff;
 }
 
-.sg-scenario-grid__icon .sg-lucide-icon {
+.sg-scenario-grid__icon .sg-icon {
   display: block;
   width: var(--sg-icon-size, 2rem);
   height: var(--sg-icon-size, 2rem);
