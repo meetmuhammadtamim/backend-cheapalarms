@@ -79,15 +79,12 @@ function site_blocks_render_connected_section(): void {
 				<header class="sg-connected__intro" data-sg-stagger>
 					<h2 id="sg-connected-title" class="sg-connected__title" data-sg-reveal>
 						<?php esc_html_e( 'Your security systems should', 'site-blocks' ); ?>
-						<span class="sg-connected__accent"><?php esc_html_e( 'work together.', 'site-blocks' ); ?></span>
+						<span class="sg-connected__accent"><?php esc_html_e( 'work together', 'site-blocks' ); ?></span>
 					</h2>
 					<p class="sg-connected__lead" data-sg-reveal><?php esc_html_e( 'Bring your people, systems and sites together with a unified approach. When your security systems work as one, you get greater visibility, faster response and a safer, more efficient operation.', 'site-blocks' ); ?></p>
 				</header>
 
 				<div class="sg-connected__diagram">
-					<h3 class="sg-connected__col sg-connected__col--1" style="<?php echo esc_attr( site_blocks_connected_box( 14, 8, 300, 44 ) ); ?>"><?php esc_html_e( 'On site', 'site-blocks' ); ?></h3>
-					<h3 class="sg-connected__col sg-connected__col--2" style="<?php echo esc_attr( site_blocks_connected_box( 556, 8, 330, 44 ) ); ?>"><?php esc_html_e( 'Behind the scenes', 'site-blocks' ); ?></h3>
-					<h3 class="sg-connected__col sg-connected__col--3" style="<?php echo esc_attr( site_blocks_connected_box( 1090, 8, 300, 44 ) ); ?>"><?php esc_html_e( 'For your people', 'site-blocks' ); ?></h3>
 
 					<?php foreach ( $devices as $i => $device ) : ?>
 						<div class="sg-connected__node sg-connected__node--device" data-pipes="<?php echo esc_attr( (string) $device['pipes'] ); ?>" style="<?php echo esc_attr( site_blocks_connected_box( 12, (int) $device['y'], 311, 82 ) . ';--i:' . (int) $i ); ?>">
@@ -151,7 +148,7 @@ function site_blocks_render_connected_section(): void {
 				</div>
 
 				<div class="sg-connected__closing" data-sg-stagger>
-					<h3 class="sg-connected__closing-title" data-sg-reveal><?php esc_html_e( 'Complex behind the scenes. Clear in operation.', 'site-blocks' ); ?></h3>
+					<h3 class="sg-connected__closing-title" data-sg-reveal><?php esc_html_e( 'Complex behind the scenes. Clear in operation', 'site-blocks' ); ?></h3>
 					<p class="sg-connected__closing-text" data-sg-reveal><?php esc_html_e( 'We design, integrate and support security systems that work together, so you get a simpler, more effective way to protect your people, property and operations.', 'site-blocks' ); ?></p>
 				</div>
 			</div>

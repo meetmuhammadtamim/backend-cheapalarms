@@ -20,14 +20,14 @@ function site_blocks_render_coverage_section(): void {
 	$image    = site_blocks_asset_url( 'images/coverage/lobby-coverage-consultation.webp' );
 	$image_sm = site_blocks_asset_url( 'images/coverage/lobby-coverage-consultation-836.webp' );
 	?>
-		<section class="sg-coverage" aria-labelledby="sg-coverage-title">
+		<section class="sg-coverage" aria-labelledby="sg-coverage-title" data-sg-coverage>
 			<div class="sg-container sg-coverage__grid">
-				<div class="sg-coverage__copy" data-sg-stagger>
-					<h2 id="sg-coverage-title" class="sg-coverage__title" data-sg-reveal><?php esc_html_e( 'Good installations start before anyone drills a hole.', 'site-blocks' ); ?></h2>
-					<p class="sg-coverage__text" data-sg-reveal><?php esc_html_e( 'Before equipment is installed, the site, coverage requirements, infrastructure, recording needs, access points, and future changes all need to be considered. A better design reduces blind spots, unnecessary complexity, and expensive changes later.', 'site-blocks' ); ?></p>
+				<div class="sg-coverage__copy">
+					<h2 id="sg-coverage-title" class="sg-coverage__title"><?php esc_html_e( 'Good installations start before anyone drills a hole', 'site-blocks' ); ?></h2>
+					<p class="sg-coverage__text"><?php esc_html_e( 'Before equipment is installed, the site, coverage requirements, infrastructure, recording needs, access points, and future changes all need to be considered. A better design reduces blind spots, unnecessary complexity, and expensive changes later.', 'site-blocks' ); ?></p>
 				</div>
 
-				<div class="sg-coverage__media" data-sg-reveal="right">
+				<div class="sg-coverage__media">
 					<img
 						class="sg-coverage__img"
 						src="<?php echo esc_url( $image ); ?>"

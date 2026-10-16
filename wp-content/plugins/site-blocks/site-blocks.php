@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Site Blocks
  * Description: Server-rendered Gutenberg blocks, contact page, and security packages.
- * Version: 1.55.2
+ * Version: 1.55.69
  * Requires at least: 6.3
  * Requires PHP: 7.4
  * Author: Site Developer
@@ -17,16 +17,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SITE_BLOCKS_VERSION', '1.55.2' );
+define( 'SITE_BLOCKS_VERSION', '1.55.69' );
 define( 'SITE_BLOCKS_FILE', __FILE__ );
 define( 'SITE_BLOCKS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SITE_BLOCKS_URL', plugin_dir_url( __FILE__ ) );
 
 require_once SITE_BLOCKS_DIR . 'inc/asset-helpers.php';
+require_once SITE_BLOCKS_DIR . 'inc/heading-full-stops.php';
+require_once SITE_BLOCKS_DIR . 'inc/public-urls.php';
+require_once SITE_BLOCKS_DIR . 'inc/safeguard-blog-section.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-media-library.php';
 require_once SITE_BLOCKS_DIR . 'inc/mdi-icons.php';
 require_once SITE_BLOCKS_DIR . 'inc/register-blocks.php';
 require_once SITE_BLOCKS_DIR . 'inc/setup-pages.php';
+require_once SITE_BLOCKS_DIR . 'inc/turnstile.php';
 require_once SITE_BLOCKS_DIR . 'inc/form-handler.php';
 require_once SITE_BLOCKS_DIR . 'inc/cpt-security-package.php';
 require_once SITE_BLOCKS_DIR . 'inc/package-meta.php';
@@ -54,6 +58,8 @@ require_once SITE_BLOCKS_DIR . 'inc/cpt-enterprise-insight.php';
 require_once SITE_BLOCKS_DIR . 'inc/cpt-case-study.php';
 require_once SITE_BLOCKS_DIR . 'inc/article-template.php';
 require_once SITE_BLOCKS_DIR . 'inc/article-samples.php';
+require_once SITE_BLOCKS_DIR . 'inc/dummy-blog-posts.php';
+require_once SITE_BLOCKS_DIR . 'inc/performance.php';
 require_once SITE_BLOCKS_DIR . 'inc/enterprise-insight-templates.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-media.php';
 require_once SITE_BLOCKS_DIR . 'inc/safeguard-silo-setup.php';

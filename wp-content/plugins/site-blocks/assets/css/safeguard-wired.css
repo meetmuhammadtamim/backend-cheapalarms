@@ -1,0 +1,248 @@
+/* Safeguard homepage: "systems should work together" (scroll-built diagram).
+
+   From 900px the cards and the
+   pipeline SVG share one 1410 x 480 coordinate system, so lines stay attached
+   to cards at every width. Below 900px the diagram is hidden.
+
+   Motion is GSAP (safeguard-wired.js): the stage pins, scroll builds the
+   diagram (reversible), then signals loop and hovering a node lights its path.
+   This file holds layout and the lit/dim states only. */
+
+.sg-wired {
+  padding: 2.75rem 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .sg-wired {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Intro */
+.sg-wired__intro {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .sg-wired__intro {
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .sg-wired__intro {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+}
+
+.sg-wired .sg-wired__title {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.9rem, 3.7vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-wired .sg-wired__accent {
+  color: var(--sg-blue-bar);
+}
+
+.sg-wired .sg-wired__lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 960px) {
+  .sg-wired .sg-wired__lead {
+    padding-top: 0.35rem;
+    font-size: 1.0625rem;
+  }
+}
+
+/* Diagram: desktop only */
+.sg-wired__diagram {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .sg-wired__diagram {
+    position: relative;
+    display: block;
+    container-type: inline-size;
+    aspect-ratio: 1410 / 480;
+  }
+
+  .sg-wired .sg-wired__col,
+  .sg-wired__node {
+    position: absolute;
+    left: calc(var(--x) / 1410 * 100%);
+    top: calc(var(--y) / 480 * 100%);
+    width: calc(var(--w) / 1410 * 100%);
+    height: calc(var(--h) / 480 * 100%);
+    margin: 0;
+  }
+}
+
+.sg-wired .sg-wired__col {
+  display: flex;
+  align-items: center;
+  font-family: var(--sg-font-head);
+  font-size: 2cqw;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--sg-navy);
+}
+
+.sg-wired__node {
+  z-index: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 1.7cqw;
+  padding: 0 1.9cqw;
+  border-radius: var(--sg-radius);
+}
+
+.sg-wired__node--device {
+  border: 1px solid var(--sg-line);
+  background: #fff;
+  box-shadow: 0 0.5cqw 1.4cqw rgb(12 45 68 / 7%);
+  color: var(--sg-navy);
+}
+
+.sg-wired__node--core,
+.sg-wired__node--result {
+  background: var(--sg-navy);
+  color: #fff;
+}
+
+.sg-wired__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.sg-wired__icon .sg-icon {
+  width: 2.7cqw;
+  height: 2.7cqw;
+  color: inherit;
+}
+
+.sg-wired__label {
+  font-size: 1.45cqw;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Result card: icon above text, orange spark top right */
+.sg-wired__node--result {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.8cqw;
+  padding: 0 2.4cqw;
+}
+
+.sg-wired__node--result .sg-wired__label {
+  font-size: 1.5cqw;
+  line-height: 1.45;
+}
+
+.sg-wired__spark {
+  position: absolute;
+  top: 1.5cqw;
+  right: 1.5cqw;
+  width: 0.85cqw;
+  height: 0.85cqw;
+  border-radius: 50%;
+  background: var(--sg-orange);
+}
+
+/* Pipeline overlay */
+.sg-wired__pipes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sg-wired__pipe {
+  transition: stroke 0.25s ease, stroke-width 0.25s ease, stroke-opacity 0.25s ease;
+}
+
+/* Explore: hovering a node lights its path and dims the rest (classes are
+   toggled by safeguard-wired.js once the diagram has been built) */
+.sg-wired__pipe.is-lit {
+  stroke: var(--sg-orange);
+  stroke-width: 5;
+}
+
+.sg-wired__pipe.is-dim {
+  stroke-opacity: 0.2;
+}
+
+.sg-wired__node {
+  transition: filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sg-wired__node.is-dim {
+  filter: opacity(0.4);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sg-wired__diagram.is-explorable .sg-wired__node {
+    cursor: default;
+  }
+}
+
+/* Closing statement */
+.sg-wired__closing {
+  max-width: 54rem;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .sg-wired__closing {
+    margin-top: 3.5rem;
+  }
+}
+
+.sg-wired .sg-wired__closing-title {
+  margin: 0 0 0.9rem;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--sg-navy);
+}
+
+.sg-wired .sg-wired__closing-text {
+  margin: 0 auto;
+  max-width: 44rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sg-muted);
+}
+
+@media (min-width: 768px) {
+  .sg-wired .sg-wired__closing-text {
+    font-size: 1.0625rem;
+  }
+}

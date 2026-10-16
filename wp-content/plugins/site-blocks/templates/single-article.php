@@ -26,7 +26,7 @@ while ( have_posts() ) :
 	$minutes    = max( 1, (int) round( $words / 220 ) );
 	$content    = apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) );
 	$headings   = site_blocks_article_collect_headings( $content );
-	$archive    = $is_study ? get_post_type_archive_link( 'case_study' ) : get_permalink( (int) get_option( 'page_for_posts' ) );
+	$archive    = $is_study ? site_blocks_case_studies_url() : site_blocks_blog_url();
 	if ( ! is_string( $archive ) || '' === $archive ) {
 		$archive = $is_study ? home_url( '/case-studies/' ) : home_url( '/' );
 	}

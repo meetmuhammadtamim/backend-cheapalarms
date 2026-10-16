@@ -1,0 +1,418 @@
+/* Safeguard homepage: brands showcase.
+   One navy stage shows the selected brand (name, a line, a button, the product);
+   a row of logo tabs underneath switches it. All panels share one grid cell, so
+   the stage never changes height when the selection changes. Colours, fonts,
+   radius and container come from the site tokens. */
+
+.sg-brands-home {
+  padding: 2.75rem 0;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .sg-brands-home {
+    padding: 4.5rem 0;
+  }
+}
+
+/* Header */
+.sg-brands-home__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .sg-brands-home__head {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.sg-brands-home .sg-brands-home__title {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--sg-navy);
+}
+
+.sg-brands-home .sg-brands-home__lead {
+  max-width: 46ch;
+  margin: 0.75rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--sg-muted);
+}
+
+.sg-brands-home .sg-brands-home__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.35rem;
+  font-family: var(--sg-font-btn);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--sg-blue);
+}
+
+.sg-brands-home .sg-brands-home__more:hover,
+.sg-brands-home .sg-brands-home__more:focus-visible {
+  color: var(--sg-blue-dark);
+}
+
+.sg-brands-home__more .sg-icon {
+  flex-shrink: 0;
+}
+
+/* Stage */
+.sg-brands-home__stage {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--sg-radius);
+  background:
+    radial-gradient(60% 75% at 74% 50%, rgb(23 105 161 / 55%), rgb(23 105 161 / 0%) 70%),
+    linear-gradient(135deg, #0c2d44 0%, #0e3552 60%, #124e7a 130%);
+  color: #fff;
+  container-type: inline-size;
+}
+
+/* Panels share one grid cell; the inactive ones are hidden, not removed. */
+.sg-brands-home__panel {
+  position: relative;
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  opacity: 0;
+  visibility: hidden;
+  isolation: isolate;
+}
+
+.sg-brands-home__panel.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 760px) {
+  .sg-brands-home__panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 2rem;
+    min-height: 25rem;
+  }
+}
+
+/* The brand name, large and faint, behind the product. */
+.sg-brands-home__mark {
+  position: absolute;
+  right: 2.5cqw;
+  bottom: 1.5cqw;
+  z-index: -1;
+  font-family: var(--sg-font-head);
+  font-size: 11cqw; /* the markup sets a smaller size for long names */
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgb(255 255 255 / 6%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.sg-brands-home__copy {
+  min-width: 0;
+}
+
+.sg-brands-home .sg-brands-home__name {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.sg-brands-home .sg-brands-home__summary {
+  max-width: 34ch;
+  margin: 0.85rem 0 1.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: rgb(255 255 255 / 82%);
+}
+
+/* Product */
+.sg-brands-home__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: clamp(13rem, 34vw, 21rem);
+}
+
+.sg-brands-home__img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgb(0 0 0 / 28%));
+}
+
+/* A product photo with its own dark background: feather its edges into the
+   stage so no rectangle shows. */
+.sg-brands-home__panel--photo .sg-brands-home__img {
+  filter: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 58%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 58%, transparent 100%);
+}
+
+/* Mobile: product above the copy */
+@media (max-width: 759px) {
+  .sg-brands-home__visual {
+    order: -1;
+  }
+}
+
+/* Previous / next arrows over the product, small screens only (the logo row
+   is a sideways scroller there and shows just a few brands at a time). */
+.sg-brands-home__nav {
+  position: absolute;
+  top: calc(clamp(1.5rem, 4vw, 3rem) + clamp(13rem, 34vw, 21rem) / 2);
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 3px 8px -3px rgb(0 0 0 / 35%);
+  color: var(--sg-navy);
+  cursor: pointer;
+  transform: translateY(-50%);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sg-brands-home__nav--prev {
+  left: 0.75rem;
+}
+
+.sg-brands-home__nav--next {
+  right: 0.75rem;
+}
+
+/* The theme restyles button hover/focus; keep these white. */
+.sg-brands-home .sg-brands-home__nav,
+.sg-brands-home .sg-brands-home__nav:hover,
+.sg-brands-home .sg-brands-home__nav:focus,
+.sg-brands-home .sg-brands-home__nav:active {
+  background: rgb(255 255 255 / 94%);
+  color: var(--sg-navy);
+}
+
+.sg-brands-home .sg-brands-home__nav:focus-visible {
+  outline: 3px solid var(--sg-orange);
+  outline-offset: 2px;
+}
+
+@media (max-width: 759px) {
+  .sg-brands-home__nav {
+    display: inline-flex;
+  }
+
+  /* Sideways swipes change the brand; vertical scrolling still works. */
+  .sg-brands-home__stage {
+    touch-action: pan-y;
+  }
+}
+
+/* Tabs */
+.sg-brands-home__tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding: 2px 2px 6px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.sg-brands-home__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.sg-brands-home__tabcell {
+  flex: 0 0 8.5rem;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* Tablet: all six logos fit as a grid, no scrolling needed. */
+@media (min-width: 560px) and (max-width: 899px) {
+  .sg-brands-home__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .sg-brands-home__tabcell {
+    flex: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .sg-brands-home__tabs {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .sg-brands-home__tabcell {
+    flex: none;
+  }
+}
+
+.sg-brands-home .sg-brands-home__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 4.25rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(12 45 68 / 10%);
+  border-radius: var(--sg-radius);
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(12 45 68 / 4%);
+  cursor: pointer;
+  font: inherit;
+  color: var(--sg-navy);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sg-brands-home__logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 2.4rem;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.sg-brands-home__logo-name {
+  font-family: var(--sg-font-head);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.sg-brands-home .sg-brands-home__tab.is-active {
+  border-color: var(--sg-blue);
+  box-shadow: 0 1px 1px rgb(12 45 68 / 5%), 0 4px 10px -4px rgb(12 45 68 / 18%);
+}
+
+.sg-brands-home__tab.is-active .sg-brands-home__logo {
+  filter: none;
+  opacity: 1;
+}
+
+/* Active marker: an orange bar along the foot of the tab. */
+.sg-brands-home__tab::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  bottom: -1px;
+  left: 1rem;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--sg-grad-orange);
+  transform: scaleX(0);
+}
+
+.sg-brands-home__tab.is-active::after {
+  transform: none;
+}
+
+.sg-brands-home .sg-brands-home__tab:focus-visible {
+  outline: 3px solid var(--sg-orange);
+  outline-offset: 2px;
+}
+
+/* Motion: the stage swap and the tab feedback. Hover is pointer-only. */
+@media (prefers-reduced-motion: no-preference) {
+  .sg-brands-home__panel {
+    transition: opacity 0.4s ease-out, visibility 0s linear 0.4s;
+  }
+
+  .sg-brands-home__panel.is-active {
+    transition: opacity 0.4s ease-out, visibility 0s;
+  }
+
+  .sg-brands-home__copy {
+    transform: translateY(10px);
+  }
+
+  .sg-brands-home__visual {
+    transform: translateX(28px) scale(0.97);
+  }
+
+  .sg-brands-home__mark {
+    transform: translateX(24px);
+  }
+
+  .sg-brands-home__panel.is-active .sg-brands-home__copy,
+  .sg-brands-home__panel.is-active .sg-brands-home__visual,
+  .sg-brands-home__panel.is-active .sg-brands-home__mark {
+    transform: none;
+    transition: transform 0.6s var(--sg-ease);
+  }
+
+  .sg-brands-home__panel.is-active .sg-brands-home__copy {
+    transition-delay: 0.05s;
+  }
+
+  .sg-brands-home__tab {
+    transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  }
+
+  .sg-brands-home__logo {
+    transition: filter 0.25s ease-out, opacity 0.25s ease-out;
+  }
+
+  .sg-brands-home__tab::after {
+    transition: transform 0.25s ease-out;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sg-brands-home .sg-brands-home__tab:not(.is-active):hover {
+    border-color: rgb(23 105 161 / 45%);
+  }
+
+  .sg-brands-home__tab:hover .sg-brands-home__logo {
+    filter: none;
+    opacity: 1;
+  }
+}

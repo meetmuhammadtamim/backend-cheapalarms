@@ -1,0 +1,192 @@
+/* Safeguard live chat: dashboard "Chats" screen. */
+
+.slc-admin .slc-muted {
+  color: #646970;
+}
+
+.slc-admin .slc-snippet {
+  display: block;
+  max-width: 34rem;
+  color: #1d2327;
+}
+
+.slc-admin .column-visitor {
+  width: 18rem;
+}
+
+.slc-admin .column-status {
+  width: 11rem;
+}
+
+.slc-admin .column-messages {
+  width: 5.5rem;
+}
+
+.slc-admin .column-updated {
+  width: 11rem;
+}
+
+/* Status pills */
+.slc-pill {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.slc-pill--waiting_agent {
+  border-color: #f0b849;
+  background: #fcf9e8;
+  color: #6e4e00;
+}
+
+.slc-pill--agent_active {
+  border-color: #72aee6;
+  background: #f0f6fc;
+  color: #0a4b78;
+}
+
+.slc-pill--resolved {
+  border-color: #68de7c;
+  background: #edfaef;
+  color: #0a5c1f;
+}
+
+.slc-pill--timed_out {
+  border-color: #c3c4c7;
+  background: #f6f7f7;
+  color: #50575e;
+}
+
+/* Detail screen */
+.slc-back {
+  text-decoration: none;
+}
+
+.slc-detail {
+  display: grid;
+  grid-template-columns: 20rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  max-width: 70rem;
+}
+
+@media (max-width: 960px) {
+  .slc-detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.slc-card {
+  padding: 1rem 1.25rem 1.25rem;
+  border: 1px solid #c3c4c7;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.slc-card h2 {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  font-size: 14px;
+}
+
+.slc-visitor dl {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 0.55rem 0.75rem;
+  margin: 0;
+}
+
+.slc-visitor dt {
+  color: #646970;
+}
+
+.slc-visitor dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.slc-visitor__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+}
+
+/* Transcript */
+.slc-transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.slc-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 75%;
+}
+
+.slc-msg__who {
+  font-size: 12px;
+  font-weight: 600;
+  color: #50575e;
+}
+
+.slc-msg__bubble {
+  padding: 0.6rem 0.85rem;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.slc-msg__time {
+  font-size: 11px;
+  color: #787c82;
+}
+
+.slc-msg--visitor {
+  align-self: flex-start;
+}
+
+.slc-msg--visitor .slc-msg__bubble {
+  border: 1px solid #dcdcde;
+  border-bottom-left-radius: 4px;
+  background: #fff;
+  color: #1d2327;
+}
+
+.slc-msg--team {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.slc-msg--team .slc-msg__bubble {
+  border-bottom-right-radius: 4px;
+  background: #1769a1;
+  color: #fff;
+}
+
+.slc-msg--system {
+  align-self: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+.slc-msg--system .slc-msg__bubble {
+  padding: 0.15rem 0.5rem;
+  background: transparent;
+  color: #646970;
+  font-size: 12px;
+  text-align: center;
+}
+
+.slc-empty {
+  color: #646970;
+}

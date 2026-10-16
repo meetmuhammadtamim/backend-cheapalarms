@@ -88,7 +88,7 @@ class Slc_Rest
         $this->store->attachGhlContact((int) $row['id'], (string) $linked['id'], !empty($linked['existing']));
         $row = $this->store->findById((int) $row['id']) ?? $row;
 
-        $alertId = $this->telegram->notifyStaff($row);
+        $alertId = $this->telegram->notifyStaff($row, $message);
         if ($alertId === null) {
             return $this->error('Could not reach the team. Please call 1300 225 276.', 502);
         }
@@ -98,7 +98,7 @@ class Slc_Rest
             'ok'         => true,
             'sessionKey' => (string) $row['session_key'],
             'status'     => (string) $row['status'],
-            'reply'      => 'Thanks. Stay on this chat and someone from the team will reply.',
+            'reply'      => 'Thanks, your message has been sent. Please keep this chat open and a member of our team will reply here. If you don\'t hear back within 10 minutes, we will reply by email within 24 hours.',
         ]);
     }
 
@@ -318,7 +318,7 @@ class Slc_Rest
         $agentId = (int) ($from['id'] ?? 0);
         $result = $this->store->claim($conversationId, [
             'id'       => $agentId,
-            'name'     => $name !== '' ? $name : ($username !== '' ? $username : 'Agent'),
+            'name'     => $name !== '' ? $name : $username,
             'username' => $username,
         ]);
         if (is_wp_error($result)) {

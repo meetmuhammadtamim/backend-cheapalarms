@@ -121,16 +121,60 @@
   border-radius: var(--sg-radius);
 }
 
+/* Device cards: a crisp edge and a tight, low two-layer shadow (a hairline
+   contact shadow plus a short soft one). No wide blurry halo. */
 .sg-connected__node--device {
   border: 1px solid var(--sg-line);
   background: #fff;
-  box-shadow: 0 0.5cqw 1.4cqw rgb(12 45 68 / 7%);
+  box-shadow:
+    0 1px 1px rgb(12 45 68 / 5%),
+    0 3px 8px -3px rgb(12 45 68 / 12%);
   color: var(--sg-navy);
 }
 
 .sg-connected__node--core,
 .sg-connected__node--result {
   background: var(--sg-navy);
+  color: #fff;
+}
+
+/* Icon tiles. The four device cards carry a blue-gradient tile; the two
+   infrastructure cards carry an orange-gradient tile. Icons are white. The
+   tiles are small and their shadows tight, so nothing reads as a glow. */
+.sg-connected__node--device {
+  padding-left: 1.1cqw;
+}
+
+.sg-connected__node--core {
+  padding-left: 1.4cqw;
+}
+
+.sg-connected__node--device .sg-connected__icon,
+.sg-connected__node--core .sg-connected__icon,
+.sg-connected__node--result .sg-connected__icon {
+  align-items: center;
+  justify-content: center;
+  width: 4.1cqw;
+  height: 4.1cqw;
+  border-radius: 0.9cqw;
+}
+
+.sg-connected__node--device .sg-connected__icon {
+  background: var(--sg-grad-blue);
+  box-shadow: 0 2px 6px -2px rgb(23 105 161 / 45%);
+}
+
+.sg-connected__node--core .sg-connected__icon,
+.sg-connected__node--result .sg-connected__icon {
+  background: var(--sg-grad-orange);
+  box-shadow: 0 2px 6px -2px rgb(251 117 35 / 50%);
+}
+
+.sg-connected__node--device .sg-connected__icon .sg-icon,
+.sg-connected__node--core .sg-connected__icon .sg-icon,
+.sg-connected__node--result .sg-connected__icon .sg-icon {
+  width: 2.3cqw;
+  height: 2.3cqw;
   color: #fff;
 }
 
@@ -204,7 +248,10 @@
 
   .sg-connected__node--device:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0.7cqw 1.8cqw rgb(12 45 68 / 11%);
+    border-color: rgb(23 105 161 / 40%);
+    box-shadow:
+      0 1px 2px rgb(12 45 68 / 6%),
+      0 6px 14px -4px rgb(12 45 68 / 16%);
   }
 
   .sg-connected__diagram:has([data-pipes~="1"]:hover) .sg-connected__pipe--1,

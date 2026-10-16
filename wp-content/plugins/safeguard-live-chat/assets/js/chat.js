@@ -52,13 +52,14 @@ function sgLiveChatBoot() {
     var box = document.createElement("form");
     box.className = "sg-chat__lead";
     box.innerHTML =
-      '<p class="sg-chat__msg sg-chat__msg--system">Leave your details and a message. A person on our team replies in this chat.</p>' +
+      '<p class="sg-chat__intro">Leave your details and a message, and a member of our team will reply here in this chat.</p>' +
+      '<p class="sg-chat__note">If you don\'t hear back within 10 minutes, we will reply by email within 24 hours.</p>' +
       '<label class="sg-chat__field">Name<input class="sg-chat__field-input" name="name" required maxlength="120" autocomplete="name"></label>' +
       '<label class="sg-chat__field">Email<input class="sg-chat__field-input" name="email" type="email" required maxlength="190" autocomplete="email"></label>' +
       '<label class="sg-chat__field">Phone<input class="sg-chat__field-input" name="phone" required maxlength="40" autocomplete="tel"></label>' +
       '<label class="sg-chat__field">Message<textarea class="sg-chat__field-input" name="message" required maxlength="2000" rows="3"></textarea></label>' +
-      '<button class="sg-chat__lead-submit" type="submit">Send to the team</button>' +
-      '<p class="sg-chat__msg sg-chat__msg--system" data-error hidden></p>';
+      '<button class="sg-chat__lead-submit" type="submit">Send Message</button>' +
+      '<p class="sg-chat__error" data-error hidden></p>';
     box.addEventListener("submit", onStart);
     log.appendChild(box);
     setComposer(false);
@@ -90,7 +91,7 @@ function sgLiveChatBoot() {
         window.sessionStorage.setItem(storageKey, JSON.stringify(session));
         log.innerHTML = "";
         addMsg("user", String(data.get("message") || ""));
-        addMsg("system", result.body.reply || "Thanks. Someone will reply here.");
+        addMsg("system", result.body.reply || "Thanks, your message has been sent. A member of our team will reply here.");
         setComposer(true);
         startPoll();
       })
@@ -135,6 +136,30 @@ function sgLiveChatBoot() {
       .catch(function () {});
   }
 
+  // The message box grows with the text (up to its CSS max-height).
+  function autosize() {
+    input.style.height = "auto";
+    input.style.height = input.scrollHeight + "px";
+  }
+
+  input.addEventListener("input", autosize);
+
+  // Enter sends the message. Shift+Enter adds a new line.
+  input.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter" || event.shiftKey || event.isComposing) {
+      return;
+    }
+    event.preventDefault();
+    if (!input.value.trim()) {
+      return;
+    }
+    if (typeof form.requestSubmit === "function") {
+      form.requestSubmit();
+    } else {
+      form.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+    }
+  });
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!session || !session.key) {
@@ -157,6 +182,7 @@ function sgLiveChatBoot() {
         }
         addMsg("user", text);
         input.value = "";
+        autosize();
       })
       .catch(function (err) {
         addMsg("system", err.message || "Message was not sent. Please call 1300 225 276.");

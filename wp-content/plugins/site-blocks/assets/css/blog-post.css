@@ -373,7 +373,7 @@ body.admin-bar .sg-header {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1rem;
-  background: var(--sg-orange);
+  background: var(--sg-grad-orange);
   color: #fff;
   font-weight: 700;
   text-decoration: none;
@@ -389,7 +389,7 @@ body.admin-bar .sg-header {
 }
 
 .sg-blog__banner-btn:hover {
-  background: var(--sg-orange-deep);
+  background: var(--sg-grad-orange-hover);
 }
 
 .sg-blog__rail {

@@ -286,6 +286,10 @@
   color: #c0392b;
 }
 
+.sg-contact-form__turnstile {
+  min-height: 65px;
+}
+
 .sg-contact-form__actions {
   padding-top: 0.25rem;
 }

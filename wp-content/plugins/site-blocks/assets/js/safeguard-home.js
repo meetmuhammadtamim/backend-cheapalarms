@@ -230,7 +230,12 @@
   }
 
   function updateMobileBar() {
-    if (!mobileBar || window.innerWidth >= 768) {
+    // Article and archive templates have no mobile bar; do nothing there.
+    if (!mobileBar) {
+      return;
+    }
+
+    if (window.innerWidth >= 768) {
       mobileBar.classList.remove('is-visible');
       mobileBar.setAttribute('aria-hidden', 'true');
       return;

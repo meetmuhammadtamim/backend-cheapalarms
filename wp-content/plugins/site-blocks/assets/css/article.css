@@ -231,7 +231,7 @@
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.8rem 1.1rem;
-  background: var(--sg-orange, #fb7523);
+  background: var(--sg-grad-orange, linear-gradient(135deg, #FF9446 0%, #FB7523 50%, #EC5E10 100%));
   color: #fff;
   font-weight: 600;
   text-decoration: none;

@@ -55,16 +55,24 @@ function site_blocks_get_details_scenes(): array {
 function site_blocks_render_details_section(): void {
 	$scenes = site_blocks_get_details_scenes();
 	?>
-		<section class="sg-details" aria-labelledby="sg-details-title">
+		<section class="sg-details" aria-labelledby="sg-details-title" data-sg-details>
 			<div class="sg-container">
 				<header class="sg-details__intro">
-					<h2 id="sg-details-title" class="sg-details__title" data-sg-reveal><?php esc_html_e( 'A security system is only as good as the details behind it.', 'site-blocks' ); ?></h2>
-					<p class="sg-details__lead" data-sg-reveal><?php esc_html_e( 'A camera in the wrong position, an alarm that does not communicate properly, or a poorly organised network can create a false sense of security. Safeguard looks at the complete system, not just the equipment, to make sure the technology, installation, and operation work together.', 'site-blocks' ); ?></p>
+					<h2 id="sg-details-title" class="sg-details__title" data-sg-reveal><?php esc_html_e( 'A security system is only as good as the details behind it', 'site-blocks' ); ?></h2>
+					<p class="sg-details__lead" data-sg-reveal>
+							<?php
+							printf(
+								/* translators: %s: the emphasised phrase, wrapped in markup */
+								esc_html__( 'A camera in the wrong position, an alarm that does not communicate properly, or a poorly organised network can create a false sense of security. Safeguard looks at the complete system, %s, to make sure the technology, installation, and operation work together.', 'site-blocks' ),
+								'<span class="sg-details__mark" data-sg-mark>' . esc_html__( 'not just the equipment', 'site-blocks' ) . '</span>'
+							);
+							?>
+						</p>
 				</header>
 
-				<ul class="sg-details__grid" role="list" data-sg-stagger>
+				<ul class="sg-details__grid" role="list">
 					<?php foreach ( $scenes as $scene ) : ?>
-						<li class="sg-details__item" data-sg-reveal>
+						<li class="sg-details__item">
 							<div class="sg-details__art">
 								<img
 									class="sg-details__img"

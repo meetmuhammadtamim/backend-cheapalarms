@@ -59,12 +59,21 @@
 .sg-logo-marquee__track {
   display: flex;
   align-items: center;
-  gap: clamp(2rem, 5vw, 3.5rem);
   width: max-content;
   margin: 0;
   padding: 0.35rem 0;
   list-style: none;
+  /* The set is repeated 4 times and the track slides exactly one set (25%), then
+     restarts on an identical frame, so the loop has no visible jump. Spacing is
+     margin on each item (not flex gap) so every copy is exactly the same width. */
   animation: sg-logo-marquee-scroll 55s linear infinite;
+  will-change: transform;
+}
+
+/* Let people stop it to look at a logo (WCAG 2.2.2). */
+.sg-logo-marquee__viewport:hover .sg-logo-marquee__track,
+.sg-logo-marquee__viewport:focus-within .sg-logo-marquee__track {
+  animation-play-state: paused;
 }
 
 .sg-logo-marquee__item {
@@ -76,6 +85,7 @@
   max-width: 10rem;
   height: 3.5rem;
   padding-inline: 0.5rem;
+  margin-inline-end: clamp(2rem, 5vw, 3.5rem);
 }
 
 .sg-logo-marquee__logo {
@@ -103,7 +113,7 @@
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 
@@ -120,6 +130,11 @@
     width: auto;
     padding-inline: var(--sg-gutter, 1.25rem);
   }
+
+  /* Without the animation, the repeated copies are just clutter. */
+  .sg-logo-marquee__item[aria-hidden="true"] {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -131,5 +146,65 @@
 
   .sg-logo-marquee__logo {
     max-height: 2.25rem;
+  }
+}
+
+/* ---- Home variant: "Clients Portfolio" directly under the hero ----
+   A clean heading, then the logos in full colour on white, each in a tile of
+   the same height so they read as one set. The tiles have no border and no
+   shadow. Only the homepage uses this variant. */
+.sg-logo-marquee--home {
+  padding-block: clamp(2.25rem, 4vw, 3.25rem) 0.5rem;
+  border-block: 0;
+  background: #fff;
+}
+
+.sg-logo-marquee--home .sg-logo-marquee__head {
+  margin-bottom: 1.6rem;
+}
+
+.sg-logo-marquee--home .sg-logo-marquee__title {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+.sg-logo-marquee--home .sg-logo-marquee__viewport {
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.sg-logo-marquee--home .sg-logo-marquee__track {
+  padding: 0.5rem 0;
+  animation-duration: 60s;
+}
+
+.sg-logo-marquee--home .sg-logo-marquee__item {
+  min-width: 8.5rem;
+  max-width: none;
+  height: 4.5rem;
+  margin-inline-end: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: 0;
+  border-radius: var(--sg-radius, 12px);
+  background: #fff;
+  box-shadow: none;
+}
+
+.sg-logo-marquee--home .sg-logo-marquee__logo {
+  max-height: 2.6rem;
+  filter: none;
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .sg-logo-marquee--home .sg-logo-marquee__item {
+    min-width: 7rem;
+    height: 3.75rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .sg-logo-marquee--home .sg-logo-marquee__logo {
+    max-height: 2.1rem;
   }
 }

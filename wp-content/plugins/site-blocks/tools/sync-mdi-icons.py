@@ -32,7 +32,7 @@ MAP = {
     "hard-hat": "hard-hat", "car": "car-outline", "building-2": "office-building-outline",
     "store": "store-outline", "building": "domain", "briefcase": "briefcase-outline",
     "heart-pulse": "heart-pulse", "chevron-right": "chevron-right", "chevron-down": "chevron-down",
-    "chevron-left": "chevron-left", "arrow-right": "arrow-right", "wifi": "wifi", "cloud": "cloud-outline",
+    "chevron-left": "chevron-left", "arrow-right": "arrow-right", "arrow-top-right": "arrow-top-right", "wifi": "wifi", "cloud": "cloud-outline",
     "layout-grid": "view-grid-outline", "cable": "cable-data", "cpu": "chip", "radio": "antenna",
     "circle-dollar-sign": "currency-usd", "user-cog": "account-cog-outline",
     "lock": "lock-outline", "key": "key-outline", "mic": "microphone-outline", "map": "map-outline",

@@ -116,7 +116,7 @@ class Slc_Telegram
     /**
      * @param array<string, mixed> $row
      */
-    public function notifyStaff(array $row): ?int
+    public function notifyStaff(array $row, string $opening = ''): ?int
     {
         if (!$this->isConfigured()) {
             return null;
@@ -144,6 +144,15 @@ class Slc_Telegram
         $meta = json_decode((string) ($row['meta_json'] ?? ''), true);
         if (is_array($meta) && !empty($meta['ghlContactId'])) {
             $lines[] = '<b>GoHighLevel:</b> ' . (!empty($meta['ghlExisting']) ? 'existing contact' : 'new contact');
+        }
+        $opening = trim($opening);
+        if ($opening !== '') {
+            if (strlen($opening) > 1000) {
+                $opening = substr($opening, 0, 997) . '...';
+            }
+            $lines[] = '';
+            $lines[] = '<b>Message:</b>';
+            $lines[] = $this->h($opening);
         }
         $lines[] = '';
         $lines[] = 'Tap Claim chat. Then reply in this private chat with the bot.';

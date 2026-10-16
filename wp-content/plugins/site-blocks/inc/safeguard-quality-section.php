@@ -28,7 +28,7 @@ function site_blocks_render_quality_section(): void {
 		<section class="sg-quality" aria-labelledby="sg-quality-title">
 			<div class="sg-container sg-quality__grid">
 				<div class="sg-quality__copy" data-sg-stagger>
-					<h2 id="sg-quality-title" class="sg-quality__title" data-sg-reveal><?php esc_html_e( 'We care about the parts most people never see.', 'site-blocks' ); ?></h2>
+					<h2 id="sg-quality-title" class="sg-quality__title" data-sg-reveal><?php esc_html_e( 'We care about the parts most people never see', 'site-blocks' ); ?></h2>
 					<p class="sg-quality__text" data-sg-reveal><?php esc_html_e( 'The finished camera may be the visible part of an installation, but the quality is often decided behind the walls, inside the cabinet, and at the connection points. We aim for clean cable paths, organised equipment, labelled connections, and installations that are easier to understand, maintain, and expand.', 'site-blocks' ); ?></p>
 					<ul class="sg-quality__list" role="list">
 						<?php foreach ( $points as $point ) : ?>

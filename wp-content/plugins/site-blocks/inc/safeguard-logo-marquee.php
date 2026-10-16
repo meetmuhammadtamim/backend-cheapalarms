@@ -153,8 +153,13 @@ function site_blocks_render_logo_marquee( array $args = array() ): void {
 
 		<div class="sg-logo-marquee__viewport" tabindex="0" role="region" aria-label="<?php echo esc_attr( (string) $args['title'] ); ?>">
 			<ul class="sg-logo-marquee__track" role="list">
-				<?php $render_items( $visible, false ); ?>
-				<?php $render_items( $visible, true ); ?>
+				<?php
+				// Four copies, so one copy slid off still leaves the strip full on wide screens.
+				$render_items( $visible, false );
+				for ( $copy = 0; $copy < 3; $copy++ ) {
+					$render_items( $visible, true );
+				}
+				?>
 			</ul>
 		</div>
 	</section>

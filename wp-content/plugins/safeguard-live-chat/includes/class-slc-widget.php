@@ -50,16 +50,16 @@ class Slc_Widget
         <div class="sg-chat" id="sg-chat">
             <div class="sg-chat__panel" id="sg-chat-panel" role="dialog" aria-modal="true" aria-labelledby="sg-chat-title" aria-hidden="true">
                 <header class="sg-chat__head">
+                    <span class="sg-chat__badge" aria-hidden="true"><?php self::icon('headset', 22); ?></span>
                     <div class="sg-chat__head-text">
-                        <p class="sg-chat__eyebrow"><?php esc_html_e('Safeguard', 'safeguard-live-chat'); ?></p>
-                        <h2 class="sg-chat__title" id="sg-chat-title"><?php esc_html_e('Message our team', 'safeguard-live-chat'); ?></h2>
+                        <h2 class="sg-chat__title" id="sg-chat-title"><?php esc_html_e('Message Our Team', 'safeguard-live-chat'); ?></h2>
                     </div>
                     <div class="sg-chat__head-actions">
                         <button type="button" class="sg-chat__new" id="sg-chat-new" aria-label="<?php esc_attr_e('Start a new chat', 'safeguard-live-chat'); ?>">
                             <?php esc_html_e('New chat', 'safeguard-live-chat'); ?>
                         </button>
                         <button type="button" class="sg-chat__close" id="sg-chat-close" aria-label="<?php esc_attr_e('Close chat', 'safeguard-live-chat'); ?>">
-                            <?php self::icon('x'); ?>
+                            <?php self::icon('x', 20); ?>
                         </button>
                     </div>
                 </header>
@@ -76,16 +76,16 @@ class Slc_Widget
                         autocomplete="off"
                     ></textarea>
                     <button type="submit" class="sg-chat__send" id="sg-chat-send" aria-label="<?php esc_attr_e('Send message', 'safeguard-live-chat'); ?>">
-                        <?php self::icon('send'); ?>
+                        <?php self::icon('send', 20); ?>
                     </button>
                 </form>
             </div>
             <button type="button" class="sg-chat__toggle" id="sg-chat-toggle" aria-expanded="false" aria-controls="sg-chat-panel">
                 <span class="sg-chat__toggle-icon sg-chat__toggle-icon--open" aria-hidden="true">
-                    <?php self::icon('message-circle'); ?>
+                    <?php self::icon('message-circle', 26); ?>
                 </span>
                 <span class="sg-chat__toggle-icon sg-chat__toggle-icon--close" aria-hidden="true">
-                    <?php self::icon('x'); ?>
+                    <?php self::icon('x', 24); ?>
                 </span>
                 <span class="sg-chat__toggle-label"><?php esc_html_e('Chat', 'safeguard-live-chat'); ?></span>
             </button>
@@ -116,12 +116,13 @@ class Slc_Widget
     /**
      * Material Design Icons (https://pictogrammers.com/library/mdi/), single filled paths.
      */
-    private static function icon(string $name): void
+    private static function icon(string $name, int $size = 20): void
     {
         $paths = [
             'x'              => 'M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z', // mdi:close
             'send'           => 'm4 6.03l7.5 3.22l-7.5-1zm7.5 8.72L4 17.97v-2.22zM2 3v7l15 2l-15 2v7l21-9z', // mdi:send-outline
-            'message-circle' => 'M12 3C6.5 3 2 6.58 2 11a7.22 7.22 0 0 0 2.75 5.5c0 .6-.42 2.17-2.75 4.5c2.37-.11 4.64-1 6.47-2.5c1.14.33 2.34.5 3.53.5c5.5 0 10-3.58 10-8s-4.5-8-10-8m0 14c-4.42 0-8-2.69-8-6s3.58-6 8-6s8 2.69 8 6s-3.58 6-8 6', // mdi:chat-outline
+            'message-circle' => 'M12,3C6.5,3 2,6.58 2,11C2.05,13.15 3.06,15.17 4.75,16.5C4.75,17.1 4.33,18.67 2,21C4.37,20.89 6.64,20 8.47,18.5C9.61,18.83 10.81,19 12,19C17.5,19 22,15.42 22,11C22,6.58 17.5,3 12,3Z', // mdi:chat
+            'headset'        => 'M12,1C7,1 3,5 3,10V17A3,3 0 0,0 6,20H9V12H5V10A7,7 0 0,1 12,3A7,7 0 0,1 19,10V12H15V20H19V21H12V23H18A3,3 0 0,0 21,20V10C21,5 16.97,1 12,1Z', // mdi:headset
         ];
 
         if (!isset($paths[$name])) {
@@ -129,8 +130,9 @@ class Slc_Widget
         }
 
         printf(
-            '<svg class="sg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="%s"/></svg>',
-            esc_attr($paths[$name])
+            '<svg class="sg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="%2$d" height="%2$d" fill="currentColor" aria-hidden="true" focusable="false"><path d="%1$s"/></svg>',
+            esc_attr($paths[$name]),
+            $size
         );
     }
 }

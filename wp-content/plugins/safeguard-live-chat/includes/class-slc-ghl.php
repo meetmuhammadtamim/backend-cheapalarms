@@ -88,6 +88,126 @@ class Slc_Ghl
     }
 
     /**
+     * Save a website enquiry on a GoHighLevel contact.
+     * A matching email is reused. The message is added as a note either way.
+     */
+    public function saveEnquiry(string $name, string $email, string $subject, string $message): bool
+    {
+        if (!$this->isConfigured()) {
+            return false;
+        }
+
+        $email = strtolower(trim($email));
+        $name = trim($name);
+        $subject = trim($subject);
+        $message = trim($message);
+        if ($name === '' || $email === '' || !is_email($email) || $message === '') {
+            return false;
+        }
+        if (strlen($message) > 3500) {
+            $message = substr($message, 0, 3497) . '...';
+        }
+
+        $id = $this->findByEmail($email);
+        if ($id === '') {
+            $id = $this->createEnquiryContact($name, $email);
+        }
+        if ($id === '') {
+            return false;
+        }
+
+        $lines = [
+            'Website contact form',
+            '',
+            'Name: ' . $name,
+            'Email: ' . $email,
+        ];
+        if ($subject !== '') {
+            $lines[] = 'Subject: ' . $subject;
+        }
+        $lines[] = '';
+        $lines[] = $message;
+
+        $note = [
+            'body'      => implode("\n", $lines),
+            'contactId' => $id,
+        ];
+        $noted = $this->request('POST', '/contacts/' . rawurlencode($id) . '/notes', $note);
+        if (is_wp_error($noted)) {
+            $this->request('POST', '/notes/', $note);
+        }
+
+        return true;
+    }
+
+    private function findByEmail(string $email): string
+    {
+        $result = $this->request('POST', '/contacts/search', [
+            'locationId' => $this->locationId(),
+            'page'       => 1,
+            'pageLimit'  => 20,
+            'query'      => $email,
+        ]);
+        if (is_wp_error($result)) {
+            return '';
+        }
+        $contacts = $result['contacts'] ?? $result['items'] ?? [];
+        if (!is_array($contacts)) {
+            return '';
+        }
+        foreach ($contacts as $contact) {
+            if (!is_array($contact)) {
+                continue;
+            }
+            $contactEmail = strtolower(trim((string) ($contact['email'] ?? '')));
+            $id = (string) ($contact['id'] ?? '');
+            if ($id !== '' && $contactEmail === $email) {
+                return $id;
+            }
+        }
+
+        return '';
+    }
+
+    private function createEnquiryContact(string $name, string $email): string
+    {
+        $parts = preg_split('/\s+/', trim($name), 2) ?: [];
+        $payload = [
+            'firstName'  => (string) ($parts[0] ?? $name),
+            'email'      => $email,
+            'locationId' => $this->locationId(),
+            'source'     => 'Website contact form',
+            'tags'       => ['Website enquiry'],
+        ];
+        $last = trim((string) ($parts[1] ?? ''));
+        if ($last !== '') {
+            $payload['lastName'] = $last;
+        }
+
+        $created = $this->request('POST', '/contacts/', $payload);
+        if (!is_wp_error($created)) {
+            return $this->idFrom($created);
+        }
+
+        $data = $created->get_error_data();
+        $code = is_array($data) ? (int) ($data['code'] ?? 0) : 0;
+        if ($code !== 400 || !is_array($data)) {
+            return '';
+        }
+        $body = $data['body'] ?? null;
+        if (is_string($body)) {
+            $decoded = json_decode($body, true);
+            $body = is_array($decoded) ? $decoded : null;
+        }
+        if (!is_array($body)) {
+            return '';
+        }
+        $id = $body['meta']['contactId'] ?? $body['contactId'] ?? '';
+
+        return is_string($id) ? $id : '';
+    }
+
+    /**
      * @return string|\WP_Error|null Contact id, error, or null when nobody matches.
      */
     private function find(string $phone, string $email)

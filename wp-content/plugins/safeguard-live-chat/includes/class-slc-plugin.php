@@ -9,6 +9,7 @@ require_once SLC_PLUGIN_PATH . 'includes/class-slc-telegram.php';
 require_once SLC_PLUGIN_PATH . 'includes/class-slc-ghl.php';
 require_once SLC_PLUGIN_PATH . 'includes/class-slc-rest.php';
 require_once SLC_PLUGIN_PATH . 'includes/class-slc-widget.php';
+require_once SLC_PLUGIN_PATH . 'includes/class-slc-admin.php';
 
 class Slc_Plugin
 {
@@ -56,6 +57,10 @@ class Slc_Plugin
         });
 
         Slc_Widget::register();
+
+        if (is_admin()) {
+            Slc_Admin::register($this->store());
+        }
 
         add_action('slc_expire_waiting', function () {
             $this->store()->expireWaiting(10);

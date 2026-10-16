@@ -53,6 +53,13 @@ function site_blocks_enqueue_safeguard_home(): void {
 	);
 
 	wp_enqueue_style(
+		'safeguard-why',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-why.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
 		'safeguard-details',
 		SITE_BLOCKS_URL . 'assets/css/safeguard-details.css',
 		array( 'safeguard-home' ),
@@ -89,6 +96,42 @@ function site_blocks_enqueue_safeguard_home(): void {
 	);
 
 	wp_enqueue_style(
+		'safeguard-blog',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-blog.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
+		'safeguard-process',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-process.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
+		'safeguard-brands',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-brands.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_script(
+		'safeguard-brands',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-brands.js',
+		array(),
+		SITE_BLOCKS_VERSION,
+		true
+	);
+
+	wp_enqueue_style(
+		'safeguard-cases',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-cases.css',
+		array( 'safeguard-home' ),
+		SITE_BLOCKS_VERSION
+	);
+
+	wp_enqueue_style(
 		'safeguard-motion',
 		SITE_BLOCKS_URL . 'assets/css/safeguard-motion.css',
 		array( 'safeguard-details', 'safeguard-coverage', 'safeguard-quality', 'safeguard-connected' ),
@@ -101,6 +144,99 @@ function site_blocks_enqueue_safeguard_home(): void {
 		array(),
 		SITE_BLOCKS_VERSION,
 		true
+	);
+
+	// Rough Notation (about 4 KB gzipped, self-hosted, deferred) underlines the hero
+	// focus phrase.
+	wp_enqueue_script(
+		'safeguard-rough-notation',
+		SITE_BLOCKS_URL . 'assets/js/vendor/rough-notation.iife.js',
+		array(),
+		'0.5.1',
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	// GSAP core and ScrollTrigger (about 40 KB gzipped together), self-hosted and
+	// deferred. Used for the "details" section reveal and parallax.
+	wp_enqueue_script(
+		'safeguard-gsap',
+		SITE_BLOCKS_URL . 'assets/js/vendor/gsap.min.js',
+		array(),
+		'3.13.0',
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	wp_enqueue_script(
+		'safeguard-scrolltrigger',
+		SITE_BLOCKS_URL . 'assets/js/vendor/ScrollTrigger.min.js',
+		array( 'safeguard-gsap' ),
+		'3.13.0',
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	wp_enqueue_script(
+		'safeguard-details-motion',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-details-motion.js',
+		array( 'safeguard-gsap', 'safeguard-scrolltrigger', 'safeguard-rough-notation' ),
+		SITE_BLOCKS_VERSION,
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	// GSAP SplitText (about 3.5 KB gzipped): line-by-line headline reveal.
+	wp_enqueue_script(
+		'safeguard-split-text',
+		SITE_BLOCKS_URL . 'assets/js/vendor/SplitText.min.js',
+		array( 'safeguard-gsap' ),
+		'3.13.0',
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	wp_enqueue_script(
+		'safeguard-coverage-motion',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-coverage-motion.js',
+		array( 'safeguard-gsap', 'safeguard-scrolltrigger', 'safeguard-split-text' ),
+		SITE_BLOCKS_VERSION,
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	wp_enqueue_script(
+		'safeguard-hero-depth',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-hero-depth.js',
+		array( 'safeguard-gsap', 'safeguard-scrolltrigger' ),
+		SITE_BLOCKS_VERSION,
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
+	);
+
+	wp_enqueue_script(
+		'safeguard-hero-focus',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-hero-focus.js',
+		array( 'safeguard-rough-notation' ),
+		SITE_BLOCKS_VERSION,
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
 	);
 }
 add_action( 'wp_enqueue_scripts', 'site_blocks_enqueue_safeguard_home', 30 );

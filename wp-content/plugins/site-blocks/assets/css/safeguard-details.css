@@ -33,6 +33,7 @@
 }
 
 .sg-details .sg-details__lead {
+  position: relative; /* anchors the underline drawn under the marked phrase */
   margin: 0 auto;
   max-width: 52rem;
   font-size: 1rem;
@@ -111,6 +112,7 @@
   height: 2px;
   margin: 0.9rem auto 1rem;
   background: var(--sg-orange);
+  transform: scaleX(var(--sg-rule, 1));
 }
 
 .sg-details .sg-details__item-desc {

@@ -54,6 +54,8 @@
 
 .sg-coverage__media {
   min-width: 0;
+  overflow: hidden; /* the image drifts a little inside this frame */
+  border-radius: var(--sg-radius);
 }
 
 .sg-coverage__img {

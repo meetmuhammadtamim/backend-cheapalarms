@@ -73,7 +73,7 @@ site_blocks_render_hero_variant(
 		'phone_html'      => $phone_html,
 		'primary_label'   => __( 'Send a message', 'site-blocks' ),
 		'primary_url'     => '#sg-contact-form',
-		'secondary_label' => __( 'Call us', 'site-blocks' ),
+		'secondary_label' => __( 'Call Us Now', 'site-blocks' ),
 		'secondary_url'   => $phone_h,
 		'background_url'  => site_blocks_asset_url( 'images/contact/entrance.webp' ),
 		'proof'           => array(

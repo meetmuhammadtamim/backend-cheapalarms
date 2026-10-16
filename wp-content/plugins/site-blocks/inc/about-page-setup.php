@@ -30,6 +30,21 @@ function site_blocks_enqueue_about_page_assets(): void {
 	$dep = site_blocks_enqueue_safeguard_style( 'safeguard-home', 'safeguard-home.css', 'safeguard-about-fonts' );
 	site_blocks_enqueue_safeguard_style( 'safeguard-about', 'about.css', $dep );
 	site_blocks_enqueue_safeguard_home_script();
+
+	// Scroll reveals, the same system as the homepage.
+	wp_enqueue_style(
+		'safeguard-motion',
+		SITE_BLOCKS_URL . 'assets/css/safeguard-motion.css',
+		array( 'safeguard-about' ),
+		SITE_BLOCKS_VERSION
+	);
+	wp_enqueue_script(
+		'safeguard-motion',
+		SITE_BLOCKS_URL . 'assets/js/safeguard-motion.js',
+		array(),
+		SITE_BLOCKS_VERSION,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'site_blocks_enqueue_about_page_assets', 30 );
 

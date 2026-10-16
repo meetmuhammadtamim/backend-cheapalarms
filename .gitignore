@@ -22,7 +22,9 @@
 #    the plugin's own .gitignore also covers these).
 wp-content/plugins/cheapalarms-plugin/config/secrets.php
 wp-content/plugins/cheapalarms-plugin/config/instance.php
+wp-content/plugins/site-blocks/config/turnstile.php
 **/secrets.php
+**/config/turnstile.php
 
 # 4) Build artifacts / vendor (also covered by the plugin .gitignore).
 wp-content/plugins/cheapalarms-plugin/vendor/

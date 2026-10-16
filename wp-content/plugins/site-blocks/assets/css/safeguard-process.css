@@ -1,0 +1,197 @@
+/* Safeguard homepage: process band.
+   Full-width orange gradient, a centred heading, four numbered steps joined by a
+   dotted line, and dashed doodles in the corners. White circles carry the step
+   numbers. The connector draws in left to right when the band scrolls into view. */
+
+.sg-process {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem 0 2.75rem;
+  background: var(--sg-grad-orange);
+  color: #fff;
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .sg-process {
+    padding: 3.5rem 0 3.75rem;
+  }
+}
+
+/* Doodles: behind the content, never in the way of text. */
+.sg-process__doodle {
+  position: absolute;
+  z-index: -1;
+  fill: none;
+  stroke: rgb(255 255 255 / 70%);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 6 8;
+  pointer-events: none;
+}
+
+.sg-process__doodle--top {
+  top: 0;
+  right: 0;
+  width: clamp(8rem, 20vw, 17rem);
+}
+
+.sg-process__doodle--bottom {
+  bottom: 0;
+  left: 0;
+  width: clamp(5rem, 9vw, 8rem);
+}
+
+/* On mid widths the container reaches the left edge, so it would cross the text. */
+@media (min-width: 760px) and (max-width: 1199px) {
+  .sg-process__doodle--bottom {
+    display: none;
+  }
+}
+
+.sg-process .sg-process__title {
+  margin: 0 auto;
+  font-family: var(--sg-font-head);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #fff;
+}
+
+/* Steps */
+.sg-process .sg-process__steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  padding-inline-start: 0; /* the theme gives lists a default indent */
+  list-style: none;
+}
+
+@media (min-width: 1100px) {
+  .sg-process .sg-process__steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 2rem;
+    margin-top: 2.5rem;
+  }
+
+  /* Each step takes the number, title and text rows of the shared grid, so a
+     two-line title pushes every step's text down together. */
+  .sg-process__step {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+}
+
+.sg-process__step {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding-left: 4.25rem; /* mobile: number sits at the left */
+}
+
+@media (min-width: 1100px) {
+  .sg-process__step {
+    padding-left: 0;
+  }
+}
+
+.sg-process__num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #fff;
+  font-family: var(--sg-font-head);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #d4540c; /* deep end of the orange gradient: readable on white */
+}
+
+@media (min-width: 1100px) {
+  .sg-process__num {
+    position: relative;
+    margin-bottom: 1.1rem;
+  }
+}
+
+/* Dotted connector to the next step. Desktop: from this circle across to the
+   next one. Mobile: straight down to the next circle. */
+.sg-process__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 3.5rem;
+  bottom: -1.75rem;
+  left: calc(1.5rem - 1px);
+  width: 2px;
+  background-image: radial-gradient(circle, rgb(255 255 255 / 90%) 1px, transparent 1.4px);
+  background-size: 2px 8px;
+  background-repeat: repeat-y;
+}
+
+@media (min-width: 1100px) {
+  .sg-process__step:not(:last-child)::after {
+    top: 1.5rem;
+    right: calc(-2rem + 0.4rem);
+    bottom: auto;
+    left: calc(3rem + 0.4rem);
+    width: auto;
+    height: 2px;
+    margin-top: -1px;
+    background-size: 8px 2px;
+    background-repeat: repeat-x;
+  }
+}
+
+.sg-process .sg-process__name {
+  margin: 0;
+  font-family: var(--sg-font-head);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.sg-process .sg-process__text {
+  max-width: 30ch; /* keeps the two-line rhythm when the steps stack on wider screens */
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 84%); /* a step down from the white titles, as in the reference */
+}
+
+/* Motion: the connector draws in after its step enters. Only when the reveal
+   system is running and motion is allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  .sg-motion-ready .sg-process__step:not(:last-child)::after {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .sg-motion-ready .sg-process__step.is-in:not(:last-child)::after {
+    clip-path: inset(0);
+    transition: clip-path 0.7s var(--sg-ease) calc(var(--sg-i, 0) * 110ms + 0.35s);
+  }
+
+  @media (max-width: 1099px) {
+    .sg-motion-ready .sg-process__step:not(:last-child)::after {
+      clip-path: inset(0 0 100% 0);
+    }
+
+    .sg-motion-ready .sg-process__step.is-in:not(:last-child)::after {
+      clip-path: inset(0);
+    }
+  }
+}

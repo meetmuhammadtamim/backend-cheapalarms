@@ -20,12 +20,14 @@ $submit_label = isset( $attributes['submitLabel'] ) ? $attributes['submitLabel']
 $form_status  = site_blocks_get_form_status();
 $form_id      = 'site-contact-form';
 $is_success   = 'sent' === $form_status;
-$is_error     = in_array( $form_status, array( 'error', 'invalid', 'failed' ), true );
+$is_error     = in_array( $form_status, array( 'error', 'invalid', 'failed', 'captcha' ), true );
+$turnstile_on = function_exists( 'site_blocks_turnstile_enabled' ) && site_blocks_turnstile_enabled();
 
 $status_messages = array(
 	'sent'    => __( 'Your message was sent. We will reply shortly.', 'site-blocks' ),
 	'invalid' => __( 'Please complete all required fields with a valid email address.', 'site-blocks' ),
 	'failed'  => __( 'The message could not be sent. Please try again or email us directly.', 'site-blocks' ),
+	'captcha' => __( 'Please confirm you are human and try again.', 'site-blocks' ),
 	'error'   => __( 'Something went wrong. Please try again.', 'site-blocks' ),
 );
 
@@ -126,6 +128,16 @@ $status_message = isset( $status_messages[ $form_status ] ) ? $status_messages[ 
 			<p class="sg-contact-form__helper" aria-live="polite"></p>
 		</div>
 
+		<?php if ( $turnstile_on ) : ?>
+			<div class="sg-contact-form__field sg-contact-form__turnstile">
+				<div
+					class="cf-turnstile"
+					data-sitekey="<?php echo esc_attr( site_blocks_turnstile_site_key() ); ?>"
+					data-theme="light"
+				></div>
+			</div>
+		<?php endif; ?>
+
 		<div class="sg-contact-form__actions">
 			<button type="submit" class="sg-btn sg-btn--orange sg-contact-form__submit">
 				<span class="sg-contact-form__submit-text"><?php echo esc_html( $submit_label ); ?></span>
@@ -134,6 +146,10 @@ $status_message = isset( $status_messages[ $form_status ] ) ? $status_messages[ 
 		</div>
 	</form>
 </div>
+
+<?php if ( $turnstile_on ) : ?>
+	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<?php endif; ?>
 
 <script>
 (function () {

@@ -98,12 +98,21 @@ function site_blocks_asset_url( string $relative_path ): string {
 		$upload_disk = site_blocks_safeguard_upload_disk( $relative_path );
 		$upload_url  = site_blocks_safeguard_upload_url( $relative_path );
 		if ( '' !== $upload_disk && is_readable( $upload_disk ) && '' !== $upload_url ) {
-			return esc_url( $upload_url );
+			return esc_url( add_query_arg( 'v', (string) (int) filemtime( $upload_disk ), $upload_url ) );
 		}
 	}
 
 	$segments = explode( '/', $relative_path );
 	$encoded  = implode( '/', array_map( 'rawurlencode', $segments ) );
+	$url      = SITE_BLOCKS_URL . 'assets/' . $encoded;
 
-	return esc_url( SITE_BLOCKS_URL . 'assets/' . $encoded );
+	// A changed file gets a new URL, so browsers can keep it for a long time.
+	if ( 0 === strpos( $relative_path, 'images/' ) ) {
+		$plugin_disk = SITE_BLOCKS_DIR . 'assets/' . $relative_path;
+		if ( is_readable( $plugin_disk ) ) {
+			$url = add_query_arg( 'v', (string) (int) filemtime( $plugin_disk ), $url );
+		}
+	}
+
+	return esc_url( $url );
 }

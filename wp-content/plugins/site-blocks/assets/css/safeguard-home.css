@@ -8,6 +8,15 @@
   --sg-blue-bar: #1668B3;
   --sg-orange: #FB7523;
   --sg-orange-deep: #EA7914;
+  /* Orange gradient: light peach top-left into a deeper orange. Use for every
+     solid orange button (rest, hover, pressed) with the tinted shadow. */
+  --sg-grad-orange: linear-gradient(135deg, #FF9446 0%, #FB7523 50%, #EC5E10 100%);
+  --sg-grad-orange-hover: linear-gradient(135deg, #F98133 0%, #E7661D 50%, #D4540C 100%);
+  --sg-grad-orange-active: linear-gradient(135deg, #E56F22 0%, #D95C16 55%, #C24D0E 100%);
+  --sg-shadow-orange: 0 12px 24px -12px rgb(251 117 35 / 55%);
+  /* Blue gradient: lighter sky-blue top-left into the deep brand blue. */
+  --sg-grad-blue: linear-gradient(135deg, #2F8FD6 0%, #1769A1 55%, #124E7A 100%);
+  --sg-shadow-blue: 0 22px 40px -16px rgb(23 105 161 / 55%);
   --sg-navy: #0C2D44;
   /*
    * BANNED washes (never use, including via color-mix / opacity of --sg-blue):
@@ -1358,7 +1367,7 @@ body.safeguard-homepage .sg-page.alignfull {
   padding: 0 26px;
   border: none;
   border-radius: 999px;
-  background: #fb7523;
+  background: var(--sg-grad-orange);
   color: #ffffff;
   border-color: transparent;
   font-family: var(--sg-font-btn);
@@ -1367,9 +1376,9 @@ body.safeguard-homepage .sg-page.alignfull {
   line-height: var(--sg-btn-line-height);
   letter-spacing: 0;
   text-transform: capitalize;
-  box-shadow: none;
+  box-shadow: var(--sg-shadow-orange);
   transform: none;
-  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition: box-shadow 180ms ease;
 }
 
 .sg-btn--orange:hover,
@@ -1388,11 +1397,11 @@ body.safeguard-homepage .sg-page.alignfull {
 .sg-btn--primary.sg-btn--orange:focus-visible,
 .sg-intercom-cta .sg-btn--orange:hover,
 .sg-intercom-cta .sg-btn--orange:focus-visible {
-  background: #e7661d;
+  background: var(--sg-grad-orange-hover);
   border-color: transparent;
   color: #ffffff;
   filter: none;
-  box-shadow: none;
+  box-shadow: var(--sg-shadow-orange);
   transform: none;
 }
 
@@ -1404,7 +1413,7 @@ body.safeguard-homepage .sg-page.alignfull {
 .sg-btn.sg-btn--soft-orange:active,
 .sg-btn--primary.sg-btn--orange:active,
 .sg-intercom-cta .sg-btn--orange:active {
-  background: #d95c16;
+  background: var(--sg-grad-orange-active);
   color: #ffffff;
   filter: none;
   box-shadow: none;
@@ -1754,8 +1763,14 @@ body.safeguard-homepage .sg-page.alignfull {
 .sg-rack-hero {
   width: 100%;
   max-width: none;
-  padding: 1.5rem 0;
+  padding: 0.5rem 0 1.5rem;
   background: #fff;
+}
+
+@media (min-width: 960px) {
+  .sg-rack-hero {
+    padding-bottom: 0.25rem;
+  }
 }
 
 /* The hero uses the site's normal .sg-container (max-width, centred, gutters). */
@@ -1804,6 +1819,16 @@ body.safeguard-homepage .sg-page.alignfull {
   color: #fff;
 }
 
+/* Focus phrase. safeguard-hero-focus.js underlines it (Rough Notation); this
+   colours it orange. Rough Notation positions its
+   SVG against this box, so the box must be its own positioning context. */
+.sg-rack-hero__focus {
+  color: var(--sg-orange);
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .sg-rack-hero__lead {
   margin: 0 0 1rem;
   max-width: 28rem;
@@ -1820,14 +1845,99 @@ body.safeguard-homepage .sg-page.alignfull {
   margin: 0 0 1rem;
 }
 
-.sg-rack-hero__meta {
-  margin: 0;
-  font-family: var(--sg-font-head);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--sg-cta-sub);
+/* Hero call button: a pure white pill with black type and a round orange
+   gradient icon badge. On hover the pill turns orange, the type turns white and
+   the badge turns white with an orange icon (0.25s ease-out).
+
+   Each surface is ONE background layer three times as wide as the element:
+   white on the left third, orange on the right third, with the seam parked in
+   the unseen middle, and hover slides the position. Stacking an orange overlay
+   over a white pill leaves a pale fringe where the two anti-aliased rounded
+   edges meet, and a seam at the visible edge leaves a sub-pixel white sliver
+   at fractional widths and display scales; this has neither. */
+.sg-call-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  height: var(--sg-btn-height);
+  padding: 0.25rem 1.4rem 0.25rem 0.25rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: #fff;
+  background-image: linear-gradient(90deg, #fff 0%, #fff 45%, #FF9446 45%, #FF9446 66.7%, #FB7523 83%, #EC5E10 100%);
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+  background-position: 0 0;
+  color: #000;
+  font-family: var(--sg-font-btn);
+  font-size: var(--sg-btn-font-size);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  box-shadow: 0 0 0 0 rgb(251 117 35 / 0%);
 }
+
+.sg-call-pill__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #FB7523;
+  background-image: linear-gradient(90deg, #FF9446 0%, #EC5E10 33.3%, #EC5E10 45%, #fff 45%, #fff 100%);
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+  background-position: 0 0;
+  color: #fff;
+}
+
+.sg-call-pill .sg-call-pill__icon .sg-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #fff;
+}
+
+.sg-call-pill:hover,
+.sg-call-pill:focus-visible {
+  background-position: 100% 0;
+  color: #fff;
+  box-shadow: var(--sg-shadow-orange);
+}
+
+.sg-call-pill:hover .sg-call-pill__icon,
+.sg-call-pill:focus-visible .sg-call-pill__icon {
+  background-position: 100% 0;
+}
+
+.sg-call-pill:hover .sg-call-pill__icon .sg-icon,
+.sg-call-pill:focus-visible .sg-call-pill__icon .sg-icon {
+  color: var(--sg-orange);
+}
+
+.sg-call-pill:focus-visible {
+  outline: 2px solid var(--sg-orange);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sg-call-pill {
+    transition: background-position 0.25s ease-out, color 0.25s ease-out, box-shadow 0.25s ease-out;
+  }
+
+  .sg-call-pill__icon {
+    transition: background-position 0.25s ease-out;
+  }
+
+  .sg-call-pill .sg-call-pill__icon .sg-icon {
+    transition: color 0.25s ease-out;
+  }
+}
+
 
 body.safeguard-homepage .sg-rack-hero__title,
 body.safeguard-homepage .sg-rack-hero__lead,
@@ -1836,10 +1946,6 @@ body.safeguard-homepage .sg-rack-hero__ctas {
   margin-bottom: 1rem;
 }
 
-body.safeguard-homepage .sg-rack-hero__meta {
-  margin-top: 0;
-  margin-bottom: 0;
-}
 
 @media (min-width: 960px) {
   .sg-rack-hero__frame {
@@ -1854,6 +1960,7 @@ body.safeguard-homepage .sg-rack-hero__meta {
     padding: 0;
     background: transparent;
     transform: translateY(-50%);
+    translate: 0 var(--sg-hero-lift, 0px); /* scroll depth, see safeguard-hero-depth.js */
   }
 
   .sg-rack-hero__ctas {
@@ -1901,8 +2008,20 @@ body.safeguard-homepage .sg-rack-hero__meta {
     flex-direction: column;
   }
 
-  .sg-rack-hero__ctas .sg-btn {
-    width: 100%;
+  /* Both hero buttons share one compact width, centred. */
+  .sg-rack-hero__ctas {
+    align-items: center;
+  }
+
+  .sg-rack-hero__ctas .sg-btn,
+  .sg-rack-hero__ctas .sg-call-pill {
+    width: 13rem;
+    max-width: 100%;
+  }
+
+  .sg-call-pill {
+    justify-content: center;
+    padding-right: 0.25rem;
   }
 }
 
@@ -4825,27 +4944,27 @@ body.safeguard-homepage .sg-page {
   padding: 0 26px;
   border: none;
   border-radius: 999px;
-  background: #fb7523;
+  background: var(--sg-grad-orange);
   color: #ffffff;
   font-family: var(--sg-font-btn);
   font-size: var(--sg-btn-font-size);
   font-weight: var(--sg-btn-font-weight);
   letter-spacing: 0;
   line-height: var(--sg-btn-line-height);
-  box-shadow: none;
+  box-shadow: var(--sg-shadow-orange);
   transform: none;
-  transition: background 180ms ease;
+  transition: box-shadow 180ms ease;
 }
 
 .sg-cta-phone:hover {
-  background: #e7661d;
-  box-shadow: none;
+  background: var(--sg-grad-orange-hover);
+  box-shadow: var(--sg-shadow-orange);
   transform: none;
   color: #ffffff;
 }
 
 .sg-cta-phone:active {
-  background: #d95c16;
+  background: var(--sg-grad-orange-active);
   box-shadow: none;
   transform: none;
   color: #ffffff;

@@ -239,7 +239,8 @@ class Slc_Store
                 'meta_json' => wp_json_encode($meta),
             ]);
             if ($existing !== $agentId) {
-                $this->appendMessage($conversationId, 'system', 'Agent ' . $agent['name'] . ' joined.');
+                $label = trim((string) ($agent['name'] ?? ''));
+                $this->appendMessage($conversationId, 'system', $label !== '' ? $label . ' joined.' : 'Joined the chat.');
             }
             $this->bindAgent($agentId, $conversationId);
 
@@ -369,6 +370,145 @@ class Slc_Store
             $this->update((int) $id, ['status' => self::TIMED_OUT]);
             $this->appendMessage((int) $id, 'system', 'No one was free to take this chat. Please call 1300 225 276.');
         }
+    }
+
+    /**
+     * Create the tables on first use (for the admin screens, before any chat exists).
+     */
+    public function ensureTables(): void
+    {
+        static $checked = false;
+        if ($checked) {
+            return;
+        }
+        $checked = true;
+
+        global $wpdb;
+        $found = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($this->conversationsTable())));
+        if ($found === null || $found === '') {
+            $this->install();
+        }
+    }
+
+    /**
+     * Conversations for the admin list, newest activity first by default.
+     *
+     * @param array{status?:string,search?:string,orderby?:string,order?:string,per_page?:int,paged?:int} $args
+     * @return array{rows: array<int, array<string, mixed>>, total: int}
+     */
+    public function adminList(array $args): array
+    {
+        global $wpdb;
+        $this->ensureTables();
+
+        $conv = $this->conversationsTable();
+        $msg  = $this->messagesTable();
+
+        $where  = ['1=1'];
+        $params = [];
+
+        $status = (string) ($args['status'] ?? '');
+        if (in_array($status, [self::WAITING, self::ACTIVE, self::RESOLVED, self::TIMED_OUT], true)) {
+            $where[]  = 'c.status = %s';
+            $params[] = $status;
+        }
+
+        $search = trim((string) ($args['search'] ?? ''));
+        if ($search !== '') {
+            $like     = '%' . $wpdb->esc_like($search) . '%';
+            $where[]  = '(c.visitor_name LIKE %s OR c.visitor_email LIKE %s OR c.visitor_phone LIKE %s OR c.page_path LIKE %s'
+                . ' OR EXISTS (SELECT 1 FROM ' . $msg . ' sm WHERE sm.conversation_id = c.id AND sm.content LIKE %s))';
+            array_push($params, $like, $like, $like, $like, $like);
+        }
+
+        $whereSql = implode(' AND ', $where);
+
+        $allowed = ['id', 'visitor_name', 'status', 'message_count', 'created_at', 'updated_at'];
+        $orderby = in_array((string) ($args['orderby'] ?? ''), $allowed, true) ? (string) $args['orderby'] : 'updated_at';
+        $order   = strtoupper((string) ($args['order'] ?? 'DESC')) === 'ASC' ? 'ASC' : 'DESC';
+
+        $perPage = max(1, min(200, (int) ($args['per_page'] ?? 20)));
+        $paged   = max(1, (int) ($args['paged'] ?? 1));
+        $offset  = ($paged - 1) * $perPage;
+
+        $countSql = "SELECT COUNT(*) FROM {$conv} c WHERE {$whereSql}";
+        $total    = (int) ($params ? $wpdb->get_var($wpdb->prepare($countSql, $params)) : $wpdb->get_var($countSql));
+
+        $listSql = "SELECT c.*, (SELECT m.content FROM {$msg} m WHERE m.conversation_id = c.id AND m.role = 'user' ORDER BY m.id ASC LIMIT 1) AS first_message"
+            . " FROM {$conv} c WHERE {$whereSql} ORDER BY c.{$orderby} {$order}, c.id DESC LIMIT %d OFFSET %d";
+        $listParams = array_merge($params, [$perPage, $offset]);
+        $rows = $wpdb->get_results($wpdb->prepare($listSql, $listParams), ARRAY_A);
+
+        return [
+            'rows'  => is_array($rows) ? $rows : [],
+            'total' => $total,
+        ];
+    }
+
+    /**
+     * Conversation counts per status, plus an "all" total.
+     *
+     * @return array<string, int>
+     */
+    public function statusCounts(): array
+    {
+        global $wpdb;
+        $this->ensureTables();
+
+        $counts = ['all' => 0, self::WAITING => 0, self::ACTIVE => 0, self::RESOLVED => 0, self::TIMED_OUT => 0];
+        $rows = $wpdb->get_results('SELECT status, COUNT(*) AS n FROM ' . $this->conversationsTable() . ' GROUP BY status', ARRAY_A);
+        if (is_array($rows)) {
+            foreach ($rows as $row) {
+                $n = (int) $row['n'];
+                $counts['all'] += $n;
+                if (isset($counts[(string) $row['status']])) {
+                    $counts[(string) $row['status']] = $n;
+                }
+            }
+        }
+
+        return $counts;
+    }
+
+    /**
+     * Every message in a conversation, oldest first.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function conversationMessages(int $conversationId): array
+    {
+        global $wpdb;
+        $rows = $wpdb->get_results(
+            $wpdb->prepare(
+                'SELECT id, role, content, created_at FROM ' . $this->messagesTable() . ' WHERE conversation_id = %d ORDER BY id ASC',
+                $conversationId
+            ),
+            ARRAY_A
+        );
+
+        return is_array($rows) ? $rows : [];
+    }
+
+    /**
+     * Delete conversations and their messages.
+     *
+     * @param array<int, int> $ids
+     */
+    public function deleteConversations(array $ids): int
+    {
+        global $wpdb;
+        $ids = array_values(array_filter(array_map('intval', $ids), static fn(int $id): bool => $id > 0));
+        if ($ids === []) {
+            return 0;
+        }
+
+        $deleted = 0;
+        foreach ($ids as $id) {
+            $wpdb->delete($this->messagesTable(), ['conversation_id' => $id]);
+            $deleted += (int) $wpdb->delete($this->conversationsTable(), ['id' => $id]);
+        }
+
+        return $deleted;
     }
 
     /**

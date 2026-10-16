@@ -263,6 +263,10 @@ function site_blocks_get_safeguard_nav_items(): array {
 			),
 		),
 		array(
+			'path'  => '/about/',
+			'label' => __( 'About', 'site-blocks' ),
+		),
+		array(
 			'path'  => '/contact/',
 			'label' => __( 'Contact', 'site-blocks' ),
 		),
@@ -452,6 +456,24 @@ function site_blocks_mega_image_available( string $relative_path ): bool {
 }
 
 /**
+ * URL for a mega menu image, using the smaller `-thumb` or `-640` file made by
+ * tools/make-image-variants.py when it exists, otherwise the original.
+ *
+ * @param string $relative_path Path relative to assets/, e.g. images/cctv/hero.webp.
+ * @param string $kind          thumb|feature.
+ */
+function site_blocks_mega_image_url( string $relative_path, string $kind ): string {
+	$suffix  = 'thumb' === $kind ? '-thumb' : '-640';
+	$variant = preg_replace( '/\.webp$/', $suffix . '.webp', $relative_path );
+
+	if ( is_string( $variant ) && $variant !== $relative_path && is_readable( SITE_BLOCKS_DIR . 'assets/' . ltrim( $variant, '/' ) ) ) {
+		return site_blocks_asset_url( $variant );
+	}
+
+	return site_blocks_asset_url( $relative_path );
+}
+
+/**
  * Render circular category thumbnail (photo or icon fallback).
  *
  * @param array<string, mixed> $link Category link config.
@@ -464,7 +486,7 @@ function site_blocks_render_mega_category_thumb( array $link ): void {
 	if ( '' !== $image && site_blocks_mega_image_available( $image ) ) {
 		printf(
 			'<img class="sg-header__mega-category-thumb" src="%s" alt="" width="50" height="50" loading="lazy" decoding="async" />',
-			esc_url( site_blocks_asset_url( $image ) )
+			esc_url( site_blocks_mega_image_url( $image, 'thumb' ) )
 		);
 		return;
 	}
@@ -503,7 +525,7 @@ function site_blocks_render_safeguard_preview_mega( array $item, string $group_i
 	$first_label = (string) ( $first['label'] ?? '' );
 	$first_image = isset( $first['image'] ) ? (string) $first['image'] : '';
 	$first_src   = ( '' !== $first_image && site_blocks_mega_image_available( $first_image ) )
-		? site_blocks_asset_url( $first_image )
+		? site_blocks_mega_image_url( $first_image, 'feature' )
 		: '';
 	?>
 	<div
@@ -525,7 +547,7 @@ function site_blocks_render_safeguard_preview_mega( array $item, string $group_i
 						$label      = (string) ( $child['label'] ?? '' );
 						$image      = isset( $child['image'] ) ? (string) $child['image'] : '';
 						$src        = ( '' !== $image && site_blocks_mega_image_available( $image ) )
-							? site_blocks_asset_url( $image )
+							? site_blocks_mega_image_url( $image, 'feature' )
 							: '';
 						$classes    = 'sg-header__mega-preview-link';
 						if ( $is_first ) {
@@ -600,7 +622,7 @@ function site_blocks_render_safeguard_feature_mega( array $item, string $group_i
 	$active_path  = (string) ( $active['path'] ?? '' );
 	$active_image = isset( $active['image'] ) ? (string) $active['image'] : '';
 	$active_src   = ( '' !== $active_image && site_blocks_mega_image_available( $active_image ) )
-		? site_blocks_asset_url( $active_image )
+		? site_blocks_mega_image_url( $active_image, 'feature' )
 		: '';
 	$heading      = (string) ( $item['heading'] ?? $item['label'] ?? '' );
 	$cta_label    = (string) ( $item['cta_label'] ?? '' );
@@ -630,7 +652,7 @@ function site_blocks_render_safeguard_feature_mega( array $item, string $group_i
 							$icon       = (string) ( $child['icon'] ?? '' );
 							$image      = isset( $child['image'] ) ? (string) $child['image'] : '';
 							$src        = ( '' !== $image && site_blocks_mega_image_available( $image ) )
-								? site_blocks_asset_url( $image )
+								? site_blocks_mega_image_url( $image, 'feature' )
 								: '';
 							$is_current = site_blocks_safeguard_nav_is_current( $path, false );
 							$is_active  = $path === $active_path;
